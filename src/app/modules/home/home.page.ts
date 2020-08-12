@@ -10,6 +10,7 @@ export class HomePage implements OnInit {
 
   constructor() { }
   slideOpts = {
+    autoplay:true,
     on: {
       beforeInit() {
         const swiper = this;

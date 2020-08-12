@@ -1,5 +1,7 @@
 {
-  "name": "myApp",
-  "integrations": {},
+  "name": "saiec",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
