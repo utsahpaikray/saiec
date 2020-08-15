@@ -10,7 +10,7 @@ ion-menu.md ion-content {
 }
 
 ion-menu.md ion-list {
-  padding: 20px 0;
+ // padding: 20px 0;
 }
 
 ion-menu.md ion-note {
@@ -116,4 +116,14 @@ ion-note {
 
 ion-item.selected {
   --color: var(--ion-color-primary);
+}
+
+.image {
+  max-width: 150px;
+}
+
+.image-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }

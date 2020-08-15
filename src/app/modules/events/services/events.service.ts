@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 
 export class EventsService {
   private apikey = '&apiKey=340d81b2d9d34050b98922c205222c29';
-  private _controller = 'http://newsapi.org/v2/top-headlines?';
+  private _controller = 'https://newsapi.org/v2/top-headlines?';
   private _Everythingcontroller = 'https://newsapi.org/v2/everything?q=';
   constructor(private _http: HttpClient) { }
   public getEvents(query?:string, pageSize:number=100, page:number=1): Observable<any> {

@@ -3,9 +3,12 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>SAIEC</ion-list-header>
-          <ion-note>SAIEC@gmail.com</ion-note>
-
+         <div class="image-container">
+          <ion-img class="image" src="https://i.pinimg.com/originals/01/76/dd/0176dd7f08a3db2e072f9e83cbd93fd1.jpg"></ion-img>
+          <ion-list-header slot="middle">SAIEC</ion-list-header>
+         </div>
+         
+          <!-- <ion-note>SAIEC@gmail.com</ion-note> -->
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
