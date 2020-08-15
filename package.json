@@ -1,11 +1,11 @@
 {
-  "name": "myApp",
+  "name": "saiec",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --o --port 4200",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
