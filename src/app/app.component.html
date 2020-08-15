@@ -4,7 +4,7 @@
       <ion-content>
         <ion-list id="inbox-list">
          <div class="image-container">
-          <ion-img class="image" src="https://i.pinimg.com/originals/01/76/dd/0176dd7f08a3db2e072f9e83cbd93fd1.jpg"></ion-img>
+          <ion-img class="image" src="https://lh6.googleusercontent.com/proxy/zOcEt53U8i-ptYqE_ZKYFF1qxdWUafQ32EP7GhnACwilJ8Mi_WNb6KdtpxUmGOnFqMdN4_kruRuk9fdduExjM_hlghfcc3bM-mXmWhz1CxXR9ahR8xSlxuLj"></ion-img>
           <ion-list-header slot="middle">SAIEC</ion-list-header>
          </div>
          
@@ -15,6 +15,15 @@
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+        </ion-list>
+        <ion-list>
+          <ion-item lines="full">
+            <ion-icon slot="start" name="moon"></ion-icon>
+            <ion-label>
+              Theme
+            </ion-label>
+            <ion-toggle id="themeToggle" slot="end"></ion-toggle>
+          </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>
