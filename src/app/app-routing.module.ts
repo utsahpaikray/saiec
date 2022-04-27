@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'adv',
     loadChildren: () => import('./modules/adv/adv.module').then( m => m.AdvPageModule)
+  },
+  {
+    path: 'questionset',
+    loadChildren: () => import('./modules/questionset/questionset.module').then( m => m.QuestionsetPageModule)
   }
 ];
 
