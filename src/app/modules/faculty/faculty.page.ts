@@ -12,29 +12,70 @@ export class FacultyPage implements OnInit {
 
   constructor() {}
   public facultyList = [{
-      MakeId: 440,
-      name: "Papu Maharana",
-      VehicleTypeId: 2,
-      position: "Principal",
-      carImage: "https://eshendetesia.com/images/user-profile.png",
+      name: "Pradosh kumar Maharana",
+      id: 2,
+      position: "Science",
+      Designation:'Principal',
+      Image: "https://eshendetesia.com/images/user-profile.png",
       location: 'Paikakushadiha'
     },
     {
-      MakeId: 441,
-      name: "ABC",
-      VehicleTypeId: 2,
-      position: "Science Teacher",
-      carImage: "https://eshendetesia.com/images/user-profile.png",
+      name: "Palishree ",
+      id: 1,
+      position: "Math  Teacher",
+      Designation:'Teacher',
+      Image: "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png",
+      location: 'Bramhanakausadi'
+    },
+    {
+      name: "Nirupama",
+      id: 2,
+      position: "Odia Teacher",
+      Designation:'Teacher',
+      Image: "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png",
+      location: 'Kimbhiripada'
+    },
+    {
+      name: "Sunita",
+      id: 3,
+      position: "Sanskrit Teacher",
+      Designation:'Teacher',
+      Image: "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png",
       location: 'Paikakushadiha'
     },
     {
-      MakeId: 442,
-      name: "XYZ",
-      VehicleTypeId: 2,
-      position: "History Teacher",
-      carImage: "https://eshendetesia.com/images/user-profile.png",
+      name: "Pujalini Baral",
+      id: 4,
+      position: "Language Teacher",
+      Designation:'Teacher',
+      Image: "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png",
       location: 'Paikakushadiha'
-    }
+    },
+    {
+      name: "Deepak",
+      id: 5,
+      position: "Computer Teacher",
+      Designation:'Teacher',
+      Image: "https://eshendetesia.com/images/user-profile.png",
+      location: 'Kotari'
+    },
+    {
+      name: "BudhaPriya",
+      id: 5,
+      position: "Language Teacher",
+      Designation:'Teacher',
+      Image: "https://eshendetesia.com/images/user-profile.png",
+      location: 'Kimbhiripadha'
+    },
+    {
+      name: "Rita",
+      id: 5,
+      position: "Language Teacher",
+      Designation:'Teacher',
+      Image: "https://eshendetesia.com/images/user-profile.png",
+      location: 'Paikakushadiha'
+    },
+
   ]
   ngOnInit() {}
 
