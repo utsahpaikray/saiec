@@ -72,7 +72,7 @@ export class FacultyPage implements OnInit {
       id: 5,
       position: "Language Teacher",
       Designation:'Teacher',
-      Image: "https://eshendetesia.com/images/user-profile.png",
+      Image: "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png",
       location: 'Paikakushadiha'
     },
 
