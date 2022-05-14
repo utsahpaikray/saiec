@@ -35,3 +35,16 @@ ion-card-subtitle {
         height: auto;
     }
 }
+.no-item{
+    ion-img {
+        height: 15rem;
+    }
+}
+ion-toggle {
+    height: 1.5rem;
+  }
+  .grid-view {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
