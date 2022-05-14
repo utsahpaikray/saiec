@@ -3,9 +3,10 @@
   }
   p{
     font-size: 1.2rem;
-    color: var(--ion-color-primary);
+    color: #fff;
     font-weight: 500;
     text-align: center;
+    text-decoration: underline;
 }
   .image-container{
       text-align: center;
@@ -18,8 +19,17 @@
   ion-img{
     height: 12rem;
 }
-ion-card.md.hydrated.faculty-card {
-    background: #e3f2fd;
-    border-left: 1rem solid #90caf9;
-    filter: drop-shadow(1px 1px 5px #d2d2d2);
+ ion-card.faculty-card {
+  filter: drop-shadow(1px 1px 5px #d2d2d2);
+  background-image: url(https://wallpaperaccess.com/full/2523615.jpg);
+  -o-object-fit: cover;
+  object-fit: cover;
+  background-repeat: repeat-y;
+  font-weight: 600;
+  color: #fff;
+  background-size: cover;
+}
+ion-card-subtitle {
+  color:#fff;
+  font-weight: 600;
 }

@@ -4,14 +4,34 @@
 }
 p{
     font-size: 1.2rem;
-    color: var(--ion-color-primary);
-    font-weight: 500;
+   // color: var(--ion-color-primary);
+    font-weight: 600;
+    text-decoration: underline;
     text-align: center;
 }
 ion-img{
     height: 12rem;
 }
-ion-card.md.hydrated {
-    border-left: 1rem solid #90caf9;
+ion-card {
+    //border-left: 1rem solid #90caf9;
     filter: drop-shadow(1px 1px 5px #d2d2d2);
+    background-image: url(https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=300);
+    object-fit: cover;
+    background-repeat: repeat-y;
+    font-weight: 600;
+    color: black;
+}
+ion-card-subtitle {
+    color: black;
+    font-weight: 600;
+}
+.img-icon{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 0;
+    right: 0;
+    ion-img{
+        height: auto;
+    }
 }

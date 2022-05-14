@@ -9,44 +9,23 @@
 
 <ion-content>
   <ion-grid class="padding-top">
-    <!-- <ion-row> <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (change)="onInput()" showCancelButton="focus" value="India"
-    animated></ion-searchbar>
-    </ion-row> -->
     <ion-row>
-      <ion-col size="12" size-sm="6" size-md="6" *ngFor="let News of events">
+      <ion-col  *ngFor="let event of events">
         <ion-card>
-          <ion-img *ngIf="News.urlToImage" src="{{News.urlToImage}}"></ion-img>
           <ion-card-header>
-            <ion-card-subtitle *ngIf="News.WAGM">Author {{News.WAGM}}</ion-card-subtitle>
-            <ion-card-title *ngIf="News.title">{{News.title}}</ion-card-title>
+            <ion-card-subtitle *ngIf="event.source">Source: {{event.source.name}}</ion-card-subtitle>
+            <ion-card-title *ngIf="event.title">{{event.title}}</ion-card-title>
           </ion-card-header>
-          <ion-card-content *ngIf="News.content">{{News.content}}</ion-card-content>
+          <ion-card-content *ngIf="event.description">{{event.description}}</ion-card-content>
         </ion-card>
+        <ion-row>
+          <ion-col size="12" size-sm="6" size-md="4" *ngFor="let img of event.urlToImage">
+        <ion-card >
+          <ion-img src="{{img}}"></ion-img>
+        </ion-card>
+        </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <div *ngIf="!events">
-      <ion-row>
-          <ion-col size="12" size-sm="6" size-md="6" *ngFor="let item of [1,2,3,4,5,6]">
-              <ion-list>
-                  <ion-item>
-                    <ion-thumbnail slot="start">
-                      <ion-skeleton-text animated></ion-skeleton-text>
-                    </ion-thumbnail>
-                    <ion-label>
-                      <h3>
-                        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                      </h3>
-                      <p>
-                        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-                      </p>
-                      <p>
-                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                      </p>
-                    </ion-label>
-                  </ion-item>
-                  </ion-list>
-          </ion-col>
-      </ion-row>
-  </div>
 </ion-content>
