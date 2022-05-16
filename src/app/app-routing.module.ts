@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'questionset',
     loadChildren: () => import('./modules/questionset/questionset.module').then( m => m.QuestionsetPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modules/shared/modal/modal.module').then( m => m.ModalPageModule)
   }
 ];
 

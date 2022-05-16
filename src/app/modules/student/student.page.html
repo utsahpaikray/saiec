@@ -28,8 +28,12 @@
           <div class="img-icon">
             <ion-img src="https://lagracecenter.com/wp-content/uploads/2022/02/Final-with-waves-and-white-border.png">
             </ion-img>
+            <div class="bp" *ngIf="std?.bloodGroup">{{std.bloodGroup}}</div>
           </div>
-          <ion-img *ngIf="std.Image" src="{{std.Image}}"></ion-img>
+          <div class="image-conatiner">
+            <ion-img *ngIf="std.Image" src="{{std.Image}}"></ion-img>
+          </div>
+         
           <ion-card-header>
             <ion-card-title *ngIf="std.Name">
               <p>{{std.Name}}</p>
@@ -38,7 +42,7 @@
           </ion-card-header>
           <ion-card-content *ngIf="std.Percentage">
             <span>Percentage of Marks: <b>{{std.Percentage}}</b></span>
-            <ion-button class="ion-activatable ripple-parent" expand="full" shape="round" color="success">Detail
+            <ion-button class="ion-activatable ripple-parent" expand="full" shape="round" color="success" (click)="showModal(std)">Detail
               <ion-ripple-effect></ion-ripple-effect>
             </ion-button>
           </ion-card-content>
@@ -55,7 +59,9 @@
   </ion-grid>
   <ion-grid *ngIf="gridValue">
     <ion-list inset="true">
-      <ion-list-header>Student List</ion-list-header>
+      <ion-list-header>
+        <ion-label>Student List</ion-label>
+      </ion-list-header>
       <ion-accordion-group multiple>
         <ion-accordion value="{{std[0].Class}}" *ngFor="let std of allStudentClassWise ">
           <ion-item slot="header">
