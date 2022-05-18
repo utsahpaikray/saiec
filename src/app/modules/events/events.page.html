@@ -9,8 +9,8 @@
 
 <ion-content>
   <ion-grid class="padding-top">
-    <ion-row>
-      <ion-col  *ngFor="let event of events">
+    <ion-row *ngFor="let event of events">
+      <ion-col  >
         <ion-card>
           <ion-card-header>
             <ion-card-subtitle *ngIf="event.source">Source: {{event.source.name}}</ion-card-subtitle>

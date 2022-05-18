@@ -4,4 +4,9 @@ ion-img {
 }
 ion-card {
     border-left: 1rem solid #ff9800cc;
+    &:hover{
+        transform: scale(1.1);
+        z-index: 2;
+        animation-delay: 5ms;
+    }
 }

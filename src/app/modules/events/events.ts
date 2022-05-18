@@ -19,5 +19,21 @@ export const events = [
       'https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Drawing_Event9.jpeg?alt=media&token=7a8170fc-2eec-4138-9c87-3d6ff1cb57d6'],
       "publishedAt": "9th Apr 2022",
       "content": ""
+    },
+    {
+      "source": {
+        "id": 1,
+        "name": "SAIEC,Paikakushadiha"
+      },
+      "author": 'SAIEC',
+      "title": "Parade Event",
+      "description": "Parade",
+      "urlToImage": [
+      'https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/parade1.jpeg?alt=media&token=f1ada3b6-203b-4dc1-9510-2ef2d31bf109',
+      'https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/parade2.jpeg?alt=media&token=a7464d8f-4417-46fb-b586-1a232a6ffeb1',
+      'https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/parade3.jpeg?alt=media&token=1ac2a532-b8e1-4fe9-8655-b37ea76e3b01',
+      'https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/parade4.jpeg?alt=media&token=524dc427-b8e6-4bc7-97fe-4f70daf4f481'],
+      "publishedAt": "9th Apr 2022",
+      "content": ""
     }
   ]
