@@ -1,11 +1,14 @@
-.close{
-    float: right;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 1.6rem;
-    color: #ce3030;
-}
+// .close{
+//     float: right;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     font-size: 1.6rem;
+//     color: #ce3030;
+// }
+ion-back-button {
+    display: block;
+ }
 .image-conatiner {
     display: flex;
     justify-content: center;

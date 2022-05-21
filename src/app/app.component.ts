@@ -4,6 +4,10 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NavigationEnd, Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { DownloadUrlService } from './shared-service/download-url.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -53,9 +57,30 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private router: Router
+    private router: Router,
+    private db: AngularFirestore,
+    private storage: AngularFireStorage,
+    private staoreService:DownloadUrlService
   ) {
     this.initializeApp();
+    let storeImage= storage.ref('files/').listAll().subscribe((res) => {
+      console.log('called')
+      console.log(res.items)
+      res.items.forEach((itemRef) => {
+        console.log(itemRef)
+        // All the items under listRef.
+      });
+    },(error=>{
+        console.log(error)
+    }));
+    
+  }
+  getFiles(numberItems) {
+    console.log('called')
+    // this.storage.upload('files/', ref =>{
+    //   console.log(ref)
+    //   ref.limitToLast(numberItems)
+    // });
   }
 
   initializeApp() {
@@ -66,18 +91,19 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.router.events.subscribe(url=>{
+    this.router.events.subscribe(url=>{
       if(url instanceof NavigationEnd)
       this.appPages.map((page,index)=>{
         if(page.url.includes(this.router.url.toString())){
             this.selectedIndex=index
         }
       })
-    }))
+    })
     
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+    this.getFiles(5)
   }
 }

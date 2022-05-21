@@ -10,6 +10,7 @@ import * as XLSX from 'xlsx'
 import { groupBy,values } from 'lodash';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../shared/modal/modal.page';
+import { DownloadUrlService } from 'src/app/shared-service/download-url.service';
 @Component({
   selector: 'app-student',
   templateUrl: './student.page.html',
@@ -27,16 +28,14 @@ export class StudentPage implements OnInit {
   allStudent: any[];
   itemsCount: number=1;
   allStudentClassWise: any[];
-  constructor(public modalCtrl: ModalController) { 
+  constructor(public modalCtrl: ModalController, private storeService:DownloadUrlService) { 
      this.student7Info=std7;
      this.student6Info=std6;
      this.student5Info=std5;
      this.student4Info=std4;
      this.student3Info=std3;
      this.studentPioneerInfo=pioneer;
-     this.allStudent=[...this.student7Info,...this.student6Info,...this.student5Info,...this.student4Info,...this.student3Info,...this.studentPioneerInfo]
-    
-     
+     this.allStudent=[...this.student7Info,...this.student6Info,...this.student5Info,...this.student4Info,...this.student3Info,...this.studentPioneerInfo]    
   }
 
   ngOnInit() {
@@ -57,11 +56,13 @@ export class StudentPage implements OnInit {
 
     });
   }
-  public ongrid(){
-  
+  public fetchUrl(url){
+   let imageUrl= this.storeService.getFbStorageURl(url).subscribe(item=>{
+      return item;
+     });
+     return imageUrl;
   }
   public async showModal(info) {  
-    console.log(info)
     const modal = await this.modalCtrl.create({  
       component: ModalPage,
       cssClass: 'my-custom-class',

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "saiecmatrutritha"
+  },
+  "targets": {
+    "saiecmatrutritha": {
+      "hosting": {
+        "app": [
+          "saiecmatrutritha"
+        ]
+      }
+    }
   }
 }
