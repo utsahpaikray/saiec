@@ -51,23 +51,25 @@ ion-card-subtitle {
 
 .img-icon {
     position: absolute;
-    height: 30px;
-    width: 30px;
     top: 0;
     right: 0;
 
     ion-img {
-        height: auto;
-        width: auto
+       
+        height: 45px;
+        width: 45px;
+        clear: both;
     }
 
     .bp {
-        font-size: 1.2rem;
         background: #2dd36f;
         padding: 5px;
-        width: 45px;
-        border-radius: 10px;
+        width: 3rem;
+        border-radius: 10px 0 0 10px;
         margin-top: 8px;
+        clear: both;
+        font-size: 1rem;
+        text-align: center;
     }
 }
 
@@ -85,4 +87,7 @@ ion-toggle {
   //  display: flex;
   //  justify-content: end;
   //  align-items: center;
+}
+.info{
+    text-align: center;
 }

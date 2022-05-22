@@ -5,6 +5,7 @@ import { std5 } from './../../../assets/student-info/standard5';
 import { std4 } from './../../../assets/student-info/standard4';
 import { std3 } from './../../../assets/student-info/standard3';
 import { pioneer } from '../../../assets/student-info/pioneer';
+import{ allStudentInfo } from '../../../assets/student-info/allStudentInfo'
 
 import * as XLSX from 'xlsx'
 import { groupBy,values } from 'lodash';
@@ -23,6 +24,7 @@ export class StudentPage implements OnInit {
   public student4Info;
   public student3Info;
   public studentPioneerInfo;
+  public allStudentInfo=allStudentInfo;
   public gridValue:boolean=false;
   searchQuery: any;
   allStudent: any[];
@@ -39,7 +41,7 @@ export class StudentPage implements OnInit {
   }
 
   ngOnInit() {
-    this.allStudentClassWise= values(groupBy(this.allStudent, 'Class'))
+    this.allStudentClassWise= values(groupBy(this.allStudentInfo, 'info.class'))
     console.log(this.allStudentClassWise)
   }
   public onInput(){
@@ -72,23 +74,6 @@ export class StudentPage implements OnInit {
     });  
     return await modal.present();  
   } 
-  // public selectedFile(event){
-  //  let  selectedFile = event.target.files[0];
-  //   // XLSX.utils.json_to_sheet(data, 'out.xlsx');
-  //   if(selectedFile){
-  //       let fileReader = new FileReader();
-  //       fileReader.readAsBinaryString(selectedFile);
-  //       fileReader.onload = (event)=>{
-  //        let data = event.target.result;
-  //        let workbook = XLSX.read(data,{type:"binary"});
-  //        console.log(workbook);
-  //        workbook.SheetNames.forEach(sheet => {
-  //             let rowObject = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
-  //             console.log(rowObject);
-  //           //  document.getElementById("jsondata").innerHTML = JSON.stringify(rowObject,undefined,4)
-  //        });
-  //       }
-  //   }
-  // }
+
 
 }

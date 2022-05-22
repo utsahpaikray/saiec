@@ -16,32 +16,38 @@
 <ion-content fullscreen>
   <ion-grid>
     <div class="grid-view ion-text-right" >
-      <ion-toggle color="success" name="blueberry" [(ngModel)]="gridValue" (ionChange)="ongrid()"></ion-toggle>
+      <ion-toggle color="success" name="blueberry" [(ngModel)]="gridValue"></ion-toggle>
     </div>
-
+<!-- <app-extract-student></app-extract-student> -->
   </ion-grid>
   <ion-grid class="padding-top student-info" *ngIf="!gridValue">
     <ion-row class="student">
-      <ion-col size="12" size-sm="6" size-md="4" size-lg="4" *ngFor="let std of allStudent">
-        <ion-card>
+      <ion-col size="12" size-sm="6" size-md="4" size-lg="4" *ngFor="let std of allStudentInfo">
+        <ion-card *ngIf="std?.info">
           <div class="img-icon">
             <ion-img src="https://lagracecenter.com/wp-content/uploads/2022/02/Final-with-waves-and-white-border.png">
             </ion-img>
-            <div class="bp" *ngIf="std?.bloodGroup">{{std.bloodGroup}}</div>
+            <div class="bp" *ngIf="std['info'].bloodGroup">{{std['info'].bloodGroup}}</div>
+            <div class="bp" *ngIf="std['info'].class">{{std['info'].class}}</div>
+            <div class="bp" *ngIf="std['info']['Sub-Status']">
+              <span *ngIf="std['info']['Sub-Status']=='In School'"> IN </span>
+              <span *ngIf="std['info']['Sub-Status']=='In Transfer'"> OUT </span>
+            </div>
           </div>
           <div class="image-conatiner">
-            <ion-img *ngIf="std.Image" src="{{std.Image}}"></ion-img>
+            <ion-img *ngIf="std['info'].Image" src="{{std['info'].Image}}"></ion-img>
           </div>
          
           <ion-card-header>
-            <ion-card-title *ngIf="std.Name">
-              <p>{{std.Name}}</p>
+            <ion-card-title *ngIf="std['info'].StudentName">
+              <p>{{std['info'].StudentName}}</p>
             </ion-card-title>
-            <ion-card-subtitle *ngIf="std.Class">Standard: <b>{{std.Class}}</b></ion-card-subtitle>
+            <ion-card-subtitle *ngIf="std['info'].Class">Standard: <b>{{std['info'].class}}</b></ion-card-subtitle>
           </ion-card-header>
-          <ion-card-content *ngIf="std.Percentage">
-            <span>Percentage of Marks: <b>{{std.Percentage}}</b></span>
-            <ion-button class="ion-activatable ripple-parent" expand="full" shape="round" color="success" (click)="showModal(std)">Detail
+          <ion-card-content *ngIf="std['info']">
+            <div class="info">Contact: <b>{{std['info'].MobileNumber}}</b></div>
+            <div class="info">Village: <b>{{std['info'].Habitation|titlecase}}</b></div>
+            <ion-button class="ion-activatable ripple-parent" expand="full" shape="round" color="success" (click)="showModal(std['info'])">Detail
               <ion-ripple-effect></ion-ripple-effect>
             </ion-button>
           </ion-card-content>
@@ -62,17 +68,26 @@
         <ion-label>Student List</ion-label>
       </ion-list-header>
       <ion-accordion-group multiple>
-        <ion-accordion value="{{std[0].Class}}" *ngFor="let std of allStudentClassWise ">
+        <ion-accordion value="{{std[0].info.class}}" *ngFor="let std of allStudentClassWise ">
           <ion-item slot="header">
-            <ion-label>Standard {{std[0].Class}}</ion-label>
+            <ion-label>Standard {{std[0].info.class}}</ion-label>
           </ion-item>
           <ion-list slot="content">
-            <ion-item *ngFor="let studenfInfo of std">
+            <ion-item-sliding  *ngFor="let studenfInfo of std">
+              <ion-item-options side="start">
+                <ion-item-option (click)="showModal(studenfInfo.info)">Detail</ion-item-option>
+              </ion-item-options>
+            <ion-item (click)="showModal(studenfInfo.info)">
               <ion-thumbnail slot="start">
-              <img src="{{studenfInfo.Image}}">
+              <img src="{{studenfInfo.info.Image}}">
               </ion-thumbnail>
-              <ion-label>{{ studenfInfo.Name }} </ion-label>
+              <ion-label>{{ studenfInfo.info.StudentName|titlecase }} </ion-label>
+              <ion-label slot="end">{{ studenfInfo.info['Sub-Status'] }} </ion-label>
             </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option (click)="showModal(studenfInfo.info)">Detail</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
           </ion-list>
         </ion-accordion>
       </ion-accordion-group>
