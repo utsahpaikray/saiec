@@ -70,6 +70,9 @@ ion-card-subtitle {
         clear: both;
         font-size: 1rem;
         text-align: center;
+        &.out{
+            background: #f44336
+        }
     }
 }
 

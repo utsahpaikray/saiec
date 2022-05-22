@@ -29,9 +29,9 @@
             </ion-img>
             <div class="bp" *ngIf="std['info'].bloodGroup">{{std['info'].bloodGroup}}</div>
             <div class="bp" *ngIf="std['info'].class">{{std['info'].class}}</div>
-            <div class="bp" *ngIf="std['info']['Sub-Status']">
+            <div class="bp" *ngIf="std['info']['Sub-Status']" [class.out]="std['info']['Sub-Status']=='In Transfer'">
               <span *ngIf="std['info']['Sub-Status']=='In School'"> IN </span>
-              <span *ngIf="std['info']['Sub-Status']=='In Transfer'"> OUT </span>
+              <span *ngIf="std['info']['Sub-Status']=='In Transfer'" > OUT </span>
             </div>
           </div>
           <div class="image-conatiner">
