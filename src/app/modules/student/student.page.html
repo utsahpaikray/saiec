@@ -18,6 +18,11 @@
     <div class="grid-view ion-text-right" >
       <ion-toggle color="success" name="blueberry" [(ngModel)]="gridValue"></ion-toggle>
     </div>
+    <div class="grid-view ion-text-left" >
+      <ion-chip color="primary">
+       <ion-label color="dark">Total Student: {{totalStudent}}</ion-label>
+      </ion-chip>
+    </div>
 <!-- <app-extract-student></app-extract-student> -->
   </ion-grid>
   <ion-grid class="padding-top student-info" *ngIf="!gridValue">

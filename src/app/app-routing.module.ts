@@ -42,6 +42,14 @@ const routes: Routes = [
   {
     path: 'modal',
     loadChildren: () => import('./modules/shared/modal/modal.module').then( m => m.ModalPageModule)
+  },
+  {
+    path: 'auto-fee',
+    loadChildren: () => import('./modules/autofee/autofee.module').then( m => m.AutofeePageModule)
+  },
+  {
+    path: 'student-fee',
+    loadChildren: () => import('./modules/student-fee/student-fee.module').then( m => m.StudentFeePageModule)
   }
 ];
 

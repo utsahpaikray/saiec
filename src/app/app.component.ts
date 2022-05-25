@@ -42,6 +42,16 @@ export class AppComponent implements OnInit {
       icon: 'notifications'
     },
     {
+      title: 'Auto Fee',
+      url: '/auto-fee',
+      icon: 'car'
+    },
+    {
+      title: 'Student Fee',
+      url: '/student-fee',
+      icon: 'bar-chart'
+    },
+    {
       title: 'Adv',
       url: '/adv',
       icon: 'radio'
@@ -64,11 +74,9 @@ export class AppComponent implements OnInit {
   ) {
     this.initializeApp();
     let storeImage= storage.ref('files/').listAll().subscribe((res) => {
-      console.log('called')
-      console.log(res.items)
+      
       res.items.forEach((itemRef) => {
-        console.log(itemRef)
-        // All the items under listRef.
+        
       });
     },(error=>{
         console.log(error)
@@ -104,6 +112,6 @@ export class AppComponent implements OnInit {
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
-    this.getFiles(5)
+   // this.getFiles(5)
   }
 }

@@ -93,7 +93,6 @@ export class ExtractStudentComponent implements OnInit {
       "class":student["Class"],
       "Admission Numbe":student["Admission Number"]
     }
-
     return collectData;
   }
 }
