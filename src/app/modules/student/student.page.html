@@ -23,7 +23,7 @@
        <ion-label color="dark">Total Student: {{totalStudent}}</ion-label>
       </ion-chip>
     </div>
-<!-- <app-extract-student></app-extract-student> -->
+
   </ion-grid>
   <ion-grid class="padding-top student-info" *ngIf="!gridValue">
     <ion-row class="student">
@@ -32,7 +32,9 @@
           <div class="img-icon">
             <ion-img src="https://lagracecenter.com/wp-content/uploads/2022/02/Final-with-waves-and-white-border.png">
             </ion-img>
-            <div class="bp" *ngIf="std['info'].bloodGroup">{{std['info'].bloodGroup}}</div>
+            <div class="bp blood" *ngIf="std['info'].bloodGroup">
+              {{std['info'].bloodGroup}}
+            </div>
             <div class="bp" *ngIf="std['info'].class">{{std['info'].class}}</div>
             <div class="bp" *ngIf="std['info']['Sub-Status']" [class.out]="std['info']['Sub-Status']=='In Transfer'">
               <span *ngIf="std['info']['Sub-Status']=='In School'"> IN </span>
@@ -98,4 +100,5 @@
       </ion-accordion-group>
     </ion-list>
   </ion-grid>
+  <app-extract-student></app-extract-student>
 </ion-content>

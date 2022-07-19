@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FetchFileService } from 'src/app/shared-service/fetch-file.service';
 import * as XLSX from 'xlsx'
 @Component({
   selector: 'app-extract-student',
@@ -7,9 +8,25 @@ import * as XLSX from 'xlsx'
 })
 export class ExtractStudentComponent implements OnInit {
 
-  constructor() { }
+  constructor(public fetchFileService:FetchFileService) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    // (async() => {
+      const url = "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/uploads%2F2022-23studentinfo.xlsx?alt=media&token=e1c83715-4ce7-4a27-a5cd-95715441c7f0";
+    //   const data = await (await fetch(url)).arrayBuffer();
+    //   /* data is an ArrayBuffer */
+    //   const workbook = XLSX.read(data);
+    
+    //   /* DO SOMETHING WITH workbook HERE */
+    // })();
+  
+    this.fetchFileService.getFileContent().subscribe(file=>{
+         const data = file.arrayBuffer();
+      /* data is an ArrayBuffer */
+      const workbook = XLSX.read(data);
+      console.log(workbook)
+    })
+  }
   public selectedFile(event) {
     let selectedFile = event.target.files[0];
     if (selectedFile) {

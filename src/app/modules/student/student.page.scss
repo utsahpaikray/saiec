@@ -60,7 +60,6 @@ ion-card-subtitle {
         width: 45px;
         clear: both;
     }
-
     .bp {
         background: #2dd36f;
         padding: 5px;
@@ -72,6 +71,9 @@ ion-card-subtitle {
         text-align: center;
         &.out{
             background: #f44336
+        }
+        &.blood{
+            background: #e74646;
         }
     }
 }

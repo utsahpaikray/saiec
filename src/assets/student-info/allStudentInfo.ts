@@ -40,7 +40,7 @@ export const allStudentInfo=[
             "Medium": "Odia",
             "EyeScreening": "No",
             "Session": "2022-23",
-            "bloodGroup":"b+",
+            "bloodGroup":"a",
             "Image": "https://eshendetesia.com/images/user-profile.png",
             "Status": "Active",
              "exmaDetail": [
@@ -32679,7 +32679,7 @@ export const allStudentInfo=[
             "EyeScreening": "No",
             "Session": "2022-23",
             "bloodGroup":"b+",
-            "Image": "https://eshendetesia.com/images/user-profile.png",
+            "Image": "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/kunal.jpeg?alt=media&token=068e7724-00be-468e-8a43-9456cfb2b0df",
             "Status": "Active",
              "exmaDetail": [
             {
@@ -36114,6 +36114,2616 @@ export const allStudentInfo=[
             "Sub-Status": "In Transfer",
             "DateOfAdmission": "08-04-2019",
             "class": "8",
+            "Admission Numbe": "2019-20/0011"
+        }
+    },
+    {
+        "SI.No.": "83",
+        "School UDISE Code": "21170701371",
+        "School District Name": "Khordha",
+        "School District Code": "2117",
+        "School Block Name": "Chilika",
+        "School Block Code": "211707",
+        "School Cluster Name": "SAMANTASINGHARAPUR P S",
+        "School Cluster Code": "2117070026",
+        "School Management": "Pvt. Unaided",
+        "School Category": "2-Primary with Upper Primary(1-8)",
+        "School Address": "PAIKUSADIHA, ANKULACHATI, BALUGAON, KHURDA",
+        "School Name": "SRI AUROBINDO INT. EDN. CENTRE",
+        "Sec": "A",
+        "Profile Status": "Completed",
+        "Created Date": "22-04-2022",
+        "updatedDate": "22-04-2022",
+        "info": {
+            "StudentID": "2117070130200013",
+            "AadharNumber": "387628546321",
+            "StudentName": "Dibyanshu Barik",
+            "DateofBirth": "17-07-2009",
+            "FatherName": "UMAKANTA BEHERA",
+            "MotherName": "KABITA BEHERA",
+            "Address": "AT-Bankiapalli,PO-ANKULACHATI, P. S. -Balugaon",
+            "District": "Khordha",
+            "Block": "Chilika",
+            "Habitation": "BANIKIAPALLI",
+            "Gender": "1 - Male",
+            "MotherTongue": "Odia",
+            "Religion": "0 - Hindu",
+            "SocialCategory": "2-SC",
+            "TypeOfDisability": "Not Applicable",
+            "BPL": "Yes",
+            "StudentOpted": "Day Boarder",
+            "MobileNumber": "7735558314",
+            "Email Address": "saiecmatrutirtha@gmail.com",
+            "PreviousYear": "7",
+            "Medium": "Odia",
+            "EyeScreening": "No",
+            "Session": "2022-23",
+            "bloodGroup":"b+",
+            "Image": "https://eshendetesia.com/images/user-profile.png",
+            "Status": "Active",
+             "exmaDetail": [
+            {
+                "month": "Jan",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Feb",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Mar",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "April",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "May",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "jun",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "july",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Aug",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "September",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Oct",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "November",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "December",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },],
+            "Sub-Status": "In Transfer",
+            "DateOfAdmission": "08-04-2019",
+            "class": "KG",
+            "Admission Numbe": "2019-20/0011"
+        }
+    },
+    {
+        "SI.No.": "83",
+        "School UDISE Code": "21170701371",
+        "School District Name": "Khordha",
+        "School District Code": "2117",
+        "School Block Name": "Chilika",
+        "School Block Code": "211707",
+        "School Cluster Name": "SAMANTASINGHARAPUR P S",
+        "School Cluster Code": "2117070026",
+        "School Management": "Pvt. Unaided",
+        "School Category": "2-Primary with Upper Primary(1-8)",
+        "School Address": "PAIKUSADIHA, ANKULACHATI, BALUGAON, KHURDA",
+        "School Name": "SRI AUROBINDO INT. EDN. CENTRE",
+        "Sec": "A",
+        "Profile Status": "Completed",
+        "Created Date": "22-04-2022",
+        "updatedDate": "22-04-2022",
+        "info": {
+            "StudentID": "2117070130200013",
+            "AadharNumber": "387628546321",
+            "StudentName": "Soumya Ranjan Behera",
+            "DateofBirth": "17-07-2009",
+            "FatherName": "UMAKANTA BEHERA",
+            "MotherName": "KABITA BEHERA",
+            "Address": "AT-Bankiapalli,PO-ANKULACHATI, P. S. -Balugaon",
+            "District": "Khordha",
+            "Block": "Chilika",
+            "Habitation": "BANIKIAPALLI",
+            "Gender": "1 - Male",
+            "MotherTongue": "Odia",
+            "Religion": "0 - Hindu",
+            "SocialCategory": "2-SC",
+            "TypeOfDisability": "Not Applicable",
+            "BPL": "Yes",
+            "StudentOpted": "Day Boarder",
+            "MobileNumber": "7978822785",
+            "Email Address": "saiecmatrutirtha@gmail.com",
+            "PreviousYear": "7",
+            "Medium": "Odia",
+            "EyeScreening": "No",
+            "Session": "2022-23",
+            "bloodGroup":"b+",
+            "Image": "https://eshendetesia.com/images/user-profile.png",
+            "Status": "Active",
+             "exmaDetail": [
+            {
+                "month": "Jan",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Feb",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Mar",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "April",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "May",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "jun",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "july",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Aug",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "September",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Oct",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "November",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "December",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },],
+            "Sub-Status": "In Transfer",
+            "DateOfAdmission": "08-04-2019",
+            "class": "KG",
+            "Admission Numbe": "2019-20/0011"
+        }
+    },
+    {
+        "SI.No.": "83",
+        "School UDISE Code": "21170701371",
+        "School District Name": "Khordha",
+        "School District Code": "2117",
+        "School Block Name": "Chilika",
+        "School Block Code": "211707",
+        "School Cluster Name": "SAMANTASINGHARAPUR P S",
+        "School Cluster Code": "2117070026",
+        "School Management": "Pvt. Unaided",
+        "School Category": "2-Primary with Upper Primary(1-8)",
+        "School Address": "PAIKUSADIHA, ANKULACHATI, BALUGAON, KHURDA",
+        "School Name": "SRI AUROBINDO INT. EDN. CENTRE",
+        "Sec": "A",
+        "Profile Status": "Completed",
+        "Created Date": "22-04-2022",
+        "updatedDate": "22-04-2022",
+        "info": {
+            "StudentID": "2117070130200013",
+            "AadharNumber": "387628546321",
+            "StudentName": "LaxmiPriya Barik",
+            "DateofBirth": "17-07-2009",
+            "FatherName": "UMAKANTA BEHERA",
+            "MotherName": "KABITA BEHERA",
+            "Address": "AT-Bankiapalli,PO-ANKULACHATI, P. S. -Balugaon",
+            "District": "Khordha",
+            "Block": "Chilika",
+            "Habitation": "BANIKIAPALLI",
+            "Gender": "1 - Male",
+            "MotherTongue": "Odia",
+            "Religion": "0 - Hindu",
+            "SocialCategory": "2-SC",
+            "TypeOfDisability": "Not Applicable",
+            "BPL": "Yes",
+            "StudentOpted": "Day Boarder",
+            "MobileNumber": "9827114663",
+            "Email Address": "saiecmatrutirtha@gmail.com",
+            "PreviousYear": "7",
+            "Medium": "Odia",
+            "EyeScreening": "No",
+            "Session": "2022-23",
+            "bloodGroup":"b+",
+            "Image": "https://eshendetesia.com/images/user-profile.png",
+            "Status": "Active",
+             "exmaDetail": [
+            {
+                "month": "Jan",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Feb",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Mar",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "April",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "May",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "jun",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "july",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Aug",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "September",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Oct",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "November",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "December",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },],
+            "Sub-Status": "In Transfer",
+            "DateOfAdmission": "08-04-2019",
+            "class": "KG",
+            "Admission Numbe": "2019-20/0011"
+        }
+    },
+    {
+        "SI.No.": "83",
+        "School UDISE Code": "21170701371",
+        "School District Name": "Khordha",
+        "School District Code": "2117",
+        "School Block Name": "Chilika",
+        "School Block Code": "211707",
+        "School Cluster Name": "SAMANTASINGHARAPUR P S",
+        "School Cluster Code": "2117070026",
+        "School Management": "Pvt. Unaided",
+        "School Category": "2-Primary with Upper Primary(1-8)",
+        "School Address": "PAIKUSADIHA, ANKULACHATI, BALUGAON, KHURDA",
+        "School Name": "SRI AUROBINDO INT. EDN. CENTRE",
+        "Sec": "A",
+        "Profile Status": "Completed",
+        "Created Date": "22-04-2022",
+        "updatedDate": "22-04-2022",
+        "info": {
+            "StudentID": "2117070130200013",
+            "AadharNumber": "387628546321",
+            "StudentName": "Himanshu Behera",
+            "DateofBirth": "17-07-2009",
+            "FatherName": "UMAKANTA BEHERA",
+            "MotherName": "KABITA BEHERA",
+            "Address": "AT-Bankiapalli,PO-ANKULACHATI, P. S. -Balugaon",
+            "District": "Khordha",
+            "Block": "Chilika",
+            "Habitation": "BANIKIAPALLI",
+            "Gender": "1 - Male",
+            "MotherTongue": "Odia",
+            "Religion": "0 - Hindu",
+            "SocialCategory": "2-SC",
+            "TypeOfDisability": "Not Applicable",
+            "BPL": "Yes",
+            "StudentOpted": "Day Boarder",
+            "MobileNumber": "9337965982",
+            "Email Address": "saiecmatrutirtha@gmail.com",
+            "PreviousYear": "7",
+            "Medium": "Odia",
+            "EyeScreening": "No",
+            "Session": "2022-23",
+            "bloodGroup":"b+",
+            "Image": "https://eshendetesia.com/images/user-profile.png",
+            "Status": "Active",
+             "exmaDetail": [
+            {
+                "month": "Jan",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Feb",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Mar",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "April",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "May",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "jun",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "july",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Aug",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "September",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Oct",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "November",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "December",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },],
+            "Sub-Status": "In Transfer",
+            "DateOfAdmission": "08-04-2019",
+            "class": "KG",
+            "Admission Numbe": "2019-20/0011"
+        }
+    },
+    {
+        "SI.No.": "83",
+        "School UDISE Code": "21170701371",
+        "School District Name": "Khordha",
+        "School District Code": "2117",
+        "School Block Name": "Chilika",
+        "School Block Code": "211707",
+        "School Cluster Name": "SAMANTASINGHARAPUR P S",
+        "School Cluster Code": "2117070026",
+        "School Management": "Pvt. Unaided",
+        "School Category": "2-Primary with Upper Primary(1-8)",
+        "School Address": "PAIKUSADIHA, ANKULACHATI, BALUGAON, KHURDA",
+        "School Name": "SRI AUROBINDO INT. EDN. CENTRE",
+        "Sec": "A",
+        "Profile Status": "Completed",
+        "Created Date": "22-04-2022",
+        "updatedDate": "22-04-2022",
+        "info": {
+            "StudentID": "2117070130200013",
+            "AadharNumber": "387628546321",
+            "StudentName": "Payal Maharana",
+            "DateofBirth": "17-07-2009",
+            "FatherName": "UMAKANTA BEHERA",
+            "MotherName": "KABITA BEHERA",
+            "Address": "AT-Bankiapalli,PO-ANKULACHATI, P. S. -Balugaon",
+            "District": "Khordha",
+            "Block": "Chilika",
+            "Habitation": "BANIKIAPALLI",
+            "Gender": "1 - Male",
+            "MotherTongue": "Odia",
+            "Religion": "0 - Hindu",
+            "SocialCategory": "2-SC",
+            "TypeOfDisability": "Not Applicable",
+            "BPL": "Yes",
+            "StudentOpted": "Day Boarder",
+            "MobileNumber": "7377706681",
+            "Email Address": "saiecmatrutirtha@gmail.com",
+            "PreviousYear": "7",
+            "Medium": "Odia",
+            "EyeScreening": "No",
+            "Session": "2022-23",
+            "bloodGroup":"b+",
+            "Image": "https://eshendetesia.com/images/user-profile.png",
+            "Status": "Active",
+             "exmaDetail": [
+            {
+                "month": "Jan",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Feb",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Mar",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "April",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "May",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "jun",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "july",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Aug",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "September",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Oct",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "November",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "December",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },],
+            "Sub-Status": "In",
+            "DateOfAdmission": "08-04-2019",
+            "class": "KG",
+            "Admission Numbe": "2019-20/0011"
+        }
+    },
+    {
+        "SI.No.": "83",
+        "School UDISE Code": "21170701371",
+        "School District Name": "Khordha",
+        "School District Code": "2117",
+        "School Block Name": "Chilika",
+        "School Block Code": "211707",
+        "School Cluster Name": "SAMANTASINGHARAPUR P S",
+        "School Cluster Code": "2117070026",
+        "School Management": "Pvt. Unaided",
+        "School Category": "2-Primary with Upper Primary(1-8)",
+        "School Address": "PAIKUSADIHA, ANKULACHATI, BALUGAON, KHURDA",
+        "School Name": "SRI AUROBINDO INT. EDN. CENTRE",
+        "Sec": "A",
+        "Profile Status": "Completed",
+        "Created Date": "22-04-2022",
+        "updatedDate": "22-04-2022",
+        "info": {
+            "StudentID": "2117070130200013",
+            "AadharNumber": "387628546321",
+            "StudentName": "Koyal Maharana",
+            "DateofBirth": "17-07-2009",
+            "FatherName": "UMAKANTA BEHERA",
+            "MotherName": "KABITA BEHERA",
+            "Address": "AT-Bankiapalli,PO-ANKULACHATI, P. S. -Balugaon",
+            "District": "Khordha",
+            "Block": "Chilika",
+            "Habitation": "BANIKIAPALLI",
+            "Gender": "1 - Male",
+            "MotherTongue": "Odia",
+            "Religion": "0 - Hindu",
+            "SocialCategory": "2-SC",
+            "TypeOfDisability": "Not Applicable",
+            "BPL": "Yes",
+            "StudentOpted": "Day Boarder",
+            "MobileNumber": "737770668",
+            "Email Address": "saiecmatrutirtha@gmail.com",
+            "PreviousYear": "7",
+            "Medium": "Odia",
+            "EyeScreening": "No",
+            "Session": "2022-23",
+            "bloodGroup":"b+",
+            "Image": "https://eshendetesia.com/images/user-profile.png",
+            "Status": "Active",
+             "exmaDetail": [
+            {
+                "month": "Jan",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Feb",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Mar",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "April",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "May",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "jun",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "july",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Aug",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "September",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "Oct",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "November",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },
+            {
+                "month": "December",
+                "Subject": [
+                    {
+                        topic: 'Math',
+                        total: 25,
+                        occ: 20
+                    },
+                    {
+                        topic: 'Science',
+                        total: 25,
+                        occ: 19
+                    },
+                    {
+                        topic: 'English',
+                        total: 25,
+                        occ: 15
+
+                    },
+                    {
+                        topic: 'MIL(Odia)',
+                        total: 25,
+                        occ: 10
+
+                    },
+                    {
+                        topic: 'History',
+                        total: 25,
+                        occ: 12
+                    },
+                ],
+            },],
+            "Sub-Status": "In",
+            "DateOfAdmission": "08-04-2019",
+            "class": "kG",
             "Admission Numbe": "2019-20/0011"
         }
     }

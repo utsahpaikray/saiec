@@ -13,9 +13,13 @@ import { environment } from '../environments/environment.prod';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireDatabaseModule} from '@angular/fire/database'
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { UploadFormComponent } from './modules/shared/upload-form/upload-form.component';
+import { UploadListComponent } from './modules/shared/upload-list/upload-list.component';
+import { UploadDetailsComponent } from './modules/shared/upload-details/upload-details.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -25,7 +29,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule // storage
+    AngularFireStorageModule, // storage
+    AngularFireDatabaseModule, //database
   ],
   providers: [
     StatusBar,
@@ -35,19 +40,4 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-function provideFirebaseApp(arg0: () => any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
-  throw new Error('Function not implemented.');
-}
-
-function initializeApp(arg0: any) {
-  throw new Error('Function not implemented.');
-}
-
-function provideFirestore(arg0: () => any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
-  throw new Error('Function not implemented.');
-}
-
-function getFirestore() {
-  throw new Error('Function not implemented.');
-}
 
