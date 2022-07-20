@@ -50,6 +50,10 @@ const routes: Routes = [
   {
     path: 'student-fee',
     loadChildren: () => import('./modules/student-fee/student-fee.module').then( m => m.StudentFeePageModule)
+  },
+  {
+    path: 'student-detail',
+    loadChildren: () => import('./modules/shared/student-detail/student-detail.module').then( m => m.StudentDetailPageModule)
   }
 ];
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { allStudentInfo } from '../../../assets/student-info/allStudentInfo';
 import { groupBy, values } from 'lodash';
+import { ModalController } from '@ionic/angular';
+import { StudentDetailPage } from '../shared/student-detail/student-detail.page';
 
 @Component({
   selector: 'app-student-fee',
@@ -16,7 +18,7 @@ export class StudentFeePage implements OnInit {
   inSchoolStudentData: any[];
   totalStudent: number;
   AutoFeeMonthwise: any[];
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,public modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.allStudentClassWise = values(groupBy(this.allStudentInfo, 'info.class'))
@@ -41,7 +43,7 @@ export class StudentFeePage implements OnInit {
   generateAutoFeeStructure(data) {
     console.log(data.flat(2))
     let flatData = data.flat(2);
-    let months = ['January', 'Februaru', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     this.AutoFeeMonthwise = []
     months.forEach(month => {
       let studentInfoArray = []
@@ -61,5 +63,18 @@ export class StudentFeePage implements OnInit {
 console.log(this.AutoFeeMonthwise)
 
   }
-
+  public async showModal(info) {
+    let monthlyCollection=[]
+    this.AutoFeeMonthwise.forEach(item=>{
+      monthlyCollection.push({info:item.studentInf.find(o => o.name === info),month:item.month});
+    })
+    const modal = await this.modalCtrl.create({
+      component: StudentDetailPage,
+      cssClass: 'my-custom-class',
+      componentProps: { info: monthlyCollection },
+      canDismiss: true,
+      presentingElement: await this.modalCtrl.getTop()
+    });
+    return await modal.present();
+  }
 }

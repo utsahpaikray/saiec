@@ -21,9 +21,9 @@
           <ion-list slot="content">
             <ion-item-sliding  *ngFor="let studenfInfo of month.studentInf">
               <ion-item-options side="start">
-                <ion-item-option >Detail</ion-item-option>
+                <ion-item-option (click)="showModal(studenfInfo.name)">Detail</ion-item-option>
               </ion-item-options>
-            <ion-item >
+            <ion-item (click)="showModal(studenfInfo.name)">
               <ion-thumbnail slot="start">
               <img src="{{studenfInfo.image}}">
               </ion-thumbnail>
