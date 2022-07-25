@@ -102,7 +102,7 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe(url=>{
       if(url instanceof NavigationEnd)
       this.appPages.map((page,index)=>{
-        if(page.url.includes(this.router.url.toString())){
+        if(page.url==this.router.url.toString()){
             this.selectedIndex=index
         }
       })

@@ -14,7 +14,7 @@ ion-back-button {
     justify-content: center;
 ion-img {
     height: 17rem;
-    width: 17rem;
+    width: 100%;
     object-fit: cover;
     object-position: center;
     &::part(image) {

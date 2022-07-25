@@ -20,11 +20,11 @@ export class FacultyPage implements OnInit {
       location: 'Paikakushadiha'
     },
     {
-      name: "Palishree ",
+      name: "Palishree",
       id: 1,
       position: "Math  Teacher",
       Designation:'Teacher',
-      Image: "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png",
+      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/palishree.jpeg?alt=media&token=5d257df4-095e-4ec3-856f-2a455c984739",
       location: 'Bramhanakausadi'
     },
     {
@@ -73,6 +73,22 @@ export class FacultyPage implements OnInit {
       position: "Language Teacher",
       Designation:'Teacher',
       Image: "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png",
+      location: 'Paikakushadiha'
+    },
+    {
+      name: "Ronee",
+      id: 5,
+      position: "Language Teacher",
+      Designation:'Teacher',
+      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/lima.jpeg?alt=media&token=464a1de2-6d98-4770-ac6b-b7674a91a9df",
+      location: 'Paikakushadiha'
+    },
+    {
+      name: "Subhasmita Swain",
+      id: 5,
+      position: "Language Teacher",
+      Designation:'Teacher',
+      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/lima.jpeg?alt=media&token=464a1de2-6d98-4770-ac6b-b7674a91a9df",
       location: 'Paikakushadiha'
     },
 
