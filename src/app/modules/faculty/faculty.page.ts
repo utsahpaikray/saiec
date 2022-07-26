@@ -16,7 +16,7 @@ export class FacultyPage implements OnInit {
       id: 2,
       position: "Science",
       Designation:'Principal',
-      Image: "https://eshendetesia.com/images/user-profile.png",
+      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Pradosh.jpeg?alt=media&token=81f1ba02-a826-4605-8599-8a3bece93980",
       location: 'Paikakushadiha'
     },
     {
@@ -24,7 +24,7 @@ export class FacultyPage implements OnInit {
       id: 1,
       position: "Math  Teacher",
       Designation:'Teacher',
-      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/palishree.jpeg?alt=media&token=5d257df4-095e-4ec3-856f-2a455c984739",
+      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/palishree.jpeg?alt=media&token=702f579a-2876-4403-ad2b-1900d6b13ae5",
       location: 'Bramhanakausadi'
     },
     {
@@ -56,7 +56,7 @@ export class FacultyPage implements OnInit {
       id: 5,
       position: "Computer Teacher",
       Designation:'Teacher',
-      Image: "https://eshendetesia.com/images/user-profile.png",
+      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/deepak.jpeg?alt=media&token=67128c6a-e592-42d9-8e1e-29c41abaef83",
       location: 'Kotari'
     },
     {
@@ -64,7 +64,7 @@ export class FacultyPage implements OnInit {
       id: 5,
       position: "Language Teacher",
       Designation:'Teacher',
-      Image: "https://eshendetesia.com/images/user-profile.png",
+      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/budhi.jpeg?alt=media&token=6659b5cc-41ac-4373-90ae-8e4ff09ba815",
       location: 'Kimbhiripadha'
     },
     {
@@ -72,7 +72,7 @@ export class FacultyPage implements OnInit {
       id: 5,
       position: "Language Teacher",
       Designation:'Teacher',
-      Image: "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png",
+      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Rita.jpeg?alt=media&token=e6031986-0314-4f0b-a762-b8c05be723a0",
       location: 'Paikakushadiha'
     },
     {
@@ -88,7 +88,7 @@ export class FacultyPage implements OnInit {
       id: 5,
       position: "Language Teacher",
       Designation:'Teacher',
-      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/lima.jpeg?alt=media&token=464a1de2-6d98-4770-ac6b-b7674a91a9df",
+      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Sanu.jpeg?alt=media&token=3a52c8b4-90d7-4181-980a-5c17b42e3c6b",
       location: 'Paikakushadiha'
     },
 
