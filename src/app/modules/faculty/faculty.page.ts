@@ -91,6 +91,14 @@ export class FacultyPage implements OnInit {
       Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Sanu.jpeg?alt=media&token=3a52c8b4-90d7-4181-980a-5c17b42e3c6b",
       location: 'Paikakushadiha'
     },
+    {
+      name: "Rachana Maharana",
+      id: 5,
+      position: "Language Teacher",
+      Designation:'Teacher',
+      Image: "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Sanu.jpeg?alt=media&token=3a52c8b4-90d7-4181-980a-5c17b42e3c6b",
+      location: 'Paikakushadiha'
+    },
 
   ]
   ngOnInit() {}

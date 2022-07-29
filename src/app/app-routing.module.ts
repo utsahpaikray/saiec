@@ -54,6 +54,10 @@ const routes: Routes = [
   {
     path: 'student-detail',
     loadChildren: () => import('./modules/shared/student-detail/student-detail.module').then( m => m.StudentDetailPageModule)
+  },
+  {
+    path: 'student-tabular',
+    loadChildren: () => import('./modules/student-tabular/student-tabular.module').then( m => m.StudentTabularPageModule)
   }
 ];
 

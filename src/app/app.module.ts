@@ -18,6 +18,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UploadFormComponent } from './modules/shared/upload-form/upload-form.component';
 import { UploadListComponent } from './modules/shared/upload-list/upload-list.component';
 import { UploadDetailsComponent } from './modules/shared/upload-details/upload-details.component';
+import { AgGridModule } from 'ag-grid-angular';
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   entryComponents: [],
@@ -31,6 +32,7 @@ import { UploadDetailsComponent } from './modules/shared/upload-details/upload-d
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
     AngularFireDatabaseModule, //database
+    AgGridModule
   ],
   providers: [
     StatusBar,
