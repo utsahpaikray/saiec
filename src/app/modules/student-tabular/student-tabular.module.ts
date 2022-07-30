@@ -8,6 +8,7 @@ import { StudentTabularPageRoutingModule } from './student-tabular-routing.modul
 
 import { StudentTabularPage } from './student-tabular.page';
 import { AgGridModule } from 'ag-grid-angular';
+import { ExtractStudentComponent } from '../shared/extract-student/extract-student.component';
 
 @NgModule({
   imports: [

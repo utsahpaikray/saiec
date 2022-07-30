@@ -32,43 +32,43 @@
   <ion-grid class="padding-top student-info" *ngIf="!gridValue">
     <ion-row class="student">
       <ng-container *ngFor="let std of allStudentInfo">
-        <ion-col size="12" size-sm="6" size-md="4" size-lg="4" *ngIf="std?.info && std.info['Sub-Status']=='In School'">
+        <ion-col size="12" size-sm="6" size-md="4" size-lg="4" *ngIf="std && std['Sub-Status']=='In School'">
           <ion-card>
             <div class="img-icon">
               <ion-img src="https://lagracecenter.com/wp-content/uploads/2022/02/Final-with-waves-and-white-border.png">
               </ion-img>
-              <div class="bp blood" *ngIf="std['info'].bloodGroup">
-                {{std['info'].bloodGroup}}
+              <div class="bp blood" *ngIf="std.bloodGroup">
+                {{std.bloodGroup}}
               </div>
-              <div class="bp" *ngIf="std['info'].class">{{std['info'].class}}</div>
-              <div class="bp" *ngIf="std['info']['Sub-Status']" [class.out]="std['info']['Sub-Status']=='In Transfer'">
-                <span *ngIf="std['info']['Sub-Status']=='In School'"> IN </span>
-                <span *ngIf="std['info']['Sub-Status']=='In Transfer'"> OUT </span>
+              <div class="bp" *ngIf="std.class">{{std.class}}</div>
+              <div class="bp" *ngIf="std['Sub-Status']" [class.out]="std['Sub-Status']=='In Transfer'">
+                <span *ngIf="std['Sub-Status']=='In School'"> IN </span>
+                <span *ngIf="std['Sub-Status']=='In Transfer'"> OUT </span>
               </div>
             </div>
             <div class="image-conatiner">
-              <a [download]="std['info'].Image" [href]="std['info'].Image" title="ImageName" target="_blank">
-                <ion-img *ngIf="std['info'].Image" src="{{std['info'].Image}}"></ion-img>
+              <a [download]="std.Image" [href]="std.Image" title="ImageName" target="_blank">
+                <ion-img *ngIf="std.Image" src="{{std.Image}}"></ion-img>
               </a>
             </div>
 
             <ion-card-header>
-              <ion-card-title *ngIf="std['info'].StudentName">
-                <p>{{std['info'].StudentName}}</p>
+              <ion-card-title *ngIf="std.StudentName">
+                <p>{{std.StudentName}}</p>
               </ion-card-title>
-              <ion-card-subtitle *ngIf="std['info'].Class">Standard: <b>{{std['info'].class}}</b></ion-card-subtitle>
+              <ion-card-subtitle *ngIf="std.Class">Standard: <b>{{std.class}}</b></ion-card-subtitle>
             </ion-card-header>
-            <ion-card-content *ngIf="std['info']">
+            <ion-card-content *ngIf="std">
               <div class="info">
-                <ion-icon name="call"></ion-icon> : <b> <a href="tel: {{std['info'].MobileNumber}}">
-                    {{std['info'].MobileNumber}}</a>
+                <ion-icon name="call"></ion-icon> : <b> <a href="tel: {{std.MobileNumber}}">
+                    {{std.MobileNumber}}</a>
                 </b>
               </div>
               <div class="info">
-                <ion-icon name="home"></ion-icon> : <b> {{std['info'].Habitation|titlecase}}</b>
+                <ion-icon name="home"></ion-icon> : <b> {{std.Habitation|titlecase}}</b>
               </div>
               <ion-button class="ion-activatable ripple-parent" expand="full" shape="round" color="primary"
-                (click)="showModal(std['info'])">Detail
+                (click)="showModal(std)">Detail
                 <ion-ripple-effect></ion-ripple-effect>
               </ion-button>
             </ion-card-content>
@@ -120,5 +120,5 @@
       </ion-accordion-group>
     </ion-list>
   </ion-grid>
-  <!-- <app-extract-student></app-extract-student> -->
+  
 </ion-content>

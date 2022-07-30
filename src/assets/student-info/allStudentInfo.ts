@@ -4850,7 +4850,7 @@ export const allStudentInfo=[
             "EyeScreening": "No",
             "Session": "2022-23",
             "bloodGroup":"O+",
-            "Image": "https://eshendetesia.com/images/user-profile.png",
+            "Image": "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Anurkta.jpeg?alt=media&token=c11cfa4b-e0f8-4029-84d5-f76bd73b4c66",
             "Status": "Active",
             "Sub-Status": "In School",
             "DateOfAdmission": "30-04-2022",

@@ -7,28 +7,35 @@ import { GridApi, ColDef, GridOptions, GridReadyEvent, CellClickedEvent, GetCont
 import { Observable } from 'rxjs';
 import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
 import { allStudentInfo } from '../../../assets/student-info/allStudentInfo'
+
 @Component({
-  selector: 'app-student-tabular',
-  templateUrl: './student-tabular.page.html',
-  styleUrls: ['./student-tabular.page.scss'],
+  selector: 'app-student-school-fee',
+  templateUrl: './student-school-fee.page.html',
+  styleUrls: ['./student-school-fee.page.scss'],
 })
-export class StudentTabularPage implements OnInit {
+export class StudentSchoolFeePage implements OnInit {
+
 
   private gridApi!: GridApi;
 
  // Each Column Definition results in one Column.
  public columnDefs: ColDef[] = [
    { field: 'StudentName'},
-   { field: 'DateofBirth'},
    { field: 'FatherName' },
-   { field: 'MotherName' },
-   { field: 'Address' },
-   { field: 'Gender' },
    { field: 'MobileNumber' },
-   { field: 'bloodGroup' },
-   { field: 'Image' },
-   { field: 'class' },
-   {field:'Sub-Status'}
+   { field: 'January' },
+   { field: 'February' },
+   { field: 'March' },
+   { field: 'April' },
+   { field: 'May' },
+   { field: 'June' },
+   { field: 'July' },
+   { field: 'August' },
+   { field: 'September' },
+   { field: 'October' },
+   { field: 'November' },
+   { field: 'December' },
+
  ];
 
  // DefaultColDef sets props common to all Columns
@@ -57,24 +64,19 @@ export class StudentTabularPage implements OnInit {
  // Example load data from sever
  onGridReady(params: GridReadyEvent) {
   this.gridApi = params.api;
-  this.firebaseService.getAllstudent().subscribe(items=>{
-    let studentInfo=[]
-    // items.forEach(item=>{
-    //   studentInfo.push(item)
-    // })
-    console.log(items)
+  this.firebaseService.getAllstudentFee().subscribe(items=>{
+
      this.rowData = items;
   })
   
  }
  getContextMenuItems = (params) => {
-  console.log(params)
   var result: (string | MenuItemDef)[] = [
     {
       name: 'Action',
       subMenu: [
         {
-          name: 'Update Student',
+          name: 'Update Student fee',
           action: () => {
             console.log(this)
            this.updateStudent(params);
@@ -98,10 +100,11 @@ export class StudentTabularPage implements OnInit {
   return result;
 }
 public updateStudent(params: any) {
-  this.firebaseService.updateStudent('studentInfo',params.node.data.$id,params.node.data)
+  console.log(params.node.data.$id)
+ this.firebaseService.updateStudent('student-fee',params.node.data.$id,params.node.data)
 }
 public deleteStudent(params: any) {
-  this.firebaseService.deleteStudent('studentInfo',params.node.data.$id)
+  this.firebaseService.deleteStudent('student-fee',params.node.data.$id)
 }
 addStudent(){
   let studentObj={
@@ -140,7 +143,7 @@ addStudent(){
 
  // Example of consuming Grid Event
  onCellClicked( e: CellClickedEvent): void {
-   console.log('cellClicked', e);
+  
  }
 
  // Example using Grid's API
@@ -148,7 +151,7 @@ addStudent(){
    this.agGrid.api.deselectAll();
  }
  onBtExport() {
- this.gridApi.exportDataAsExcel({columnGroups: true, fileName: 'student' });
+ this.gridApi.exportDataAsExcel({columnGroups: true, fileName: 'scholl-fee' });
 }
 saveData(){
  let allData= this.getAllRows();
@@ -165,6 +168,7 @@ getAllRows() {
   return rowData;
 }
 createStudentRecord(data) {
-this.firebaseService.pushItems('studentInfo',data)
+this.firebaseService.pushItems('student-fee',data)
 }
 }
+

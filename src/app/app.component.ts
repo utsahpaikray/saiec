@@ -73,14 +73,14 @@ export class AppComponent implements OnInit {
     private staoreService:DownloadUrlService
   ) {
     this.initializeApp();
-    let storeImage= storage.ref('files/').listAll().subscribe((res) => {
+    // let storeImage= storage.ref('files/').listAll().subscribe((res) => {
       
-      res.items.forEach((itemRef) => {
+    //   res.items.forEach((itemRef) => {
         
-      });
-    },(error=>{
-        console.log(error)
-    }));
+    //   });
+    // },(error=>{
+    //     console.log(error)
+    // }));
     
   }
   getFiles(numberItems) {

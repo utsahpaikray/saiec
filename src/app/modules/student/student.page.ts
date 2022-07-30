@@ -12,19 +12,14 @@ import { groupBy, values } from 'lodash';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../shared/modal/modal.page';
 import { DownloadUrlService } from 'src/app/shared-service/download-url.service';
+import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
 @Component({
   selector: 'app-student',
   templateUrl: './student.page.html',
   styleUrls: ['./student.page.scss'],
 })
 export class StudentPage implements OnInit {
-  // public student7Info;
-  // public student6Info;
-  // public student5Info;
-  // public student4Info;
-  // public student3Info;
-  // public studentPioneerInfo;
-  public allStudentInfo = allStudentInfo;
+  public allStudentInfo;
   public gridValue: boolean = false;
   searchQuery: any;
   allStudent: any[];
@@ -32,20 +27,18 @@ export class StudentPage implements OnInit {
   allStudentClassWise: any[];
   inSchoolStudentData: any[];
   totalStudent: number;
-  constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService) {
-    //  this.student7Info=std7;
-    //  this.student6Info=std6;
-    //  this.student5Info=std5;
-    //  this.student4Info=std4;
-    //  this.student3Info=std3;
-    //  this.studentPioneerInfo=pioneer;
-    //  this.allStudent=[...this.student7Info,...this.student6Info,...this.student5Info,...this.student4Info,...this.student3Info,...this.studentPioneerInfo]    
+  constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService,public firebaseService:FirebaseService) {
   }
 
   ngOnInit() {
-    this.allStudentClassWise = values(groupBy(this.allStudentInfo, 'info.class'))
-    this.inSchoolStudentData = this.extractInschoolData();
-    this.generateAutoFeeStructure(this.inSchoolStudentData)
+    this.firebaseService.getAllstudent().subscribe(items=>{
+        console.log(items)
+         this.allStudentInfo = items;
+         this.allStudentClassWise = values(groupBy(this.allStudentInfo, 'class'))
+         this.inSchoolStudentData = this.extractInschoolData();
+         this.generateAutoFeeStructure(this.inSchoolStudentData)
+      })
+   
 
   }
   extractInschoolData() {
@@ -53,7 +46,7 @@ export class StudentPage implements OnInit {
     let filterData = this.allStudentClassWise.map(item => {
       console.log(item)
       return item.filter(innerItem => {
-        innerItem.info.exmaDetail= 
+        innerItem['exmaDetail']= 
         [
           {
               "month": "Jan",
@@ -439,7 +432,7 @@ export class StudentPage implements OnInit {
                   },
               ],
           },]
-        if (innerItem.info['Sub-Status'] == 'In School') {
+        if (innerItem['Sub-Status'] == 'In School') {
           this.totalStudent = this.totalStudent + 1;
           return true;
         };
@@ -487,10 +480,10 @@ export class StudentPage implements OnInit {
       let studentInfoArray = []
       flatData.forEach(element => {
         let studentInfo = {
-          name: element.info.StudentName,
-          mobile:element.info.MobileNumber,
-          class:element.info.class,
-          FatherName:element.info.FatherName,
+          name: element.StudentName,
+          mobile:element.MobileNumber,
+          class:element.class,
+          FatherName:element.FatherName,
           value: 0
         }
         studentInfoArray.push(studentInfo)

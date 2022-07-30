@@ -58,6 +58,10 @@ const routes: Routes = [
   {
     path: 'student-tabular',
     loadChildren: () => import('./modules/student-tabular/student-tabular.module').then( m => m.StudentTabularPageModule)
+  },
+  {
+    path: 'student-school-fee',
+    loadChildren: () => import('./modules/student-school-fee/student-school-fee.module').then( m => m.StudentSchoolFeePageModule)
   }
 ];
 
