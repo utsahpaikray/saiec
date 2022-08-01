@@ -7,6 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { DownloadUrlService } from './shared-service/download-url.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -19,49 +20,101 @@ export class AppComponent implements OnInit {
     {
       title: 'Home',
       url: '/home',
-      icon: 'home'
+      icon: 'home',
+      navigation:false
     },
     {
       title: 'Student',
       url: '/student',
-      icon: 'man'
+      icon: 'man',
+      navigation:false
     },
     {
       title: 'Faculty',
       url: '/faculty',
-      icon: 'people'
+      icon: 'people',
+      navigation:false
     },
     {
       title: 'Events',
       url: '/events',
-      icon: 'bicycle'
+      icon: 'bicycle',
+      navigation:false
     },
     {
       title: 'Notification',
       url: '/notification',
-      icon: 'notifications'
+      icon: 'notifications',
+      navigation:false
     },
     {
       title: 'Auto Fee',
       url: '/auto-fee',
-      icon: 'car'
+      icon: 'car',
+      navigation:false
     },
     {
       title: 'Student Fee',
       url: '/student-fee',
-      icon: 'bar-chart'
+      icon: 'bar-chart',
+      navigation:false
     },
     {
       title: 'Adv',
       url: '/adv',
-      icon: 'radio'
+      icon: 'radio',
+      navigation:false
     },
     {
       title: 'Question',
       url: '/questionset',
-      icon: 'radio'
-    }
+      icon: 'radio',
+      navigation:false
+    },
+    {
+      title: 'Login',
+      url: '/admin/login',
+      icon: 'prism',
+      navigation:false
+    },
+    {
+      title: 'Tabular View',
+      icon: 'bar-chart',
+      children: [
+        {
+          title: 'Student Info',
+          url: '/student-tabular',
+          icon: 'bar-chart',
+          navigation:true
+        },
+        {
+          title: 'School Fee',
+          url: '/student-school-fee',
+          icon: 'bar-chart',
+          navigation:true
+        },
+        {
+          title: 'School Auto Fee',
+          url: '/student-auto-fee',
+          icon: 'car',
+          navigation:true
+        },
+        {
+          title: 'Faculty',
+          url: '/faculty-form',
+          icon: 'people',
+          navigation:true
+        },
+        {
+          title: 'Notifications',
+          url: '/notification-form',
+          icon: 'notifications',
+          navigation:true
+        },
+      ]
+    },
   ];
+  user: any;
 
   constructor(
     private platform: Platform,
@@ -70,7 +123,8 @@ export class AppComponent implements OnInit {
     private router: Router,
     private db: AngularFirestore,
     private storage: AngularFireStorage,
-    private staoreService:DownloadUrlService
+    private staoreService:DownloadUrlService,
+    public  afAuth:  AngularFireAuth
   ) {
     this.initializeApp();
     // let storeImage= storage.ref('files/').listAll().subscribe((res) => {
@@ -96,6 +150,14 @@ export class AppComponent implements OnInit {
       this.statusBar.styleDefault();
       this.splashScreen.show();
     });
+    this.afAuth.authState.subscribe(user => {
+      if (user){
+        this.user = user;
+        localStorage.setItem('user', JSON.stringify(this.user));
+      } else {
+        localStorage.setItem('user', null);
+      }
+    })
   }
 
   ngOnInit() {

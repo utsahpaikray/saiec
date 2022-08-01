@@ -7,29 +7,25 @@ import { GridApi, ColDef, GridOptions, GridReadyEvent, CellClickedEvent, GetCont
 import { Observable } from 'rxjs';
 import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
 import { allStudentInfo } from '../../../assets/student-info/allStudentInfo'
+
 @Component({
-  selector: 'app-student-tabular',
-  templateUrl: './student-tabular.page.html',
-  styleUrls: ['./student-tabular.page.scss'],
+  selector: 'app-faculty-form',
+  templateUrl: './faculty-form.page.html',
+  styleUrls: ['./faculty-form.page.scss'],
 })
-export class StudentTabularPage implements OnInit {
+export class FacultyFormPage implements OnInit {
 
   private gridApi!: GridApi;
 
  // Each Column Definition results in one Column.
  public columnDefs: ColDef[] = [
-   { field: 'StudentName'},
-   { field: 'DateofBirth'},
-   { field: 'FatherName' },
-   { field: 'MotherName' },
-   { field: 'Address' },
-   { field: 'Gender' },
-   { field: 'MobileNumber' },
-   { field: 'bloodGroup' },
+   { field: 'id'},
+   { field: 'name'},
+   { field: 'position' },
+   { field: 'Designation' },
    { field: 'Image' },
-   { field: 'class' },
-   {field:'Sub-Status'},
-   {field:'SocialCategory'}
+   { field: 'location' },
+   { field: 'MobileNumber' }
  ];
 
  // DefaultColDef sets props common to all Columns
@@ -63,12 +59,7 @@ export class StudentTabularPage implements OnInit {
  // Example load data from sever
  onGridReady(params: GridReadyEvent) {
   this.gridApi = params.api;
-  this.firebaseService.getAllstudent().subscribe(items=>{
-    let studentInfo=[]
-    // items.forEach(item=>{
-    //   studentInfo.push(item)
-    // })
-    console.log(items)
+  this.firebaseService.getAllFaculty().subscribe(items=>{
      this.rowData = items;
   })
   
@@ -80,16 +71,16 @@ export class StudentTabularPage implements OnInit {
       name: 'Action',
       subMenu: [
         {
-          name: 'Update Student',
+          name: 'Update',
           action: () => {
             console.log(this)
-           this.updateStudent(params);
+           this.update(params);
           },
         },
         {
-          name: 'Delete Student',
+          name: 'Delete',
           action: () => {
-           this.deleteStudent(params)
+           this.delete(params)
           },
         }
       ],
@@ -103,45 +94,23 @@ export class StudentTabularPage implements OnInit {
   ];
   return result;
 }
-public updateStudent(params: any) {
-  this.firebaseService.updateStudent('studentInfo',params.node.data.$id,params.node.data)
+public update(params: any) {
+  this.firebaseService.updateStudent('faculty',params.node.data.$id,params.node.data)
 }
-public deleteStudent(params: any) {
-  this.firebaseService.deleteStudent('studentInfo',params.node.data.$id)
+public delete(params: any) {
+  this.firebaseService.deleteStudent('faculty',params.node.data.$id)
 }
 addStudent(){
-  let studentObj={
-    "Admission Numbe": "2019-20/0108",
-    "PreviousYear": "3",
-    "AadharNumber": "",
-    "Address": "Vill-Paikakusadi, P. O. -Ankulachat, P. S. -Balugaon",
-    "Sub-Status": "In School",
-    "Image": "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Aditya%20Maharana.jpeg?alt=media&token=74270099-519c-48d5-b3db-0007b8c69682",
-    "Block": "Chilika",
-    "bloodGroup": "O+",
-    "StudentName": "Utsah",
-    "DateofBirth": "06-03-2013",
-    "Medium": "Odia",
-    "StudentID": "2117070130200188",
-    "MobileNumber": "7377647878",
-    "StudentOpted": "Day Boarder",
-    "Status": "Active",
-    "MotherName": "Sunita Paikray",
-    "Email Address": "pradosh84@yahoo.co.in",
-    "Habitation": "PAIKAKUSHADIHA",
-    "DateOfAdmission": "02-04-2019",
-    "EyeScreening": "No",
-    "Session": "2022-23",
-    "Gender": "1 - Male",
-    "MotherTongue": "Odia",
-    "SocialCategory": "4-OBC/SEBC",
-    "BPL": "Yes",
-    "class": "4",
-    "District": "Khordha",
-    "FatherName": "Uttam Kumar Paikray",
-    "Religion": "0 - Hindu",
+  let facultyObj={
+    'id':'',
+    'name':'',
+    'position':'',
+   'Designation':'' ,
+   'Image':'',
+   'location':'' ,
+   'MobileNumber':''
 }
-  this.firebaseService.addNewStudent('studentInfo',studentObj.MobileNumber,studentObj);
+  this.firebaseService.pushItems('faculty',facultyObj);
 }
 
  // Example of consuming Grid Event
@@ -171,6 +140,7 @@ getAllRows() {
   return rowData;
 }
 createStudentRecord(data) {
-this.firebaseService.pushItems('studentInfo',data)
+this.firebaseService.pushItems('faculty',data)
 }
 }
+

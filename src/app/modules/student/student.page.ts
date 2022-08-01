@@ -472,7 +472,6 @@ export class StudentPage implements OnInit {
     return await modal.present();
   }
   generateAutoFeeStructure(data) {
-    console.log(data.flat(2))
     let flatData = data.flat(2);
     let months = ['January', 'Februaru', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let AutoFeeMonthwise = []
@@ -490,7 +489,6 @@ export class StudentPage implements OnInit {
       });
     AutoFeeMonthwise.push({month:month,studentInf:studentInfoArray})
     })
-console.log(AutoFeeMonthwise)
 
   }
 

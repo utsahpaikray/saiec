@@ -19,6 +19,11 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "ag-grid-enterprise",
+              "@firebase/firestore"
+           ],
             "assets": [
               {
                 "glob": "**/*",
@@ -32,6 +37,7 @@
               }
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               {
                 "input": "src/theme/variables.scss",
                 "inject": true
@@ -107,7 +113,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "styles": [],
+            "styles": [ "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"],
             "scripts": [],
             "assets": [
               {

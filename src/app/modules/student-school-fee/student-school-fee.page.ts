@@ -64,7 +64,7 @@ export class StudentSchoolFeePage implements OnInit {
  // Example load data from sever
  onGridReady(params: GridReadyEvent) {
   this.gridApi = params.api;
-  this.firebaseService.getAllstudentFee().subscribe(items=>{
+  this.firebaseService.getAllstudentFee('student-fee').subscribe(items=>{
 
      this.rowData = items;
   })
@@ -138,7 +138,7 @@ addStudent(){
     "FatherName": "Uttam Kumar Paikray",
     "Religion": "0 - Hindu",
 }
-  this.firebaseService.addNewStudent(studentObj.MobileNumber,studentObj);
+  this.firebaseService.addNewStudent('student-fee',studentObj.MobileNumber,studentObj);
 }
 
  // Example of consuming Grid Event

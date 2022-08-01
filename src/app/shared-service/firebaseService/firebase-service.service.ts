@@ -100,7 +100,8 @@ export class FirebaseService {
     return this.firestore.collection('my-school-list').snapshotChanges();
   }
   updateStudent(path,recordID,record){
-    this.firestore.doc(`${path}/${recordID}`).update(record);
+    console.log(recordID)
+   this.firestore.doc(`${path}/${recordID}`).update(record);
   }
  
   deleteStudent(path,recordID) {
@@ -109,11 +110,17 @@ export class FirebaseService {
   getAllstudent(){
     return this.firestore.collection('studentInfo').valueChanges({ idField: '$id' });
   }
-  getAllstudentFee(){
-    return this.firestore.collection('student-fee').valueChanges({ idField: '$id' });
+  getAllstudentFee(path){
+    return this.firestore.collection(path).valueChanges({ idField: '$id' });
   }
-  addNewStudent(id,record) {
-    this.firestore.collection('studentInfo').doc(id).set(record);
+  getAllFaculty(){
+    return this.firestore.collection('faculty').valueChanges({ idField: '$id' });
+  }
+  addNewStudent(path,id,record) {
+    this.firestore.collection(path).doc(id).set(record);
+   }
+   getNotication(){
+    return this.firestore.collection('notification').valueChanges({ idField: '$id' });
    }
   pushItems(endPoint,item){
    // return this.firestore.collection('NoteBookItems').add(item);

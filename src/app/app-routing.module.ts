@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { AuthGuard } from './shared-service/services/auth.guard';
 const routes: Routes = [
   {
     path: '',
@@ -57,11 +57,32 @@ const routes: Routes = [
   },
   {
     path: 'student-tabular',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/student-tabular/student-tabular.module').then( m => m.StudentTabularPageModule)
   },
   {
     path: 'student-school-fee',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/student-school-fee/student-school-fee.module').then( m => m.StudentSchoolFeePageModule)
+  },
+  {
+    path: 'student-auto-fee',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./modules/student-auto-fee/student-auto-fee.module').then( m => m.StudentAutoFeePageModule)
+  },
+  {
+    path: 'notification-form',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./modules/notification-form/notification-form.module').then( m => m.NotificationFormPageModule)
+  },
+  {
+    path: 'faculty-form',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./modules/faculty-form/faculty-form.module').then( m => m.FacultyFormPageModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then( m => m.AdminPageModule)
   }
 ];
 
