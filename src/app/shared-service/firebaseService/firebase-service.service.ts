@@ -116,6 +116,9 @@ export class FirebaseService {
   getAllFaculty(){
     return this.firestore.collection('faculty').valueChanges({ idField: '$id' });
   }
+  getAllExamDetail(){
+    return this.firestore.collection('exam-detail').valueChanges({ idField: '$id' });
+  }
   addNewStudent(path,id,record) {
     this.firestore.collection(path).doc(id).set(record);
    }

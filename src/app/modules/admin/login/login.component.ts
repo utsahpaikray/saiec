@@ -28,6 +28,7 @@ login(){
     this.toasterService.presentToast('Succesfull Login',2000)
   },(err=>{
     this.toasterService.presentToast(err,2000)
+    localStorage.removeItem('user');
     console.log(err)
   }))
 }
