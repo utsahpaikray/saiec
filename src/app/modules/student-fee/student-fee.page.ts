@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { allStudentInfo } from '../../../assets/student-info/allStudentInfo';
-import { groupBy, values } from 'lodash';
+import { groupBy, values,sortBy } from 'lodash';
 import { ModalController } from '@ionic/angular';
 import { StudentDetailPage } from '../shared/student-detail/student-detail.page';
+import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
 
 @Component({
   selector: 'app-student-fee',
@@ -18,13 +19,15 @@ export class StudentFeePage implements OnInit {
   inSchoolStudentData: any[];
   totalStudent: number;
   AutoFeeMonthwise: any[];
-  constructor(private route: ActivatedRoute,public modalCtrl: ModalController) { }
+  constructor(private route: ActivatedRoute,public modalCtrl: ModalController,public firebaseService:FirebaseService) { }
+
+ 
 
   ngOnInit() {
-    this.allStudentClassWise = values(groupBy(this.allStudentInfo, 'info.class'))
-    this.params = this.route.snapshot.params;
-    this.inSchoolStudentData = this.extractInschoolData();
-    this.generateAutoFeeStructure(this.inSchoolStudentData)
+    this.firebaseService.getAllstudentFee('student-fee').subscribe(auto=>{
+      let autoFee=auto;
+      this.generateAutoFeeStructure(autoFee)
+    })
   }
   extractInschoolData() {
     this.totalStudent = 0;
@@ -41,27 +44,25 @@ export class StudentFeePage implements OnInit {
     return filterData;
   }
   generateAutoFeeStructure(data) {
-    console.log(data.flat(2))
-    let flatData = data.flat(2);
+    let flatData = data;
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     this.AutoFeeMonthwise = []
     months.forEach(month => {
       let studentInfoArray = []
       flatData.forEach(element => {
         let studentInfo = {
-          name: element.info.StudentName,
-          mobile:element.info.MobileNumber,
-          class:element.info.class,
-          image:element.info.Image,
-          FatherName:element.info.FatherName,
-          value: 0
+          name: element.StudentName,
+          mobile:element.MobileNumber,
+          class:element.class,
+          image:element.Image,
+          FatherName:element.FatherName,
+          value: element[month]
         }
         studentInfoArray.push(studentInfo)
       });
-    this.AutoFeeMonthwise.push({month:month,studentInf:studentInfoArray})
+      studentInfoArray=sortBy(studentInfoArray,['class','name'])
+      this.AutoFeeMonthwise.push({month:month,studentInf:studentInfoArray})
     })
-console.log(this.AutoFeeMonthwise)
-
   }
   public async showModal(info) {
     let monthlyCollection=[]

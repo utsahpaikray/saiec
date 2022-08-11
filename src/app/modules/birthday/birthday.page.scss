@@ -1,0 +1,120 @@
+.image-container {
+    height: 60%;
+    display: flex;
+}
+
+p {
+    font-weight: 600;
+    text-decoration: dashed;
+    text-align: center;
+    color: #000;
+    &.title{
+        background: #039be5;
+        padding: 5px;
+        border-radius: 5px;
+        color: #fff;
+    }
+}
+
+.image-conatiner {
+    display: flex;
+    justify-content: center;
+
+    ion-img {
+        height: 12rem;
+        width: 12rem;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+
+        &::part(image) {
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+    }
+}
+
+ion-card {
+    //border-left: 1rem solid #90caf9;
+    filter: drop-shadow(1px 1px 5px #d2d2d2);
+    background-image: url(https://media.istockphoto.com/vectors/birthday-background-with-color-balloons-vector-id492726061?k=20&m=492726061&s=170667a&w=0&h=2tvfkp4c3MBwQA7ywDvWk7ghw3vZ2kYTK4c-9n-ekog=);
+    object-fit: cover;
+    background-repeat: repeat-y;
+    font-weight: 600;
+    background-size: cover;
+    color: black;
+    margin:0;
+    &.top-card{
+        border-radius: 0 !important;
+    background-image: url(https://www.nicepng.com/png/detail/254-2541440_birthday-parties-happy-birthday-vector-png.png);
+    height: 50vh;
+    background-position: center;
+    background-origin: border-box;
+    background-origin: content-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #f6f6f6;
+    }
+}
+
+ion-card-subtitle {
+    color: black;
+    font-weight: 600;
+}
+
+.img-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    ion-img {
+       
+        height: 45px;
+        width: 45px;
+        clear: both;
+    }
+    .bp {
+        background: #2dd36f;
+        padding: 5px;
+        width: 3rem;
+        border-radius: 10px 0 0 10px;
+        margin-top: 8px;
+        clear: both;
+        font-size: 1rem;
+        text-align: center;
+        &.out{
+            background: #f44336
+        }
+        &.blood{
+            background: #e74646;
+        }
+    }
+}
+
+.no-item {
+    ion-img {
+        height: 15rem;
+    }
+}
+
+ion-toggle {
+    height: 1.5rem;
+}
+
+.grid-view {
+  //  display: flex;
+  //  justify-content: end;
+  //  align-items: center;
+}
+.info{
+    text-align: center;
+}
+.action-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

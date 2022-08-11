@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { StudentDetailPageRoutingModule } from './student-detail-routing.module';
-
+import { BrowserModule } from '@angular/platform-browser'
 import { StudentDetailPage } from './student-detail.page';
 
 @NgModule({
@@ -13,6 +13,7 @@ import { StudentDetailPage } from './student-detail.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    BrowserModule,
     StudentDetailPageRoutingModule
   ],
   declarations: [StudentDetailPage]

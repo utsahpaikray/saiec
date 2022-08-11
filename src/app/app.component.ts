@@ -36,6 +36,12 @@ export class AppComponent implements OnInit {
       navigation:false
     },
     {
+      title: 'Birthday',
+      url: '/birthday',
+      icon: 'gift',
+      navigation:false
+    },
+    {
       title: 'Events',
       url: '/events',
       icon: 'bicycle',
@@ -56,7 +62,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Student Fee',
       url: '/student-fee',
-      icon: 'bar-chart',
+      icon: 'cash',
       navigation:false
     },
     {
@@ -68,7 +74,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Question',
       url: '/questionset',
-      icon: 'radio',
+      icon: 'cube',
       navigation:false
     },
     {
@@ -84,13 +90,13 @@ export class AppComponent implements OnInit {
         {
           title: 'Student Info',
           url: '/student-tabular',
-          icon: 'bar-chart',
+          icon: 'list',
           navigation:true
         },
         {
           title: 'School Fee',
           url: '/student-school-fee',
-          icon: 'bar-chart',
+          icon: 'cash',
           navigation:true
         },
         {

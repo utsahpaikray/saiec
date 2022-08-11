@@ -1,6 +1,12 @@
+
 <ion-header  translucent>
   <ion-toolbar>
+    <ion-buttons slot="start" (click)='dismiss()'>
+      <!-- <ion-menu-button></ion-menu-button> -->
+      <ion-back-button color="primary" text="Back" icon="add"> </ion-back-button>
+    </ion-buttons>
     <ion-title>{{info[0].info.name}}</ion-title>
+    <ion-icon slot="end" name='close-circle' (click)='dismiss()' class="close"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -10,13 +16,10 @@
       <ion-list-header>
       </ion-list-header>
           <ion-list slot="content">
-            <ion-item-sliding  *ngFor="let studenfInfo of info">
-            <ion-item>
+            <ion-item *ngFor="let studenfInfo of info">  
               <ion-label>{{ studenfInfo.month|titlecase }} </ion-label>
               <ion-label slot="end">{{ studenfInfo.info.value }} </ion-label>
             </ion-item>
-
-          </ion-item-sliding>
           </ion-list>
       
     </ion-list>

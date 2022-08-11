@@ -9,7 +9,7 @@
          </div>
          
           <!-- <ion-note>SAIEC@gmail.com</ion-note> -->
-          <ion-menu-toggle auto-hide="false" autoHide="false" *ngFor="let p of appPages; let i = index">
+          <ion-menu-toggle menu="first" autoHide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i" *ngIf="!p.children">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
@@ -21,7 +21,7 @@
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
             <ion-list *ngIf="p.open">
-              <ion-menu-toggle auto-hide="false" color="transparent" >
+             
                   <ng-container  *ngFor="let sub of p.children">
                       <ion-item *ngIf="sub.navigation"  class="sub-item" [routerLink]="sub.url" routerDirection="root"
                         routerLinkActive="active" >
@@ -31,7 +31,7 @@
                         </ion-label>
                       </ion-item>
                     </ng-container>
-              </ion-menu-toggle>
+             
             </ion-list>
           </ion-menu-toggle>
         </ion-list>
@@ -49,13 +49,5 @@
 
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
-    <!-- <div class="container" style="width:600px">
-      <div class="my-3">
-        <app-upload-form></app-upload-form>
-      </div>
-      <div class="my-2">
-        <app-upload-list></app-upload-list>
-      </div>
-    </div> -->
   </ion-split-pane>
 </ion-app>

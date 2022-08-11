@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { std7 } from './../../../assets/student-info/standard7';
-import { std6 } from './../../../assets/student-info/standard6';
-import { std5 } from './../../../assets/student-info/standard5';
-import { std4 } from './../../../assets/student-info/standard4';
-import { std3 } from './../../../assets/student-info/standard3';
-import { pioneer } from '../../../assets/student-info/pioneer';
-import { allStudentInfo } from '../../../assets/student-info/allStudentInfo'
-
 import * as XLSX from 'xlsx'
-import { groupBy, values } from 'lodash';
+import { groupBy, values,sortBy } from 'lodash';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../shared/modal/modal.page';
 import { DownloadUrlService } from 'src/app/shared-service/download-url.service';
@@ -32,8 +24,12 @@ export class StudentPage implements OnInit {
 
   ngOnInit() {
     this.firebaseService.getAllstudent().subscribe(items=>{
-        console.log(items)
-         this.allStudentInfo = items;
+        this.totalStudent= items.length;
+         this.allStudentInfo = sortBy(items, ['class','StudentName']);
+         var grouped = groupBy(this.allStudentInfo, function(it) {
+            return it.DateofBirth.split('-')[1] ;
+        });
+        console.log(grouped)
          this.allStudentClassWise = values(groupBy(this.allStudentInfo, 'class'))
          this.inSchoolStudentData = this.extractInschoolData();
          this.generateAutoFeeStructure(this.inSchoolStudentData)
@@ -42,9 +38,11 @@ export class StudentPage implements OnInit {
 
   }
   extractInschoolData() {
-    this.totalStudent = 0;
+   // this.totalStudent = 0;
     let filterData = this.allStudentClassWise.map(item => {
       console.log(item)
+     
+
       return item.filter(innerItem => {
         innerItem['exmaDetail']= 
         [
@@ -433,7 +431,7 @@ export class StudentPage implements OnInit {
               ],
           },]
         if (innerItem['Sub-Status'] == 'In School') {
-          this.totalStudent = this.totalStudent + 1;
+       //   this.totalStudent = this.totalStudent + 1;
           return true;
         };
       })
@@ -473,7 +471,7 @@ export class StudentPage implements OnInit {
   }
   generateAutoFeeStructure(data) {
     let flatData = data.flat(2);
-    let months = ['January', 'Februaru', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let AutoFeeMonthwise = []
     months.forEach(month => {
       let studentInfoArray = []

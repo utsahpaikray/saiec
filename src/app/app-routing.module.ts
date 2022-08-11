@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NoPreloading, PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared-service/services/auth.guard';
 const routes: Routes = [
   {
@@ -87,6 +87,10 @@ const routes: Routes = [
   {
     path: 'exam-detail',
     loadChildren: () => import('./modules/exam-detail/exam-detail.module').then( m => m.ExamDetailPageModule)
+  },
+  {
+    path: 'birthday',
+    loadChildren: () => import('./modules/birthday/birthday.module').then( m => m.BirthdayPageModule)
   }
 ];
 
