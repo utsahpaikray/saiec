@@ -20,6 +20,7 @@ import { UploadListComponent } from './modules/shared/upload-list/upload-list.co
 import { UploadDetailsComponent } from './modules/shared/upload-details/upload-details.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   entryComponents: [],
@@ -34,7 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireStorageModule, // storage
     AngularFireDatabaseModule, //database
     AgGridModule, 
-    BrowserAnimationsModule
+    BrowserAnimationsModule, ServiceWorkerModule.register('ngsw-worker.js', {
+  enabled: environment.production,
+  // Register the ServiceWorker as soon as the application is stable
+  // or after 30 seconds (whichever comes first).
+  registrationStrategy: 'registerWhenStable:30000'
+})
   ],
   providers: [
     StatusBar,

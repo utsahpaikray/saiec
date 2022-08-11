@@ -23,6 +23,7 @@
     "@angular/platform-browser": "~12.2.16",
     "@angular/platform-browser-dynamic": "~12.2.16",
     "@angular/router": "~12.2.16",
+    "@angular/service-worker": "~12.2.16",
     "@capacitor/android": "^2.4.0",
     "@capacitor/core": "2.4.0",
     "@ionic-native/core": "^5.0.7",
