@@ -91,6 +91,10 @@ const routes: Routes = [
   {
     path: 'birthday',
     loadChildren: () => import('./modules/birthday/birthday.module').then( m => m.BirthdayPageModule)
+  },
+  {
+    path: 'calendar',
+    loadChildren: () => import('./modules/holiday-calender/holiday-calender.module').then( m => m.HolidayCalenderPageModule)
   }
 ];
 

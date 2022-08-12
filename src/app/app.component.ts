@@ -42,6 +42,12 @@ export class AppComponent implements OnInit {
       navigation:false
     },
     {
+      title: 'Calendar',
+      url: '/calendar',
+      icon: 'calendar',
+      navigation:false
+    },
+    {
       title: 'Events',
       url: '/events',
       icon: 'bicycle',

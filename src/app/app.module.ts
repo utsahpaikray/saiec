@@ -21,6 +21,8 @@ import { UploadDetailsComponent } from './modules/shared/upload-details/upload-d
 import { AgGridModule } from 'ag-grid-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   entryComponents: [],
@@ -35,6 +37,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AngularFireStorageModule, // storage
     AngularFireDatabaseModule, //database
     AgGridModule, 
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
     BrowserAnimationsModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: environment.production,
   // Register the ServiceWorker as soon as the application is stable
