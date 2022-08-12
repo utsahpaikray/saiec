@@ -17,6 +17,7 @@ export class EventsPage implements OnInit {
   }
   getEvents(){
     this.events = events;
+    console.log(this.events)
     // this.eventsService.getEvents().subscribe(res=>{
     //   this.events = res.articles;
     //   console.log(res)

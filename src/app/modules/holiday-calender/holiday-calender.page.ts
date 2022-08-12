@@ -74,19 +74,7 @@ export class HolidayCalenderPage implements OnInit {
     //   color: { ...colors.yellow },
     //   actions: this.actions,
     // },
-    // {
-    //   start: subDays(startOfDay(new Date()), 1),
-    //   end: addDays(new Date(), 1),
-    //   title: 'A 3 day event',
-    //   color: {...colors.red },
-    //   actions: this.actions,
-    //   allDay: true,
-    //   resizable: {
-    //     beforeStart: true,
-    //     afterEnd: true,
-    //   },
-    //   draggable: true,
-    // },
+
     // {
     //   start: startOfDay(new Date()),
     //   title: 'An event with no end date',
@@ -113,12 +101,14 @@ export class HolidayCalenderPage implements OnInit {
     //   draggable: true,
     // },
   ];
+ 
 
   activeDayIsOpen: boolean = true;
   constructor(public firebaseService:FirebaseService) {
   }
 
   ngOnInit() {
+   // this.createHolidayList();
     this.firebaseService.getAllstudent().subscribe(items=>{
         items.forEach(element => {
           this.events.push({
@@ -130,7 +120,27 @@ export class HolidayCalenderPage implements OnInit {
         });
         this.refreshView();
       });
-
+      this.getHolidayList()
+  }
+  getHolidayList(){
+    this.firebaseService.getAll('holidayList').subscribe(items=>{
+      items.forEach(element => {
+        this.events.push({
+          start: this.dateModification(element['start']),
+          end:element['end']? this.dateModification(element['end']):null,
+          title: element['title'] ,
+          color: { ...colors.blue },
+          actions: this.actions,
+        })
+      });
+      this.refreshView();
+    });
+  }
+  createHolidayList(){
+    // this.holidayList.forEach(item=>{
+    //   this.firebaseService.pushItems('holidayList',item)
+    // })
+    
   }
   public dateModification(date){
     let newdate= date.split('-');

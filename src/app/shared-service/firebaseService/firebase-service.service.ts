@@ -110,6 +110,9 @@ export class FirebaseService {
   getAllstudent(){
     return this.firestore.collection('studentInfo').valueChanges({ idField: '$id' });
   }
+  getAll(path){
+    return this.firestore.collection(path).valueChanges({ idField: '$id' });
+  }
   getAllstudentFee(path){
     return this.firestore.collection(path).valueChanges({ idField: '$id' });
   }
@@ -118,6 +121,9 @@ export class FirebaseService {
   }
   getAllExamDetail(){
     return this.firestore.collection('exam-detail').valueChanges({ idField: '$id' });
+  }
+  addHoliday(){
+
   }
   addNewStudent(path,id,record) {
     this.firestore.collection(path).doc(id).set(record);
