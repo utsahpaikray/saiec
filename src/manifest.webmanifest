@@ -1,11 +1,12 @@
 {
-  "name": "app",
-  "short_name": "app",
+  "name": "SAIEC",
+  "short_name": "SAIEC",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
+  "gcm_sender_id": "984054275412",
   "icons": [
     {
       "src": "assets/icon/favicon.png",

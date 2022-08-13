@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NavigationEnd, Router } from '@angular/router';
@@ -8,6 +8,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { DownloadUrlService } from './shared-service/download-url.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { MessagingService } from './shared-service/messaging.service';
 
 @Component({
   selector: 'app-root',
@@ -127,7 +128,9 @@ export class AppComponent implements OnInit {
     },
   ];
   user: any;
-
+  title = 'push-notification';
+  message;
+  readonly VAPID_PUBLIC_KEY = "BIO6yW3VtwChWkL61__mF4c5k-8PLU62PkE0Arh4oGSqdBmt0HeuKDqBh1hXTnBqsfL7JGn6EHbtvr3EFFKUY_Q";
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -136,25 +139,13 @@ export class AppComponent implements OnInit {
     private db: AngularFirestore,
     private storage: AngularFireStorage,
     private staoreService:DownloadUrlService,
-    public  afAuth:  AngularFireAuth
+    public  afAuth:  AngularFireAuth,
+    private messagingService: MessagingService,
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController
   ) {
     this.initializeApp();
-    // let storeImage= storage.ref('files/').listAll().subscribe((res) => {
-      
-    //   res.items.forEach((itemRef) => {
-        
-    //   });
-    // },(error=>{
-    //     console.log(error)
-    // }));
-    
-  }
-  getFiles(numberItems) {
-    console.log('called')
-    // this.storage.upload('files/', ref =>{
-    //   console.log(ref)
-    //   ref.limitToLast(numberItems)
-    // });
+    this.listenForMessages();
   }
 
   initializeApp() {
@@ -187,5 +178,50 @@ export class AppComponent implements OnInit {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
    // this.getFiles(5)
+  }
+  listenForMessages() {
+    this.messagingService.getMessages().subscribe(async (msg: any) => {
+      console.log(msg)
+      const alert = await this.alertCtrl.create({
+        header: msg.notification.title,
+        subHeader: msg.notification.body,
+        message: msg.data.info,
+        buttons: ['OK'],
+      });
+ 
+      await alert.present();
+    },(error=>{
+      alert(error)
+    }));
+  }
+ 
+  requestPermission() {
+    this.messagingService.requestPermission().subscribe(
+      async token => {
+        const toast = await this.toastCtrl.create({
+          message: 'Got your token',
+          duration: 2000
+        });
+        toast.present();
+      },
+      async (err) => {
+        const alert = await this.alertCtrl.create({
+          header: 'Error',
+          message: err,
+          buttons: ['OK'],
+        });
+ 
+        await alert.present();
+      }
+    );
+  }
+ 
+  async deleteToken() {
+    this.messagingService.deleteToken();
+    const toast = await this.toastCtrl.create({
+      message: 'Token removed',
+      duration: 2000
+    });
+    toast.present();
   }
 }

@@ -23,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { MessagingService } from './shared-service/messaging.service';
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   entryComponents: [],
@@ -36,21 +38,22 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
     AngularFireDatabaseModule, //database
+    AngularFireMessagingModule,
     AgGridModule, 
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
-    BrowserAnimationsModule, ServiceWorkerModule.register('ngsw-worker.js', {
+    BrowserAnimationsModule, 
+    ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: environment.production,
-  // Register the ServiceWorker as soon as the application is stable
-  // or after 30 seconds (whichever comes first).
   registrationStrategy: 'registerWhenStable:30000'
 })
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    MessagingService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
