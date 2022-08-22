@@ -15,6 +15,7 @@ export class FacultyPage implements OnInit {
   public facultyList:any[];
   ngOnInit() {
 this.firebaseService.getAllFaculty().subscribe(faculty=>{
+  console.log(faculty)
   this.facultyList=faculty;
 })
   }

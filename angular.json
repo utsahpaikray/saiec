@@ -37,7 +37,8 @@
               },
               "src/manifest.webmanifest",
               "src/firebase-messaging-sw.js", 
-              "src/service-worker.js"
+              "src/service-worker.js",
+              "src/OneSignalSDKWorker.js"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
@@ -133,7 +134,8 @@
               },
               "src/manifest.webmanifest",
               "src/firebase-messaging-sw.js",
-              "src/service-worker.js"
+              "src/service-worker.js",
+              "src/OneSignalSDKWorker.js"
             ]
           },
           "configurations": {

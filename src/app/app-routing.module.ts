@@ -95,6 +95,14 @@ const routes: Routes = [
   {
     path: 'calendar',
     loadChildren: () => import('./modules/holiday-calender/holiday-calender.module').then( m => m.HolidayCalenderPageModule)
+  },
+  {
+    path: 'staff-payment',
+    loadChildren: () => import('./modules/staff-payment/staff-payment.module').then( m => m.StaffPaymentPageModule)
+  },
+  {
+    path: 'staff-tabular-view',
+    loadChildren: () => import('./modules/staff-tabular-view/staff-tabular-view.module').then( m => m.StaffTabularViewPageModule)
   }
 ];
 

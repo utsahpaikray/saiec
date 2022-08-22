@@ -39,6 +39,7 @@
     "date-fns": "^2.29.1",
     "firebase": "^7.10.0",
     "moment": "^2.29.4",
+    "onesignal-ngx": "^1.0.2",
     "rxjs": "~6.5.1",
     "sass": "^1.54.0",
     "tslib": "^2.0.0",

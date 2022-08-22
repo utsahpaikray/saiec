@@ -9,6 +9,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { DownloadUrlService } from './shared-service/download-url.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MessagingService } from './shared-service/messaging.service';
+import { OneSignal } from 'onesignal-ngx';
+import { environment } from '../environments/environment.prod';
 
 @Component({
   selector: 'app-root',
@@ -73,6 +75,12 @@ export class AppComponent implements OnInit {
       navigation:false
     },
     {
+      title:'Staff Payment',
+      url:"/staff-payment",
+      icon:"cash",
+      navigation:false
+    },
+    {
       title: 'Adv',
       url: '/adv',
       icon: 'radio',
@@ -119,6 +127,12 @@ export class AppComponent implements OnInit {
           navigation:true
         },
         {
+          title:'Faculty Fee',
+          url:'/staff-tabular-view',
+          icon:'people',
+          navigation:true
+        },
+        {
           title: 'Notifications',
           url: '/notification-form',
           icon: 'notifications',
@@ -142,7 +156,8 @@ export class AppComponent implements OnInit {
     public  afAuth:  AngularFireAuth,
     private messagingService: MessagingService,
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private oneSignal: OneSignal
   ) {
     this.initializeApp();
     this.listenForMessages();
@@ -164,6 +179,33 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+
+ 
+    if(environment.production){
+      this.oneSignal.init({ appId: "5d43f72e-8102-4a2e-8b69-3b97facadd03",
+   
+      notifyButton: {
+        enable: true,
+      }, }).then(() => {
+        console.log('called')
+        // do other stuff
+        this.oneSignal.on('subscriptionChange', function(isSubscribed) {
+          console.log("The user's subscription state is now:", isSubscribed);
+        });
+      });
+    }else{
+      this.oneSignal.init({ appId: "69fdf635-4526-49b7-850d-540fcf98830e",
+      safari_web_id: "web.onesignal.auto.5d451968-8243-4fe2-88cd-3c94a5f2a4fc",
+      notifyButton: {
+        enable: true,
+      }, }).then(() => {
+        this.oneSignal.on('subscriptionChange', function(isSubscribed) {
+          console.log("The user's subscription state is now:", isSubscribed);
+        });
+        // do other stuff
+      });
+    }
+ 
     this.router.events.subscribe(url=>{
       if(url instanceof NavigationEnd)
       this.appPages.map((page,index)=>{
