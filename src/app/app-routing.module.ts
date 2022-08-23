@@ -102,7 +102,13 @@ const routes: Routes = [
   },
   {
     path: 'staff-tabular-view',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/staff-tabular-view/staff-tabular-view.module').then( m => m.StaffTabularViewPageModule)
+  },
+  {
+    path: 'gallery',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./modules/gallery/gallery.module').then( m => m.GalleryPageModule)
   }
 ];
 

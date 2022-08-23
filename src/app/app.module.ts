@@ -25,11 +25,13 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { MessagingService } from './shared-service/messaging.service';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,

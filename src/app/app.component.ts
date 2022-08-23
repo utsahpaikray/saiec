@@ -133,6 +133,12 @@ export class AppComponent implements OnInit {
           navigation:true
         },
         {
+          title:'Gallery form',
+          url:'/gallery',
+          icon:'images',
+          navigation:true
+        },
+        {
           title: 'Notifications',
           url: '/notification-form',
           icon: 'notifications',
