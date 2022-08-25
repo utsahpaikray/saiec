@@ -113,6 +113,12 @@ export class FirebaseService {
   getAll(path){
     return this.firestore.collection(path).valueChanges({ idField: '$id' });
   }
+  getGallery(id){
+    return this.firestore.collection('gallery').doc(id).valueChanges();
+  }
+  saveGallery(id,record) {
+    this.firestore.collection('gallery').doc(id).set(record);
+   }
   getAllstudentFee(path){
     return this.firestore.collection(path).valueChanges({ idField: '$id' });
   }

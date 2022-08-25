@@ -86,6 +86,7 @@ const routes: Routes = [
   },
   {
     path: 'exam-detail',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/exam-detail/exam-detail.module').then( m => m.ExamDetailPageModule)
   },
   {
@@ -109,6 +110,15 @@ const routes: Routes = [
     path: 'gallery',
     canActivate: [AuthGuard],
     loadChildren: () => import('./modules/gallery/gallery.module').then( m => m.GalleryPageModule)
+  },
+  {
+    path: 'gallery/:id',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./modules/gallery/gallery.module').then( m => m.GalleryPageModule)
+  },
+  {
+    path: 'exam-form',
+    loadChildren: () => import('./modules/exam-form/exam-form.module').then( m => m.ExamFormPageModule)
   }
 ];
 

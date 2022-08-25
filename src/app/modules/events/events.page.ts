@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from './services/events.service';
 import { events } from './events'
+import { HttpClient } from '@angular/common/http';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -10,18 +14,21 @@ import { events } from './events'
 export class EventsPage implements OnInit {
   events: any;
 
-  constructor(public eventsService:EventsService) { }
+  constructor(public eventsService:EventsService,private http: HttpClient, private firestore: AngularFirestore,public firebaseService:FirebaseService,private router: Router) { }
 
   ngOnInit() {
     this.getEvents();
   }
   getEvents(){
-    this.events = events;
-    console.log(this.events)
-    // this.eventsService.getEvents().subscribe(res=>{
-    //   this.events = res.articles;
-    //   console.log(res)
-    // })
+    this.firebaseService.getAll('gallery').subscribe(res=>{
+      res.forEach(item=>{
+        item['imageCollection'] = item['imageCollection'].map(({ image }) => image)
+      })
+      this.events=res
+    })
   }
-
+edit(id){
+console.log(id)
+this.router.navigate([`/gallery/${id}`]);
+}
 }

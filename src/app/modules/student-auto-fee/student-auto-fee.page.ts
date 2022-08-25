@@ -7,7 +7,7 @@
   
   import { Observable } from 'rxjs';
   import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
-  import { allStudentInfo } from '../../../assets/student-info/allStudentInfo'
+  import { groupBy, values,sortBy } from 'lodash';
 
 @Component({
   selector: 'app-student-auto-fee',
@@ -20,6 +20,8 @@ export class StudentAutoFeePage implements OnInit {
      { field: 'StudentName'},
      { field: 'FatherName' },
      { field: 'MobileNumber' },
+     { field: 'Habitation' },
+     { field: 'class' },
      { field: 'January' },
      { field: 'February' },
      { field: 'March' },
@@ -67,7 +69,7 @@ export class StudentAutoFeePage implements OnInit {
    onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
     this.firebaseService.getAllstudentFee('student-auto-fee').subscribe(items=>{
-       this.rowData = items;
+       this.rowData = sortBy(items,['class','name']);
     })
     
    }

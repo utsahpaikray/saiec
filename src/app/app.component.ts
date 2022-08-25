@@ -10,7 +10,7 @@ import { DownloadUrlService } from './shared-service/download-url.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MessagingService } from './shared-service/messaging.service';
 import { OneSignal } from 'onesignal-ngx';
-import { environment } from '../environments/environment.prod';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -95,7 +95,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Login',
       url: '/admin/login',
-      icon: 'prism',
+      icon: 'finger-print',
       navigation:false
     },
     {
@@ -130,6 +130,12 @@ export class AppComponent implements OnInit {
           title:'Faculty Fee',
           url:'/staff-tabular-view',
           icon:'people',
+          navigation:true
+        },
+        {
+          title:'Exam Form',
+          url:'/exam-detail',
+          icon:'book',
           navigation:true
         },
         {
@@ -187,7 +193,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
  
-    if(environment.production){
+    if(!environment.production){
       this.oneSignal.init({ appId: "5d43f72e-8102-4a2e-8b69-3b97facadd03",
    
       notifyButton: {

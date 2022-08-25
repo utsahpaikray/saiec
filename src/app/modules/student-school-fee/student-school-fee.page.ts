@@ -6,7 +6,7 @@ import { GridApi, ColDef, GridOptions, GridReadyEvent, CellClickedEvent, GetCont
 
 import { Observable } from 'rxjs';
 import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
-import { allStudentInfo } from '../../../assets/student-info/allStudentInfo'
+import { groupBy, values,sortBy } from 'lodash';
 
 @Component({
   selector: 'app-student-school-fee',
@@ -23,6 +23,7 @@ export class StudentSchoolFeePage implements OnInit {
    { field: 'StudentName'},
    { field: 'FatherName' },
    { field: 'MobileNumber' },
+   { field: 'class' },
    { field: 'January' },
    { field: 'February' },
    { field: 'March' },
@@ -66,7 +67,7 @@ export class StudentSchoolFeePage implements OnInit {
   this.gridApi = params.api;
   this.firebaseService.getAllstudentFee('student-fee').subscribe(items=>{
 
-     this.rowData = items;
+     this.rowData = sortBy(items,['class','name']);;
   })
   
  }
