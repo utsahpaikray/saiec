@@ -51,6 +51,12 @@ export class AppComponent implements OnInit {
       navigation:false
     },
     {
+      title: 'Exam Detail',
+      url: '/exam-detail',
+      icon: 'receipt',
+      navigation:false
+    },
+    {
       title: 'Events',
       url: '/events',
       icon: 'bicycle',
@@ -134,7 +140,7 @@ export class AppComponent implements OnInit {
         },
         {
           title:'Exam Form',
-          url:'/exam-detail',
+          url:'/exam-form',
           icon:'book',
           navigation:true
         },

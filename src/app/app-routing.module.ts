@@ -85,7 +85,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'exam-detail',
+    path: 'exam-form',
     canActivate: [AuthGuard],
     loadChildren: () => import('./modules/exam-detail/exam-detail.module').then( m => m.ExamDetailPageModule)
   },
@@ -117,7 +117,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/gallery/gallery.module').then( m => m.GalleryPageModule)
   },
   {
-    path: 'exam-form',
+    path: 'exam-detail',
     loadChildren: () => import('./modules/exam-form/exam-form.module').then( m => m.ExamFormPageModule)
   }
 ];

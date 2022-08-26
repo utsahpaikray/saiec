@@ -31,18 +31,12 @@ export class ExamDetailPage implements OnInit {
     { field: 'subjectTotal' ,headerName: 'Total',
     valueGetter: (params) => {
       return Number(params.data.oral?params.data.oral:0)+  Number(params.data.writtenTotal?params.data.writtenTotal:0)
-      
-    },
-    valueSetter: (params) => { 
-      return true
-    }},
+    }
+  },
     { field: 'Total' ,headerName: 'Total Accquire',
     valueGetter: (params) => {
       return Number(params.data.oralAcc?params.data.oralAcc:0)+  Number(params.data.writtenAcc?params.data.writtenAcc:0)
       
-    },
-    valueSetter: (params) => { 
-      return true
     }
   },
     { field: 'year' ,headerName: 'Year',type: 'nonEditableColumn'}
@@ -62,6 +56,9 @@ export class ExamDetailPage implements OnInit {
     // allow every column to be pivoted
     enablePivot: true
   };
+  public columnTypes = {
+    nonEditableColumn: { editable: false },
+};
 
   // Data that gets displayed in the grid
   public rowData$!: Observable<any[]>;
@@ -159,7 +156,7 @@ export class ExamDetailPage implements OnInit {
           {
             name: 'Update Student',
             action: () => {
-              console.log(this)
+              console.log(params)
               this.updateStudent(params);
             },
           },
@@ -181,6 +178,11 @@ export class ExamDetailPage implements OnInit {
     return result;
   }
   public updateStudent(params: any) {
+    let obj={
+      subjectTotal:Number(params.node.data.oral)+Number(params.node.data.writtenTotal),
+      total:Number(params.node.data.oralAcc)+Number(params.node.data.writtenAcc)
+    }
+    params.node.data={... params.node.data,...obj}
     this.firebaseService.updateStudent('exam-detail', params.node.data.$id, params.node.data)
   }
   public deleteStudent(params: any) {

@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header >
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -6,7 +6,100 @@
     <ion-title>Exam Form</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-
+<ion-content id="htmlData" class="all-pages"  >
+  <!-- <button class="btn btn-primary" (click)="onConfirm();">Export To PDF</button> -->
+  <ion-grid class="padding-top student-info" [ngClass]="'a4'">
+    <ion-row class="student">
+      <ion-col size="12" size-sm="6">
+        <ion-list>
+          <ion-item>
+            <ion-select placeholder="Select Student" interface="action-sheet" #student
+              (ionChange)="selectStudent(student.value)">
+              <ion-select-option [value]="item" *ngFor="let item of names">{{item}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="12" size-sm="6">
+        <ion-list>
+          <ion-item>
+            <ion-select placeholder="Select Month" interface="action-sheet" #month
+              (ionChange)="selectMonth(month.value)">
+              <ion-select-option value="All">ALL</ion-select-option>
+              <ng-container *ngFor="let item of months">
+                <ion-select-option [value]="item">{{item}}</ion-select-option>
+              </ng-container>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+      <ng-container *ngFor="let monthData of monthWiseData">
+        <ng-container *ngIf="monthData.visible">
+          <ion-row>
+            <ion-text>
+              <h5>
+                <ion-icon name="calendar-number-outline"></ion-icon> {{monthData[0]}}
+              </h5>
+            </ion-text>
+          </ion-row> 
+          <ion-row class="student">
+            <ion-col size="12" size-lg="6" *ngFor="let item of monthData[1]">
+              <div class="subs">
+                <ion-card class="inner ion-no-margin ion-margin-top" >
+                  <ion-item>
+                   
+                    <ion-icon name="reader-outline" ></ion-icon>
+                    <ion-text>
+                      <h5> Subject:<ion-chip color="primary">{{item.sub}}</ion-chip>
+                      </h5>
+                    </ion-text>
+                  </ion-item>
+                  <ion-card-content class="ion-no-padding">
+                    <ion-item>
+                      <ion-icon name="pin" slot="start" ></ion-icon>
+                      <ion-text>
+                        <h4>Oral:  </h4>
+                      </ion-text>
+                      <ion-text>
+                        <h5>Mark Obtained:
+                          <ion-chip color="success">{{item.oralAcc||0}}</ion-chip>
+                        </h5>
+                      </ion-text>
+                      <ion-text slot="end">
+                        <h5> Total: <ion-chip color="success">{{item.oral||0}}</ion-chip>
+                        </h5>
+                      </ion-text>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon name="pin" slot="start" ></ion-icon>
+                      <ion-text>  
+                        <h4>Written:</h4>
+                      </ion-text>
+                      <ion-text >
+                        <h5> Mark Obtained:
+                          <ion-chip color="success">{{item.writtenAcc||0}}</ion-chip>
+                        </h5>
+                      </ion-text>
+                      <ion-text slot="end">
+                        <h5>Total: <ion-chip color="success">{{item.writtenTotal||25}}</ion-chip>
+                        </h5>
+                      </ion-text>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon name="telescope" slot="start"></ion-icon>
+                      <ion-text><h5>All Total: <ion-chip color="success">{{item.total}}/{{(item.subjectTotal)||0}}</ion-chip>
+                        </h5>
+                      </ion-text>
+                    </ion-item>
+                  </ion-card-content>
+      
+                </ion-card>
+              </div>
+      
+            </ion-col>
+          </ion-row>   
+        </ng-container>
+    </ng-container>
+  </ion-grid>
 </ion-content>

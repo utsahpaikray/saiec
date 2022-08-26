@@ -22,9 +22,9 @@
    [rowSelection]="'multiple'"
    [animateRows]="true"
    (gridReady)="onGridReady($event)"
-   (cellClicked)="onCellClicked($event)"
    [allowContextMenuWithControlKey]="true"
    [getContextMenuItems]="getContextMenuItems"
    [sideBar]="true"
+   [columnTypes]="columnTypes"
  ></ag-grid-angular>
 </ion-content>
