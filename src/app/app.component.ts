@@ -87,6 +87,13 @@ export class AppComponent implements OnInit {
       navigation:false
     },
     {
+      title:'Offering',
+      url:"/offering",
+      icon:"gift",
+      navigation:false
+    },
+    
+    {
       title: 'Adv',
       url: '/adv',
       icon: 'radio',

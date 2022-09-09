@@ -36,3 +36,19 @@ ion-card {
 ion-menu.split-pane-side.ios.menu-type-overlay.menu-enabled.menu-side-start.hydrated.menu-pane-visible {
     max-width: 300px;
 }
+@media print {
+    body * {
+        visibility: visible;
+    }
+    #divname, #divname * {
+        visibility: visible;
+    }
+    #divname {
+        left: 0px;
+        top: 0px;
+        position:absolute;
+    }
+    p {
+        page-break-before: always;
+    }
+}

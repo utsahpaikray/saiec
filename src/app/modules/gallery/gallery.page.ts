@@ -19,9 +19,7 @@ export class GalleryPage implements OnInit {
 
   ngOnInit() {
     this.param = this.route.snapshot.params.id;
-    console.log(this.param)
     this.edit=this.param?true:false
-    console.log(this.edit)
     this.createGalleryForm();
     if(this.edit){
       this.getSpecificGallaeryImages(this.param)

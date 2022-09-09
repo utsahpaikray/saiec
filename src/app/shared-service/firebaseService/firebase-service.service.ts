@@ -100,7 +100,6 @@ export class FirebaseService {
     return this.firestore.collection('my-school-list').snapshotChanges();
   }
   updateStudent(path,recordID,record){
-    console.log(recordID)
    this.firestore.doc(`${path}/${recordID}`).update(record);
   }
  
@@ -128,6 +127,16 @@ export class FirebaseService {
   getAllExamDetail(){
     return this.firestore.collection('exam-detail').valueChanges({ idField: '$id' });
   }
+  getAllOffering(){
+    return this.firestore.collection('offering').valueChanges({ idField: '$id' });
+  }
+  updateOffering(recordID,record){
+    this.firestore.doc(`offering/${recordID}`).update(record);
+   }
+   deleteOffering(recordID){
+  
+    this.firestore.doc(`offering/${recordID}`).delete();
+   }
   addHoliday(){
 
   }
@@ -138,12 +147,6 @@ export class FirebaseService {
     return this.firestore.collection('notification').valueChanges({ idField: '$id' });
    }
   pushItems(endPoint,item){
-   // return this.firestore.collection('NoteBookItems').add(item);
-   //return this.firestore.collection('noteBookAccesories').add(item);
-  // return this.firestore.collection('schollBags').add(item);
-   // return this.firestore.collection('schollUiniforms').add(item);
-   console.log(item)
-
    return this.firestore.firestore.collection(endPoint).add(item);
     
   }

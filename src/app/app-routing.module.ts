@@ -119,6 +119,10 @@ const routes: Routes = [
   {
     path: 'exam-detail',
     loadChildren: () => import('./modules/exam-form/exam-form.module').then( m => m.ExamFormPageModule)
+  },
+  {
+    path: 'offering',
+    loadChildren: () => import('./modules/offering/offering.module').then( m => m.OfferingPageModule)
   }
 ];
 
