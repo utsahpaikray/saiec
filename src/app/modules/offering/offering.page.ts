@@ -10,6 +10,7 @@ import { OfferingFormComponent } from './components/offering-form/offering-form.
 })
 export class OfferingPage implements OnInit {
 offeringList=[]
+  sum=0;
   constructor(public modalCtrl: ModalController,public firebaseService:FirebaseService) { }
 
   ngOnInit() {
@@ -18,6 +19,9 @@ offeringList=[]
   getOffering() {
     this.firebaseService.getAllOffering().subscribe(items=>{
       this.offeringList=items;
+      this.offeringList.forEach(item=>{
+        this.sum=this.sum+Number(item.amount);
+      })
     })
   }
   delete(info){

@@ -92,6 +92,12 @@ export class AppComponent implements OnInit {
       icon:"gift",
       navigation:false
     },
+    {
+      title:'Event Transaction Book',
+      url:"/event-transaction-book",
+      icon:"document-text",
+      navigation:false
+    },
     
     {
       title: 'Adv',

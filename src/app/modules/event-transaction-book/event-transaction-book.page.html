@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Event Transaction Book</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-end">
+    <ion-button (click)="showModal()" fill="clear">
+      <ion-icon name="add"></ion-icon>
+      <ion-label>Add</ion-label>
+    </ion-button>
+  </div>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" size-sm="12"  *ngFor="let item of transactions">
+        <ion-card>
+          <div class="ion-text-end">
+            <button mat-menu-item (click)="showModal(item,'edit')" fill="clear" color="primary">
+              <ion-icon name="pencil"></ion-icon>
+              <ion-label>Edit</ion-label>
+            </button>
+          </div>
+         
+          <ion-card-header>
+            <ion-card-subtitle> {{item.date}}</ion-card-subtitle>
+            <ion-card-title>{{item.eventName}}</ion-card-title>
+          </ion-card-header>
+      
+          <ion-card-content>
+            {{item.description}}
+            <ion-accordion-group>
+              <ion-accordion value="first">
+                <ion-item slot="header" color="light">
+                  <ion-label>Collection</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                  <ion-list>
+                    <ion-item *ngFor="let exp of item.collection">
+                      <ion-label>{{exp.item}}</ion-label>
+                      <ion-label>{{exp.price}}</ion-label>
+                      <ion-label>{{exp.desc}}</ion-label>
+                    </ion-item>  
+                  </ion-list>
+                </div>
+              </ion-accordion>
+              <ion-accordion value="second">
+                <ion-item slot="header" color="light">
+                  <ion-label>Expenditure</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                  <ion-list>
+                    <ion-item *ngFor="let exp of item.items">
+                      <ion-label>{{exp.item}}</ion-label>
+                      <ion-label>{{exp.price}}</ion-label>
+                      <ion-label>{{exp.desc}}</ion-label>
+                    </ion-item>
+
+                    
+                    
+                  </ion-list>
+                  
+                </div>
+              </ion-accordion>
+              
+            </ion-accordion-group>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

@@ -123,6 +123,10 @@ const routes: Routes = [
   {
     path: 'offering',
     loadChildren: () => import('./modules/offering/offering.module').then( m => m.OfferingPageModule)
+  },
+  {
+    path: 'event-transaction-book',
+    loadChildren: () => import('./modules/event-transaction-book/event-transaction-book.module').then( m => m.EventTransactionBookPageModule)
   }
 ];
 

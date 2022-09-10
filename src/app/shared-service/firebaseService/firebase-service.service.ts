@@ -133,9 +133,16 @@ export class FirebaseService {
   updateOffering(recordID,record){
     this.firestore.doc(`offering/${recordID}`).update(record);
    }
+  
    deleteOffering(recordID){
   
     this.firestore.doc(`offering/${recordID}`).delete();
+   }
+   getAllEventTransaction(){
+    return this.firestore.collection('event-transactions').valueChanges({ idField: '$id' });
+  }
+   updateTransactions(recordID,record){
+    this.firestore.doc(`event-transactions/${recordID}`).update(record);
    }
   addHoliday(){
 
