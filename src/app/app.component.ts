@@ -11,6 +11,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { MessagingService } from './shared-service/messaging.service';
 import { OneSignal } from 'onesignal-ngx';
 import { environment } from '../environments/environment';
+import { AuthService } from './shared-service/auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -19,83 +20,97 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
-  public appPages = [
+  isAuthenticated: boolean=false;
+  public appPages=[
     {
       title: 'Home',
       url: '/home',
       icon: 'home',
+      access:true,
       navigation:false
     },
     {
       title: 'Student',
       url: '/student',
       icon: 'man',
+      access:true,
       navigation:false
     },
     {
       title: 'Faculty',
       url: '/faculty',
       icon: 'people',
+      access:true,
       navigation:false
     },
     {
       title: 'Birthday',
       url: '/birthday',
       icon: 'gift',
+      access:true,
       navigation:false
     },
     {
       title: 'Calendar',
       url: '/calendar',
       icon: 'calendar',
+      access:true,
       navigation:false
     },
     {
       title: 'Exam Detail',
       url: '/exam-detail',
       icon: 'receipt',
+      access:true,
       navigation:false
     },
     {
       title: 'Events',
       url: '/events',
       icon: 'bicycle',
+      access:true,
       navigation:false
     },
     {
       title: 'Notification',
       url: '/notification',
       icon: 'notifications',
+      access:true,
       navigation:false
     },
     {
       title: 'Auto Fee',
       url: '/auto-fee',
       icon: 'car',
+      access:true,
       navigation:false
     },
     {
       title: 'Student Fee',
       url: '/student-fee',
       icon: 'cash',
+      access:true,
       navigation:false
     },
     {
       title:'Staff Payment',
       url:"/staff-payment",
       icon:"cash",
+      access:true,
       navigation:false
     },
     {
       title:'Offering',
       url:"/offering",
       icon:"gift",
+      access:false,
       navigation:false
     },
     {
       title:'Event Transaction Book',
       url:"/event-transaction-book",
       icon:"document-text",
+      access:false,
       navigation:false
     },
     
@@ -103,12 +118,14 @@ export class AppComponent implements OnInit {
       title: 'Adv',
       url: '/adv',
       icon: 'radio',
+      access:true,
       navigation:false
     },
     {
       title: 'Question',
       url: '/questionset',
       icon: 'cube',
+      access:true,
       navigation:false
     },
     {
@@ -120,6 +137,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Tabular View',
       icon: 'bar-chart',
+      access:false,
       children: [
         {
           title: 'Student Info',
@@ -171,11 +189,16 @@ export class AppComponent implements OnInit {
         },
       ]
     },
-  ];
+  ];;
   user: any;
   title = 'push-notification';
   message;
   readonly VAPID_PUBLIC_KEY = "BIO6yW3VtwChWkL61__mF4c5k-8PLU62PkE0Arh4oGSqdBmt0HeuKDqBh1hXTnBqsfL7JGn6EHbtvr3EFFKUY_Q";
+  prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+ 
+    
+    // // Listen for changes to the prefers-color-scheme media query
+    // prefersDark.addListener((mediaQuery) => toggleDarkTheme(mediaQuery.matches));
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -188,10 +211,16 @@ export class AppComponent implements OnInit {
     private messagingService: MessagingService,
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
-    private oneSignal: OneSignal
+    private oneSignal: OneSignal,
+    private authService: AuthService,
   ) {
     this.initializeApp();
     this.listenForMessages();
+    this.toggleDarkTheme(this.prefersDark.matches);
+   
+  }
+  toggleDarkTheme(shouldAdd: any) {
+    document.body.classList.toggle('dark', shouldAdd);
   }
 
   initializeApp() {
@@ -202,7 +231,16 @@ export class AppComponent implements OnInit {
     this.afAuth.authState.subscribe(user => {
       if (user){
         this.user = user;
+        console.log(this.user.email)
         localStorage.setItem('user', JSON.stringify(this.user));
+        if(this.user.email=='utsahpaikray@gmail.com' || this.user.email=='swainsubhsmita76@gmail.com'){
+          this.isAuthenticated = true;
+          console.log(this.appPages)
+          this.appPages.forEach(item=>{
+            item.access=true;
+          })
+          this.appPages=this.appPages
+        }
       } else {
         localStorage.setItem('user', null);
       }
@@ -210,8 +248,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-
- 
+   
+    console.log(this.isAuthenticated)
+  
     if(!environment.production){
       this.oneSignal.init({ appId: "5d43f72e-8102-4a2e-8b69-3b97facadd03",
    
@@ -239,11 +278,14 @@ export class AppComponent implements OnInit {
  
     this.router.events.subscribe(url=>{
       if(url instanceof NavigationEnd)
-      this.appPages.map((page,index)=>{
-        if(page.url==this.router.url.toString()){
-            this.selectedIndex=index
-        }
-      })
+      if(this.appPages){
+        this.appPages.map((page,index)=>{
+          if(page.url==this.router.url.toString()){
+              this.selectedIndex=index
+          }
+        })
+      }
+      
     })
     
     const path = window.location.pathname.split('folder/')[1];

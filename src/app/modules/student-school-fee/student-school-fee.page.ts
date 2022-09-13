@@ -24,6 +24,8 @@ export class StudentSchoolFeePage implements OnInit {
    { field: 'FatherName' },
    { field: 'MobileNumber' },
    { field: 'class' },
+   { field: 'Admission fee' },
+   { field: 'Re-Admission fee' },
    { field: 'January' },
    { field: 'February' },
    { field: 'March' },

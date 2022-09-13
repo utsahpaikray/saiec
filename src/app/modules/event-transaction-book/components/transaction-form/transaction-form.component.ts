@@ -16,9 +16,20 @@ export class TransactionFormComponent implements OnInit {
   constructor(private fb:FormBuilder,public modalCtrl: ModalController,public firebaseService:FirebaseService,private toastController: ToastController) { }
 
   ngOnInit() {
-    console.log(this.info)
     this.createGalleryForm();
     if(this.mode=='edit'){
+      this.info.items.forEach((item,index) => {
+        if(this.info.items.length>index+1){
+          this.addItem();
+        }
+      });
+      this.info.collection.forEach((item,index) => { 
+        if(this.info.collection.length>index+1){
+          this.addCollectionItem();
+        }
+        
+      });
+      
       this.transactionForm.patchValue(this.info)
     }
   }
@@ -49,6 +60,7 @@ export class TransactionFormComponent implements OnInit {
   get f() { return this.transactionForm.controls; }
   get t() { return this.f.items as FormArray; }
   get c() { return this.f.collection as FormArray; }
+
   addItem() {
     this.t.push(this.createItem());
   }
