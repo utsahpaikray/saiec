@@ -73,62 +73,356 @@ export class ExamDetailPage implements OnInit {
     // this.firebaseService.getAllstudent().subscribe(items=>{
     //   console.log(items)
     //    this.allStudentInfo = items;
-    //   //  this.allStudentClassWise = values(groupBy(this.allStudentInfo, 'class'))
-    //   //  this.inSchoolStudentData = this.extractInschoolData();
-    //   //  this.generateAutoFeeStructure(this.inSchoolStudentData)
-    //   this.createExamStructure(this.allStudentInfo)
+    //  this.createExamStructure(this.allStudentInfo)
     // })
   }
   createExamStructure(allStudentInfo: any[]) {
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December','Halfly','Annual'];
     let subject = [
       {
-        topic: 'Math',
-        total: 25,
-        occ: 20
+        class:7,
+        subjects:[
+          {
+            topic: 'Math',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Science',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'English',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'MIL(Odia)',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'History',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Geography',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Sanskrit',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Computer',
+            total: 25,
+            occ: 0
+          },
+        ]
       },
       {
-        topic: 'Science',
-        total: 25,
-        occ: 19
+        class:6,
+        subjects:[
+          {
+            topic: 'Math',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Science',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'English',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'MIL(Odia)',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'History',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Geography',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Sanskrit',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Computer',
+            total: 25,
+            occ: 0
+          },
+        ]
       },
       {
-        topic: 'English',
-        total: 25,
-        occ: 15
+        class:5,
+        subjects:[
+          {
+            topic: 'Math',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Science',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'English',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'MIL(Odia)',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'Social Science',
+            total: 25,
+            occ: 0
+          },
 
+          {
+            topic: 'Sanskrit',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Computer',
+            total: 25,
+            occ: 0
+          },
+        ]
       },
       {
-        topic: 'MIL(Odia)',
-        total: 25,
-        occ: 10
+        class:4,
+        subjects:[
+          {
+            topic: 'Math',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Science',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'English',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'MIL(Odia)',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'Social Science',
+            total: 25,
+            occ: 0
+          },
 
+          {
+            topic: 'Sanskrit',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'Computer',
+            total: 25,
+            occ: 0
+          },
+        ]
       },
       {
-        topic: 'History',
-        total: 25,
-        occ: 12
+        class:3,
+        subjects:[
+          {
+            topic: 'Math',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'English',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'MIL(Odia)',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'En. Science',
+            total: 25,
+            occ: 0
+          },
+
+      
+        ]
       },
+      {
+        class:2,
+        subjects:[
+          {
+            topic: 'Math',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'English',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'MIL(Odia)',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'En. Science',
+            total: 25,
+            occ: 0
+          },
+
+      
+        ]
+      },
+      {
+        class:1,
+        subjects:[
+          {
+            topic: 'Math',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'English',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'MIL(Odia)',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'En. Science',
+            total: 25,
+            occ: 0
+          },
+
+      
+        ]
+      },
+      {
+        class:'KG',
+        subjects:[
+          {
+            topic: 'Math',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'English',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'MIL(Odia)',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'Science',
+            total: 25,
+            occ: 0
+          },
+
+      
+        ]
+      },
+      {
+        class:'Nursery',
+        subjects:[
+          {
+            topic: 'Math',
+            total: 25,
+            occ: 0
+          },
+          {
+            topic: 'English',
+            total: 25,
+            occ: 0
+    
+          },
+          {
+            topic: 'MIL(Odia)',
+            total: 25,
+            occ: 0
+    
+          }
+        ]
+      }
+     
     ];
     allStudentInfo.forEach(item => {
-      if (item.class == 7) {
-        months.forEach(month => {
-          subject.forEach(sub => {
+     let subjects= subject.filter(sub=>{
+        return sub.class=='Nursery'
+      })[0].subjects;
+      if(item.class=='Nursery'){
+        months.forEach(month => { 
+          subjects.forEach(sub => {
             let examInfo = {
               studentName: item.StudentName,
               mobileNumber: item.MobileNumber,
               class: item.class,
               month: month,
-              sub: sub.topic,
-              total: sub.total,
-              acc: sub.occ,
+              sub: sub['topic'],
+              total: sub['total'],
+              acc: sub['occ'],
               year: '2022-2023'
 
             }
-            this.firebaseService.pushItems('exam-detail', { ...examInfo })
+            console.log(examInfo)
+           this.firebaseService.pushItems('exam-detail', { ...examInfo })
           })
         })
       }
+      
 
     })
   }
@@ -136,6 +430,7 @@ export class ExamDetailPage implements OnInit {
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
     this.firebaseService.getAllExamDetail().subscribe(items => {
+      console.log(items)
       this.rowData = this.sortByMonth(items)
     })
 

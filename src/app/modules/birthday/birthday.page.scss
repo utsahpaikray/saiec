@@ -40,16 +40,18 @@ p {
 
 ion-card {
     //border-left: 1rem solid #90caf9;
-    filter: drop-shadow(1px 1px 5px #d2d2d2);
-    background-image: url(https://media.istockphoto.com/vectors/birthday-background-with-color-balloons-vector-id492726061?k=20&m=492726061&s=170667a&w=0&h=2tvfkp4c3MBwQA7ywDvWk7ghw3vZ2kYTK4c-9n-ekog=);
+    background-image: url(https://cdn.pixabay.com/photo/2016/07/19/22/36/postcard-1529121_640.png);
+    -o-object-fit: cover;
     object-fit: cover;
     background-repeat: repeat-y;
     font-weight: 600;
     background-size: cover;
     color: black;
-    margin:0;
+    margin: 0;
+    background-position: top;
+    background-size: auto;
     &.top-card{
-        border-radius: 0 !important;
+    border-radius: 0 !important;
     background-image: url(https://www.nicepng.com/png/detail/254-2541440_birthday-parties-happy-birthday-vector-png.png);
     height: 50vh;
     background-position: center;

@@ -28,6 +28,7 @@ export class StudentTabularPage implements OnInit {
    { field: 'bloodGroup' },
    { field: 'Image' },
    { field: 'class' },
+   {field:'Habitation'},
    {field:'Sub-Status'},
    {field:'SocialCategory'}
  ];
@@ -119,14 +120,14 @@ addStudent(){
     "Image": "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Aditya%20Maharana.jpeg?alt=media&token=74270099-519c-48d5-b3db-0007b8c69682",
     "Block": "Chilika",
     "bloodGroup": "O+",
-    "StudentName": "Utsah",
+    "StudentName": "",
     "DateofBirth": "06-03-2013",
     "Medium": "Odia",
     "StudentID": "2117070130200188",
     "MobileNumber": "7377647878",
     "StudentOpted": "Day Boarder",
     "Status": "Active",
-    "MotherName": "Sunita Paikray",
+    "MotherName": "",
     "Email Address": "pradosh84@yahoo.co.in",
     "Habitation": "PAIKAKUSHADIHA",
     "DateOfAdmission": "02-04-2019",
@@ -136,9 +137,9 @@ addStudent(){
     "MotherTongue": "Odia",
     "SocialCategory": "4-OBC/SEBC",
     "BPL": "Yes",
-    "class": "4",
+    "class": "",
     "District": "Khordha",
-    "FatherName": "Uttam Kumar Paikray",
+    "FatherName": "",
     "Religion": "0 - Hindu",
 }
   this.firebaseService.addNewStudent('studentInfo',studentObj.MobileNumber,studentObj);

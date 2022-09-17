@@ -27,17 +27,13 @@
         <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngIf="std">
           <ion-card>
             <div class="image-conatiner">
-              <a [download]="std.Image" [href]="std.Image" title="ImageName" target="_blank">
+              <a [download]="std.Image" [href]="std.Image" title="{{std.StudentName|titlecase }} " target="_blank">
                 <ion-img *ngIf="std.Image" src="{{std.Image}}"></ion-img>
               </a>
             </div>
-            <ion-card-header>
-              
-                <p>{{std.StudentName|titlecase }}</p>
-              
-              <ion-card-subtitle *ngIf="std.Class">Standard: <b>{{std.class}}</b></ion-card-subtitle>
-            </ion-card-header>
+  
             <ion-card-content *ngIf="std">
+              <p>{{std.StudentName|titlecase }}</p>
               <div class="info">
                 <ion-icon name="gift"></ion-icon> : <b>
                     {{std.DateofBirth}}

@@ -110,36 +110,14 @@ export class StudentAutoFeePage implements OnInit {
   }
   addStudent(){
     let studentObj={
-      "Admission Numbe": "2019-20/0108",
-      "PreviousYear": "3",
-      "AadharNumber": "",
-      "Address": "Vill-Paikakusadi, P. O. -Ankulachat, P. S. -Balugaon",
-      "Sub-Status": "In School",
-      "Image": "https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Aditya%20Maharana.jpeg?alt=media&token=74270099-519c-48d5-b3db-0007b8c69682",
-      "Block": "Chilika",
-      "bloodGroup": "O+",
-      "StudentName": "Utsah",
-      "DateofBirth": "06-03-2013",
-      "Medium": "Odia",
-      "StudentID": "2117070130200188",
-      "MobileNumber": "7377647878",
-      "StudentOpted": "Day Boarder",
-      "Status": "Active",
-      "MotherName": "Sunita Paikray",
-      "Email Address": "pradosh84@yahoo.co.in",
-      "Habitation": "PAIKAKUSHADIHA",
-      "DateOfAdmission": "02-04-2019",
-      "EyeScreening": "No",
-      "Session": "2022-23",
-      "Gender": "1 - Male",
-      "MotherTongue": "Odia",
-      "SocialCategory": "4-OBC/SEBC",
-      "BPL": "Yes",
-      "class": "4",
-      "District": "Khordha",
-      "FatherName": "Uttam Kumar Paikray",
-      "Religion": "0 - Hindu",
+      "StudentName": "xyz",
+      "MobileNumber": "76744778",
+      "Habitation": "",
+      "DateOfAdmission": "",
+      "class": "",
+      "FatherName": "",
   }
+  console.log('called')
     this.firebaseService.addNewStudent('student-auto-fee',studentObj.MobileNumber,studentObj);
   }
   
@@ -156,7 +134,7 @@ export class StudentAutoFeePage implements OnInit {
    this.gridApi.exportDataAsExcel({columnGroups: true, fileName: 'scholl-fee' });
   }
   saveData(){
-   let allData= this.getAllRows();
+   //let allData= this.getAllRows();
   
   }
   getAllRows() {

@@ -132,6 +132,7 @@ export class AppComponent implements OnInit {
       title: 'Login',
       url: '/admin/login',
       icon: 'finger-print',
+      access:true,
       navigation:false
     },
     {

@@ -1,5 +1,14 @@
 ion-slides {
     height: 100%;
+   // background-image: url('https://media.istockphoto.com/illustrations/abstract-painting-butterfly-illustration-id1066472482?k=20&m=1066472482&s=612x612&w=0&h=1SxR3NphyWpp-Jfc_5nAQet0Zl8gXu56NbKjqVswaiY=');
+    -o-object-fit: cover;
+    object-fit: cover;
+    background-repeat: repeat-y;
+    font-weight: 600;
+    color: black;
+    margin: 0;
+    background-position: center;
+    background-size: cover;
   }
 
   .swiper-slide {
@@ -11,6 +20,7 @@ ion-slides {
   }
 
   .swiper-slide img {
+
     max-height: 50%;
     max-width: 80%;
     margin: 60px 0 40px;
@@ -31,4 +41,7 @@ ion-slides {
 
   p b {
     color: var(--ion-text-color, #000000);
+  }
+  img{
+    height: 400px;
   }
