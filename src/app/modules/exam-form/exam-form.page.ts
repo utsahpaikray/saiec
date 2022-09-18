@@ -34,16 +34,13 @@ export class ExamFormPage implements OnInit {
   getStudent() {
     this.firebaseService.getAllExamDetail().subscribe(items => {
       this.rowData = groupBy(items, 'studentName')
-      console.log(this.rowData)
       this.names = keys(this.rowData)
     })
   }
   selectStudent(value) {
     this.monthWiseData = this.sortByMonth(groupBy(this.rowData[value], 'month')).map(item=>{
-      
       item.visible=true;
-      return item
-      console.log(item)
+      return item;
     })
     console.log(this.monthWiseData)
   }

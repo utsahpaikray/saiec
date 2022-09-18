@@ -18,8 +18,23 @@
     <ion-row class="ion-align-items-center">
       <ion-col size="12" size-sm="12"  *ngFor="let item of transactions">
         <ion-card class="ion-no-padding ion-no-margin" color="light">
+          <div class="">
+              <!-- <ion-icon name="pencil"></ion-icon> -->
+              <ion-chip color="success">
+                <ion-icon name="pin" color="primary"></ion-icon>
+                <ion-label color="primary">Collection:{{item.totalCollection}} </ion-label>
+              </ion-chip>
+              <ion-chip color="success">
+                <ion-icon name="pin" color="primary"></ion-icon>
+                <ion-label color="primary">Expenditure:{{item.totalExpeniditure}} </ion-label>
+              </ion-chip>
+              <ion-chip color="success">
+                <ion-icon name="pin" color="primary"></ion-icon>
+                <ion-label color="primary">Balance:{{item.balance}} </ion-label>
+              </ion-chip>   
+          </div>
           <div class="ion-text-end">
-            <ion-button  (click)="showModal(item,'edit')" fill="clear" color="primary">
+            <ion-button  (click)="showModal(item,'edit')" fill="solid" color="primary">
               <ion-icon name="pencil"></ion-icon>
               <ion-label>Edit</ion-label>
             </ion-button>

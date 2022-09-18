@@ -10,6 +10,8 @@ import { TransactionFormComponent } from './components/transaction-form/transact
 })
 export class EventTransactionBookPage implements OnInit {
   transactions: { $id: string; }[];
+  totalCollection=0;
+  totalExpeniditure=0;
 
   constructor(public modalCtrl: ModalController,public firebaseService:FirebaseService) { }
 
@@ -20,6 +22,22 @@ export class EventTransactionBookPage implements OnInit {
     this.firebaseService.getAllEventTransaction().subscribe(items=>{
       console.log(items)
       this.transactions=items;
+      
+      items.forEach(item=>{
+        let totalCollection=0;
+        let totalExpeniditure=0;
+        item['collection'].forEach(item => {
+          totalCollection= totalCollection+Number(item.price)
+        });
+        item['items'].forEach(item => {
+          totalExpeniditure=totalExpeniditure+Number(item.price)
+        });
+        item['totalCollection']=totalCollection;
+        item['totalExpeniditure']=totalExpeniditure
+        console.log(item)
+        item['balance']=totalCollection-totalExpeniditure;
+      })
+   
     })
   }
   public async showModal(info?,mode?:'add') {
