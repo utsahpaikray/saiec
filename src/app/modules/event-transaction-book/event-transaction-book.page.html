@@ -54,7 +54,7 @@
                 </ion-item>
                 <div class="ion-padding" slot="content">
                   <ion-list>
-                    <ion-item *ngFor="let exp of item.collection">
+                    <ion-item *ngFor="let exp of item.collection" lines="full">
                       <ion-label slot="start" [title]="exp.item">{{exp.item}}</ion-label>
                       <ion-label [title]="exp.price">{{exp.price}}</ion-label>
                       <ion-label [title]="exp.desc">{{exp.desc}}</ion-label>
@@ -68,7 +68,7 @@
                 </ion-item>
                 <div class="ion-padding" slot="content">
                   <ion-list>
-                    <ion-item *ngFor="let exp of item.items">
+                    <ion-item *ngFor="let exp of item.items" lines="full">
                       <ion-label slot="start" [title]="exp.item">{{exp.item}}</ion-label>
                       <ion-label [title]="exp.price">{{exp.price}}</ion-label>
                       <ion-label [title]="exp.desc">{{exp.desc}}</ion-label>

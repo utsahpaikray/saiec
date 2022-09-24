@@ -10,13 +10,16 @@
 <ion-content fullscreen class="ion-padding" scroll-y="false">
   <ion-slides  pager="true" [options]="slideOpts">
     <ion-slide>
-      <img src="https://savitrisolardawn.org/wp-content/uploads/2021/06/site-icon.png"/>
-      <h2>Welcome</h2>
+      <img src="assets/icon/favicon.png"/>
+      <h2><ion-label color="primary">Welcome</ion-label></h2>
+      <ion-label color="primary" *ngIf="todaysQoute"><q>{{todaysQoute?.qoute}}</q> 
+        <br>
+       -{{todaysQoute?.by}}</ion-label>
     </ion-slide>
     <ion-slide>
       <div class="slide">
         <img src="https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/schoolStudent.jpg?alt=media&token=386fc046-325b-4d0a-9200-c0e3ecb0618e"/>
-        <h2>Welcome</h2>
+        <h2 color="primary">Welcome</h2>
         <p>Sri Aurobindo Integral Education Center, Paikakushadiha </p>
       </div>
     </ion-slide>

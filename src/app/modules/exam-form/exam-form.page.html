@@ -9,54 +9,72 @@
 <ion-content id="htmlData" class="all-pages"  >
   <!-- <button class="btn btn-primary" (click)="onConfirm();">Export To PDF</button> -->
   <ion-grid class="padding-top student-info" [ngClass]="'a4'">
+    <ion-card class="inner ion-no-margin ion-margin-top" color="light" >
     <ion-row class="student">
-      <ion-col size="12" size-sm="6">
-        <ion-list>
-          <ion-item>
-            <ion-select placeholder="Select Student" interface="action-sheet" #student
-              (ionChange)="selectStudent(student.value)">
-              <ion-select-option [value]="item" *ngFor="let item of names">{{item}}</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-      <ion-col size="12" size-sm="6">
-        <ion-list>
-          <ion-item>
-            <ion-select placeholder="Select Month" interface="action-sheet" #month
-              (ionChange)="selectMonth(month.value)">
-              <ion-select-option value="All">ALL</ion-select-option>
-              <ng-container *ngFor="let item of months">
-                <ion-select-option [value]="item">{{item}}</ion-select-option>
-              </ng-container>
-            </ion-select>
-          </ion-item>
-        </ion-list>
-      </ion-col>
+     
+        <ion-col size="12" size-sm="4">
+          <ion-list>
+            <ion-item>
+              <ion-select placeholder="Select STD" interface="action-sheet" #class
+                (ionChange)="selectStd(class.value)">
+                <ion-select-option [value]="item" *ngFor="let item of classList">{{item}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="12" size-sm="4">
+          <ion-list>
+            <ion-item>
+              <ion-select placeholder="Select Student" interface="action-sheet" #student
+                (ionChange)="selectStudent(student.value)">
+                <ion-select-option [value]="item" *ngFor="let item of names">{{item}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="12" size-sm="4">
+          <ion-list>
+            <ion-item>
+              <ion-select placeholder="Select Month" interface="action-sheet" #month
+                (ionChange)="selectMonth(month.value)">
+                <ion-select-option value="All">ALL</ion-select-option>
+                <ng-container *ngFor="let item of months">
+                  <ion-select-option [value]="item">{{item}}</ion-select-option>
+                </ng-container>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      
     </ion-row>
-      <ng-container *ngFor="let monthData of monthWiseData">
+    </ion-card>
+      <ng-container *ngFor="let monthData of selectedStudentInfo?.markInfo">
         <ng-container *ngIf="monthData.visible">
           <ion-row>
             <ion-text>
-              <h5>
-                <ion-icon name="calendar-number-outline"></ion-icon> {{monthData[0]}}
-              </h5>
+                <ion-chip >
+                   <ion-icon name="calendar-number-outline"color="primary" class="ion-margin-right"></ion-icon> <ion-label>{{monthData.name}}</ion-label></ion-chip>
             </ion-text>
           </ion-row> 
           <ion-row class="student">
-            <ion-col size="12" size-lg="6" *ngFor="let item of monthData[1]">
+            <ion-col size="12" size-lg="6" *ngFor="let item of monthData.marks">
               <div class="subs">
-                <ion-card class="inner ion-no-margin ion-margin-top" >
-                  <ion-item>
-                   
-                    <ion-icon name="reader-outline" ></ion-icon>
-                    <ion-text>
-                      <h5> Subject:<ion-chip color="primary">{{item.sub}}</ion-chip>
-                      </h5>
-                    </ion-text>
+                <ion-card class="inner ion-no-margin ion-margin-top" color="light" >
+                  <ion-item lines="full">
+                    <div slot="end">
+                      <ion-button  (click)="showModal(item,monthData)" fill="solid" color="primary">
+                        <ion-icon name="pencil"></ion-icon>
+                        <ion-label>Edit</ion-label>
+                      </ion-button>
+                    </div>
+                    <ion-chip color="primary">
+                      <ion-icon name="reader-outline" ></ion-icon>
+                      <ion-text>{{item.sub}}</ion-text>
+                    </ion-chip>
+
                   </ion-item>
                   <ion-card-content class="ion-no-padding">
-                    <ion-item>
+                    <ion-item lines="full">
                       <ion-icon name="pin" slot="start" ></ion-icon>
                       <ion-text>
                         <h4>Oral:  </h4>
@@ -71,7 +89,7 @@
                         </h5>
                       </ion-text>
                     </ion-item>
-                    <ion-item>
+                    <ion-item lines="full">
                       <ion-icon name="pin" slot="start" ></ion-icon>
                       <ion-text>  
                         <h4>Written:</h4>
@@ -82,7 +100,7 @@
                         </h5>
                       </ion-text>
                       <ion-text slot="end">
-                        <h5>Total: <ion-chip color="success">{{item.writtenTotal||25}}</ion-chip>
+                        <h5>Total: <ion-chip color="success">{{item.writtenTotal||0}}</ion-chip>
                         </h5>
                       </ion-text>
                     </ion-item>

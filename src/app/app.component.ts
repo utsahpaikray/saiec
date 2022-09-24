@@ -170,12 +170,12 @@ export class AppComponent implements OnInit {
           icon:'people',
           navigation:true
         },
-        {
-          title:'Exam Form',
-          url:'/exam-form',
-          icon:'book',
-          navigation:true
-        },
+        // {
+        //   title:'Exam Form',
+        //   url:'/exam-form',
+        //   icon:'book',
+        //   navigation:true
+        // },
         {
           title:'Gallery form',
           url:'/gallery',

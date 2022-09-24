@@ -127,6 +127,12 @@ export class FirebaseService {
   getAllExamDetail(){
     return this.firestore.collection('exam-detail').valueChanges({ idField: '$id' });
   }
+  getAllExamInfo(){
+    return this.firestore.collection('examInfo').valueChanges({ idField: '$id' });
+  }
+  updateExamInfo(recordID,record){
+    this.firestore.doc(`examInfo/${recordID}`).update(record);
+   }
   getAllOffering(){
     return this.firestore.collection('offering').valueChanges({ idField: '$id' });
   }

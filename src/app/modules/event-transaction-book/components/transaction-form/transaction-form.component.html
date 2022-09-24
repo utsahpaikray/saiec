@@ -16,7 +16,7 @@
             <div class=" form-container"> 
                 <form  [formGroup]="transactionForm">
                   <div class="image-container">
-                    <ion-img class="image" src="https://lh6.googleusercontent.com/proxy/zOcEt53U8i-ptYqE_ZKYFF1qxdWUafQ32EP7GhnACwilJ8Mi_WNb6KdtpxUmGOnFqMdN4_kruRuk9fdduExjM_hlghfcc3bM-mXmWhz1CxXR9ahR8xSlxuLj"></ion-img>
+                    <ion-img class="image" src="assets/icon/favicon.png"></ion-img>
                     
                    </div>
                     <mat-form-field class="example-full-width" appearance="fill">
@@ -28,10 +28,10 @@
                         <input type="text" matInput formControlName="date" placeholder="mm/dd/yy">
                       </mat-form-field>
                       <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Description</mat-label>
+                        <ion-label>Description</ion-label>
                         <input type="text" matInput formControlName="description">
                       </mat-form-field>
-                      <mat-label>Expenditure</mat-label>
+                      <h1>Expenditure</h1>
                       <div  *ngFor="let t of t?.controls; let i = index; let last = last">
                         <div [formGroup]="t" class="form-row">
                           <mat-form-field class="example-full-width" appearance="fill">
@@ -49,13 +49,13 @@
                           <ion-button (click)="delete(i)" class="edit ion-float-right" color="danger" >
                             <ion-icon name="trash"></ion-icon>
                           </ion-button>
-                          <ion-button  shape="round" class="ion-float-right"(click)="addItem()">
+                          <ion-button  shape="round" class="ion-float-right"(click)="addItem()" *ngIf="last">
                             Add Item
                           </ion-button>
                           
                         </div>
                       </div>
-                      <mat-label>Collection</mat-label>
+                      <h1>Collection</h1>
                       <div  *ngFor="let c of c?.controls; let i = index; let last = last">
                         <div [formGroup]="c" class="form-row">
                           <mat-form-field class="example-full-width" appearance="fill">
@@ -74,7 +74,7 @@
                           <ion-button (click)="deleteCollection(i)" class="edit ion-float-right" color="danger" >
                             <ion-icon name="trash"></ion-icon>
                           </ion-button>
-                          <ion-button  shape="round" class="ion-float-right" (click)="addCollectionItem()">
+                          <ion-button  shape="round" class="ion-float-right" (click)="addCollectionItem()" *ngIf="last">
                             Add Item
                           </ion-button>
                         </div>
