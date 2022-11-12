@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import * as XLSX from 'xlsx'
 import { groupBy, values, sortBy } from 'lodash';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../shared/modal/modal.page';
 import { DownloadUrlService } from 'src/app/shared-service/download-url.service';
 import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { Router } from '@angular/router';
 @Component({
     selector: 'app-student',
     templateUrl: './student.page.html',
@@ -20,7 +20,7 @@ export class StudentPage implements OnInit {
     inSchoolStudentData: any[];
     totalStudent: number;
     hexString = "0123456789abcdef";
-    constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService, public firebaseService: FirebaseService,private cdr: ChangeDetectorRef) {
+    constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService, public firebaseService: FirebaseService, private router: Router) {
     }
 
     ngOnInit() {
@@ -30,7 +30,6 @@ export class StudentPage implements OnInit {
             var grouped = groupBy(this.allStudentInfo, function (it) {
                 return it.DateofBirth.split('-')[1];
             });
-            console.log(grouped)
             this.allStudentClassWise = values(groupBy(this.allStudentInfo, 'class'))
             this.inSchoolStudentData = this.extractInschoolData();
             this.generateAutoFeeStructure(this.inSchoolStudentData)
@@ -41,9 +40,6 @@ export class StudentPage implements OnInit {
     extractInschoolData() {
         // this.totalStudent = 0;
         let filterData = this.allStudentClassWise.map(item => {
-            console.log(item)
-
-
             return item.filter(innerItem => {
                 innerItem['exmaDetail'] =
                     [
@@ -469,6 +465,9 @@ export class StudentPage implements OnInit {
             presentingElement: await this.modalCtrl.getTop()
         });
         return await modal.present();
+    }
+    public showReport(std){
+        this.router.navigate([`/report/${std.StudentName}`]);
     }
     generateAutoFeeStructure(data) {
         let flatData = data.flat(2);

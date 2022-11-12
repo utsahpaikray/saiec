@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-text-end">
+  <div class="ion-text-end" *ngIf="isAuthorized">
     <ion-button (click)="showModal()" fill="clear">
       <ion-icon name="add"></ion-icon>
       <ion-label>Add</ion-label>
@@ -33,7 +33,7 @@
                 <ion-label color="primary">Balance:{{item.balance}} </ion-label>
               </ion-chip>   
           </div>
-          <div class="ion-text-end">
+          <div class="ion-text-end" *ngIf="isAuthorized">
             <ion-button  (click)="showModal(item,'edit')" fill="solid" color="primary">
               <ion-icon name="pencil"></ion-icon>
               <ion-label>Edit</ion-label>

@@ -17,24 +17,21 @@ export class LoginComponent implements OnInit {
   }
   creatloginForm() {
     this.myForm = new FormGroup({
-      name: new FormControl('Utsah'),
+      name: new FormControl(''),
       email: new FormControl(''),
       password: new FormControl('')
     });
   }
 login(){
   this.authService.login(this.myForm.get('email').value,this.myForm.get('password').value).then(user=>{
-    console.log(user)
     this.toasterService.presentToast('Succesfull Login',2000)
   },(err=>{
     this.toasterService.presentToast(err,2000)
     localStorage.removeItem('user');
-    console.log(err)
   }))
 }
 loginGoogle(){
   this.authService.loginWithGoogle().then(user=>{
-      console.log(user)
     })
 }
 }

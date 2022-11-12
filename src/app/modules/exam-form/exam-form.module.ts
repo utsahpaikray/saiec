@@ -9,6 +9,7 @@ import { ExamFormPageRoutingModule } from './exam-form-routing.module';
 import { ExamFormPage } from './exam-form.page';
 import { ExamFormComponent } from './components/transaction-form/exam-form.component';
 import { MatInputModule } from '@angular/material/input';
+import { NonAcademicFormComponent } from './components/non-academic-form/non-academic-form.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     ReactiveFormsModule,
   ],
-  declarations: [ExamFormPage,ExamFormComponent]
+  declarations: [ExamFormPage,ExamFormComponent, NonAcademicFormComponent]
 })
 export class ExamFormPageModule {}

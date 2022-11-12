@@ -105,3 +105,10 @@ ion-toggle {
     justify-content: space-between;
     align-items: center;
 }
+.action{
+    display: flex;
+    justify-content: center;
+    .button{
+        width: 45%;
+    }
+}

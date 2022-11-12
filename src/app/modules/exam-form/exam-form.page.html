@@ -6,8 +6,7 @@
     <ion-title>Exam Form</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content id="htmlData" class="all-pages"  >
-  <!-- <button class="btn btn-primary" (click)="onConfirm();">Export To PDF</button> -->
+<ion-content class="all-pages"  >
   <ion-grid class="padding-top student-info" [ngClass]="'a4'">
     <ion-card class="inner ion-no-margin ion-margin-top" color="light" >
     <ion-row class="student">
@@ -26,7 +25,7 @@
           <ion-list>
             <ion-item>
               <ion-select placeholder="Select Student" interface="action-sheet" #student
-                (ionChange)="selectStudent(student.value)">
+                (ionChange)="selectStudent(student.value)" >
                 <ion-select-option [value]="item" *ngFor="let item of names">{{item}}</ion-select-option>
               </ion-select>
             </ion-item>
@@ -36,7 +35,7 @@
           <ion-list>
             <ion-item>
               <ion-select placeholder="Select Month" interface="action-sheet" #month
-                (ionChange)="selectMonth(month.value)">
+                (ionChange)="selectMonth(month.value)"  >
                 <ion-select-option value="All">ALL</ion-select-option>
                 <ng-container *ngFor="let item of months">
                   <ion-select-option [value]="item">{{item}}</ion-select-option>
@@ -50,18 +49,22 @@
     </ion-card>
       <ng-container *ngFor="let monthData of selectedStudentInfo?.markInfo">
         <ng-container *ngIf="monthData.visible">
+          <ion-card  class="inner ion-no-margin ion-margin-top" color="light">
           <ion-row>
-            <ion-text>
-                <ion-chip >
-                   <ion-icon name="calendar-number-outline"color="primary" class="ion-margin-right"></ion-icon> <ion-label>{{monthData.name}}</ion-label></ion-chip>
-            </ion-text>
+            <ion-item-divider>
+                <ion-text>
+                  <ion-chip >
+                     <ion-icon name="calendar-number-outline"color="primary" class="ion-margin-right"></ion-icon> <ion-label>{{monthData.name}}</ion-label></ion-chip>
+              </ion-text>
+            </ion-item-divider>
+            
           </ion-row> 
           <ion-row class="student">
             <ion-col size="12" size-lg="6" *ngFor="let item of monthData.marks">
               <div class="subs">
                 <ion-card class="inner ion-no-margin ion-margin-top" color="light" >
                   <ion-item lines="full">
-                    <div slot="end">
+                    <div slot="end" *ngIf="isAuthorized">
                       <ion-button  (click)="showModal(item,monthData)" fill="solid" color="primary">
                         <ion-icon name="pencil"></ion-icon>
                         <ion-label>Edit</ion-label>
@@ -113,10 +116,27 @@
                   </ion-card-content>
       
                 </ion-card>
+                
               </div>
       
             </ion-col>
-          </ion-row>   
+          </ion-row> 
+          </ion-card>  
+          <ion-row *ngIf="monthData.name=='Halfly' || monthData.name=='Annual'">
+            <ion-col size="12">
+              <ion-card  class="inner ion-no-margin ion-margin-top" color="light">
+                <ion-item-divider>
+                  <ion-label>
+                    Non-Academic Subject
+                  </ion-label>
+                </ion-item-divider>
+              <app-non-academic-form [formValue]="monthData" (formValueOutput)="formValueOutput($event)"></app-non-academic-form>
+              </ion-card>
+            </ion-col>
+            <ion-col>
+              <ion-button expand="full" (click)="save(monthData.name)" *ngIf="isAuthorized"> Save</ion-button>
+            </ion-col>
+          </ion-row>
         </ng-container>
     </ng-container>
   </ion-grid>

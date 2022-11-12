@@ -127,6 +127,10 @@ const routes: Routes = [
   {
     path: 'event-transaction-book',
     loadChildren: () => import('./modules/event-transaction-book/event-transaction-book.module').then( m => m.EventTransactionBookPageModule)
+  },
+  {
+    path: 'report/:name',
+    loadChildren: () => import('./modules/report/report.module').then( m => m.ReportPageModule)
   }
 ];
 

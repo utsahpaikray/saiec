@@ -232,11 +232,10 @@ export class AppComponent implements OnInit {
     this.afAuth.authState.subscribe(user => {
       if (user){
         this.user = user;
-        console.log(this.user.email)
         localStorage.setItem('user', JSON.stringify(this.user));
-        if(this.user.email=='utsahpaikray@gmail.com' || this.user.email=='swainsubhsmita76@gmail.com'){
+        let isAuthorized= this.authService.isAuthorizedUser
+        if(isAuthorized){
           this.isAuthenticated = true;
-          console.log(this.appPages)
           this.appPages.forEach(item=>{
             item.access=true;
           })
@@ -249,19 +248,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-   
-    console.log(this.isAuthenticated)
-  
     if(!environment.production){
       this.oneSignal.init({ appId: "5d43f72e-8102-4a2e-8b69-3b97facadd03",
    
       notifyButton: {
         enable: true,
       }, }).then(() => {
-        console.log('called')
-        // do other stuff
         this.oneSignal.on('subscriptionChange', function(isSubscribed) {
-          console.log("The user's subscription state is now:", isSubscribed);
         });
       });
     }else{
@@ -271,7 +264,6 @@ export class AppComponent implements OnInit {
         enable: true,
       }, }).then(() => {
         this.oneSignal.on('subscriptionChange', function(isSubscribed) {
-          console.log("The user's subscription state is now:", isSubscribed);
         });
         // do other stuff
       });
@@ -297,8 +289,7 @@ export class AppComponent implements OnInit {
   }
   listenForMessages() {
     this.messagingService.getMessages().subscribe(async (msg: any) => {
-      console.log(msg)
-      const alert = await this.alertCtrl.create({
+        const alert = await this.alertCtrl.create({
         header: msg.notification.title,
         subHeader: msg.notification.body,
         message: msg.data.info,

@@ -67,10 +67,17 @@
               <div class="info">
                 <ion-icon name="home"></ion-icon> : <b> {{std.Habitation|titlecase}}</b>
               </div>
-              <ion-button class="ion-activatable ripple-parent" expand="full" shape="round" color="primary"
+              <div class="action">
+                <ion-button class="ion-activatable ripple-parent"  shape="round" color="primary"
                 (click)="showModal(std)">Detail
                 <ion-ripple-effect></ion-ripple-effect>
               </ion-button>
+              <ion-button class="ion-activatable ripple-parent"  shape="round" color="primary"
+              (click)="showReport(std)">Report
+              <ion-ripple-effect></ion-ripple-effect>
+            </ion-button>
+              </div>
+              
             </ion-card-content>
           </ion-card>
         </ion-col>

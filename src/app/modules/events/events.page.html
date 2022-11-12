@@ -13,7 +13,7 @@
       <ion-col>
         <ion-card class="ion-margin-bottom  ion-no-margin top">
           <ion-card-header>
-            <ion-tab-button (click)="edit(event.$id)" class="edit">
+            <ion-tab-button (click)="edit(event.$id)" class="edit" *ngIf="isAuthorized">
               <ion-icon name="create"></ion-icon>
               <ion-label>Edit</ion-label>
             </ion-tab-button>

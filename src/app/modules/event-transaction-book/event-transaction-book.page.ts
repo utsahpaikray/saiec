@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AuthService } from 'src/app/shared-service/auth-service.service';
 import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
 import { TransactionFormComponent } from './components/transaction-form/transaction-form.component';
 
@@ -12,11 +13,12 @@ export class EventTransactionBookPage implements OnInit {
   transactions: { $id: string; }[];
   totalCollection=0;
   totalExpeniditure=0;
-
-  constructor(public modalCtrl: ModalController,public firebaseService:FirebaseService) { }
+  isAuthorized = false;
+  constructor(public modalCtrl: ModalController,public firebaseService:FirebaseService, private authService: AuthService) { }
 
   ngOnInit() {
     this.getAllTransactions();
+    this.isAuthorized = this.authService.isAuthorizedUser
   }
   getAllTransactions() {
     this.firebaseService.getAllEventTransaction().subscribe(items=>{
