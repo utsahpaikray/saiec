@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ReportPageRoutingModule } from './report-routing.module';
 
 import { ReportPage } from './report.page';
+import { GraphComponent } from './components/graph/graph.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ReportPage } from './report.page';
     IonicModule,
     ReportPageRoutingModule
   ],
-  declarations: [ReportPage]
+  declarations: [ReportPage,GraphComponent]
 })
 export class ReportPageModule {}

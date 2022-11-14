@@ -63,7 +63,7 @@ this.firebaseService.getAllstudent().subscribe(items => {
   });
   info.score=writtenScore+oralScore;
   info.total=writtenTotal+oralTotal;
-  info.percentage= ((writtenScore+oralScore)/(writtenTotal+oralTotal))*100
+  info.percentage= (((writtenScore+oralScore)/(writtenTotal+oralTotal))*100).toFixed(2)
 
   }
   public total(a,b){

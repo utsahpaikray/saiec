@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content fullscreen>
+  <ion-card>
   <ion-grid>
 
     <ion-row class="report-wrap" class="image-conatiner">
@@ -39,9 +40,9 @@
             </div> -->
       </ion-col>
       <ion-col size="12"  size-md="9">
-        <ion-list inset="true">
-          <ion-list-header>
-            <ion-label>Name: {{studentMainInfo?.StudentName}}</ion-label>
+        <ion-list inset="true" class="ion-no-margin">
+          <ion-list-header class="ion-no-margin">
+            <ion-label >Name: {{studentMainInfo?.StudentName}}</ion-label>
           </ion-list-header>
               <ion-item slot="header">
                 <ion-label>Standard: {{studentMainInfo?.class}} </ion-label>
@@ -64,6 +65,9 @@
     
     <ion-row>
       <ion-col size="12" size-lg="6">
+        <ion-card class="ion-no-margin">
+
+       
         <ion-item-divider>
           <ion-label>
            Academic Subjects
@@ -92,9 +96,11 @@
 
           </ion-item>  
         </ion-list>
+      </ion-card>
       </ion-col>
 
       <ion-col size="12" size-lg="6">
+      <ion-card class="ion-no-margin">
         <ion-item-divider>
           <ion-label>
             Non-Academic Subject
@@ -137,7 +143,14 @@
             <ion-label >{{markInfo?.nonAcademic?.creativity}}</ion-label>
           </ion-item>   
         </ion-list>
+      </ion-card>
       </ion-col>
+      <ion-col size="12">
+        <ion-card>
+          <app-graph [data]="markInfo"></app-graph>
+        </ion-card>
+      </ion-col>
+     
     </ion-row>
     
     <ion-row>
@@ -154,7 +167,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-item-divider></ion-item-divider>
+  <ion-item-divider>Sign:</ion-item-divider>
   <ion-item>
     <ion-label>
       Parent's Sign:
@@ -167,5 +180,5 @@
     </ion-label>
   </ion-item>
   
-  
+</ion-card>
 </ion-content>
