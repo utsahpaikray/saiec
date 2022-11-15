@@ -8,6 +8,7 @@ import { ReportPageRoutingModule } from './report-routing.module';
 
 import { ReportPage } from './report.page';
 import { GraphComponent } from './components/graph/graph.component';
+import { MarkBaseDirective } from './directives/mark-base.directive';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { GraphComponent } from './components/graph/graph.component';
     IonicModule,
     ReportPageRoutingModule
   ],
-  declarations: [ReportPage,GraphComponent]
+  declarations: [ReportPage,GraphComponent, MarkBaseDirective]
 })
 export class ReportPageModule {}

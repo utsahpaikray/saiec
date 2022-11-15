@@ -1,184 +1,194 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-buttons >
+    <ion-buttons>
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Progress Report</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-  <ion-card>
+<ion-content fullscreen *ngIf="studentMainInfo">
+
   <ion-grid>
 
-    <ion-row class="report-wrap" class="image-conatiner">
+    <ion-row class="report-wrap image-conatiner">
       <div class="img-icon">
         <ion-img src="https://lagracecenter.com/wp-content/uploads/2022/02/Final-with-waves-and-white-border.png">
         </ion-img>
-        </div>
-      <ion-col size="12"  size-md="3" >
-        <div class="image-conatiner">
-          <ion-img [src]="studentMainInfo?.Image"></ion-img>
-        </div>
-         
-          
-            <!-- <div class="bp blood" >
-              <ion-label> Physical Education: {{markInfo?.nonAcademic?.physicalEdu}}</ion-label>
-            </div>
-            <div class="bp" >  <ion-label>Sense Development: {{markInfo?.nonAcademic?.senseDev}}</ion-label></div>
-            <div class="bp blood" >
-              <ion-label> Gardening: {{markInfo?.nonAcademic?.gardening}}</ion-label>
-            </div>
-            <div class="bp blood" >
-              <ion-label> Gardening: {{markInfo?.nonAcademic?.gardening}}</ion-label>
-            </div>
-            <div class="bp blood" >
-              <ion-label> Gardening: {{markInfo?.nonAcademic?.gardening}}</ion-label>
-            </div>
-            <div class="bp blood" >
-              <ion-label> Gardening: {{markInfo?.nonAcademic?.gardening}}</ion-label>
-            </div> -->
+      </div>
+      <ion-col size="12" color="primary" >
+        <ion-card class="ion-no-margin">
+          <ion-row>
+            <ion-col size="12" size-md="3" class="primary">
+              <div class="image-setup">
+                
+                  <ion-img [src]="studentMainInfo?.Image"></ion-img>
+                
+              </div>
+            </ion-col>
+            <ion-col size="12" size-md="9">
+             
+                <ion-list inset="true" class="ion-no-margin">
+                  <ion-item slot="header">
+                    <ion-label color="primary">Name: {{studentMainInfo?.StudentName}}</ion-label>
+                  </ion-item>
+      
+                  <ion-item slot="header">
+                    <ion-label>Standard: {{studentMainInfo?.class}} </ion-label>
+                  </ion-item>
+                  <ion-item slot="header">
+                    <ion-label>Father's Name: {{studentMainInfo?.FatherName |titlecase}}</ion-label>
+                  </ion-item>
+                  <ion-item slot="header">
+                    <ion-label>Mother's Name: {{studentMainInfo?.MotherName |titlecase}}</ion-label>
+                  </ion-item>
+                  <ion-item slot="header">
+                    <ion-label>Village: {{studentMainInfo?.Habitation | titlecase}}</ion-label>
+                  </ion-item>
+                  <ion-item slot="header">
+                    <ion-label>Mode: Half Yearly(2022-2023)</ion-label>
+                  </ion-item>
+                  <ion-item slot="header">
+                    <ion-label>Grade: {{getGrade(markInfo?.percentage)}}</ion-label>
+                  </ion-item>
+                  
+                </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-card>
       </ion-col>
-      <ion-col size="12"  size-md="9">
-        <ion-list inset="true" class="ion-no-margin">
-          <ion-list-header class="ion-no-margin">
-            <ion-label >Name: {{studentMainInfo?.StudentName}}</ion-label>
-          </ion-list-header>
-              <ion-item slot="header">
-                <ion-label>Standard: {{studentMainInfo?.class}} </ion-label>
-              </ion-item>
-              <ion-item slot="header">
-                <ion-label>Father's Name: {{studentMainInfo?.FatherName}}</ion-label>
-              </ion-item>
-              <ion-item slot="header">
-                <ion-label>Mother's Name: {{studentMainInfo?.MotherName}}</ion-label>
-              </ion-item>
-              <ion-item slot="header">
-                <ion-label>Village: {{studentMainInfo?.Habitation}}</ion-label>
-              </ion-item>
-              <ion-item slot="header">
-                <ion-label>Mode: Half Yearly(2022-2023)</ion-label>
-              </ion-item>
-        </ion-list>
-      </ion-col>
+     
+     
+      
     </ion-row>
-    
+
     <ion-row>
       <ion-col size="12" size-lg="6">
         <ion-card class="ion-no-margin">
 
-       
-        <ion-item-divider>
-          <ion-label>
-           Academic Subjects
-          </ion-label>
-        </ion-item-divider>
-        <ion-list>
-          <ion-item lines="full">
-            <ion-label class="bold">Subject</ion-label>
-            <ion-label class="bold">Written</ion-label>
-            <ion-label class="bold">Oral</ion-label>
-            <ion-label class="bold">Total</ion-label>
-          </ion-item>  
-          <ion-item lines="full" *ngFor="let item of markInfo?.marks">
-            
-            <ion-label >{{item?.sub}}</ion-label>
-            <ion-label >{{item?.writtenAcc?item?.writtenAcc:0}}/{{item?.writtenTotal?item?.writtenTotal:0}}</ion-label>
-            <ion-label >{{item?.oralAcc?item?.oralAcc:0}}/{{item?.oral?item?.oral:0}}</ion-label>
-            <ion-label > {{total(item?.writtenAcc?item?.writtenAcc:0, item?.oralAcc?item?.oralAcc:0)}}</ion-label>
-          </ion-item>  
 
-          <ion-item lines="full">
-            <ion-label class="bold">Total</ion-label>
-            <ion-label class="bold">{{markInfo?.score}}/{{markInfo?.total}}</ion-label>
-            <ion-label class="bold">Percentage</ion-label>
-            <ion-label class="bold">{{markInfo?.percentage}}%</ion-label>
+          <ion-item-divider color="secondary">
+            <ion-label class="label">
+              <ion-icon name="book-outline"></ion-icon> Academic Subjects
+            </ion-label>
+          </ion-item-divider>
+          <ion-list>
+            <ion-item lines="full">
+              <ion-label class="bold">Subject</ion-label>
+              <ion-label class="bold">Written</ion-label>
+              <ion-label class="bold">Oral</ion-label>
+              <ion-label class="bold">Total</ion-label>
+            </ion-item>
+            <ion-item lines="full" *ngFor="let item of markInfo?.marks">
 
-          </ion-item>  
-        </ion-list>
-      </ion-card>
+              <ion-label>{{item?.sub}}</ion-label>
+              <ion-label>{{item?.writtenAcc?item?.writtenAcc:0}}/{{item?.writtenTotal?item?.writtenTotal:0}}
+              </ion-label>
+              <ion-label>{{item?.oralAcc?item?.oralAcc:0}}/{{item?.oral?item?.oral:0}}</ion-label>
+              <ion-label [mark]="total(item?.writtenAcc?item?.writtenAcc:0, item?.oralAcc?item?.oralAcc:0)" class="bold" > {{total(item?.writtenAcc?item?.writtenAcc:0, item?.oralAcc?item?.oralAcc:0)}}</ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-label class="bold">Total</ion-label>
+              <ion-label class="bold">{{markInfo?.score}}/{{markInfo?.total}}</ion-label>
+              <ion-label class="bold">Percentage</ion-label>
+              <ion-label class="bold" [mark]="markInfo?.percentage" >{{markInfo?.percentage}}%</ion-label>
+
+            </ion-item>
+          </ion-list>
+        </ion-card>
       </ion-col>
 
       <ion-col size="12" size-lg="6">
-      <ion-card class="ion-no-margin">
-        <ion-item-divider>
-          <ion-label>
-            Non-Academic Subject
-          </ion-label>
-        </ion-item-divider>
-        <ion-list>
-          <ion-item lines="full">
-            <ion-label class="bold">Serial</ion-label>
-            <ion-label class="bold">Non Academic Subject</ion-label>
-            <ion-label class="bold">Grade</ion-label>
-          </ion-item>  
-          <ion-item lines="full">
-            <ion-label >1</ion-label>
-            <ion-label >Physical Education</ion-label>
-            <ion-label >{{markInfo?.nonAcademic?.physicalEdu}}</ion-label>
-          </ion-item>  
-          <ion-item lines="full">
-            <ion-label >2</ion-label>
-            <ion-label >Sense Development</ion-label>
-            <ion-label >{{markInfo?.nonAcademic?.senseDev}}</ion-label>
-          </ion-item> 
-          <ion-item lines="full">
-            <ion-label >3</ion-label>
-            <ion-label >Gardening</ion-label>
-            <ion-label >{{markInfo?.nonAcademic?.gardening}}</ion-label>
-          </ion-item> 
-          <ion-item lines="full">
-            <ion-label >4</ion-label>
-            <ion-label >Hand Work</ion-label>
-            <ion-label >{{markInfo?.nonAcademic?.handWork}}</ion-label>
-          </ion-item> 
-          <ion-item lines="full">
-            <ion-label >5</ion-label>
-            <ion-label >Musical Dance</ion-label>
-            <ion-label >{{markInfo?.nonAcademic?.musicalDance}}</ion-label>
-          </ion-item>
-          <ion-item lines="full">
-            <ion-label >6</ion-label>
-            <ion-label >Creativity</ion-label>
-            <ion-label >{{markInfo?.nonAcademic?.creativity}}</ion-label>
-          </ion-item>   
-        </ion-list>
-      </ion-card>
+        <ion-card class="ion-no-margin">
+          <ion-item-divider color="secondary" >
+            <ion-label class="label">
+              <ion-icon name="accessibility-outline"></ion-icon> Non-Academic Subject
+            </ion-label>
+          </ion-item-divider>
+          <ion-list>
+            <ion-item lines="full">
+              <!-- <ion-label>1</ion-label> -->
+              <ion-label>Physical Education</ion-label>
+              <ion-label>{{markInfo?.nonAcademic?.physicalEdu}}</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+              <!-- <ion-label>2</ion-label> -->
+              <ion-label>Sense Development</ion-label>
+              <ion-label>{{markInfo?.nonAcademic?.senseDev}}</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+              <!-- <ion-label>3</ion-label> -->
+              <ion-label>Gardening</ion-label>
+              <ion-label>{{markInfo?.nonAcademic?.gardening}}</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+              <!-- <ion-label>4</ion-label> -->
+              <ion-label>Hand Work</ion-label>
+              <ion-label>{{markInfo?.nonAcademic?.handWork}}</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+              <!-- <ion-label>5</ion-label> -->
+              <ion-label>Musical Dance</ion-label>
+              <ion-label>{{markInfo?.nonAcademic?.musicalDance}}</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+              <!-- <ion-label>6</ion-label> -->
+              <ion-label>Creativity</ion-label>
+              <ion-label>{{markInfo?.nonAcademic?.creativity}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card>
       </ion-col>
       <ion-col size="12">
-        <ion-card>
+        <ion-card class="ion-no-margin">
+          <ion-item-divider color="secondary">
+            <ion-label class="label">
+            <ion-icon name="bar-chart-outline"></ion-icon>   
+            Half Yearly(2022-2023) Mark Graph
+            </ion-label>
+          </ion-item-divider>
           <app-graph [data]="markInfo"></app-graph>
         </ion-card>
       </ion-col>
-     
+
     </ion-row>
-    
+
     <ion-row>
       <ion-col size="12">
-        <ion-item-divider>
-          <ion-label>
-            Remarks:
+        <ion-item-divider color="secondary">
+          <ion-label class="label">
+            <ion-icon name="medal-outline"></ion-icon>  Remarks:
           </ion-label>
         </ion-item-divider>
         <ion-item>
-          
+
           <ion-textarea [autoGrow]="true">{{markInfo?.nonAcademic?.remark}}</ion-textarea>
         </ion-item>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item-divider color="secondary">
+          <ion-label class="label">
+            <ion-icon name="pencil-outline" class="ion-margin-right"></ion-icon> Sign:
+          </ion-label>
+          </ion-item-divider>
+        <ion-item class="ion-margin-top">
+          <ion-label>
+            Parent's Sign:
+          </ion-label>
+          <ion-label>
+            Principal Sign:
+          </ion-label>
+          <ion-label>
+            Class Teacher's Sign:
+          </ion-label>
+        </ion-item>
+      </ion-col>
+     
+    </ion-row>
   </ion-grid>
-  <ion-item-divider>Sign:</ion-item-divider>
-  <ion-item>
-    <ion-label>
-      Parent's Sign:
-    </ion-label>
-    <ion-label>
-      Principal Sign:
-    </ion-label>
-    <ion-label>
-      Class Teacher's Sign:
-    </ion-label>
-  </ion-item>
-  
-</ion-card>
+
+
 </ion-content>

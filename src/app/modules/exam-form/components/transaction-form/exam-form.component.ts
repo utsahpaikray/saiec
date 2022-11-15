@@ -32,12 +32,11 @@ export class ExamFormComponent implements OnInit {
      
       
     }
-    console.log(this.info)
     this.examForm.patchValue(this.info)
     this.examForm.get('oralTotal').patchValue(this.info.oral)
     this.examForm.get('oralAcc').patchValue(this.info.oralAcc)
-    this.examForm.get('writtenTotal').patchValue(this.info.total)
-    this.examForm.get('writtenAcc').patchValue(12)
+    this.examForm.get('writtenTotal').patchValue(this.info.writtenTotal)
+    this.examForm.get('writtenAcc').patchValue(this.info.writtenAcc)
   }
   createGalleryForm() {
     this.examForm = this.fb.group({

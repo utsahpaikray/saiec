@@ -58,6 +58,11 @@ export class GraphComponent implements OnInit {
           }]
       },
       options: {
+        scales: {
+          y: {
+              suggestedMax: 100
+          }
+      },
           parsing: {
               xAxisKey: 'sub',
               yAxisKey: 'total'
@@ -69,7 +74,7 @@ export class GraphComponent implements OnInit {
                         let label = context.formattedValue || '';
 
                         if (label) {
-                            label += `/ ${context['raw'].subjectTotal}`;
+                            label += `/ ${context['raw']['subjectTotal']}`|| 0;
                         }
                         return label;
                     }

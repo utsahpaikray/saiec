@@ -69,5 +69,27 @@ this.firebaseService.getAllstudent().subscribe(items => {
   public total(a,b){
     return Number(a)+Number(b);
   }
+  getGrade(value: any) {
+    switch (true) {
+      // If score is 90 or greater
+      case value >= 90:
+        return 'A'
+       
+      case value >= 80:
+        return "B";
+       
+      // If score is 70 or greater
+      case value >= 70:
+        return "C";
+       
+      // If score is 60 or greater
+      case value >= 60:
+        return "D";
+       
+      // Anything 59 or below is failing
+      default:
+        return "F";
+    }
+  }
 
 }

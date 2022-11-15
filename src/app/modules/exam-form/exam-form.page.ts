@@ -186,7 +186,7 @@ export class ExamFormPage implements OnInit {
   }
   save(monthData) {
     console.log(this.formValue);
-    if(this.formValue.mode==monthData){
+    if(this.formValue || this.formValue?.mode==monthData){
     this.selectedStudentInfo.markInfo.forEach(items => {
       if (items.name == this.formValue.mode) {
         items['nonAcademic'] = this.formValue.value;
