@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { slideOptsCoverFlow, slideOptsCubes, slideOptsFade, slideOptsFlip } from './slide-animation';
 import { qoutes } from './qoutes';
 import * as moment from 'moment';
 @Component({
@@ -10,7 +9,7 @@ import * as moment from 'moment';
 export class HomePage implements OnInit {
   todaysQoute:any;
   constructor() { }
-  slideOpts=slideOptsFlip;
+  // slideOpts=slideOptsFlip;
   qoutes=qoutes;
   ngOnInit() {
   //  console.log(new Date(this.qoutes[0].date))
@@ -20,7 +19,6 @@ export class HomePage implements OnInit {
   this.todaysQoute=this.qoutes.filter(item=>{
     return moment(new Date(),'MM-DD-YYYY').format('MM-DD-YYYY')==moment(item.date,'DD-MM-YYYY').format('MM-DD-YYYY')
   })[0]
-  console.log(this.todaysQoute)
   }
   public dateModification(date){
     let newdate= date.split('-');

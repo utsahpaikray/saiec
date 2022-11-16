@@ -52,14 +52,16 @@ export class ExamFormPage implements OnInit {
     this.subscription = this.firebaseService.getAllExamInfo().subscribe(items => {
       this.rowData = items;
       // this.rowData.forEach(studentInfo => {
-      // if(studentInfo.class== 'Nursery'){
+      // if(studentInfo.class== 'Nursery' || studentInfo.class== 'KG'){
       //     studentInfo.markInfo.forEach(mark => {
       //       if(mark.name==="Halfly" || mark.name==="Annual"){
       //        // console.log(mark.marks.findIndex(item=>item.sub=='G.K'))
-      //         if(mark.marks.findIndex(item=>item.sub=='Science')==-1){
-      //           let result = this.addSubject(mark.marks,'Science');
+      //         if(mark.marks.findIndex(item=>item.sub=='G.K')==-1){
+      //           //this.removeSubject(mark.marks,'GK')
+      //          let result = this.addSubject(mark.marks,'G.K');
+      //           // console.log(result)
       //           console.log(studentInfo)
-      //         this.firebaseService.updateExamInfo(studentInfo.$id, studentInfo);
+      //           this.firebaseService.updateExamInfo(studentInfo.$id, studentInfo);
       //         }
       //        // 
              
@@ -71,6 +73,16 @@ export class ExamFormPage implements OnInit {
       // });
       this.classList = sortBy(uniq(map(items, 'class')))
     })
+  }
+  removeSubject(marks:[],topic){
+    this.subscription.unsubscribe();
+    let index= marks.findIndex(item=>{return item['sub']==topic})
+    console.log(index)
+    if (index > -1){
+      marks.splice(index,1);
+      //console.log(marks)
+    }
+   return marks;
   }
   addSubject(marks,topic) {
     this.subscription.unsubscribe();
