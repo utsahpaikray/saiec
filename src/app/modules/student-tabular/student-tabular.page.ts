@@ -30,7 +30,8 @@ export class StudentTabularPage implements OnInit {
    { field: 'class' },
    {field:'Habitation'},
    {field:'Sub-Status'},
-   {field:'SocialCategory'}
+   {field:'SocialCategory'},
+   {field:'report'}
  ];
 
  // DefaultColDef sets props common to all Columns
@@ -65,17 +66,11 @@ export class StudentTabularPage implements OnInit {
  onGridReady(params: GridReadyEvent) {
   this.gridApi = params.api;
   this.firebaseService.getAllstudent().subscribe(items=>{
-    let studentInfo=[]
-    // items.forEach(item=>{
-    //   studentInfo.push(item)
-    // })
-    console.log(items)
      this.rowData = items;
   })
   
  }
  getContextMenuItems = (params) => {
-  console.log(params)
   var result: (string | MenuItemDef)[] = [
     {
       name: 'Action',
@@ -83,7 +78,6 @@ export class StudentTabularPage implements OnInit {
         {
           name: 'Update Student',
           action: () => {
-            console.log(this)
            this.updateStudent(params);
           },
         },
@@ -147,7 +141,6 @@ addStudent(){
 
  // Example of consuming Grid Event
  onCellClicked( e: CellClickedEvent): void {
-   console.log('cellClicked', e);
  }
 
  // Example using Grid's API

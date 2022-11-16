@@ -52,31 +52,31 @@ export class ExamFormPage implements OnInit {
     this.subscription = this.firebaseService.getAllExamInfo().subscribe(items => {
       this.rowData = items;
       // this.rowData.forEach(studentInfo => {
-      // //  if(studentInfo.class!== 'Nursery' && studentInfo.class!== "KG"){
+      // if(studentInfo.class== 'Nursery'){
       //     studentInfo.markInfo.forEach(mark => {
       //       if(mark.name==="Halfly" || mark.name==="Annual"){
-      //         console.log(mark.marks.findIndex(item=>item.sub=='Drawing'))
-      //         // if(mark.marks.findIndex(item=>item.sub=='Drawing')==-1){
-      //         //   let result = this.addSubject(mark.marks);
-
-      //         //  this.firebaseService.updateExamInfo(studentInfo.$id, studentInfo);
-      //         // }
+      //        // console.log(mark.marks.findIndex(item=>item.sub=='G.K'))
+      //         if(mark.marks.findIndex(item=>item.sub=='Science')==-1){
+      //           let result = this.addSubject(mark.marks,'Science');
+      //           console.log(studentInfo)
+      //         this.firebaseService.updateExamInfo(studentInfo.$id, studentInfo);
+      //         }
       //        // 
-      //        console.log(studentInfo.name)
+             
       //       // 
       //       }
       //     });
-      //   //}
+      //   }
 
       // });
       this.classList = sortBy(uniq(map(items, 'class')))
     })
   }
-  addSubject(marks) {
+  addSubject(marks,topic) {
     this.subscription.unsubscribe();
     let subject = {
       "writtenTotal": 0,
-      "sub": "Drawing",
+      "sub": topic,
       "oralAcc": 0,
       "year": "2022-2023",
       "oral": 0,

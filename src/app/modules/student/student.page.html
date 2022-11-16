@@ -73,7 +73,7 @@
                 <ion-ripple-effect></ion-ripple-effect>
               </ion-button>
               <ion-button class="ion-activatable ripple-parent"  shape="round" color="primary"
-              (click)="showReport(std)">Report
+              (click)="showReport(std)" *ngIf="std.report=='Y'">Report
               <ion-ripple-effect></ion-ripple-effect>
             </ion-button>
               </div>
