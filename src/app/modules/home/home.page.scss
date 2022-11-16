@@ -41,6 +41,20 @@ ion-slides {
   p b {
     color: var(--ion-text-color, #000000);
   }
-  img{
-    height: 400px;
+  // img{
+  //   height: 400px;
+  // }
+  .slide{
+    display: flex;
+    justify-content: center;
+    img{
+      &.main{
+        height: 14rem;
+      }
+      &.second{
+        height: 50vh;
+      width: 100%;
+      object-fit: cover;
+      }
+    }
   }

@@ -1,4 +1,4 @@
-<ion-header  translucent>
+<ion-header translucent>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -7,36 +7,96 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen class="ion-padding" scroll-y="false">
-  <ion-slides  pager="true" [options]="slideOpts">
+<ion-content fullscreen class="ion-padding">
+  <ion-row>
+    <ion-col size="12">
+      <ion-card class="ion-no-margin">
+        <div class="slide">
+          <img class="main" src="assets/icon/favicon.png" />
+      </div>
+        
+        <ion-card-header>
+          <ion-card-subtitle class="ion-text-center" color="primary">Sri Aurobindo Integral Education Center, Paikakushadiha</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-label *ngIf="todaysQoute"><q>{{todaysQoute?.qoute}}</q>
+            <br>
+            -{{todaysQoute?.by}}</ion-label>
+        </ion-card-content>
+      </ion-card>
+      
+    </ion-col>
+    <ion-col size="12">
+      
+        <ion-card class="ion-no-margin">
+          <div class="slide">
+            <img class="second"
+            src="https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/schoolStudent.jpg?alt=media&token=386fc046-325b-4d0a-9200-c0e3ecb0618e" />
+          </div>
+          <ion-card-header>
+            <ion-card-subtitle class="ion-text-center">Welcome</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+    
+    </ion-col>
+    <ion-col size="12">
+      <ion-card class="ion-no-margin">
+        <div class="slide">
+          <img class="second"
+            src="https://www.sketchup.com/sites/www.sketchup.com/files/molecule_image/IMG_01_SCHOOL_SCENE_01_low%282%29_0.png" />
+        </div>
+        <ion-card-header>
+          <ion-card-subtitle class="ion-text-center">Ready to Play?</ion-card-subtitle>
+        </ion-card-header>
+  
+      </ion-card>
+
+    </ion-col>
+    <ion-col size="12">
+      
+        <ion-card class="ion-no-margin">
+          <div class="slide">
+            <img src="https://images.squarespace-cdn.com/content/v1/58bce175e3df28ba49876b49/1542758927221-JJ8PROTW65V6FXH0Q4ZS/HS_Banner2.jpg?format=1200w" />
+          </div>
+          <ion-card-header>
+            <ion-card-subtitle class="ion-text-center">Why SAIEC?</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label ><q>True knowledge is not attained by thinking. It is what you are; it is what you become.</q></ion-label>
+            <br>
+            <div class="ion-text-end">
+              <ion-label >
+                ― Sri Aurobindo & The Mother
+              </ion-label>
+            </div>
+           
+            
+
+          </ion-card-content>
+        </ion-card>
+    </ion-col>
+  </ion-row>
+ 
+ 
+ 
+ 
+  <!-- <ion-slides  pager="true" [options]="slideOpts">
     <ion-slide>
-      <img src="assets/icon/favicon.png"/>
-      <h2><ion-label color="primary">Welcome</ion-label></h2>
-      <ion-label color="primary" *ngIf="todaysQoute"><q>{{todaysQoute?.qoute}}</q> 
-        <br>
-       -{{todaysQoute?.by}}</ion-label>
+      
     </ion-slide>
     <ion-slide>
-      <div class="slide">
-        <img src="https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/schoolStudent.jpg?alt=media&token=386fc046-325b-4d0a-9200-c0e3ecb0618e"/>
-        <h2 color="primary">Welcome</h2>
-        <p>Sri Aurobindo Integral Education Center, Paikakushadiha </p>
-      </div>
+      
     </ion-slide>
 
-    <!-- <ion-slide>
-      <img src="https://education.maharashtra.gov.in/saral2/images/school-icon.png"/>
-      <h2>Why SAIEC?</h2>
-    
-    </ion-slide> -->
+  
 
    
 
     <ion-slide>
-      <img src="https://www.sketchup.com/sites/www.sketchup.com/files/molecule_image/IMG_01_SCHOOL_SCENE_01_low%282%29_0.png"/>
-      <h2>Ready to Play?</h2>
+     
       <ion-button fill="clear">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
-  </ion-slides>
+  </ion-slides> -->
 </ion-content>
