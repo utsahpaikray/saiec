@@ -186,7 +186,7 @@ export class ExamFormPage implements OnInit {
   }
   save(monthData) {
     console.log(this.formValue);
-    if(this.formValue || this.formValue?.mode==monthData){
+   // if(this.formValue || this.formValue?.mode==monthData){
     this.selectedStudentInfo.markInfo.forEach(items => {
       if (items.name == this.formValue.mode) {
         items['nonAcademic'] = this.formValue.value;
@@ -194,9 +194,9 @@ export class ExamFormPage implements OnInit {
     })
     this.firebaseService.updateExamInfo(this.selectedStudentInfo.$id, this.selectedStudentInfo);
     this.toasterService.presentToast(`Succesfull update for ${monthData}`,2000)
-  }else{
-    this.toasterService.presentToast(`Not able to update for ${monthData}`,2000)
-  }
+  //}else{
+  //  this.toasterService.presentToast(`Not able to update for ${monthData}`,2000)
+  //}
   }
 }
 
