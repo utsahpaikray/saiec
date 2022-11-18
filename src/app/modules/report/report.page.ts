@@ -73,19 +73,20 @@ this.firebaseService.getAllstudent().subscribe(items => {
     switch (true) {
       // If score is 90 or greater
       case value >= 90:
-        return 'A'
+        return 'O'
        
       case value >= 80:
-        return "B";
+        return "A";
        
       // If score is 70 or greater
       case value >= 70:
-        return "C";
+        return "B";
        
       // If score is 60 or greater
       case value >= 60:
-        return "D";
-       
+        return "C";
+        case value >= 70:
+          return "D";
       // Anything 59 or below is failing
       default:
         return "F";

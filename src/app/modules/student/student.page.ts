@@ -20,6 +20,7 @@ export class StudentPage implements OnInit {
     inSchoolStudentData: any[];
     totalStudent: number;
     hexString = "0123456789abcdef";
+    loaded=false;
     constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService, public firebaseService: FirebaseService, private router: Router) {
     }
 
@@ -33,6 +34,9 @@ export class StudentPage implements OnInit {
             this.allStudentClassWise = values(groupBy(this.allStudentInfo, 'class'))
             this.inSchoolStudentData = this.extractInschoolData();
             this.generateAutoFeeStructure(this.inSchoolStudentData)
+            this.loaded=true;
+        },err=>{
+            this.loaded=false;
         })
 
 

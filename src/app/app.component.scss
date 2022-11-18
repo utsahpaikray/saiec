@@ -5,7 +5,7 @@ ion-menu ion-content {
 ion-menu ion-content {
   --padding-start: 8px;
   --padding-end: 8px;
-  --padding-top: 20px;
+ // --padding-top: 20px;
   --padding-bottom: 20px;
 }
 
@@ -122,6 +122,15 @@ ion-item.selected {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  .text{
+    font-size: 1.3rem;
+    word-spacing: unset;
+    letter-spacing: 2rem;
+    margin-top: 23px;
+    margin-left: 2rem;
+    color: #6d4c41;
+  }
 }
 ion-toggle {
   height: 1rem;

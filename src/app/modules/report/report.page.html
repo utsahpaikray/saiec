@@ -20,36 +20,52 @@
         <ion-card class="ion-no-margin">
           <ion-row>
             <ion-col size="12" size-md="3" class="primary">
-              <div class="image-setup">
-                
-                  <ion-img [src]="studentMainInfo?.Image"></ion-img>
-                
+              <div class="image-setup"> 
+                  <ion-img [src]="studentMainInfo?.Image"></ion-img> 
               </div>
             </ion-col>
             <ion-col size="12" size-md="9">
              
                 <ion-list inset="true" class="ion-no-margin">
                   <ion-item slot="header">
-                    <ion-label color="primary">Name: {{studentMainInfo?.StudentName}}</ion-label>
+                    <ion-label color="primary" class="ion-no-margin">Name: {{studentMainInfo?.StudentName}}</ion-label>
                   </ion-item>
       
                   <ion-item slot="header">
-                    <ion-label>Standard: {{studentMainInfo?.class}} </ion-label>
+                    <ion-label class="ion-no-margin">Standard: <ion-chip color="success">
+                      <ion-label > {{studentMainInfo?.class}} </ion-label>
+                    </ion-chip>
+                  </ion-label>
                   </ion-item>
                   <ion-item slot="header">
-                    <ion-label>Father's Name: {{studentMainInfo?.FatherName |titlecase}}</ion-label>
+                    <ion-label class="ion-no-margin">Father's Name: <ion-chip color="success">
+                      <ion-label > {{studentMainInfo?.FatherName |titlecase}} </ion-label>
+                    </ion-chip></ion-label>
                   </ion-item>
                   <ion-item slot="header">
-                    <ion-label>Mother's Name: {{studentMainInfo?.MotherName |titlecase}}</ion-label>
+                    <ion-label class="ion-no-margin">Mother's Name: <ion-chip color="success">
+                      <ion-label > {{studentMainInfo?.MotherName |titlecase}} </ion-label>
+                    </ion-chip>
+                  </ion-label>
                   </ion-item>
                   <ion-item slot="header">
-                    <ion-label>Village: {{studentMainInfo?.Habitation | titlecase}}</ion-label>
+                    <ion-label class="ion-no-margin">Village: <ion-chip color="success">
+                      <ion-label > {{studentMainInfo?.Habitation | titlecase}} </ion-label>
+                    </ion-chip>
+                  </ion-label>
                   </ion-item>
                   <ion-item slot="header">
-                    <ion-label>Mode: Half Yearly(2022-2023)</ion-label>
+                    <ion-label class="ion-no-margin">Mode: <ion-chip color="success">
+                      <ion-label > Half Yearly(2022-2023)</ion-label>
+                    </ion-chip>
+                  </ion-label>
                   </ion-item>
                   <ion-item slot="header">
-                    <ion-label>Grade: {{getGrade(markInfo?.percentage)}}</ion-label>
+                    <ion-label class="ion-no-margin">Grade: <ion-chip color="success">
+                      <ion-label > {{getGrade(markInfo?.percentage)}} </ion-label>
+                    </ion-chip>
+                  </ion-label>
+                    
                   </ion-item>
                   
                 </ion-list>
@@ -65,8 +81,6 @@
     <ion-row>
       <ion-col size="12" size-lg="6">
         <ion-card class="ion-no-margin">
-
-
           <ion-item-divider color="secondary">
             <ion-label class="label">
               <ion-icon name="book-outline"></ion-icon> Academic Subjects
@@ -80,20 +94,17 @@
               <ion-label class="bold">Total</ion-label>
             </ion-item>
             <ion-item lines="full" *ngFor="let item of markInfo?.marks">
-
               <ion-label>{{item?.sub}}</ion-label>
               <ion-label>{{item?.writtenAcc?item?.writtenAcc:0}}/{{item?.writtenTotal?item?.writtenTotal:0}}
               </ion-label>
               <ion-label>{{item?.oralAcc?item?.oralAcc:0}}/{{item?.oral?item?.oral:0}}</ion-label>
               <ion-label [mark]="total(item?.writtenAcc?item?.writtenAcc:0, item?.oralAcc?item?.oralAcc:0)" class="bold" > {{total(item?.writtenAcc?item?.writtenAcc:0, item?.oralAcc?item?.oralAcc:0)}}</ion-label>
             </ion-item>
-
             <ion-item lines="full">
               <ion-label class="bold">Total</ion-label>
               <ion-label class="bold">{{markInfo?.score}}/{{markInfo?.total}}</ion-label>
               <ion-label class="bold">Percentage</ion-label>
               <ion-label class="bold" [mark]="markInfo?.percentage" >{{markInfo?.percentage}}%</ion-label>
-
             </ion-item>
           </ion-list>
         </ion-card>
