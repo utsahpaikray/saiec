@@ -28,6 +28,7 @@ public studentInfo={
   info: any;
   markInfo: any;
   studentMainInfo: { };
+  modeList = ['Halfly','Annual']
   constructor(public firebaseService: FirebaseService,private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -35,16 +36,19 @@ public studentInfo={
     this.getStudent();
 
   }
+  selectMode(value){
+    this.markInfo = this.info.markInfo.filter(item => {
+      return item.name === value;
+    })[0]
+    this.calculateScore(this.markInfo)
+  }
   getStudent() {
     this.firebaseService.getAllExamInfo().subscribe(items => {
       this.rowData=items;
      this.info = this.rowData.filter(item=>{
         return item.name===this.studentName;
       })[0]
-     this.markInfo= this.info.markInfo.filter(item=>{
-        return item.name==="Halfly"
-      })[0]
-      this.calculateScore(this.markInfo)
+     
 })
 this.firebaseService.getAllstudent().subscribe(items => {
   this.studentMainInfo= items.filter(item=>item['StudentName'] === this.studentName)[0];

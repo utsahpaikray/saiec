@@ -44,8 +44,9 @@ export class ExamFormPage implements OnInit {
   constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService, public firebaseService: FirebaseService, private authService: AuthService,  private toasterService:ToasterService) { }
 
   ngOnInit() {
+   // this.addStudentRecord();
     this.getStudent();
-    this.isAuthorized = this.authService.isAuthorizedUser
+    this.isAuthorized = this.authService.isAuthorizedUser;
   }
 
   getStudent() {
@@ -209,6 +210,716 @@ export class ExamFormPage implements OnInit {
   //}else{
   //  this.toasterService.presentToast(`Not able to update for ${monthData}`,2000)
   //}
+  }
+  addStudentRecord() {
+    let data={
+      "class": "KG",
+      "name": "Sanskriti Raut",
+      "markInfo": [
+          {
+              "name": "Halfly",
+              "marks": [
+                  {
+                      "writtenAcc": "30",
+                      "sub": "MIL(Odia)",
+                      "oral": "10",
+                      "acc": 0,
+                      "oralAcc": "8",
+                      "year": "2022-2023",
+                      "total": 38,
+                      "subjectTotal": 50,
+                      "writtenTotal": "40"
+                  },
+                  {
+                      "sub": "Math",
+                      "subjectTotal": 50,
+                      "oral": "10",
+                      "oralAcc": "9",
+                      "acc": 0,
+                      "total": 47,
+                      "writtenAcc": "38",
+                      "year": "2022-2023",
+                      "writtenTotal": "40"
+                  },
+                  {
+                      "oralAcc": "22",
+                      "oral": "25",
+                      "year": "2022-2023",
+                      "writtenAcc": 0,
+                      "subjectTotal": 25,
+                      "sub": "Science",
+                      "total": 22,
+                      "acc": 0,
+                      "writtenTotal": "0"
+                  },
+                  {
+                      "oral": "10",
+                      "writtenAcc": "34.5",
+                      "subjectTotal": 50,
+                      "writtenTotal": "40",
+                      "acc": 0,
+                      "sub": "English",
+                      "total": 44.5,
+                      "year": "2022-2023",
+                      "oralAcc": "10"
+                  },
+                  {
+                      "sub": "Drawing",
+                      "acc": 0,
+                      "oralAcc": 0,
+                      "oral": 0,
+                      "year": "2022-2023",
+                      "writtenAcc": "39",
+                      "subjectTotal": 50,
+                      "total": 39,
+                      "writtenTotal": "50"
+                  },
+                  {
+                      "acc": 0,
+                      "writtenTotal": 0,
+                      "sub": "G.K",
+                      "total": 20,
+                      "year": "2022-2023",
+                      "oralAcc": "20",
+                      "subjectTotal": 25,
+                      "oral": "25",
+                      "writtenAcc": 0
+                  }
+              ],
+              "visible": true,
+              "nonAcademic": {
+                  "creativity": "A+",
+                  "gardening": "B+",
+                  "physicalEdu": "A+",
+                  "senseDev": "A+",
+                  "handWork": "A+",
+                  "musicalDance": "A+",
+                  "remark": "Good"
+              }
+          },
+          {
+              "visible": false,
+              "name": "Annual",
+              "marks": [
+                  {
+                      "acc": 0,
+                      "sub": "Math",
+                      "oralAcc": 0,
+                      "oral": 0,
+                      "writtenAcc": 0,
+                      "subjectTotal": 0,
+                      "year": "2022-2023",
+                      "total": 0
+                  },
+                  {
+                      "acc": 0,
+                      "total": 0,
+                      "oralAcc": 0,
+                      "sub": "English",
+                      "year": "2022-2023",
+                      "subjectTotal": 0,
+                      "oral": 0,
+                      "writtenAcc": 0
+                  },
+                  {
+                      "oral": 0,
+                      "subjectTotal": 0,
+                      "total": 0,
+                      "oralAcc": 0,
+                      "sub": "Science",
+                      "acc": 0,
+                      "year": "2022-2023",
+                      "writtenAcc": 0
+                  },
+                  {
+                      "writtenAcc": 0,
+                      "acc": 0,
+                      "subjectTotal": 0,
+                      "year": "2022-2023",
+                      "sub": "MIL(Odia)",
+                      "oral": 0,
+                      "total": 0,
+                      "oralAcc": 0
+                  },
+                  {
+                      "total": 0,
+                      "oralAcc": 0,
+                      "acc": 0,
+                      "year": "2022-2023",
+                      "writtenTotal": 0,
+                      "writtenAcc": 0,
+                      "subjectTotal": 0,
+                      "sub": "Drawing",
+                      "oral": 0
+                  },
+                  {
+                      "oralAcc": 0,
+                      "sub": "G.K",
+                      "year": "2022-2023",
+                      "total": 0,
+                      "oral": 0,
+                      "writtenTotal": 0,
+                      "acc": 0,
+                      "writtenAcc": 0,
+                      "subjectTotal": 0
+                  }
+              ]
+          },
+          {
+              "name": "January",
+              "marks": [
+                  {
+                      "oral": 0,
+                      "total": 0,
+                      "subjectTotal": 0,
+                      "writtenAcc": 0,
+                      "sub": "Math",
+                      "acc": 0,
+                      "year": "2022-2023",
+                      "oralAcc": 0
+                  },
+                  {
+                      "oralAcc": 0,
+                      "oral": 0,
+                      "year": "2022-2023",
+                      "writtenAcc": 0,
+                      "total": 0,
+                      "acc": 0,
+                      "sub": "English",
+                      "subjectTotal": 0
+                  },
+                  {
+                      "oral": 0,
+                      "total": 0,
+                      "acc": 0,
+                      "writtenAcc": 0,
+                      "year": "2022-2023",
+                      "sub": "Science",
+                      "subjectTotal": 0,
+                      "oralAcc": 0
+                  },
+                  {
+                      "sub": "MIL(Odia)",
+                      "year": "2022-2023",
+                      "total": 0,
+                      "oralAcc": 0,
+                      "writtenAcc": 0,
+                      "acc": 0,
+                      "oral": 0,
+                      "subjectTotal": 0
+                  }
+              ],
+              "visible": false
+          },
+          {
+              "name": "February",
+              "visible": false,
+              "marks": [
+                  {
+                      "oral": 0,
+                      "total": 0,
+                      "year": "2022-2023",
+                      "oralAcc": 0,
+                      "acc": 0,
+                      "writtenAcc": 0,
+                      "subjectTotal": 0,
+                      "sub": "Science"
+                  },
+                  {
+                      "writtenAcc": 0,
+                      "year": "2022-2023",
+                      "subjectTotal": 0,
+                      "oral": 0,
+                      "oralAcc": 0,
+                      "total": 0,
+                      "acc": 0,
+                      "sub": "MIL(Odia)"
+                  },
+                  {
+                      "total": 0,
+                      "writtenAcc": 0,
+                      "acc": 0,
+                      "year": "2022-2023",
+                      "sub": "Math",
+                      "oralAcc": 0,
+                      "oral": 0,
+                      "subjectTotal": 0
+                  },
+                  {
+                      "sub": "English",
+                      "oral": 0,
+                      "total": 0,
+                      "writtenAcc": 0,
+                      "acc": 0,
+                      "subjectTotal": 0,
+                      "oralAcc": 0,
+                      "year": "2022-2023"
+                  }
+              ]
+          },
+          {
+              "name": "March",
+              "marks": [
+                  {
+                      "writtenAcc": 0,
+                      "total": 0,
+                      "acc": 0,
+                      "subjectTotal": 0,
+                      "year": "2022-2023",
+                      "oralAcc": 0,
+                      "sub": "English",
+                      "oral": 0
+                  },
+                  {
+                      "year": "2022-2023",
+                      "writtenAcc": 0,
+                      "oral": 0,
+                      "sub": "Math",
+                      "oralAcc": 0,
+                      "total": 0,
+                      "acc": 0,
+                      "subjectTotal": 0
+                  },
+                  {
+                      "sub": "MIL(Odia)",
+                      "acc": 0,
+                      "subjectTotal": 0,
+                      "year": "2022-2023",
+                      "oral": 0,
+                      "total": 0,
+                      "writtenAcc": 0,
+                      "oralAcc": 0
+                  },
+                  {
+                      "subjectTotal": 0,
+                      "writtenAcc": 0,
+                      "acc": 0,
+                      "year": "2022-2023",
+                      "total": 0,
+                      "sub": "Science",
+                      "oralAcc": 0,
+                      "oral": 0
+                  }
+              ],
+              "visible": false
+          },
+          {
+              "visible": false,
+              "marks": [
+                  {
+                      "oral": 0,
+                      "writtenAcc": 0,
+                      "total": 0,
+                      "subjectTotal": 0,
+                      "sub": "English",
+                      "oralAcc": 0,
+                      "acc": 0,
+                      "year": "2022-2023"
+                  },
+                  {
+                      "year": "2022-2023",
+                      "writtenAcc": 0,
+                      "total": 0,
+                      "acc": 0,
+                      "oral": 0,
+                      "oralAcc": 0,
+                      "subjectTotal": 0,
+                      "sub": "MIL(Odia)"
+                  },
+                  {
+                      "oralAcc": 0,
+                      "sub": "Math",
+                      "subjectTotal": 0,
+                      "writtenAcc": 0,
+                      "year": "2022-2023",
+                      "total": 0,
+                      "oral": 0,
+                      "acc": 0
+                  },
+                  {
+                      "total": 0,
+                      "acc": 0,
+                      "oral": 0,
+                      "writtenAcc": 0,
+                      "oralAcc": 0,
+                      "subjectTotal": 0,
+                      "year": "2022-2023",
+                      "sub": "Science"
+                  }
+              ],
+              "name": "April"
+          },
+          {
+              "marks": [
+                  {
+                      "oralAcc": 0,
+                      "acc": 0,
+                      "subjectTotal": 0,
+                      "writtenAcc": 0,
+                      "year": "2022-2023",
+                      "oral": 0,
+                      "total": 0,
+                      "sub": "Science"
+                  },
+                  {
+                      "writtenAcc": 0,
+                      "oralAcc": 0,
+                      "acc": 0,
+                      "sub": "Math",
+                      "year": "2022-2023",
+                      "oral": 0,
+                      "total": 0,
+                      "subjectTotal": 0
+                  },
+                  {
+                      "acc": 0,
+                      "oralAcc": 0,
+                      "year": "2022-2023",
+                      "sub": "English",
+                      "subjectTotal": 0,
+                      "total": 0,
+                      "oral": 0,
+                      "writtenAcc": 0
+                  },
+                  {
+                      "oralAcc": 0,
+                      "writtenAcc": 0,
+                      "acc": 0,
+                      "year": "2022-2023",
+                      "subjectTotal": 0,
+                      "oral": 0,
+                      "total": 0,
+                      "sub": "MIL(Odia)"
+                  }
+              ],
+              "name": "May",
+              "visible": false
+          },
+          {
+              "visible": false,
+              "name": "June",
+              "marks": [
+                  {
+                      "sub": "MIL(Odia)",
+                      "year": "2022-2023",
+                      "subjectTotal": 0,
+                      "writtenAcc": 0,
+                      "total": 0,
+                      "oral": 0,
+                      "oralAcc": 0,
+                      "acc": 0
+                  },
+                  {
+                      "acc": 0,
+                      "writtenAcc": 0,
+                      "oral": 0,
+                      "oralAcc": 0,
+                      "total": 0,
+                      "subjectTotal": 0,
+                      "year": "2022-2023",
+                      "sub": "Math"
+                  },
+                  {
+                      "year": "2022-2023",
+                      "sub": "Science",
+                      "writtenAcc": 0,
+                      "oral": 0,
+                      "subjectTotal": 0,
+                      "total": 0,
+                      "oralAcc": 0,
+                      "acc": 0
+                  },
+                  {
+                      "acc": 0,
+                      "total": 0,
+                      "oralAcc": 0,
+                      "subjectTotal": 0,
+                      "writtenAcc": 0,
+                      "sub": "English",
+                      "oral": 0,
+                      "year": "2022-2023"
+                  }
+              ]
+          },
+          {
+              "name": "July",
+              "visible": false,
+              "marks": [
+                  {
+                      "writtenAcc": 0,
+                      "subjectTotal": 0,
+                      "total": 0,
+                      "year": "2022-2023",
+                      "sub": "MIL(Odia)",
+                      "acc": 0,
+                      "oral": 0,
+                      "oralAcc": 0
+                  },
+                  {
+                      "subjectTotal": 0,
+                      "oral": 0,
+                      "writtenAcc": 0,
+                      "oralAcc": 0,
+                      "sub": "Science",
+                      "acc": 0,
+                      "total": 0,
+                      "year": "2022-2023"
+                  },
+                  {
+                      "oral": 0,
+                      "writtenAcc": 0,
+                      "sub": "Math",
+                      "total": 0,
+                      "acc": 0,
+                      "oralAcc": 0,
+                      "year": "2022-2023",
+                      "subjectTotal": 0
+                  },
+                  {
+                      "writtenAcc": 0,
+                      "sub": "English",
+                      "acc": 0,
+                      "oralAcc": 0,
+                      "subjectTotal": 0,
+                      "oral": 0,
+                      "total": 0,
+                      "year": "2022-2023"
+                  }
+              ]
+          },
+          {
+              "marks": [
+                  {
+                      "oralAcc": 0,
+                      "total": 0,
+                      "writtenAcc": 0,
+                      "acc": 0,
+                      "sub": "English",
+                      "oral": 0,
+                      "subjectTotal": 0,
+                      "year": "2022-2023"
+                  },
+                  {
+                      "year": "2022-2023",
+                      "total": 0,
+                      "sub": "Science",
+                      "subjectTotal": 0,
+                      "writtenAcc": 0,
+                      "oralAcc": 0,
+                      "oral": 0,
+                      "acc": 0
+                  },
+                  {
+                      "acc": 0,
+                      "writtenAcc": 0,
+                      "subjectTotal": 0,
+                      "total": 0,
+                      "oralAcc": 0,
+                      "sub": "Math",
+                      "oral": 0,
+                      "year": "2022-2023"
+                  },
+                  {
+                      "acc": 0,
+                      "oralAcc": 0,
+                      "oral": 0,
+                      "total": 0,
+                      "writtenAcc": 0,
+                      "year": "2022-2023",
+                      "sub": "MIL(Odia)",
+                      "subjectTotal": 0
+                  }
+              ],
+              "name": "August",
+              "visible": false
+          },
+          {
+              "visible": false,
+              "name": "September",
+              "marks": [
+                  {
+                      "subjectTotal": 0,
+                      "year": "2022-2023",
+                      "sub": "English",
+                      "acc": 0,
+                      "writtenAcc": 0,
+                      "oral": 0,
+                      "oralAcc": 0,
+                      "total": 0
+                  },
+                  {
+                      "oralAcc": 0,
+                      "oral": 0,
+                      "acc": 0,
+                      "year": "2022-2023",
+                      "total": 0,
+                      "subjectTotal": 0,
+                      "writtenAcc": 0,
+                      "sub": "Science"
+                  },
+                  {
+                      "acc": 0,
+                      "writtenAcc": 0,
+                      "subjectTotal": 0,
+                      "sub": "MIL(Odia)",
+                      "oral": 0,
+                      "total": 0,
+                      "year": "2022-2023",
+                      "oralAcc": 0
+                  },
+                  {
+                      "acc": 0,
+                      "subjectTotal": 0,
+                      "oralAcc": 0,
+                      "total": 0,
+                      "year": "2022-2023",
+                      "oral": 0,
+                      "writtenAcc": 0,
+                      "sub": "Math"
+                  }
+              ]
+          },
+          {
+              "marks": [
+                  {
+                      "subjectTotal": 0,
+                      "sub": "MIL(Odia)",
+                      "acc": 0,
+                      "year": "2022-2023",
+                      "writtenAcc": 0,
+                      "oralAcc": 0,
+                      "total": 0,
+                      "oral": 0
+                  },
+                  {
+                      "oralAcc": 0,
+                      "total": 0,
+                      "writtenAcc": 0,
+                      "oral": 0,
+                      "subjectTotal": 0,
+                      "acc": 0,
+                      "year": "2022-2023",
+                      "sub": "Science"
+                  },
+                  {
+                      "oralAcc": 0,
+                      "subjectTotal": 0,
+                      "year": "2022-2023",
+                      "writtenAcc": 0,
+                      "total": 0,
+                      "oral": 0,
+                      "acc": 0,
+                      "sub": "Math"
+                  },
+                  {
+                      "sub": "English",
+                      "total": 0,
+                      "oralAcc": 0,
+                      "writtenAcc": 0,
+                      "subjectTotal": 0,
+                      "oral": 0,
+                      "acc": 0,
+                      "year": "2022-2023"
+                  }
+              ],
+              "name": "October",
+              "visible": false
+          },
+          {
+              "marks": [
+                  {
+                      "subjectTotal": 0,
+                      "year": "2022-2023",
+                      "oral": 0,
+                      "acc": 0,
+                      "total": 0,
+                      "sub": "MIL(Odia)",
+                      "writtenAcc": 0,
+                      "oralAcc": 0
+                  },
+                  {
+                      "acc": 0,
+                      "writtenAcc": 0,
+                      "year": "2022-2023",
+                      "oral": 0,
+                      "subjectTotal": 0,
+                      "sub": "Science",
+                      "total": 0,
+                      "oralAcc": 0
+                  },
+                  {
+                      "oralAcc": 0,
+                      "total": 0,
+                      "writtenAcc": 0,
+                      "subjectTotal": 0,
+                      "acc": 0,
+                      "sub": "Math",
+                      "year": "2022-2023",
+                      "oral": 0
+                  },
+                  {
+                      "year": "2022-2023",
+                      "total": 0,
+                      "subjectTotal": 0,
+                      "sub": "English",
+                      "acc": 0,
+                      "oral": 0,
+                      "writtenAcc": 0,
+                      "oralAcc": 0
+                  }
+              ],
+              "name": "November",
+              "visible": false
+          },
+          {
+              "name": "December",
+              "visible": false,
+              "marks": [
+                  {
+                      "oral": 0,
+                      "writtenAcc": 0,
+                      "sub": "MIL(Odia)",
+                      "subjectTotal": 0,
+                      "oralAcc": 0,
+                      "total": 0,
+                      "acc": 0,
+                      "year": "2022-2023"
+                  },
+                  {
+                      "oralAcc": 0,
+                      "sub": "Math",
+                      "year": "2022-2023",
+                      "oral": 0,
+                      "acc": 0,
+                      "subjectTotal": 0,
+                      "total": 0,
+                      "writtenAcc": 0
+                  },
+                  {
+                      "subjectTotal": 0,
+                      "writtenAcc": 0,
+                      "oralAcc": 0,
+                      "oral": 0,
+                      "acc": 0,
+                      "sub": "English",
+                      "year": "2022-2023",
+                      "total": 0
+                  },
+                  {
+                      "subjectTotal": 0,
+                      "oralAcc": 0,
+                      "acc": 0,
+                      "oral": 0,
+                      "total": 0,
+                      "writtenAcc": 0,
+                      "year": "2022-2023",
+                      "sub": "Science"
+                  }
+              ]
+          }
+      ]
+  }
+    this.firebaseService.pushItems('examInfo', data)
   }
 }
 
