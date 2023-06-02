@@ -168,10 +168,10 @@
           <ion-item-divider color="secondary">
             <ion-label class="label">
               <ion-icon name="bar-chart-outline"></ion-icon>
-              Half Yearly(2022-2023) Mark Graph
+              {{mode.value}}(2022-2023) Mark Graph
             </ion-label>
           </ion-item-divider>
-          <app-graph [data]="markInfo"></app-graph>
+          <app-graph [data]="markInfo" [mode]="mode.value"></app-graph>
         </ion-card>
       </ion-col>
 

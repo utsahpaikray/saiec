@@ -41,11 +41,14 @@ export class AuthService {
   }
   get isAuthorizedUser(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (user.email == 'utsahpaikray@gmail.com' || user.email == 'swainsubhsmita76@gmail.com') {
-      return true;
+    if (user) {
+      if (user && user.email == 'utsahpaikray@gmail.com' || user.email == 'swainsubhsmita76@gmail.com' || user.email == 'rachanamaharana565@gmail.com') {
+        return true;
+      } 
     } else {
-      return false;
+      return false
     }
+
 
   }
   async loginWithGoogle() {

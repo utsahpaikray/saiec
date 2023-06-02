@@ -124,7 +124,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Question',
       url: '/questionset',
-      icon: 'cube',
+      icon: 'aperture',
       access:true,
       navigation:false
     },
@@ -169,6 +169,20 @@ export class AppComponent implements OnInit {
           url:'/staff-tabular-view',
           icon:'people',
           navigation:true
+        },
+        {
+          title: 'Store',
+          url: '/store',
+          icon: 'cube',
+          access: false,
+          navigation: true
+        },
+        {
+          title: 'Transaction Report',
+          url: '/transaction-report',
+          icon: 'cube',
+          access: false,
+          navigation: true
         },
         // {
         //   title:'Exam Form',
@@ -234,6 +248,7 @@ export class AppComponent implements OnInit {
         this.user = user;
         localStorage.setItem('user', JSON.stringify(this.user));
         let isAuthorized= this.authService.isAuthorizedUser
+        console.log(isAuthorized)
         if(isAuthorized){
           this.isAuthenticated = true;
           this.appPages.forEach(item=>{

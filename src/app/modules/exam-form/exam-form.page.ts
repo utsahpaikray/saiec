@@ -190,6 +190,7 @@ export class ExamFormPage implements OnInit {
           });
         }
       });
+      console.log(this.selectedStudentInfo);
       this.firebaseService.updateExamInfo(this.selectedStudentInfo.$id, this.selectedStudentInfo);
     }
 

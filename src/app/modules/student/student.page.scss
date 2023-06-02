@@ -112,3 +112,10 @@ ion-toggle {
         width: 45%;
     }
 }
+.glossy{
+backdrop-filter: blur(6px) saturate(180%);
+-webkit-backdrop-filter: blur(16px) saturate(180%);
+background-color: rgb(96 105 123 / 75%);
+margin: 0 16px;
+border-radius: 16px;
+}

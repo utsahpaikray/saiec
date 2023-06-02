@@ -159,6 +159,18 @@ export class FirebaseService {
    getNotication(){
     return this.firestore.collection('notification').valueChanges({ idField: '$id' });
    }
+   getAllProducts(){
+     return this.firestore.collection('store').valueChanges({ idField: '$id' });
+   }
+   addProduct(item){
+     return this.firestore.collection('store').add(item);
+   }
+  updateProduct(recordID, record){
+     this.firestore.doc(`store/${recordID}`).update(record);
+   }
+  deleteProduct(recordID) {
+    this.firestore.doc(`store/${recordID}`).delete();
+  }
   pushItems(endPoint,item){
    return this.firestore.firestore.collection(endPoint).add(item);
     

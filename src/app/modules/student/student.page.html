@@ -16,7 +16,6 @@
 <ion-content fullscreen>
   <ion-grid>
     <div class="action-top">
-
       <div class="grid-view">
         <ion-chip color="primary">
           <ion-label color="dark">Total Student: {{totalStudent}}</ion-label>
@@ -34,8 +33,11 @@
       <ng-container *ngFor="let std of allStudentInfo">
         <ion-col size="12" size-sm="6" size-md="4" size-lg="4" *ngIf="std && std['Sub-Status']=='In School'">
           <ion-card>
+            <div class="glossy">
+
+            
             <div class="img-icon">
-              <ion-img src="https://lagracecenter.com/wp-content/uploads/2022/02/Final-with-waves-and-white-border.png">
+              <ion-img src="assets/icon/favicon.png">
               </ion-img>
               <div class="bp blood" *ngIf="std.bloodGroup">
                 {{std.bloodGroup}}
@@ -79,6 +81,7 @@
               </div>
 
             </ion-card-content>
+            </div>
           </ion-card>
         </ion-col>
       </ng-container>

@@ -108,7 +108,6 @@ const routes: Routes = [
   },
   {
     path: 'gallery',
-    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/gallery/gallery.module').then( m => m.GalleryPageModule)
   },
   {
@@ -131,6 +130,15 @@ const routes: Routes = [
   {
     path: 'report/:name',
     loadChildren: () => import('./modules/report/report.module').then( m => m.ReportPageModule)
+  },
+  {
+    path: 'store',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./modules/store/store.module').then( m => m.StorePageModule)
+  },
+  {
+    path: 'transaction-report',
+    loadChildren: () => import('./modules/transaction-report/transaction-report.module').then( m => m.TransactionReportPageModule)
   }
 ];
 
