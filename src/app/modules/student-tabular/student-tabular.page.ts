@@ -31,7 +31,10 @@ export class StudentTabularPage implements OnInit {
    {field:'Habitation'},
    {field:'Sub-Status'},
    {field:'SocialCategory'},
-   {field:'report'}
+   {field:'report'},
+   {field: 'Status'},
+   {field: '2022-2023'},
+   {field: '2023-2024'},
  ];
 
  // DefaultColDef sets props common to all Columns

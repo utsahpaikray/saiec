@@ -26,7 +26,8 @@ export class StudentPage implements OnInit {
 
     ngOnInit() {
         this.firebaseService.getAllstudent().subscribe(items => {
-            this.totalStudent = items.length;
+            console.log(items[0])
+            this.totalStudent = items.filter(item=>item['Status'] == "Active").length;
             this.allStudentInfo = sortBy(items, ['class', 'StudentName']);
             var grouped = groupBy(this.allStudentInfo, function (it) {
                 return it.DateofBirth.split('-')[1];

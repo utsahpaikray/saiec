@@ -248,7 +248,6 @@ export class AppComponent implements OnInit {
         this.user = user;
         localStorage.setItem('user', JSON.stringify(this.user));
         let isAuthorized= this.authService.isAuthorizedUser
-        console.log(isAuthorized)
         if(isAuthorized){
           this.isAuthenticated = true;
           this.appPages.forEach(item=>{

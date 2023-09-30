@@ -9,6 +9,9 @@ p {
     font-weight: 600;
     text-decoration: underline;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .image-conatiner {
@@ -34,18 +37,15 @@ p {
 }
 
 ion-card {
-    //border-left: 1rem solid #90caf9;
     filter: drop-shadow(1px 1px 5px #d2d2d2);
-   // background-image: url(https://cdn.pixabay.com/photo/2020/02/06/01/52/frame-4822807_640.png);
- //   background-image: url(https://cdn.pixabay.com/photo/2019/04/10/17/01/splash-4117519_640.png);
- background-image: url(https://cdn.pixabay.com/photo/2016/07/05/00/28/background-1497873__340.jpg);
- 
- object-fit: cover;
+    background-image: url(https://garden.spoonflower.com/c/13101339/p/f/l/fjHjsyQBT_ech3yOPBbmDVoIagTfrVJXarQhkniX_VksyCGTA63lCdg/Back%20to%20School%20Vintage%20Pink%20Pattern.jpg);
+    -o-object-fit: cover;
+    object-fit: cover;
     background-repeat: repeat-y;
     font-weight: 600;
     background-size: cover;
     color: black;
-    margin:0;
+    margin: 0;
 }
 
 ion-card-subtitle {
@@ -65,7 +65,7 @@ ion-card-subtitle {
         clear: both;
     }
     .bp {
-        background: #2dd36f;
+        background: var(--ion-color-secondary);
         padding: 5px;
         width: 3rem;
         border-radius: 10px 0 0 10px;
@@ -74,10 +74,10 @@ ion-card-subtitle {
         font-size: 1rem;
         text-align: center;
         &.out{
-            background: #f44336
+            background: var(--ion-color-warning);
         }
         &.blood{
-            background: #e74646;
+            background:var(--ion-color-warning);
         }
     }
 }
@@ -113,9 +113,9 @@ ion-toggle {
     }
 }
 .glossy{
-backdrop-filter: blur(6px) saturate(180%);
--webkit-backdrop-filter: blur(16px) saturate(180%);
-background-color: rgb(96 105 123 / 75%);
-margin: 0 16px;
-border-radius: 16px;
+    backdrop-filter: blur(6px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: #2196f329;
+    margin: 0 16px;
+    border-radius: 16px;
 }
