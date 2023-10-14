@@ -100,11 +100,14 @@
     <ion-list inset="true">
       <ion-list-header>
         <ion-label>Student List</ion-label>
+        <ion-button (click)="sortByVillage('Habitation')">Sort By Village</ion-button>
       </ion-list-header>
       <ion-accordion-group multiple>
-        <ion-accordion value="{{std[0].class}}" *ngFor="let std of allStudentClassWise ">
+        <ion-accordion value="{{std[0][sortByProperty]}}" *ngFor="let std of allStudentClassWise ">
           <ion-item slot="header">
-            <ion-label>Standard {{std[0].class}}</ion-label>
+            <ion-chip color="primary">
+            <ion-label>{{sortByProperty|uppercase}} : {{std[0][sortByProperty]|titlecase}}</ion-label>
+            </ion-chip>
           </ion-item>
           <ion-list slot="content">
             <ng-container *ngFor="let studenfInfo of std">

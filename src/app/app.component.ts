@@ -231,7 +231,7 @@ export class AppComponent implements OnInit {
   ) {
     this.initializeApp();
     this.listenForMessages();
-    this.requestPermission()
+   // this.requestPermission()
     this.toggleDarkTheme(this.prefersDark.matches);
    
   }
@@ -305,12 +305,12 @@ export class AppComponent implements OnInit {
   }
   listenForMessages() {
     this.messagingService.getMessages().subscribe(async (msg: any) => {
-      console.log(msg)
+    //  console.log(msg)
         const alert = await this.alertCtrl.create({
         header: msg.notification.title,
         subHeader: msg.notification.body,
         message: msg.data.info,
-        buttons: ['OK'],
+        buttons: ['Yes'],
       });
  
       await alert.present();
@@ -332,7 +332,7 @@ export class AppComponent implements OnInit {
         const alert = await this.alertCtrl.create({
           header: 'Error',
           message: err,
-          buttons: ['OK'],
+          buttons: ['YEs'],
         });
  
         await alert.present();

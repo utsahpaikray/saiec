@@ -15,5 +15,5 @@ console.log(firebase)
 const messaging = firebase.messaging();
 onBackgroundMessage(messaging, (payload) => {
     // do whatever you want
-    alert(payload, messaging)
+   // alert(payload, messaging)
   })

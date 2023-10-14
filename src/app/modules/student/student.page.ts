@@ -21,6 +21,7 @@ export class StudentPage implements OnInit {
     totalStudent: number;
     hexString = "0123456789abcdef";
     loaded=false;
+    sortByProperty = 'class'
     constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService, public firebaseService: FirebaseService, private router: Router) {
     }
 
@@ -33,7 +34,7 @@ export class StudentPage implements OnInit {
             var grouped = groupBy(this.allStudentInfo, function (it) {
                 return it.DateofBirth.split('-')[1];
             });
-            this.allStudentClassWise = this.sortStudent('class')
+            this.allStudentClassWise = this.sortStudent(this.sortByProperty)
             this.inSchoolStudentData = this.extractInschoolData();
             this.generateAutoFeeStructure(this.inSchoolStudentData)
             this.loaded=true;
@@ -44,7 +45,11 @@ export class StudentPage implements OnInit {
 
     }
     sortStudent(property){
+        this.sortByProperty = property
         return values(groupBy(this.allStudentInfo, property))
+    }
+    sortByVillage(property){
+        this.allStudentClassWise = this.sortStudent(property)
     }
     extractInschoolData() {
         // this.totalStudent = 0;
