@@ -231,6 +231,7 @@ export class AppComponent implements OnInit {
   ) {
     this.initializeApp();
     this.listenForMessages();
+    this.requestPermission()
     this.toggleDarkTheme(this.prefersDark.matches);
    
   }
@@ -244,9 +245,10 @@ export class AppComponent implements OnInit {
       this.splashScreen.show();
     });
     this.afAuth.authState.subscribe(user => {
-      if (user){
+      if (user !== null){
         this.user = user;
-        localStorage.setItem('user', JSON.stringify(this.user));
+        const localStorageKey = 'user';
+        localStorage.setItem(localStorageKey, JSON.stringify(this.user));
         let isAuthorized= this.authService.isAuthorizedUser
         if(isAuthorized){
           this.isAuthenticated = true;
@@ -262,7 +264,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(!environment.production){
+    if(environment.production){
       this.oneSignal.init({ appId: "5d43f72e-8102-4a2e-8b69-3b97facadd03",
    
       notifyButton: {
@@ -303,6 +305,7 @@ export class AppComponent implements OnInit {
   }
   listenForMessages() {
     this.messagingService.getMessages().subscribe(async (msg: any) => {
+      console.log(msg)
         const alert = await this.alertCtrl.create({
         header: msg.notification.title,
         subHeader: msg.notification.body,
@@ -320,7 +323,7 @@ export class AppComponent implements OnInit {
     this.messagingService.requestPermission().subscribe(
       async token => {
         const toast = await this.toastCtrl.create({
-          message: 'Got your token',
+          message: token,
           duration: 2000
         });
         toast.present();
@@ -345,4 +348,26 @@ export class AppComponent implements OnInit {
     });
     toast.present();
   }
+  // requestPermissions() {
+  //   const messaging = getMessaging();
+  //   getToken(messaging, 
+  //    { vapidKey: environment.firebaseConfig.vapidKey}).then(
+  //      (currentToken) => {
+  //        if (currentToken) {
+  //          console.log("Hurraaa!!! we got the token.....");
+  //          console.log(currentToken);
+  //        } else {
+  //          console.log('No registration token available. Request permission to generate one.');
+  //        }
+  //    }).catch((err) => {
+  //       console.log('An error occurred while retrieving token. ', err);
+  //   });
+  // }
+  // listen() {
+  //   const messaging = getMessaging();
+  //   onMessage(messaging, (payload) => {
+  //     console.log('Message received. ', payload);
+  //     this.message=payload;
+  //   });
+  // }
 }

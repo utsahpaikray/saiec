@@ -26,13 +26,14 @@ export class StudentPage implements OnInit {
 
     ngOnInit() {
         this.firebaseService.getAllstudent().subscribe(items => {
-            console.log(items[0])
+           
             this.totalStudent = items.filter(item=>item['Status'] == "Active").length;
+            console.log(items)
             this.allStudentInfo = sortBy(items, ['class', 'StudentName']);
             var grouped = groupBy(this.allStudentInfo, function (it) {
                 return it.DateofBirth.split('-')[1];
             });
-            this.allStudentClassWise = values(groupBy(this.allStudentInfo, 'class'))
+            this.allStudentClassWise = this.sortStudent('class')
             this.inSchoolStudentData = this.extractInschoolData();
             this.generateAutoFeeStructure(this.inSchoolStudentData)
             this.loaded=true;
@@ -41,6 +42,9 @@ export class StudentPage implements OnInit {
         })
 
 
+    }
+    sortStudent(property){
+        return values(groupBy(this.allStudentInfo, property))
     }
     extractInschoolData() {
         // this.totalStudent = 0;
