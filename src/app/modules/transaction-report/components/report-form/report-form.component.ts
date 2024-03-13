@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {FormBuilder,FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -10,8 +10,8 @@ import { ModalController } from '@ionic/angular';
 export class ReportFormComponent implements OnInit {
 
   name: string;
-  transactionForm: FormGroup;
-  constructor(private modalCtrl: ModalController, private fb: FormBuilder) { }
+  transactionForm:FormGroup;
+  constructor(private modalCtrl: ModalController, private fb:FormBuilder) { }
 
   cancel() {
     return this.modalCtrl.dismiss(null, 'cancel');

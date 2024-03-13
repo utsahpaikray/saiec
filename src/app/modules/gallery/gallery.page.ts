@@ -1,10 +1,9 @@
-import { map } from 'rxjs/operators';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
 
 @Component({
   selector: 'app-gallery',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/shared-service/auth-service.service';
 import { ToasterService } from 'src/app/shared-service/toaster.service';
 

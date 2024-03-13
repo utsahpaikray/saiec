@@ -1,22 +1,21 @@
-import { ModalController, ToastController } from '@ionic/angular';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { map, sortBy, uniq } from 'lodash';
 import { DownloadUrlService } from 'src/app/shared-service/download-url.service';
 import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
-import { groupBy, keys, orderBy, flattenDeep, map, uniq, sortBy } from 'lodash'
-import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 
+import { FormGroup } from '@angular/forms';
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
-declare var require: any;
-const htmlToPdfmake = require("html-to-pdfmake");
-import { examdetail } from './exam-detail'
-import { ExamFormComponent } from './components/transaction-form/exam-form.component';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared-service/auth-service.service';
 import { ToasterService } from 'src/app/shared-service/toaster.service';
+import { ExamFormComponent } from './components/transaction-form/exam-form.component';
+import { examdetail } from './exam-detail';
+declare var require: any;
+const htmlToPdfmake = require("html-to-pdfmake");
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-exam-form',

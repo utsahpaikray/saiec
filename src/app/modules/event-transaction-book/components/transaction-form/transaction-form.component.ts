@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ModalController, ToastController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
 import * as _moment from 'moment';
@@ -50,7 +50,7 @@ export class TransactionFormComponent implements OnInit {
       desc:['',Validators.required]
     })
   }
-  createItem():FormGroup{
+  createItem(): FormGroup{
     return this.fb.group({
       item:['',Validators.required],
       price:[0,Validators.required],
