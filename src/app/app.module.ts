@@ -29,38 +29,37 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { initializeApp } from "firebase/app";
 initializeApp(environment.firebaseConfig);
 @NgModule({
-  declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
-  entryComponents: [],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
-    AngularFireStorageModule, // storage
-    AngularFireDatabaseModule, //database
-    AngularFireMessagingModule,
-    AgGridModule, 
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory,
-    }),
-    BrowserAnimationsModule, 
-    ServiceWorkerModule.register('firebase-messaging-sw', {
-  enabled: environment.production,
-  registrationStrategy: 'registerWhenStable:30000'
-})
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    MessagingService,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent, UploadFormComponent, UploadListComponent, UploadDetailsComponent],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        IonicModule.forRoot(),
+        AppRoutingModule,
+        HttpClientModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        AngularFireAuthModule,
+        AngularFireStorageModule,
+        AngularFireDatabaseModule,
+        AngularFireMessagingModule,
+        AgGridModule,
+        CalendarModule.forRoot({
+            provide: DateAdapter,
+            useFactory: adapterFactory,
+        }),
+        BrowserAnimationsModule,
+        ServiceWorkerModule.register('firebase-messaging-sw', {
+            enabled: environment.production,
+            registrationStrategy: 'registerWhenStable:30000'
+        })
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        MessagingService,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}
 
