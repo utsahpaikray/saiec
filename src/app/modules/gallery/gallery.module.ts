@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { GalleryPageRoutingModule } from './gallery-routing.module';
 
 import { GalleryPage } from './gallery.page';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   imports: [
     CommonModule,

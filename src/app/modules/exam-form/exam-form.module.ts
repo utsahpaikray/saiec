@@ -8,7 +8,7 @@ import { ExamFormPageRoutingModule } from './exam-form-routing.module';
 
 import { ExamFormPage } from './exam-form.page';
 import { ExamFormComponent } from './components/transaction-form/exam-form.component';
-import { MatInputModule } from '@angular/material/input';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { NonAcademicFormComponent } from './components/non-academic-form/non-academic-form.component';
 
 @NgModule({

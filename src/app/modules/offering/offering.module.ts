@@ -7,11 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { OfferingPageRoutingModule } from './offering-routing.module';
 
 import { OfferingPage } from './offering.page';
-import { MatInputModule } from '@angular/material/input';
+
 import { OfferingFormComponent } from './components/offering-form/offering-form.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatMenuModule} from '@angular/material/menu'
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+
 @NgModule({
   imports: [
     CommonModule,
