@@ -1,0 +1,7 @@
+{
+  "name": "saiec",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
