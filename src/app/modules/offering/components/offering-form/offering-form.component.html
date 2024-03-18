@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="modalCtrl.dismiss()" fill="clear">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Offering Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="12" size-sm="12" size-md="12" size-lg="12">
+            <div class=" form-container">
+                <form  [formGroup]="offeringForm">
+                  <div class="image-container">
+                    <ion-img class="image" src="assets/icon/favicon.png"Event Transaction Book></ion-img>
+                   </div>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input type="text" matInput formControlName="name">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Amount</mat-label>
+                        <input type="text" matInput formControlName="amount">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                     
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Description</mat-label>
+                        <input type="text" matInput formControlName="description">
+                      </mat-form-field>
+                      <ion-button (click)="submit()" shape="round" >
+                       save
+                      </ion-button>
+                  </form>
+            </div>
+        </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+  
+</ion-content>
+

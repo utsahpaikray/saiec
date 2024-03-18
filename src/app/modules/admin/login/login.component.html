@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+      <ion-title>Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen>
+    <ion-grid>
+        <ion-row class="ion-align-items-center">
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6" offset-lg="3" offset-md="3" >
+                <div class=" form-container">
+                    
+                    <form [formGroup]="myForm">
+                        <div class="image-container">
+                            <ion-img class="image" src="assets/icon/favicon.png"></ion-img>
+                            
+                           </div>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput formControlName="email">
+                          </mat-form-field>
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput formControlName="password">
+                          </mat-form-field>
+                          <ion-button  shape="round" (click)="login()" [disabled]="myForm.invalid">
+                            Login
+                          </ion-button>
+                          <ion-button  shape="round" (click)="register()" [disabled]="myForm.invalid">
+                            Register
+                          </ion-button>
+                          <ion-button (click)="loginGoogle()" shape="round"  [disabled]="myForm.invalid">
+                            Login Using Google
+                          </ion-button>
+                      </form>
+                </div>
+            </ion-col>
+        </ion-row>
+        
+      </ion-grid>
+  </ion-content>
+ 
+ 
+
+

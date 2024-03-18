@@ -1,29 +1,62 @@
-<ion-app>
+<ion-app color="light">
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi&#64;ionicframework.com</ion-note>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+          <div class="image-container ion-text-center">
+            <ion-img class="image" src="assets/icon/favicon.png"></ion-img>
+            <ion-card-subtitle class="ion-margin-top">
+              <ion-lable class="ion-text-center text">SAIEC</ion-lable>
+            </ion-card-subtitle> 
+          </div>
+          <ion-menu-toggle menu="first" autoHide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+              detail="false" [class.selected]="selectedIndex === i" *ngIf="!p.children && p.access">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
+            <ion-item *ngIf="p.children && p.children.length > 0 && p.access"(click)="p.open = !p.open" [class.parent-active]="p.open" detail="false" color="transparent" lines="none">
+              
+              <ion-icon slot="end" name="arrow-forward" *ngIf="!p['open']"></ion-icon>
+              <ion-icon slot="end" name="arrow-down" *ngIf="p['open']"></ion-icon>
+              <ion-icon [name]="p.icon" slot="start"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+            <ion-list *ngIf="p['open']">
+
+              <ng-container *ngFor="let sub of p.children">
+                <ion-item *ngIf="sub.navigation" class="sub-item" [routerLink]="sub.url" routerDirection="root" routerLinkActive="active" lines="none">
+                  <ion-icon [name]="sub.icon" slot="start"></ion-icon>
+                  <ion-label>
+                    {{ sub.title }}
+                  </ion-label>
+                </ion-item>
+              </ng-container>
+
+            </ion-list>
           </ion-menu-toggle>
         </ion-list>
 
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon aria-hidden="true" slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
+        <ion-list>
+          <ion-item lines="none">
+            <ion-icon slot="start" name="moon"></ion-icon>
+            <ion-label>
+              Theme
+            </ion-label>
+            <ion-toggle id="themeToggle" slot="end" (click)="toggleDarkTheme()"></ion-toggle>
+          </ion-item>
+          <ion-item class="ion-right" lines="full">
+            <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+            <ion-label>{{user?.displayName}}</ion-label>
           </ion-item>
         </ion-list>
+        <!-- <ion-button expand="full" (click)="requestPermission()">Request Permission</ion-button>
+        <ion-button expand="full" (click)="deleteToken()">Delete Token</ion-button> -->
       </ion-content>
+
     </ion-menu>
+
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
+
 </ion-app>

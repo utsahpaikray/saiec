@@ -1,0 +1,51 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>BirthDay</ion-title>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content>
+  <ion-grid class="padding-top student-info">
+    
+        <ion-card class="top-card">
+          <div class="image">
+            
+              
+           
+          </div>
+          </ion-card>
+   
+    <ion-row class="student">
+      <ng-container *ngFor="let list of birthdayList;let i = index">
+        <ion-col size="12">
+          <p class="title">{{months[list.month]}}</p>
+        </ion-col>
+        <ng-container *ngFor="let std of list.items;let i = index">
+        <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngIf="std">
+          <ion-card>
+            <div class="image-conatiner">
+              <a [download]="std.Image" [href]="std.Image" title="{{std.StudentName|titlecase }} " target="_blank">
+                <ion-img *ngIf="std.Image" src="{{std.Image}}"></ion-img>
+              </a>
+            </div>
+  
+            <ion-card-content *ngIf="std">
+              <p>{{std.StudentName|titlecase }}</p>
+              <div class="info">
+                <ion-icon name="gift"></ion-icon> : <b>
+                    {{std.DateofBirth}}
+                </b>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ng-container>
+      </ng-container>
+
+
+    </ion-row>
+  </ion-grid>
+</ion-content>

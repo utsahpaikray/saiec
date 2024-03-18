@@ -1,0 +1,32 @@
+<ion-header  translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Notification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid class="padding-top student-info">
+    <ion-row class="student">
+      <ion-col class="cards" size="12" size-sm="4" size-md="4" size-lg="4" *ngFor="let noti of notification">
+        <ion-card class="card" >
+          <div class="image-conatiner">
+            <ion-img *ngIf="noti?.Image" src="{{noti.Image}}"></ion-img>
+          </div>
+         
+          <ion-card-header>
+            
+              <p>{{noti.subject}}</p>
+            
+            <ion-card-subtitle *ngIf="noti.heldDate">Date: <b>{{noti.heldDate}}</b></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content *ngIf="noti.description">
+            <span>{{noti.description}}</span>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

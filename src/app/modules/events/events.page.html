@@ -1,0 +1,35 @@
+<ion-header  translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Event Gallery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid class="padding-top">
+    <ion-row *ngFor="let event of events">
+      <ion-col>
+        <ion-card class="ion-margin-bottom  ion-no-margin top">
+          <ion-card-header>
+            <ion-tab-button (click)="edit(event.$id)" class="edit" *ngIf="isAuthorized">
+              <ion-icon name="create"></ion-icon>
+              <ion-label>Edit</ion-label>
+            </ion-tab-button>
+            <ion-card-subtitle *ngIf="event.source">Source: {{event.source}}</ion-card-subtitle>
+            <ion-card-title *ngIf="event.title">{{event.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content *ngIf="event.description">{{event.description}}</ion-card-content>
+        </ion-card>
+        <ion-row>
+          <ion-col size="12" size-sm="6" size-md="3" size-lg="3" *ngFor="let img of event.imageCollection">
+        <ion-card class="ion-no-margin">
+          <ion-img src="{{img}}"></ion-img>
+        </ion-card>
+        </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

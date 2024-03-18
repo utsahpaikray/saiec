@@ -1,0 +1,91 @@
+.bold {
+    font-weight: 600;
+}
+
+.image-conatiner {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .img-icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 99;
+
+        ion-img {
+            height: 60px;
+            width: 60px;
+            float: right;
+        }
+
+        .bp {
+            background: #2dd36f;
+            padding: 5px;
+            width: 15rem;
+            border-radius: 10px 0 0 10px;
+            margin-top: 8px;
+            clear: both;
+            font-size: 1rem;
+            text-align: center;
+
+            &.out {
+                background: #f44336
+            }
+
+            &.blood {
+                background: #e74646;
+            }
+        }
+    }
+
+    ion-img {
+       height: 100%;
+       width: 100%;
+       max-height: 12rem;
+       max-width: 12rem;
+       -o-object-fit: cover;
+       object-fit: cover;
+       -o-object-position: center;
+       object-position: center;
+       border-radius: 5px;
+
+        &::part(image) {
+            object-fit: cover;
+            object-position: center;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            border: 3px solid #795548;
+        }
+    }
+}
+
+ion-card {
+    height: 100%
+}
+
+.image-setup {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-col.primary {
+    background: var(--ion-color-secondary, #3dc2ff);
+}
+
+.label {
+    display: flex;
+    align-items: center;
+
+    ion-icon {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+
+}
+ion-col.d-flex {
+    display: flex;
+}

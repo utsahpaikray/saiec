@@ -1,0 +1,28 @@
+// .close{
+//     float: right;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     font-size: 1.6rem;
+//     color: #ce3030;
+// }
+ion-back-button {
+    display: block;
+ }
+.image-conatiner {
+    display: flex;
+    justify-content: center;
+ion-img {
+    height: 17rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    &::part(image) {
+        object-fit: cover;
+        object-position: center;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 12px;
+    }
+}
+}
