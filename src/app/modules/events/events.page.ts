@@ -10,9 +10,10 @@ import { EventsService } from './services/events.service';
   styleUrls: ['./events.page.scss'],
 })
 export class EventsPage implements OnInit {
-  events: any;
-  isAuthorized: boolean =  false;
-
+public events: any=[];
+public isAuthorized: boolean =  false;
+public title= 'Event Gallery'
+public editLabel = "Edit"
   constructor(public eventsService:EventsService,public firebaseService:FirebaseService,private router: Router,private authService: AuthService) { }
 
   ngOnInit() {
@@ -24,7 +25,9 @@ export class EventsPage implements OnInit {
       // res.forEach((item: any)=>{
       //   item['imageCollection'] = item['imageCollection'].map(({ image }) => image)
       // })
+ 
       this.events=res
+      console.log(res)
     })
   }
 edit(id: any){

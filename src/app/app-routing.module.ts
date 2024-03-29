@@ -135,6 +135,10 @@ const routes: Routes = [
   {
     path: 'transaction-report',
     loadChildren: () => import('./modules/transaction-report/transaction-report.module').then( m => m.TransactionReportPageModule)
+  },
+  {
+    path: 'news',
+    loadChildren: () => import('./modules/news/news.module').then( m => m.NewsPageModule)
   }
 ];
 

@@ -130,6 +130,14 @@ export class AppComponent implements OnInit {
       navigation:false
     },
     {
+      title: 'News',
+      url: '/news',
+      icon: 'newspaper',
+      access:true,
+      open: false,
+      navigation:false
+    },
+    {
       title: 'Question',
       url: '/questionset',
       icon: 'aperture',
@@ -227,6 +235,7 @@ export class AppComponent implements OnInit {
   user: any;
   title = 'push-notification';
   message: string | undefined;
+  public name: string = 'SAIEC'
   readonly VAPID_PUBLIC_KEY = "BIO6yW3VtwChWkL61__mF4c5k-8PLU62PkE0Arh4oGSqdBmt0HeuKDqBh1hXTnBqsfL7JGn6EHbtvr3EFFKUY_Q";
   prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
  
