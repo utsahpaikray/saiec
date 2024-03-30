@@ -1,48 +1,69 @@
-<ion-header  translucent>
+<ion-header translucent>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Question</ion-title>
+    <ion-title>QUIZ</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
-  
   <div *ngIf="questionsForm">
-   
     <form [formGroup]="questionsForm" (ngSubmit)="submitForm()">
       <ion-col size="12">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>{{ questions[currentQuestionIndex].question }}</ion-card-title>
+            <ion-card-title
+              >{{ questions[currentQuestionIndex].question }}</ion-card-title
+            >
           </ion-card-header>
-        
-      <ion-list>
-        <ion-radio-group formControlName="selectedOption">
-          <ion-item *ngFor="let option of questions[currentQuestionIndex].options">
-            <ion-label>{{ option }}</ion-label>
-            <ion-radio [value]="option"></ion-radio>
-          </ion-item>
-        </ion-radio-group>
-      </ion-list>
-    
-      <ion-button (click)="previousQuestion()" *ngIf="currentQuestionIndex > 0" fill="clear">
-        <ion-icon name="add"></ion-icon>
-        <ion-label>Previous Question</ion-label>
-      </ion-button>
-      <ion-button (click)="nextQuestion()" *ngIf="currentQuestionIndex < totalQuestions - 1" fill="clear">
-        <ion-icon name="add"></ion-icon>
-        <ion-label>Next Question</ion-label>
-      </ion-button>
-      <ion-button type="submit"  fill="clear">
-        <ion-icon name="add"></ion-icon>
-        <ion-label>Submit</ion-label>
-      </ion-button>
-      </ion-card>
+          <ion-card-content>
+            <ion-list>
+              <ion-radio-group formControlName="selectedOption">
+                <ion-item
+                  *ngFor="let option of questions[currentQuestionIndex].options"
+                  [color]="isSelectedOption(option) ? getColor(option) : ''"
+                  (click)="onOptionSelect()"
+                  [disabled]="isSelectedOption(option)?false: optionSelected"
+                >
+                  <ion-radio [value]="option"> {{ option }}</ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </ion-list>
+          </ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-button
+                (click)="previousQuestion()"
+                *ngIf="currentQuestionIndex > 0"
+                shape="round"
+                color="success"
+                slot="end"
+              >
+              <ion-icon name="arrow-back"></ion-icon>
+                <ion-label>Previous Question</ion-label>
+              </ion-button>
+              <ion-button
+                (click)="nextQuestion()"
+                *ngIf="currentQuestionIndex < totalQuestions - 1 && questionsForm.valid"
+                shape="round"
+                color="success"
+                slot="end"
+              >
+             
+                <ion-label>Next Question</ion-label>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </ion-button>
+              <ion-button type="submit" shape="round" color="success" slot="end">
+                <ion-icon name="add"></ion-icon>
+                <ion-label>Submit</ion-label>
+              </ion-button>
+              <ion-label *ngIf="optionSelected">Correct Answer: {{ questions[currentQuestionIndex].answer }}</ion-label>
+              
+            </ion-item>
+          </ion-list>
+        </ion-card>
       </ion-col>
-    
     </form>
-   
   </div>
 </ion-content>

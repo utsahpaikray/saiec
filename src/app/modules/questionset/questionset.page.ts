@@ -248,11 +248,13 @@ export class QuestionsetPage implements OnInit {
   currentQuestionIndex: number = 0;
   totalQuestions: number = 0;
   selectedOptions: string[] = [];
+  optionSelected: boolean = false;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.totalQuestions = this.questions.length;
+    this.shuffleOptions();
     this.initForm();
   }
 
@@ -263,12 +265,17 @@ export class QuestionsetPage implements OnInit {
       selectedOption: new FormControl(selectedOption, Validators.required)
     });
   }
+  onOptionSelect(): void {
+    this.optionSelected = true; // Set the flag when an option is selected
+  }
 
   nextQuestion(): void {
+    console.log(this.questionsForm.valid)
     if (this.currentQuestionIndex < this.totalQuestions - 1) {
       this.selectedOptions[this.currentQuestionIndex] = this.questionsForm.value.selectedOption;
       this.currentQuestionIndex++;
       this.initForm();
+      this.optionSelected = false;
     }
   }
   previousQuestion(): void {
@@ -276,9 +283,42 @@ export class QuestionsetPage implements OnInit {
       this.selectedOptions[this.currentQuestionIndex] = this.questionsForm.value.selectedOption;
       this.currentQuestionIndex--;
       this.initForm();
+      this.optionSelected = false;
     }
   }
+  getColor(option: string): string {
+    if (!this.questionsForm.valid) {
+      return '';
+    }
+    const selectedOption = this.questionsForm.value.selectedOption;
+    const correctAnswer = this.questions[this.currentQuestionIndex].answer;
+    return option === selectedOption && option === correctAnswer ? 'success' : 'danger';
+}
+isSelectedOption(option: string): boolean {
+  return option === this.questionsForm.value.selectedOption;
+}
+shuffleOptions(): void {
+  this.questions.forEach(question => {
+    question.options = this.shuffleArray(question.options);
+  });
+}
 
+shuffleArray(array: any[]): any[] {
+  let currentIndex = array.length, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
   submitForm(): void {
     if (this.questionsForm.valid) {
       this.selectedOptions[this.currentQuestionIndex] = this.questionsForm.value.selectedOption;

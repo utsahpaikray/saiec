@@ -31,7 +31,7 @@
   <ion-grid class="padding-top student-info" *ngIf="!gridValue">
     <ion-row class="student">
       <ng-container *ngFor="let std of allStudentInfo">
-        <ion-col size="12" size-sm="6" size-md="4" size-lg="4" *ngIf="std && std['Sub-Status']=='In School'">
+        <ion-col size="12" size-sm="6" size-md="4" size-lg="4" *ngIf="std && std['Sub-Status']==='In School'">
           <ion-card>
             <div class="glossy">
 
@@ -43,9 +43,9 @@
                 {{std.bloodGroup}}
               </div>
               <div class="bp" *ngIf="std.class">{{std.class}}</div>
-              <div class="bp" *ngIf="std['Sub-Status']" [class.out]="std['Sub-Status']=='In Transfer'">
-                <span *ngIf="std['Sub-Status']=='In School'"> IN </span>
-                <span *ngIf="std['Sub-Status']=='In Transfer'"> OUT </span>
+              <div class="bp" *ngIf="std['Sub-Status']" [class.out]="std['Sub-Status']==='In Transfer'">
+                <span *ngIf="std['Sub-Status']==='In School'"> IN </span>
+                <span *ngIf="std['Sub-Status']==='In Transfer'"> OUT </span>
               </div>
             </div>
             <div class="image-conatiner">
@@ -88,7 +88,7 @@
 
 
     </ion-row>
-    <ng-container *ngIf="itemsCount==0">
+    <ng-container *ngIf="itemsCount===0">
       <div class="no-item">
         <ion-img
           src="https://cdn.dribbble.com/users/1231865/screenshots/11157048/media/bc9427646c632ded563ee076fdc5dfda.jpg?compress=1&resize=400x300">
@@ -111,7 +111,7 @@
           </ion-item>
           <ion-list slot="content">
             <ng-container *ngFor="let studenfInfo of std">
-              <ion-item-sliding *ngIf=" studenfInfo['Status']=='Active'">
+              <ion-item-sliding *ngIf=" studenfInfo['Status']==='Active'">
                 <ion-item-options side="start">
                   <ion-item-option (click)="showModal(studenfInfo)">Detail</ion-item-option>
                 </ion-item-options>
