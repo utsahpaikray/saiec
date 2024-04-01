@@ -1,10 +1,36 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-
+interface Celebration {
+  top: number;
+  left: number;
+  active: boolean;
+  emoji: unknown
+}
 @Component({
   selector: 'app-questionset',
   templateUrl: './questionset.page.html',
   styleUrls: ['./questionset.page.scss'],
+  animations: [
+    trigger('celebrate', [
+      state('active', style({
+        transform: 'scale(1.5)',
+        opacity: 1
+      })),
+      transition('void => active', [
+        style({
+          transform: 'scale(0)',
+          opacity: 0
+        }),
+        animate('500ms ease-out')
+      ]),
+      transition('active => void', [
+        animate('300ms ease-in', style({
+          opacity: 0
+        }))
+      ])
+    ])
+  ]
 })
 export class QuestionsetPage implements OnInit {
   public questions: { question: string; options: string[]; answer: string; }[]=[
@@ -244,6 +270,9 @@ export class QuestionsetPage implements OnInit {
       "answer": "Sn"
     }
   ];
+  emojis: string[] = ['🎉','🎉', '🎉','🎉','🎉','🎉','🎉','🎉','🎉','🎉','🎉','🎉','🎉','🎉','🎉','🎉','🎉','🎉'];
+  celebrations: Celebration[] = [];
+  celebrationState: string = 'inactive';
   questionsForm!: FormGroup;
   currentQuestionIndex: number = 0;
   totalQuestions: number = 0;
@@ -318,6 +347,35 @@ shuffleArray(array: any[]): any[] {
   }
 
   return array;
+}
+
+isCorrectOption(option: string): boolean {
+  const selectedOption = this.questionsForm.value.selectedOption;
+  const correctAnswer = this.questions[this.currentQuestionIndex].answer;
+  if (option === selectedOption && option === correctAnswer) {
+    this.celebrationState = 'active'; // Trigger the animation
+    setTimeout(() => {
+      this.celebrationState = 'inactive'; // Reset animation state after a delay
+    }, 1000);
+    return true;
+  }
+  return false;
+}
+addCelebration(event: MouseEvent) {
+  // this.celebrations= []
+  // const emojiIndex = Math.floor(Math.random() * this.emojis.length); // Select a random emoji index
+  // this.emojis.forEach(element => {
+  //   const celebration: Celebration = {
+  //     top: Math.floor(Math.random() * event.clientY),
+  //     left:Math.ceil(Math.random() * event.clientX),
+  //     emoji: element,
+  //     active: true
+  //   };
+  //   this.celebrations.push(celebration);
+  //   setTimeout(() => {
+  //     celebration.active = false;
+  //   }, 1000); // Adjust the duration as needed
+  // });
 }
   submitForm(): void {
     if (this.questionsForm.valid) {
