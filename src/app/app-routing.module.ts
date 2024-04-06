@@ -36,6 +36,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/questionset/questionset.module').then( m => m.QuestionsetPageModule)
   },
   {
+    path: 'idioms',
+    loadChildren: () => import('./modules/idioms/idioms.module').then( m => m.IdiomsPageModule)
+  },
+  {
     path: 'modal',
     loadChildren: () => import('./modules/shared/modal/modal.module').then( m => m.ModalPageModule)
   },

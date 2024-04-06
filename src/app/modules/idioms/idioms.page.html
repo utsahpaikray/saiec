@@ -1,0 +1,48 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Idioms</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid class="padding-top student-info">
+    <ion-row class="student">
+      <ng-container *ngFor="let idiom of idioms">
+        <ion-col size="12" size-sm="6" >
+          <ion-card>
+            <div>
+
+            
+            <!-- <div class="img-icon">
+              <ion-img src="assets/icon/favicon.png">
+              </ion-img>     
+            </div> -->
+
+            <ion-card-header>
+              <ion-card-subtitle>
+                <p>{{idiom.phrase}}</p>
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content >
+              <ion-img *ngIf="idiom.image "[src]="idiom.image"></ion-img>
+              <div class="info">
+                <b>Explanation:</b> {{idiom.explanation}}
+              </div>
+              <br/>
+              <div class="info">
+                <b>Example:</b> {{idiom.example}}
+              </div>
+
+            </ion-card-content>
+            </div>
+          </ion-card>
+        </ion-col>
+      </ng-container>
+
+
+    </ion-row>
+  </ion-grid>
+</ion-content>

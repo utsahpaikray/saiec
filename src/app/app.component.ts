@@ -146,6 +146,14 @@ export class AppComponent implements OnInit {
       navigation:false
     },
     {
+      title: 'Idioms',
+      url: '/idioms',
+      icon: 'aperture',
+      access:true,
+      open: false,
+      navigation:false
+    },
+    {
       title: 'Login',
       url: '/admin/login',
       icon: 'finger-print',
