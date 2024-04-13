@@ -1,0 +1,26 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Story Time</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row>   
+        @for (qs of story; track qs; let  i = $index) { 
+          <ion-col size="12" size-md="6" >
+            <ion-card  color="light">
+              <div>
+              <ion-card-content color="success" class="ion-no-padding">
+                <ion-img [src]="qs.image"></ion-img>
+              </ion-card-content>
+              </div>
+            </ion-card>
+          </ion-col>
+        }
+    </ion-row>
+  </ion-grid>
+</ion-content>

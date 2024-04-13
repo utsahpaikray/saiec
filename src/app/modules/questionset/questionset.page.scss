@@ -45,3 +45,15 @@
       opacity: 0;
     }
   }
+  .align-center{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    /* left: 0; */
+    right: 0;
+    border: 1px solid #d2d2d2;
+    padding: 3px;
+    background: #41db8e;
+    z-index: 9;
+    border-radius: 5px 0 0 5px;
+  }

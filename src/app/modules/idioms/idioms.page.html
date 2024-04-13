@@ -11,8 +11,8 @@
   <ion-grid class="padding-top student-info">
     <ion-row class="student">
       <ng-container *ngFor="let idiom of idioms">
-        <ion-col size="12" size-sm="6" >
-          <ion-card>
+        <ion-col size="12" size-sm="6" size-md="4">
+          <ion-card  color="light">
             <div>
 
             
@@ -21,13 +21,20 @@
               </ion-img>     
             </div> -->
 
-            <ion-card-header>
+            <ion-card-header color="warning">
               <ion-card-subtitle>
                 <p>{{idiom.phrase}}</p>
               </ion-card-subtitle>
             </ion-card-header>
-            <ion-card-content >
-              <ion-img *ngIf="idiom.image "[src]="idiom.image"></ion-img>
+            <br>
+            <ion-card-content color="success">
+              @if(idiom.image) {
+                <ion-img [src]="idiom.image"></ion-img>
+               } @else {
+                <ion-img src="https://cdn.firstcry.com/education/2022/10/08171309/Idioms-For-Kids-Importance-And-Activities.jpg"></ion-img>
+               }
+              
+              
               <div class="info">
                 <b>Explanation:</b> {{idiom.explanation}}
               </div>
@@ -41,8 +48,6 @@
           </ion-card>
         </ion-col>
       </ng-container>
-
-
     </ion-row>
   </ion-grid>
 </ion-content>

@@ -40,6 +40,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/idioms/idioms.module').then( m => m.IdiomsPageModule)
   },
   {
+    path: 'story',
+    loadChildren: () => import('./modules/story/story.module').then( m => m.StoryPageModule)
+  },
+  {
     path: 'modal',
     loadChildren: () => import('./modules/shared/modal/modal.module').then( m => m.ModalPageModule)
   },
