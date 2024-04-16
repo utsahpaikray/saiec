@@ -15,10 +15,6 @@ export const story: { name: string, image: string }[]=[
     name:'The Magic Hen',
     image: 'https://www.funcorp.in/cdn/shop/products/9789387971493_6.jpg?v=1675940931'
   },
-  // {
-  //   name:'The Magic Hen',
-  //   image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCMnrUuY7bs4u9rO4YYhlRvgM6_vOagwZWiA&usqp=CAU'
-  // },
   {
     name:'The Magic Hen',
     image: 'https://www.booksetgo.com/cdn/shop/products/9789387971493-1_1024x1024@2x.jpg?v=1651917015'

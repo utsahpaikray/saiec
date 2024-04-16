@@ -115,6 +115,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/gallery/gallery.module').then( m => m.GalleryPageModule)
   },
   {
+    path: 'store-transaction',
+    loadChildren: () => import('./modules/store-transaction-form/store-transaction-form.module').then( m => m.StoreTransactionPageModule)
+  },
+  {
     path: 'gallery/:id',
     canActivate: [AuthGuard],
     loadChildren: () => import('./modules/gallery/gallery.module').then( m => m.GalleryPageModule)

@@ -30,16 +30,17 @@
                         <mat-label>Description</mat-label>
                         <input type="text" matInput formControlName="description">
                       </mat-form-field>
-                      <div  *ngFor="let t of t?.controls; let i = index; let last = last">
-                        <div [formArrayName]="i"  class="form-row">
-                          <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Images</mat-label>
-                            <input type="text" matInput formControlName='image'>
-                            
-                          </mat-form-field>
-                          <ion-button (click)="delete(i)" class="edit ion-float-right" color="danger" >
-                            <ion-icon name="trash"></ion-icon>
-                          </ion-button>
+                      <div formArrayName="imageCollection">
+                        <div *ngFor="let imageGroup of t.controls; let i = index">
+                          <div class="form-row" [formGroupName]="i">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Images</mat-label>
+                              <input type="text" matInput formControlName="image">
+                            </mat-form-field>
+                            <ion-button (click)="deleteImage(i)" class="edit ion-float-right" color="danger">
+                              <ion-icon name="trash"></ion-icon>
+                            </ion-button>
+                          </div>
                         </div>
                       </div>
                       <ion-button  shape="round"(click)="addImage()">

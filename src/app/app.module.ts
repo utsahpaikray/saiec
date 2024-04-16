@@ -28,6 +28,7 @@ import { AppComponent } from './app.component';
 import { UploadDetailsComponent } from './modules/shared/upload-details/upload-details.component';
 import { UploadFormComponent } from './modules/shared/upload-form/upload-form.component';
 import { UploadListComponent } from './modules/shared/upload-list/upload-list.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
@@ -48,8 +49,8 @@ import { UploadListComponent } from './modules/shared/upload-list/upload-list.co
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
-    BrowserAnimationsModule, 
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideRemoteConfig(() => getRemoteConfig())
+    BrowserAnimationsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideRemoteConfig(() => getRemoteConfig()), StoreModule.forRoot({}, {})
 
   ],
   providers: [

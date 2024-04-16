@@ -12,7 +12,7 @@ interface Celebration {
   styleUrls: ['./storypage.scss']
 })
 export class storyPage {
-
+public selectedIndex: number =-1
 public story =story
 
 }

@@ -48,14 +48,14 @@ export class AppComponent implements OnInit {
        open: false,
       navigation:false
     },
-    {
-      title: 'Calendar',
-      url: '/calendar',
-      icon: 'calendar',
-      access:true,
-       open: false,
-      navigation:false
-    },
+    // {
+    //   title: 'Calendar',
+    //   url: '/calendar',
+    //   icon: 'calendar',
+    //   access:true,
+    //    open: false,
+    //   navigation:false
+    // },
     {
       title: 'Exam Detail',
       url: '/exam-detail',
@@ -234,6 +234,13 @@ export class AppComponent implements OnInit {
         {
           title:'Gallery form',
           url:'/gallery',
+          open: false,
+          icon:'images',
+          navigation:true
+        },
+        {
+          title:'Store form',
+          url:'/store-transaction',
           open: false,
           icon:'images',
           navigation:true

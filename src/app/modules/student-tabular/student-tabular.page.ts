@@ -4,6 +4,7 @@ import { CellClickedEvent, ColDef, GridApi, GridOptions, GridReadyEvent, MenuIte
 
 import { Observable } from 'rxjs';
 import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { CompanyRendererComponent } from './component/status';
 @Component({
   selector: 'app-student-tabular',
   templateUrl: './student-tabular.page.html',
@@ -29,9 +30,10 @@ export class StudentTabularPage  {
    {field:'Sub-Status'},
    {field:'SocialCategory'},
    {field:'report'},
-   {field: 'Status'},
-   {field: '2022-2023'},
-   {field: '2023-2024'},
+   {field: 'Status',cellRenderer: CompanyRendererComponent},
+   {field: '2022-2023',  cellRenderer: CompanyRendererComponent},
+   {field: '2023-2024',  cellRenderer: CompanyRendererComponent},
+   {field: '2024-2025',  cellRenderer: CompanyRendererComponent},
  ];
 
  // DefaultColDef sets props common to all Columns
@@ -46,7 +48,8 @@ export class StudentTabularPage  {
     // allow every column to be grouped
     enableRowGroup: true,
     // allow every column to be pivoted
-    enablePivot: true
+    enablePivot: true,
+    suppressSizeToFit: true
  };
  
  // Data that gets displayed in the grid
@@ -97,7 +100,8 @@ export class StudentTabularPage  {
   return result;
 }
 public updateStudent(params: any) {
-  this.firebaseService.updateStudent('studentInfo',params.node.data.$id,params.node.data)
+  console.log(params)
+ this.firebaseService.updateStudent('studentInfo',params.node.data.$id,params.node.data)
 }
 public deleteStudent(params: any) {
   this.firebaseService.deleteStudent('studentInfo',params.node.data.$id)

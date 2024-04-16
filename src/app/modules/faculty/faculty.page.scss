@@ -20,17 +20,16 @@
 }
  ion-card.faculty-card {
       filter: drop-shadow(1px 1px 5px #d2d2d2);
-      background-image: url(https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100);
       -o-object-fit: cover;
       object-fit: contain;
       background-repeat: repeat-y;
       font-weight: 600;
-      color: #fff;
+      color: black;
       background-size: cover;
       background-position: right;
 }
 ion-card-subtitle {
-  color:#fff;
+  color:#000;
   font-weight: 600;
 }
 .image-container {
@@ -46,9 +45,6 @@ ion-card-subtitle {
 
       &::part(image) {
           object-fit: cover;
-          object-position: center;
-          border-radius: 50%;
-          object-fit: cover;
           object-position: top;
           border-radius: 50%;
       }
@@ -60,14 +56,4 @@ ion-card-subtitle {
     object-position: top;
     border-radius: 50%;
   }
-}
-.glossy {
-     /* backdrop-filter: blur(16px) saturate(180%); */
-     -webkit-backdrop-filter: blur(16px) saturate(180%);
-     /* background-color: #209f93; */
-     backdrop-filter: blur(16px) saturate(180%);
-     background: rgba(17, 25, 40, 0.75);
-     border-radius: 12px;
-     /* padding: 36px; */
-     margin: 10px
 }

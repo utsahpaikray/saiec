@@ -115,7 +115,7 @@ export class FirebaseService {
   getGallery(id: string | undefined){
     return this.firestore.collection('gallery').doc(id).valueChanges();
   }
-  saveGallery(id: string | undefined,record: unknown) {
+  saveGallery({ id,record }: { id: string, record: unknown }) {
     this.firestore.collection('gallery').doc(id).set(record);
    }
   getAllstudentFee(path: string){
@@ -171,7 +171,7 @@ export class FirebaseService {
   deleteProduct(recordID: any) {
     this.firestore.doc(`store/${recordID}`).delete();
   }
-  pushItems(endPoint: string,item: { [x: string]: any; Image?: string; description?: string; heldDate?: string; natificationDate?: string; subject?: string; id?: string; name?: string; position?: string; Designation?: string; location?: string; MobileNumber?: string; studentName?: any; mobileNumber?: any; class?: any; month?: string; sub?: string; total?: number; acc?: number; year?: string; markInfo?: ({ name: string; marks: ({ writtenAcc: string; sub: string; oral: string; acc: number; oralAcc: string; year: string; total: number; subjectTotal: number; writtenTotal: string; } | { oralAcc: string; oral: string; year: string; writtenAcc: number; subjectTotal: number; sub: string; total: number; acc: number; writtenTotal: string; } | { sub: string; acc: number; oralAcc: number; oral: number; year: string; writtenAcc: string; subjectTotal: number; total: number; writtenTotal: string; } | { acc: number; writtenTotal: number; sub: string; total: number; year: string; oralAcc: string; subjectTotal: number; oral: string; writtenAcc: number; })[]; visible: boolean; nonAcademic: { creativity: string; gardening: string; physicalEdu: string; senseDev: string; handWork: string; musicalDance: string; remark: string; }; } | { visible: boolean; name: string; marks: ({ acc: number; sub: string; oralAcc: number; oral: number; writtenAcc: number; subjectTotal: number; year: string; total: number; writtenTotal?: undefined; } | { total: number; oralAcc: number; acc: number; year: string; writtenTotal: number; writtenAcc: number; subjectTotal: number; sub: string; oral: number; })[]; nonAcademic?: undefined; })[]; "Product Code"?: string; Name?: string; Description?: string; Qty?: string; "Date of Purchase"?: string; Availability?: string; Price?: string; Total?: string; }){
+  pushItems(endPoint: string,item: any){
    return this.firestore.firestore.collection(endPoint).add(item);
     
   }

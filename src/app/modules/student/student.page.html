@@ -22,7 +22,7 @@
         </ion-chip>
       </div>
       <div class="grid-view">
-        <ion-toggle color="success" name="blueberry" [(ngModel)]="gridValue"></ion-toggle>
+        <ion-toggle color="success" name="blueberry" [(ngModel)]="gridValue">List View</ion-toggle>
       </div>
     </div>
 
@@ -31,15 +31,17 @@
   <ion-grid class="padding-top student-info" *ngIf="!gridValue">
     <ion-row class="student">
       <ng-container *ngFor="let std of allStudentInfo">
-        <ion-col size="12" size-sm="6" size-md="4" size-lg="4" *ngIf="std && std['Sub-Status']==='In School'">
+        <ion-col size="12" size-sm="6" size-md="4" size-lg="4" *ngIf="std && std['Status']==='Active' || std['Status']==='Y'">
           <ion-card>
             <div class="glossy">
-
+              <ion-card-header color="secondary" class="ion-no-padding">
+                <ion-label *ngIf="std.StudentName">{{std.StudentName|titlecase}}</ion-label>
+            </ion-card-header>
             
             <div class="img-icon">
               <ion-img src="assets/icon/favicon.png">
               </ion-img>
-              <div class="bp blood" *ngIf="std.bloodGroup">
+              <div class="bp" *ngIf="std.bloodGroup">
                 {{std.bloodGroup}}
               </div>
               <div class="bp" *ngIf="std.class">{{std.class}}</div>
@@ -54,27 +56,22 @@
               </a>
             </div>
 
-            <ion-card-header>
-              <ion-card-title *ngIf="std.StudentName">
-                <p>{{std.StudentName|titlecase}}</p>
-              </ion-card-title>
-              <ion-card-subtitle *ngIf="std.Class">Standard: <b>{{std.class}}</b></ion-card-subtitle>
-            </ion-card-header>
+            
             <ion-card-content *ngIf="std">
-              <div class="info">
+              <!-- <div class="info">
                 <ion-icon name="call"></ion-icon> : <b> <a href="tel: {{std.MobileNumber}}">
                     {{std.MobileNumber}}</a>
                 </b>
-              </div>
+              </div> -->
               <div class="info">
                 <ion-icon name="home"></ion-icon> : <b> {{std.Habitation|titlecase}}</b>
               </div>
               <div class="action">
-                <ion-button class="ion-activatable ripple-parent" shape="round" color="warning"
+                <ion-button class="ion-activatable ripple-parent" shape="round" size="small" color="warning"
                   (click)="showModal(std)">Detail
                   <ion-ripple-effect></ion-ripple-effect>
                 </ion-button>
-                <ion-button class="ion-activatable ripple-parent" shape="round" color="warning"
+                <ion-button class="ion-activatable ripple-parent" shape="round"  size="small" color="warning"
                   (click)="showReport(std)" [class.button-disabled]="std.report!=='Y'">Report
                   <ion-ripple-effect></ion-ripple-effect>
                 </ion-button>
@@ -97,21 +94,33 @@
     </ng-container>
   </ion-grid>
   <ion-grid *ngIf="gridValue">
+    <ion-row class="student">
+     
+      <ion-col>
+        <ion-list>
+          <ion-item>
+      <ion-select placeholder="Sort By" #class
+              (ionChange)="sortBy(class.value)" label="Sort By" slot="end">
+          <ion-select-option value="class">Class</ion-select-option>
+          <ion-select-option value="Habitation">Village</ion-select-option>
+        </ion-select>
+        </ion-item>
+        </ion-list>
+    </ion-col>
+  </ion-row>
+        
+
     <ion-list inset="true">
-      <ion-list-header>
-        <ion-label>Student List</ion-label>
-        <ion-button (click)="sortByVillage('Habitation')">Sort By Village</ion-button>
-      </ion-list-header>
       <ion-accordion-group multiple>
         <ion-accordion value="{{std[0][sortByProperty]}}" *ngFor="let std of allStudentClassWise ">
           <ion-item slot="header">
             <ion-chip color="primary">
-            <ion-label>{{sortByProperty|uppercase}} : {{std[0][sortByProperty]|titlecase}}</ion-label>
+            <ion-label>{{sortByProperty|uppercase}} : {{std[0][sortByProperty]|titlecase}}{{std[0].length}}</ion-label>
             </ion-chip>
           </ion-item>
           <ion-list slot="content">
             <ng-container *ngFor="let studenfInfo of std">
-              <ion-item-sliding *ngIf=" studenfInfo['Status']==='Active'">
+              <ion-item-sliding *ngIf=" studenfInfo['Status']==='Active' || studenfInfo['Status']==='Y'">
                 <ion-item-options side="start">
                   <ion-item-option (click)="showModal(studenfInfo)">Detail</ion-item-option>
                 </ion-item-options>
@@ -171,13 +180,12 @@
                   </ion-label>
                 </ion-item>
                 <div class="action">
-                  <ion-button class="ion-activatable ripple-parent" shape="round" color="warning"
-                    (click)="showModal(std)" [class.button-disabled]="true">Detail
-                    <ion-ripple-effect></ion-ripple-effect>
+                  <ion-button class="ion-activatable ripple-parent" shape="round" color="warning" size="small" [class.button-disabled]="true">Detail
+                    
                   </ion-button>
                   <ion-button class="ion-activatable ripple-parent" shape="round" color="warning"
-                    (click)="showReport(std)" [class.button-disabled]="true">Report
-                    <ion-ripple-effect></ion-ripple-effect>
+                    [class.button-disabled]="true" size="small">Report
+                    
                   </ion-button>
                 </div>
 

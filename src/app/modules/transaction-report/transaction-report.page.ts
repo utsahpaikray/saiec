@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { ReportFormComponent } from './components/report-form/report-form.component';
+import { StoreTransactionPage } from '../store-transaction-form/store-transaction-form.page';
 
 @Component({
   selector: 'app-transaction-report',
   templateUrl: './transaction-report.page.html',
-  styleUrls: ['./transaction-report.page.scss'],
+  styleUrls: ['./transaction-report.page.scss']
 })
 export class TransactionReportPage  {
 
@@ -16,7 +16,8 @@ export class TransactionReportPage  {
 
   async openModal() {
     const modal = await this.modalCtrl.create({
-      component: ReportFormComponent,
+      // component: ReportFormComponent,
+      component: StoreTransactionPage,
     });
     modal.present();
 

@@ -6,8 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { TransactionReportPageRoutingModule } from './transaction-report-routing.module';
 
-import { TransactionReportPage } from './transaction-report.page';
 import { ReportFormComponent } from './components/report-form/report-form.component';
+import { TransactionReportPage } from './transaction-report.page';
 
 @NgModule({
   imports: [
