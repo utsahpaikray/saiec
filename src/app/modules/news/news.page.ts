@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { DashboardService } from 'src/app/shared-service/dashboard.service';
+import { DashboardService } from '../../shared-service/dashboard.service';
 
 @Component({
   selector: 'app-news',

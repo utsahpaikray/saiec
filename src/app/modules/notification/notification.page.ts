@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 import { notification} from '../../../assets/notification/notification'
 @Component({
   selector: 'app-notification',

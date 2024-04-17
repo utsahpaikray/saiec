@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared-service/auth-service.service';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { AuthService } from '../../shared-service/auth-service.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 import { EventsService } from './services/events.service';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { groupBy, sortBy, values } from 'lodash';
-import { DownloadUrlService } from 'src/app/shared-service/download-url.service';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { DownloadUrlService } from '../../shared-service/download-url.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 @Component({
   selector: 'app-birthday',
   templateUrl: './birthday.page.html',

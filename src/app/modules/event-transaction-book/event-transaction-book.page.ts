@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { AuthService } from 'src/app/shared-service/auth-service.service';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { AuthService } from '../../shared-service/auth-service.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 import { TransactionFormComponent } from './components/transaction-form/transaction-form.component';
 
 @Component({

@@ -4,7 +4,7 @@ import { CellClickedEvent, ColDef, GridApi, GridOptions, GridReadyEvent, MenuIte
 
 import { sortBy } from 'lodash';
 import { Observable } from 'rxjs';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 
 @Component({
   selector: 'app-student-school-fee',

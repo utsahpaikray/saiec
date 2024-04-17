@@ -22,14 +22,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgGridModule } from 'ag-grid-angular';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UploadDetailsComponent } from './modules/shared/upload-details/upload-details.component';
 import { UploadFormComponent } from './modules/shared/upload-form/upload-form.component';
 import { UploadListComponent } from './modules/shared/upload-list/upload-list.component';
 import { StoreModule } from '@ngrx/store';
-
+import { studentReducerStore } from './states/student/student.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { StudentEffects } from './states/student/student.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools'
+import { facultyReducerStore } from './states/faculty/faculty.reducer';
+import { FacultyEffects } from './states/faculty/faculty.effects';
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   imports: [
@@ -50,8 +55,16 @@ import { StoreModule } from '@ngrx/store';
       useFactory: adapterFactory,
     }),
     BrowserAnimationsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideRemoteConfig(() => getRemoteConfig()), StoreModule.forRoot({}, {})
-
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideRemoteConfig(() => getRemoteConfig()),
+    StoreModule.forRoot({students:studentReducerStore, faculty:facultyReducerStore}),
+    EffectsModule.forRoot([StudentEffects, FacultyEffects]),
+    // StoreModule.forRoot({faculty:facultyReducerStore}),
+    // EffectsModule.forRoot([FacultyEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: true,
+      connectInZone: true
+    })
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

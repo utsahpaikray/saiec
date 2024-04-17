@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 import { StudentDetailPage } from '../shared/student-detail/student-detail.page';
 import { sortBy } from 'lodash';
 @Component({

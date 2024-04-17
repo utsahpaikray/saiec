@@ -2,7 +2,7 @@ import { Component, DestroyRef, OnDestroy, OnInit, inject } from '@angular/core'
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { take, takeUntil } from 'rxjs';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-gallery',

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ModalController, ToastController } from '@ionic/angular';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { FirebaseService } from '../../../../shared-service/firebaseService/firebase-service.service';
 import * as _moment from 'moment';
 @Component({
   selector: 'app-offering-form',

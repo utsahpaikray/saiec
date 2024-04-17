@@ -3,7 +3,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridApi, GridOptions, GridReadyEvent, MenuItemDef } from 'ag-grid-community';
 
 import { Observable } from 'rxjs';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 import { CompanyRendererComponent } from './component/status';
 @Component({
   selector: 'app-student-tabular',

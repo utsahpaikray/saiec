@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchFileService } from 'src/app/shared-service/fetch-file.service';
+import { FetchFileService } from '../../../shared-service/fetch-file.service';
 import * as XLSX from 'xlsx'
 @Component({
   selector: 'app-extract-student',

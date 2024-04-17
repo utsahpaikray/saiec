@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { sortBy } from 'lodash';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 import { allStudentInfo } from '../../../assets/student-info/allStudentInfo';
 import { StudentDetailPage } from '../shared/student-detail/student-detail.page';
 @Component({

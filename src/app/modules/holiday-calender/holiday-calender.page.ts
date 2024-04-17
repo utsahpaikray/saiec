@@ -7,7 +7,7 @@ import { EventColor } from 'calendar-utils';
 import { endOfDay, isSameDay, isSameMonth, startOfDay } from 'date-fns';
 import * as moment from 'moment';
 import { Subject } from 'rxjs';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 const colors: Record<string, EventColor> = {
   red: {
     primary: '#ad2121',

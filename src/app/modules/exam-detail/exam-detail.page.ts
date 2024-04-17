@@ -3,8 +3,8 @@ import { ModalController } from '@ionic/angular';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridApi, GridOptions, GridReadyEvent, MenuItemDef } from 'ag-grid-community';
 import { Observable } from 'rxjs';
-import { DownloadUrlService } from 'src/app/shared-service/download-url.service';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { DownloadUrlService } from '../../shared-service/download-url.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 
 @Component({
   selector: 'app-exam-detail',

@@ -8,13 +8,17 @@ import { StudentPageRoutingModule } from './student-routing.module';
 
 import { StudentPage } from './student.page';
 import { ExtractStudentComponent } from '../shared/extract-student/extract-student.component';
+import { StudentStoreModule } from '../../states/student/student.module';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    StudentPageRoutingModule
+    StudentPageRoutingModule,
+    StudentStoreModule,
+    ScrollingModule
   ],
   declarations: [StudentPage,ExtractStudentComponent]
 })

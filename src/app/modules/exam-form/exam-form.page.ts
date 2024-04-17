@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { map, sortBy, uniq } from 'lodash';
-import { DownloadUrlService } from 'src/app/shared-service/download-url.service';
-import { FirebaseService } from 'src/app/shared-service/firebaseService/firebase-service.service';
+import { DownloadUrlService } from '../../shared-service/download-url.service';
+import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 
 import jsPDF from 'jspdf';
 
@@ -10,8 +10,8 @@ import { FormGroup } from '@angular/forms';
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/shared-service/auth-service.service';
-import { ToasterService } from 'src/app/shared-service/toaster.service';
+import { AuthService } from '../../shared-service/auth-service.service';
+import { ToasterService } from '../../shared-service/toaster.service';
 import { ExamFormComponent } from './components/transaction-form/exam-form.component';
 import { examdetail } from './exam-detail';
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
