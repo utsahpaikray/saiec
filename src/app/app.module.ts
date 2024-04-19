@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -35,6 +35,7 @@ import { StudentEffects } from './states/student/student.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { facultyReducerStore } from './states/faculty/faculty.reducer';
 import { FacultyEffects } from './states/faculty/faculty.effects';
+import { ServiceWorkerModule } from '@angular/service-worker';
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   imports: [
@@ -64,6 +65,10 @@ import { FacultyEffects } from './states/faculty/faculty.effects';
       maxAge: 25,
       logOnly: true,
       connectInZone: true
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
     })
   ],
   providers: [
