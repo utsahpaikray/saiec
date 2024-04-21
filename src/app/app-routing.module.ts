@@ -4,9 +4,13 @@ import { AuthGuard } from './shared-service/services/auth.guard';
 import { AppRoutes } from './router-segment.enum';
 const routes: Routes = [
   {
-    path: AppRoutes.Home,
+    path: '',
     redirectTo: AppRoutes.Home,
     pathMatch: 'full'
+  },
+  {
+    path: AppRoutes.Home,
+    loadChildren: () => import('./modules/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: AppRoutes.Student,

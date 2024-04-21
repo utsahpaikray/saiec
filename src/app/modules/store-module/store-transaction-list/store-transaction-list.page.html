@@ -4,25 +4,8 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Store Tx List</ion-title>
-   
   </ion-toolbar>
 </ion-header>
-<!-- <ion-content class="bill-content ion-padding">
-  <ion-list lines="none">
-    <ion-item *ngFor="let bill of bills" class="bill-item">
-      <ion-label class="bill-details">
-        <h2 class="customer-name">{{ bill.customerName }}</h2>
-        <p class="bill-info">Bill Number: {{ bill.billNumber }} | Note: {{ bill.note }}</p>
-        <div *ngIf="bill.items && bill.items.length > 0">
-          <ng-container *ngFor="let item of bill.items">
-            <p class="item-name">{{ item.itemName }}</p>
-            <p class="item-details">Unit Price: ${{ item.unitPrice }} | Quantity Needed: {{ item.quantityNeeded }} | Quantity Available: {{ item.quantityAvailable }} | Total: ${{ item.unitPrice * item.quantityNeeded }}</p>
-          </ng-container>
-        </div>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-</ion-content> -->
 <ion-content class="bill-content ion-padding">
   <ion-list lines="none">
     <ng-container *ngFor="let bill of bills">

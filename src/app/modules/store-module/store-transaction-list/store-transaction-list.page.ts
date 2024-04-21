@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { FormGroup } from '@angular/forms';
 import { FirebaseService } from '@shared-service/firebaseService/firebase-service.service';
 @Component({
   selector: 'app-store-transaction-form',
@@ -16,7 +14,6 @@ export class StoreTransactionListPage implements OnInit {
   bills: any =[];
   constructor(public firebaseService:FirebaseService) { }
   ngOnInit() {
-    console.log('called')
     this.getStoreItems()
   }
 
@@ -30,8 +27,4 @@ export class StoreTransactionListPage implements OnInit {
   toggleDetails(bill: any) {
     bill.showDetails = !bill.showDetails;
   }
-
-
-
-
 }
