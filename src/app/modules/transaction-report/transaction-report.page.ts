@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { StoreTransactionPage } from '../store-transaction-form/store-transaction-form.page';
+import { StoreTransactionPage } from '@modules/store-module/store-transaction-form/store-transaction-form.page';
 
 @Component({
   selector: 'app-transaction-report',
