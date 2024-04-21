@@ -1,156 +1,153 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared-service/services/auth.guard';
+import { AppRoutes } from './paths.enum';
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'home',
+    path: AppRoutes.Home,
+    redirectTo: AppRoutes.Home,
     pathMatch: 'full'
   },
   {
-    path: 'student',
-    loadChildren: () => import('./modules/student/student.module').then( m => m.StudentPageModule)
+    path: AppRoutes.Student,
+    loadChildren: () => import('./modules/student/student.module').then(m => m.StudentPageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./modules/home/home.module').then( m => m.HomePageModule)
+    path: AppRoutes.Faculty,
+    loadChildren: () => import('./modules/faculty/faculty.module').then(m => m.FacultyPageModule)
   },
   {
-    path: 'faculty',
-    loadChildren: () => import('./modules/faculty/faculty.module').then( m => m.FacultyPageModule)
+    path: AppRoutes.Notification,
+    loadChildren: () => import('./modules/notification/notification.module').then(m => m.NotificationPageModule)
   },
   {
-    path: 'notification',
-    loadChildren: () => import('./modules/notification/notification.module').then( m => m.NotificationPageModule)
+    path: AppRoutes.Events,
+    loadChildren: () => import('./modules/events/events.module').then(m => m.EventsPageModule)
   },
   {
-    path: 'events',
-    loadChildren: () => import('./modules/events/events.module').then( m => m.EventsPageModule)
+    path: AppRoutes.Adv,
+    loadChildren: () => import('./modules/adv/adv.module').then(m => m.AdvPageModule)
   },
   {
-    path: 'adv',
-    loadChildren: () => import('./modules/adv/adv.module').then( m => m.AdvPageModule)
+    path: AppRoutes.Questionset,
+    loadChildren: () => import('./modules/questionset/questionset.module').then(m => m.QuestionsetPageModule)
   },
   {
-    path: 'questionset',
-    loadChildren: () => import('./modules/questionset/questionset.module').then( m => m.QuestionsetPageModule)
+    path: AppRoutes.Idioms,
+    loadChildren: () => import('./modules/idioms/idioms.module').then(m => m.IdiomsPageModule)
   },
   {
-    path: 'idioms',
-    loadChildren: () => import('./modules/idioms/idioms.module').then( m => m.IdiomsPageModule)
+    path: AppRoutes.Story,
+    loadChildren: () => import('./modules/story/story.module').then(m => m.StoryPageModule)
   },
   {
-    path: 'story',
-    loadChildren: () => import('./modules/story/story.module').then( m => m.StoryPageModule)
+    path: AppRoutes.Modal,
+    loadChildren: () => import('./modules/shared/modal/modal.module').then(m => m.ModalPageModule)
   },
   {
-    path: 'modal',
-    loadChildren: () => import('./modules/shared/modal/modal.module').then( m => m.ModalPageModule)
+    path: AppRoutes.AutoFee,
+    loadChildren: () => import('./modules/autofee/autofee.module').then(m => m.AutofeePageModule)
   },
   {
-    path: 'auto-fee',
-    loadChildren: () => import('./modules/autofee/autofee.module').then( m => m.AutofeePageModule)
+    path: AppRoutes.StudentFee,
+    loadChildren: () => import('./modules/student-fee/student-fee.module').then(m => m.StudentFeePageModule)
   },
   {
-    path: 'student-fee',
-    loadChildren: () => import('./modules/student-fee/student-fee.module').then( m => m.StudentFeePageModule)
+    path: AppRoutes.StudentDetail,
+    loadChildren: () => import('./modules/shared/student-detail/student-detail.module').then(m => m.StudentDetailPageModule)
   },
   {
-    path: 'student-detail',
-    loadChildren: () => import('./modules/shared/student-detail/student-detail.module').then( m => m.StudentDetailPageModule)
-  },
-  {
-    path: 'student-tabular',
+    path: AppRoutes.StudentTabular,
     canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/student-tabular/student-tabular.module').then( m => m.StudentTabularPageModule)
+    loadChildren: () => import('./modules/student-tabular/student-tabular.module').then(m => m.StudentTabularPageModule)
   },
   {
-    path: 'student-school-fee',
+    path: AppRoutes.StudentSchoolFee,
     canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/student-school-fee/student-school-fee.module').then( m => m.StudentSchoolFeePageModule)
+    loadChildren: () => import('./modules/student-school-fee/student-school-fee.module').then(m => m.StudentSchoolFeePageModule)
   },
   {
-    path: 'student-auto-fee',
+    path: AppRoutes.StudentAutoFee,
     canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/student-auto-fee/student-auto-fee.module').then( m => m.StudentAutoFeePageModule)
+    loadChildren: () => import('./modules/student-auto-fee/student-auto-fee.module').then(m => m.StudentAutoFeePageModule)
   },
   {
-    path: 'notification-form',
+    path: AppRoutes.NotificationForm,
     canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/notification-form/notification-form.module').then( m => m.NotificationFormPageModule)
+    loadChildren: () => import('./modules/notification-form/notification-form.module').then(m => m.NotificationFormPageModule)
   },
   {
-    path: 'faculty-form',
+    path: AppRoutes.FacultyForm,
     canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/faculty-form/faculty-form.module').then( m => m.FacultyFormPageModule)
+    loadChildren: () => import('./modules/faculty-form/faculty-form.module').then(m => m.FacultyFormPageModule)
   },
   {
-    path: 'admin',
-    loadChildren: () => import('./modules/admin/admin.module').then( m => m.AdminPageModule)
+    path: AppRoutes.Admin,
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminPageModule)
   },
   {
-    path: 'exam-form',
+    path: AppRoutes.ExamForm,
     canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/exam-detail/exam-detail.module').then( m => m.ExamDetailPageModule)
+    loadChildren: () => import('./modules/exam-detail/exam-detail.module').then(m => m.ExamDetailPageModule)
   },
   {
-    path: 'birthday',
-    loadChildren: () => import('./modules/birthday/birthday.module').then( m => m.BirthdayPageModule)
+    path: AppRoutes.Birthday,
+    loadChildren: () => import('./modules/birthday/birthday.module').then(m => m.BirthdayPageModule)
   },
   {
-    path: 'calendar',
-    loadChildren: () => import('./modules/holiday-calender/holiday-calender.module').then( m => m.HolidayCalenderPageModule)
+    path: AppRoutes.Calendar,
+    loadChildren: () => import('./modules/holiday-calender/holiday-calender.module').then(m => m.HolidayCalenderPageModule)
   },
   {
-    path: 'staff-payment',
-    loadChildren: () => import('./modules/staff-payment/staff-payment.module').then( m => m.StaffPaymentPageModule)
+    path: AppRoutes.StaffPayment,
+    loadChildren: () => import('./modules/staff-payment/staff-payment.module').then(m => m.StaffPaymentPageModule)
   },
   {
-    path: 'staff-tabular-view',
+    path: AppRoutes.StaffTabularView,
     canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/staff-tabular-view/staff-tabular-view.module').then( m => m.StaffTabularViewPageModule)
+    loadChildren: () => import('./modules/staff-tabular-view/staff-tabular-view.module').then(m => m.StaffTabularViewPageModule)
   },
   {
-    path: 'gallery',
-    loadChildren: () => import('./modules/gallery/gallery.module').then( m => m.GalleryPageModule)
+    path: AppRoutes.Gallery,
+    loadChildren: () => import('./modules/gallery/gallery.module').then(m => m.GalleryPageModule)
   },
   {
-    path: 'store-transaction',
-    loadChildren: () => import('./modules/store-transaction-form/store-transaction-form.module').then( m => m.StoreTransactionPageModule)
+    path: AppRoutes.StoreTransaction,
+    loadChildren: () => import('./modules/store-transaction-form/store-transaction-form.module').then(m => m.StoreTransactionPageModule)
   },
   {
-    path: 'gallery/:id',
+    path: AppRoutes.Store,
     canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/gallery/gallery.module').then( m => m.GalleryPageModule)
+    loadChildren: () => import('./modules/store/store.module').then(m => m.StorePageModule)
   },
   {
-    path: 'exam-detail',
-    loadChildren: () => import('./modules/exam-form/exam-form.module').then( m => m.ExamFormPageModule)
-  },
-  {
-    path: 'offering',
-    loadChildren: () => import('./modules/offering/offering.module').then( m => m.OfferingPageModule)
-  },
-  {
-    path: 'event-transaction-book',
-    loadChildren: () => import('./modules/event-transaction-book/event-transaction-book.module').then( m => m.EventTransactionBookPageModule)
-  },
-  {
-    path: 'report/:name',
-    loadChildren: () => import('./modules/report/report.module').then( m => m.ReportPageModule)
-  },
-  {
-    path: 'store',
+    path: `${AppRoutes.Gallery}/:id`,
     canActivate: [AuthGuard],
-    loadChildren: () => import('./modules/store/store.module').then( m => m.StorePageModule)
+    loadChildren: () => import('./modules/gallery/gallery.module').then(m => m.GalleryPageModule)
   },
   {
-    path: 'transaction-report',
-    loadChildren: () => import('./modules/transaction-report/transaction-report.module').then( m => m.TransactionReportPageModule)
+    path: AppRoutes.ExamDetail,
+    loadChildren: () => import('./modules/exam-form/exam-form.module').then(m => m.ExamFormPageModule)
   },
   {
-    path: 'news',
-    loadChildren: () => import('./modules/news/news.module').then( m => m.NewsPageModule)
+    path: AppRoutes.Offering,
+    loadChildren: () => import('./modules/offering/offering.module').then(m => m.OfferingPageModule)
+  },
+  {
+    path: AppRoutes.EventTransactionBook,
+    loadChildren: () => import('./modules/event-transaction-book/event-transaction-book.module').then(m => m.EventTransactionBookPageModule)
+  },
+  {
+    path: `${AppRoutes.Report}/:name`,
+    loadChildren: () => import('./modules/report/report.module').then(m => m.ReportPageModule)
+  },
+  {
+    path: AppRoutes.TransactionReport,
+    loadChildren: () => import('./modules/transaction-report/transaction-report.module').then(m => m.TransactionReportPageModule)
+  },
+  {
+    path: AppRoutes.News,
+    loadChildren: () => import('./modules/news/news.module').then(m => m.NewsPageModule)
   }
 ];
 

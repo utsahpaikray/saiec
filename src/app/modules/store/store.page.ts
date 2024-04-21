@@ -4,7 +4,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridApi, GridOptions, GridReadyEvent, MenuItemDef, ValueGetterParams } from 'ag-grid-community';
 
 import { Observable } from 'rxjs';
-import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
+import { FirebaseService } from '@shared-service/firebaseService/firebase-service.service';
 
 @Component({
   selector: 'app-store',
