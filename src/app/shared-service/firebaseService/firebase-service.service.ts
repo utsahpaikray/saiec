@@ -175,4 +175,8 @@ export class FirebaseService {
    return this.firestore.firestore.collection(endPoint).add(item);
     
   }
+  getItems(endPoint: string){
+   return this.firestore.collection(endPoint).valueChanges({ idField: '$id' });
+    
+  }
 }

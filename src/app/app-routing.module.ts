@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared-service/services/auth.guard';
-import { AppRoutes } from './paths.enum';
+import { AppRoutes } from './router-segment.enum';
 const routes: Routes = [
   {
     path: AppRoutes.Home,
@@ -119,6 +119,11 @@ const routes: Routes = [
     path: AppRoutes.Store,
     canActivate: [AuthGuard],
     loadChildren: () => import('@modules/store-module/store/store.module').then(m => m.StorePageModule)
+  },
+  {
+    path: AppRoutes.StoreReport,
+    canActivate: [AuthGuard],
+    loadChildren: () => import('@modules/store-module/store-transaction-list/store-transaction-list.module').then(m => m.StoreTransactionListPageModule)
   },
   {
     path: `${AppRoutes.Gallery}/:id`,

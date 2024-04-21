@@ -1,37 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { FirebaseService } from '@shared-service/firebaseService/firebase-service.service';
+import { ToasterService } from '@shared-service/toaster.service';
 @Component({
   selector: 'app-store-transaction-form',
   templateUrl: './store-transaction-form.page.html',
   styleUrls: ['./store-transaction-form.page.scss'],
 })
 export class StoreTransactionPage implements OnInit {
-submit() {
-throw new Error('Method not implemented.');
-}
-  myForm!: FormGroup;
+  storeForm!: FormGroup;
   param: any;
   edit: boolean = false;
   name: any;
   allProducts: any =[];
-  constructor(private modalCtrl: ModalController, private fb:FormBuilder,public firebaseService:FirebaseService,private route : ActivatedRoute) { }
+  totalPrice = 0;
+  constructor(private toasterService:ToasterService,private fb:FormBuilder,public firebaseService:FirebaseService,private route : ActivatedRoute) { }
   ngOnInit() {
-    this.myForm = this.fb.group({
-      customerName:[''],
+    this.storeForm = this.fb.group({
+      customerName:['', Validators.required],
       items: this.fb.array([]),
-      billNumber: [''],
-      note:['']
+      billNumber: ['', Validators.required],
+      note:['', Validators.required]
     });
     this.addItem()
     this.getStoreItems()
+    this.storeForm.valueChanges.subscribe(()=>this.calculateTotal())
   }
 
   getStoreItems(){
      this.firebaseService.getAllProducts().subscribe((items:any)=>{
-      console.log(items)
       this.allProducts = items
     })
   }
@@ -41,7 +40,7 @@ throw new Error('Method not implemented.');
     if (index !== -1) {
       const unitPrice = this.allProducts[index].SellingPrice;
       const available = this.allProducts[index].Availability;
-      const itemsArray = this.myForm.get('items') as FormArray;
+      const itemsArray = this.storeForm.get('items') as FormArray;
       const itemFormGroup = itemsArray.at(formIndex) as FormGroup;
   
       if (itemFormGroup) {
@@ -52,7 +51,7 @@ throw new Error('Method not implemented.');
   }
 
   get items(): FormArray {
-    return this.myForm.get('items') as FormArray;
+    return this.storeForm.get('items') as FormArray;
   }
 
   addItem() {
@@ -61,33 +60,39 @@ throw new Error('Method not implemented.');
 
   createItem(): FormGroup {
     return this.fb.group({
-      itemName: [''],
+      itemName: ['', Validators.required],
       unitPrice: [0],
       quantityAvailable: [0],
-      quantityNeeded: [0]
+      quantityNeeded: [0, Validators.required],
+      totalPrice:[0]
     });
   }
 
   calculatePrice(item: any) {
-    console.log(item)
-    // Implement your calculation logic here
     const totalPrice = item.unitPrice * item.quantityNeeded;
     return totalPrice;
   }
 
   calculateTotal() {
-    // Implement calculation of total price for all items
-    let totalPrice = 0;
+    this.totalPrice = 0
     this.items.value.forEach((item:any )=> {
-      totalPrice += this.calculatePrice(item);
+      this.totalPrice += this.calculatePrice(item);
     });
-    return totalPrice;
   }
-  cancel() {
-    return this.modalCtrl.dismiss(null, 'cancel');
-  }
+  public submit() {
+    if(!this.storeForm.valid){
+      return
+    }
+    this.storeForm.value.items.forEach((item:any) => {
+      item.totalPrice = this.calculatePrice(item)
+    })
+   this.firebaseService.pushItems('store-transactions', {...this.storeForm.value, totalPrice: this.totalPrice, date: new Date() }).then(()=>{
+    console.log('done')
+    this.toasterService.presentToast('Successfully Updated',2000)
+    this.storeForm.reset()
+   }).catch(()=>{
+    this.toasterService.presentToast('Error',2000)
+   })
 
-  confirm() {
-    return this.modalCtrl.dismiss(this.name, 'confirm');
-  }
+    }
 }

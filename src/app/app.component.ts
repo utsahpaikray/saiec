@@ -6,6 +6,7 @@ import { NavigationEnd, Router } from '@angular/router';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from './shared-service/auth-service.service';
+import { AppRoutes } from './router-segment.enum';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,11 @@ import { AuthService } from './shared-service/auth-service.service';
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
-  isAuthenticated: boolean=false;
+  isAuthenticated = false;
   public appPages=[
     {
       title: 'Home',
-      url: '/home',
+      url: `/${AppRoutes.Home}`,
       icon: 'home',
       access:true,
       open: false,
@@ -26,7 +27,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Student',
-      url: '/student',
+      url: `/${AppRoutes.Student}`,
       icon: 'man',
       access:true,
       open: false,
@@ -34,71 +35,63 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Faculty',
-      url: '/faculty',
+      url: `/${AppRoutes.Faculty}`,
       icon: 'people',
       access:true,
-       open: false,
+      open: false,
       navigation:false
     },
     {
       title: 'Birthday',
-      url: '/birthday',
+      url: `/${AppRoutes.Birthday}`,
       icon: 'gift',
       access:true,
-       open: false,
+      open: false,
       navigation:false
     },
-    // {
-    //   title: 'Calendar',
-    //   url: '/calendar',
-    //   icon: 'calendar',
-    //   access:true,
-    //    open: false,
-    //   navigation:false
-    // },
     {
       title: 'Exam Detail',
-      url: '/exam-detail',
+      url: `/${AppRoutes.ExamDetail}`,
       icon: 'receipt',
       access:true,
-       open: false,
+      open: false,
       navigation:false
     },
     {
       title: 'Events',
-      url: '/events',
+      url: `/${AppRoutes.Events}`,
       icon: 'bicycle',
       access:true,
-       open: false,
+      open: false,
       navigation:false
     },
     {
       title: 'Notification',
-      url: '/notification',
+      url: `/${AppRoutes.Notification}`,
       icon: 'notifications',
       access:true,
-       open: false,
+      open: false,
       navigation:false
     },
     {
       title: 'Auto Fee',
-      url: '/auto-fee',
+      url: `/${AppRoutes.AutoFee}`,
       icon: 'car',
       access:true,
-       open: false,
+      open: false,
       navigation:false
     },
     {
       title: 'Student Fee',
-      url: '/student-fee',
+      url: `/${AppRoutes.StudentFee}`,
       icon: 'cash',
       access:true,
-       open: false,
+      open: false,
       navigation:false
     },
     {
       title:'Staff Payment',
-      url:"/staff-payment",
+      url: `/${AppRoutes.StaffPayment}`,
       icon:"cash",
       access:true,
       open: false,
@@ -106,7 +99,7 @@ export class AppComponent implements OnInit {
     },
     {
       title:'Offering',
-      url:"/offering",
+      url: `/${AppRoutes.Offering}`,
       icon:"gift",
       open: false,
       access:false,
@@ -114,16 +107,15 @@ export class AppComponent implements OnInit {
     },
     {
       title:'Event Transaction Book',
-      url:"/event-transaction-book",
+      url: `/${AppRoutes.EventTransactionBook}`,
       icon:"document-text",
       open: false,
       access:false,
       navigation:false
     },
-    
     {
       title: 'Adv',
-      url: '/adv',
+      url: `/${AppRoutes.Adv}`,
       icon: 'radio',
       access:true,
       open: false,
@@ -131,7 +123,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'News',
-      url: '/news',
+      url: `/${AppRoutes.News}`,
       icon: 'newspaper',
       access:true,
       open: false,
@@ -139,7 +131,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Question',
-      url: '/questionset',
+      url: `/${AppRoutes.Questionset}`,
       icon: 'aperture',
       access:true,
       open: false,
@@ -147,7 +139,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Story',
-      url: '/story',
+      url: `/${AppRoutes.Story}`,
       icon: 'aperture',
       access:true,
       open: false,
@@ -155,7 +147,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Idioms',
-      url: '/idioms',
+      url: `/${AppRoutes.Idioms}`,
       icon: 'aperture',
       access:true,
       open: false,
@@ -163,7 +155,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Login',
-      url: '/admin/login',
+      url: `/${AppRoutes.Admin}/login`,
       icon: 'finger-print',
       access:true,
       open: false,
@@ -177,77 +169,78 @@ export class AppComponent implements OnInit {
       children: [
         {
           title: 'Student Info',
-          url: '/student-tabular',
+          url: `/${AppRoutes.StudentTabular}`,
           open: false,
           icon: 'list',
           navigation:true
         },
         {
           title: 'School Fee',
-          url: '/student-school-fee',
+          url: `/${AppRoutes.StudentSchoolFee}`,
           open: false,
           icon: 'cash',
           navigation:true
         },
         {
           title: 'School Auto Fee',
-          url: '/student-auto-fee',
+          url: `/${AppRoutes.StudentAutoFee}`,
           open: false,
           icon: 'car',
           navigation:true
         },
         {
           title: 'Faculty',
-          url: '/faculty-form',
+          url: `/${AppRoutes.FacultyForm}`,
           open: false,
           icon: 'people',
           navigation:true
         },
         {
           title:'Faculty Fee',
-          url:'/staff-tabular-view',
+          url: `/${AppRoutes.StaffTabularView}`,
           open: false,
           icon:'people',
           navigation:true
         },
         {
           title: 'Store',
-          url: '/store',
+          url: `/${AppRoutes.Store}`,
           icon: 'cube',
           access: false,
           navigation: true
         },
         {
-          title: 'Transaction Report',
-          url: '/transaction-report',
+          title: 'Store Transaction Report',
+          url: `/${AppRoutes.StoreReport}`,
           icon: 'cube',
           access: false,
           navigation: true
         },
+        {
+          title:'Store form',
+          url: `/${AppRoutes.StoreTransaction}`,
+          open: false,
+          icon:'images',
+          navigation:true
+        },
         // {
         //   title:'Exam Form',
-        //   url:'/exam-form',
+        //   url: `/${AppRoutes.ExamForm}`,
         //  open: false, 
         //  icon:'book',
         //   navigation:true
         // },
         {
           title:'Gallery form',
-          url:'/gallery',
+          url: `/${AppRoutes.Gallery}`,
           open: false,
           icon:'images',
           navigation:true
         },
-        {
-          title:'Store form',
-          url:'/store-transaction',
-          open: false,
-          icon:'images',
-          navigation:true
-        },
+     
         {
           title: 'Notifications',
-          url: '/notification-form',
+          url: `/${AppRoutes.NotificationForm}`,
           open: false,
           icon: 'notifications',
           navigation:true
@@ -255,6 +248,7 @@ export class AppComponent implements OnInit {
       ]
     },
   ];
+  
   user: any;
   title = 'push-notification';
   message: string | undefined;

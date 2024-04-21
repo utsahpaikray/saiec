@@ -1,0 +1,46 @@
+/* your-component.scss */
+
+.bill-content {
+  padding: 10px;
+}
+
+.bill-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.bill-details {
+  width: 80%;
+}
+
+.customer-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.bill-info {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.item-details {
+  border-bottom: 1px dashed #ccc;
+  padding: 10px 0;
+}
+
+.item-name {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.item-details p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+ion-button[slot="end"] {
+  font-size: 0.9rem;
+  color: #007bff;
+}
