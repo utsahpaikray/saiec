@@ -7,54 +7,54 @@
             <ion-img class="image" src="assets/icon/favicon.png"></ion-img>
             <ion-card-subtitle class="ion-margin-top">
               <ion-lable class="ion-text-center text">{{name}}</ion-lable>
-            </ion-card-subtitle> 
+            </ion-card-subtitle>
           </div>
           @for (p of appPages; track p; let  i = $index) {
-          <ion-menu-toggle menu="first" autoHide="false" menuClose="true">
-            <ng-container *ngIf="p.access">
-              <ion-item
-                (click)="selectedIndex=i; p.open=!p.open"
-                [routerLink]="[p.url]"
-                [routerLinkActive]="'active'"
-                [routerLinkActiveOptions]="{exact: p.url === '/'}"
-                [attr.detail]="false"
-                [attr.lines]="'none'"
-                [class.parent-active]="p.open"
-              >
-                <ion-icon [name]="p.icon" slot="start"></ion-icon>
-                <ion-label>{{ p.title }}</ion-label>
-                <ion-icon
-                  *ngIf="p.children && p.children.length > 0"
-                  [name]="p.open ? 'chevron-down' : 'chevron-forward'"
-                  slot="end"
-                ></ion-icon>
-              </ion-item>
-              @if (p.open) {
-                <ion-list>
-                  @for (sub of p.children; track sub) {
-                  <ion-item
-                    [routerLink]="sub.url"
-                    [routerLinkActive]="'active'"
-                    [attr.detail]="false"
-                    [attr.lines]="'none'"
-                    class="sub-item"
+            <ion-menu-toggle menu="first" autoHide="false" menuClose="true">
+              @if (p.access) {
+                <ion-item
+                  (click)="selectedIndex=i; p.open=!p.open"
+                  [routerLink]="[p.url]"
+                  [routerLinkActive]="'active'"
+                  [routerLinkActiveOptions]="{exact: p.url === '/'}"
+                  [attr.detail]="false"
+                  [attr.lines]="'none'"
+                  [class.parent-active]="p.open"
                   >
-                    <ion-icon [name]="sub.icon" slot="start"></ion-icon>
-                    <ion-label>{{ sub.title }}</ion-label>
-                  </ion-item>
+                  <ion-icon [name]="p.icon" slot="start"></ion-icon>
+                  <ion-label>{{ p.title }}</ion-label>
+                  @if (p.children && p.children.length > 0) {
+                    <ion-icon
+                      [name]="p.open ? 'chevron-down' : 'chevron-forward'"
+                      slot="end"
+                    ></ion-icon>
+                  }
+                </ion-item>
+                @if (p.open) {
+                  <ion-list>
+                    @for (sub of p.children; track sub) {
+                      <ion-item
+                        [routerLink]="sub.url"
+                        [routerLinkActive]="'active'"
+                        [attr.detail]="false"
+                        [attr.lines]="'none'"
+                        class="sub-item"
+                        >
+                        <ion-icon [name]="sub.icon" slot="start"></ion-icon>
+                        <ion-label>{{ sub.title }}</ion-label>
+                      </ion-item>
+                    }
+                  </ion-list>
                 }
-                </ion-list>
               }
-              
-            </ng-container>
-          </ion-menu-toggle>
-        }
+            </ion-menu-toggle>
+          }
         </ion-list>
 
         <ion-list>
           <ion-item lines="none">
             <ion-icon slot="start" name="moon"></ion-icon>
-           
+
             <ion-toggle id="themeToggle" (click)="toggleDarkTheme()"> <ion-label>
               Theme
             </ion-label></ion-toggle>

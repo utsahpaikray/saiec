@@ -10,30 +10,38 @@
 <ion-content fullscreen>
   <ion-grid class="padding-top">
     @for (event of events; track event; let i = $index) {
-    <ion-row>
-      <ion-col>
-        <ion-card class="ion-margin-bottom  ion-no-margin top">
-          <ion-card-header >
-            <ion-tab-button (click)="edit(event.$id)" class="edit" *ngIf="isAuthorized">
-              <ion-icon name="create"></ion-icon>
-              <ion-label>{{editLabel}}</ion-label>
-            </ion-tab-button>
-            <ion-card-subtitle *ngIf="event.source" color="primary">Source: {{event.source}}</ion-card-subtitle>
-            <ion-card-title *ngIf="event.title" color="primary">{{event.title}}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content *ngIf="event.description">{{event.description}}</ion-card-content>
-        </ion-card>
-        <ion-row>
-          @for (img of event.imageCollection; track img; let i = $index) {
-          <ion-col size="12" size-sm="6" size-md="3" size-lg="3">
-            <ion-card class="ion-no-margin">
-              <ion-img [src]="img.image"></ion-img>
-            </ion-card>
+      <ion-row>
+        <ion-col>
+          <ion-card class="ion-margin-bottom  ion-no-margin top">
+            <ion-card-header >
+              @if (isAuthorized) {
+                <ion-tab-button (click)="edit(event.$id)" class="edit">
+                  <ion-icon name="create"></ion-icon>
+                  <ion-label>{{editLabel}}</ion-label>
+                </ion-tab-button>
+              }
+              @if (event.source) {
+                <ion-card-subtitle color="primary">Source: {{event.source}}</ion-card-subtitle>
+              }
+              @if (event.title) {
+                <ion-card-title color="primary">{{event.title}}</ion-card-title>
+              }
+            </ion-card-header>
+            @if (event.description) {
+              <ion-card-content>{{event.description}}</ion-card-content>
+            }
+          </ion-card>
+          <ion-row>
+            @for (img of event.imageCollection; track img; let i = $index) {
+              <ion-col size="12" size-sm="6" size-md="3" size-lg="3">
+                <ion-card class="ion-no-margin">
+                  <ion-img [src]="img.image"></ion-img>
+                </ion-card>
+              </ion-col>
+            }
+          </ion-row>
         </ion-col>
-      }
-        </ion-row>
-      </ion-col>
-    </ion-row>
-  }
+      </ion-row>
+    }
   </ion-grid>
 </ion-content>

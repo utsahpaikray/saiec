@@ -7,26 +7,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen class="ion-no-padding"> 
-    <ion-grid class="padding-top ion-no-padding">
-        <ion-row>
-          @for (user of facultyList; track user; let  i = $index) {
-          <ion-col size="12" size-sm="6" size-md="6" size-lg="4">
-            <ion-card class="faculty-card">
-              <ion-card-header color="primary">
-                <ion-card-title *ngIf="user.name"><p>{{user.name}}</p></ion-card-title>
-              </ion-card-header>
-              <div class="image-container">
-                <ion-img *ngIf="user.Image" src="{{user.Image}}"> </ion-img>
-              </div>
-             
-              <ion-card-content>
-                <ion-card-subtitle> Designation:{{user?.Designation}}</ion-card-subtitle>
-                <ion-card-subtitle *ngIf="user.location">{{user?.location}}</ion-card-subtitle>
-                Subject: {{user.position}}</ion-card-content>
-            </ion-card>
-          </ion-col>
-        }
-        </ion-row>
-      </ion-grid>
+<ion-content fullscreen class="ion-no-padding">
+  <ion-grid class="padding-top ion-no-padding">
+    <ion-row>
+      @for (user of facultyList; track user; let  i = $index) {
+        <ion-col size="12" size-sm="6" size-md="6" size-lg="4">
+          <ion-card class="faculty-card">
+            <ion-card-header color="primary">
+              @if (user.name) {
+                <ion-card-title><p>{{user.name}}</p></ion-card-title>
+              }
+            </ion-card-header>
+            <div class="image-container">
+              @if (user.Image) {
+                <ion-img src="{{user.Image}}"> </ion-img>
+              }
+            </div>
+
+            <ion-card-content>
+              <ion-card-subtitle> Designation:{{user?.Designation}}</ion-card-subtitle>
+              @if (user.location) {
+                <ion-card-subtitle>{{user?.location}}</ion-card-subtitle>
+              }
+            Subject: {{user.position}}</ion-card-content>
+          </ion-card>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -4,48 +4,53 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>BirthDay</ion-title>
-  </ion-toolbar> 
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid class="padding-top student-info">
-    
-        <ion-card class="top-card">
-          <div class="image">
-            
-              
-           
-          </div>
-          </ion-card>
-   
+
+    <ion-card class="top-card">
+      <div class="image">
+
+
+
+      </div>
+    </ion-card>
+
     <ion-row class="student">
       @for (list of birthdayList; track list; let  i = $index) {
         <ion-col size="12">
           <p class="title">{{months[list.month]}}</p>
         </ion-col>
         @for (std of list.items; track std; let  i = $index) {
-        <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngIf="std">
-          <ion-card>
-            <div class="image-conatiner">
-              <a [download]="std.Image" [href]="std.Image" title="{{std.StudentName|titlecase }} " target="_blank">
-                <ion-img *ngIf="std.Image" src="{{std.Image}}"></ion-img>
-              </a>
-            </div>
-  
-            <ion-card-content *ngIf="std">
-              <p>{{std.StudentName|titlecase }}</p>
-              <div class="info">
-                <ion-icon name="gift"></ion-icon> : <b>
-                    {{std.DateofBirth}}
-                </b>
-              </div>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-    }
+          @if (std) {
+            <ion-col size="12" size-sm="6" size-md="4" size-lg="3">
+              <ion-card>
+                <div class="image-conatiner">
+                  <a [download]="std.Image" [href]="std.Image" title="{{std.StudentName|titlecase }} " target="_blank">
+                    @if (std.Image) {
+                      <ion-img src="{{std.Image}}"></ion-img>
+                    }
+                  </a>
+                </div>
+                @if (std) {
+                  <ion-card-content>
+                    <p>{{std.StudentName|titlecase }}</p>
+                    <div class="info">
+                      <ion-icon name="gift"></ion-icon> : <b>
+                      {{std.DateofBirth}}
+                    </b>
+                  </div>
+                </ion-card-content>
+              }
+            </ion-card>
+          </ion-col>
+        }
+      }
     }
 
 
-    </ion-row>
-  </ion-grid>
+  </ion-row>
+</ion-grid>
 </ion-content>

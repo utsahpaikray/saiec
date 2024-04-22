@@ -16,27 +16,29 @@
   </div>
 
   <ion-list>
-    <ion-item *ngFor="let item of offeringList"> 
-      <ion-label>{{item.name}}</ion-label>
-      <ion-label>{{item.amount}}</ion-label>
-      <ion-label>{{item.date|date}}</ion-label>
-      <ion-label>{{item.description}}</ion-label>
-      <ion-label slot="end"> 
-        <button mat-icon-button [matMenuTriggerFor]="menu"  >
-          <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="delete(item)"> 
-            <ion-icon name="trash-outline"></ion-icon>
-            <span>Delete</span>
+    @for (item of offeringList; track item) {
+      <ion-item>
+        <ion-label>{{item.name}}</ion-label>
+        <ion-label>{{item.amount}}</ion-label>
+        <ion-label>{{item.date|date}}</ion-label>
+        <ion-label>{{item.description}}</ion-label>
+        <ion-label slot="end">
+          <button mat-icon-button [matMenuTriggerFor]="menu"  >
+            <ion-icon name="ellipsis-vertical-outline"></ion-icon>
           </button>
-          <button mat-menu-item (click)="showModal(item,'edit')">
-            <ion-icon name="pencil"></ion-icon>
-            <span>Edit</span>
-          </button>
-        </mat-menu>
-    </ion-label>
-    </ion-item>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="delete(item)">
+              <ion-icon name="trash-outline"></ion-icon>
+              <span>Delete</span>
+            </button>
+            <button mat-menu-item (click)="showModal(item,'edit')">
+              <ion-icon name="pencil"></ion-icon>
+              <span>Edit</span>
+            </button>
+          </mat-menu>
+        </ion-label>
+      </ion-item>
+    }
     <ion-item>
       <ion-label color="primary">Total Collection : {{sum}}</ion-label>
     </ion-item>

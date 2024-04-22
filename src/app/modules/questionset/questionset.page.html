@@ -9,13 +9,13 @@
 
 <ion-content fullscreen>
   <!-- <div *ngIf="questionsForm">
-    <form [formGroup]="questionsForm" (ngSubmit)="submitForm()">
-      
-      <ion-col size="12">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title
-              >{{ questions[currentQuestionIndex].question }}</ion-card-title
+  <form [formGroup]="questionsForm" (ngSubmit)="submitForm()">
+
+    <ion-col size="12">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title
+            >{{ questions[currentQuestionIndex].question }}</ion-card-title
             >
           </ion-card-header>
           <ion-card-content>
@@ -26,10 +26,10 @@
                   [color]="isSelectedOption(option) ? getColor(option) : ''"
                   (click)="onOptionSelect(); addCelebration($event)"
                   [disabled]="isSelectedOption(option)?false: optionSelected"
-                >
-               
+                  >
+
                   <ion-radio [value]="option"> {{ option }}</ion-radio>
-                 
+
                 </ion-item>
               </ion-radio-group>
             </ion-list>
@@ -37,37 +37,37 @@
               <ion-item *ngIf="optionSelected">
                 <ion-label> <span>✅</span> Correct Answer: {{ questions[currentQuestionIndex].answer }} </ion-label>
               </ion-item>
-                <ion-item>
-                  <ion-button
-                    (click)="previousQuestion()"
-                    *ngIf="currentQuestionIndex > 0"
-                    shape="round"
-                    color="success"
-                    slot="end"
+              <ion-item>
+                <ion-button
+                  (click)="previousQuestion()"
+                  *ngIf="currentQuestionIndex > 0"
+                  shape="round"
+                  color="success"
+                  slot="end"
                   >
                   <ion-icon name="arrow-back"></ion-icon>
-                    <ion-label>Previous Question</ion-label>
-                  </ion-button>
-                  <ion-button
-                    (click)="nextQuestion()"
-                    *ngIf="currentQuestionIndex < totalQuestions - 1 && questionsForm.valid"
-                    shape="round"
-                    color="success"
-                    slot="end"
+                  <ion-label>Previous Question</ion-label>
+                </ion-button>
+                <ion-button
+                  (click)="nextQuestion()"
+                  *ngIf="currentQuestionIndex < totalQuestions - 1 && questionsForm.valid"
+                  shape="round"
+                  color="success"
+                  slot="end"
                   >
-                 
-                    <ion-label>Next Question</ion-label>
-                    <ion-icon name="arrow-forward-outline"></ion-icon>
-                  </ion-button>
-                  <ion-button type="submit" shape="round" color="success" slot="end">
-                    <ion-icon name="add"></ion-icon>
-                    <ion-label>Submit</ion-label>
-                  </ion-button>
-                  
-                </ion-item>
-              </ion-list>
+
+                  <ion-label>Next Question</ion-label>
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+                </ion-button>
+                <ion-button type="submit" shape="round" color="success" slot="end">
+                  <ion-icon name="add"></ion-icon>
+                  <ion-label>Submit</ion-label>
+                </ion-button>
+
+              </ion-item>
+            </ion-list>
           </ion-card-content>
-          
+
         </ion-card>
       </ion-col>
     </form>
@@ -75,33 +75,37 @@
   <ion-grid>
     <ion-row>
       <!-- <ion-col size="12">{{questions.length}}</ion-col> -->
-     
-        @for (qs of questions; track qs; let  i = $index) { 
-          <ion-col size="12" size-sm="6" size-md="4">
-            <ion-card  color="light">
-              <div>
+
+      @for (qs of questions; track qs; let  i = $index) {
+        <ion-col size="12" size-sm="6" size-md="4">
+          <ion-card  color="light">
+            <div>
               <ion-card-header color="primary">
                 <ion-card-subtitle>
                   <span class="">{{i+1}}: {{ qs.question }}</span>
                 </ion-card-subtitle>
               </ion-card-header>
-              <span class="align-center" color="success" *ngIf="qs.category">{{qs.category}}</span>
+              @if (qs.category) {
+                <span class="align-center" color="success">{{qs.category}}</span>
+              }
               <ion-card-content color="success">
-                <ion-list *ngFor="let option of qs.options">
+                @for (option of qs.options; track option) {
+                  <ion-list>
                     <ion-item>
                       {{ option }}
                     </ion-item>
-                </ion-list>
+                  </ion-list>
+                }
                 <ion-list>
                   <ion-item>
                     <ion-label> <span>✅</span>{{ qs.answer }} </ion-label>
                   </ion-item>
-                  </ion-list>
+                </ion-list>
               </ion-card-content>
-              </div>
-            </ion-card>
-          </ion-col>
-        }
+            </div>
+          </ion-card>
+        </ion-col>
+      }
     </ion-row>
   </ion-grid>
 </ion-content>
