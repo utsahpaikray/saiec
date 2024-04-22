@@ -49,6 +49,7 @@ export class ExamFormPage implements OnInit {
   getStudent() {
     this.subscription = this.firebaseService.getAllExamInfo().subscribe(items => {
       this.rowData = items;
+      console.log(this.rowData)
       // this.rowData.forEach(studentInfo => {
       // if(studentInfo.class== 'Nursery' || studentInfo.class== 'KG'){
       //     studentInfo.markInfo.forEach(mark => {
