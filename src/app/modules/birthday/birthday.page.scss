@@ -9,7 +9,7 @@ p {
     text-align: center;
     color: #000;
     &.title{
-        background: #039be5;
+        background: var(--ion-color-primary);
         padding: 5px;
         border-radius: 5px;
         color: #fff;
@@ -68,55 +68,3 @@ ion-card-subtitle {
     font-weight: 600;
 }
 
-.img-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    ion-img {
-       
-        height: 45px;
-        width: 45px;
-        clear: both;
-    }
-    .bp {
-        background: #2dd36f;
-        padding: 5px;
-        width: 3rem;
-        border-radius: 10px 0 0 10px;
-        margin-top: 8px;
-        clear: both;
-        font-size: 1rem;
-        text-align: center;
-        &.out{
-            background: #f44336
-        }
-        &.blood{
-            background: #e74646;
-        }
-    }
-}
-
-.no-item {
-    ion-img {
-        height: 15rem;
-    }
-}
-
-ion-toggle {
-    height: 1.5rem;
-}
-
-.grid-view {
-  //  display: flex;
-  //  justify-content: end;
-  //  align-items: center;
-}
-.info{
-    text-align: center;
-}
-.action-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}

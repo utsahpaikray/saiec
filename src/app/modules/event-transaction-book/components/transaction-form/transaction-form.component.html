@@ -32,7 +32,8 @@
                         <input type="text" matInput formControlName="description">
                       </mat-form-field>
                       <h1>Expenditure</h1>
-                      <div  *ngFor="let t of t?.controls; let i = index; let last = last">
+                      @for (t of t.controls; track t; let i = $index;let last = $last) {
+                      <div>
                         <div [formArrayName]="i" class="form-row">
                           <mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Item Name</mat-label>
@@ -55,8 +56,10 @@
                           
                         </div>
                       </div>
+                    }
                       <h1>Collection</h1>
-                      <div  *ngFor="let c of c?.controls; let i = index; let last = last">
+                      @for (c of c.controls; track t; let i = $index;let last = $last) {
+                      <div>
                         <div [formArrayName]="i" class="form-row">
                           <mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Item Name</mat-label>
@@ -79,7 +82,7 @@
                           </ion-button>
                         </div>
                       </div>
-                      
+                    }
                       <ion-button (click)="submit()" shape="round" >
                        save
                       </ion-button>

@@ -10,7 +10,7 @@
 <ion-content fullscreen>
   <ion-grid class="padding-top student-info">
     <ion-row class="student">
-      <ng-container *ngFor="let idiom of idioms">
+      @for (idiom of idioms; track idiom; let  i = $index) {
         <ion-col size="12" size-sm="6" size-md="4">
           <ion-card  color="light">
             <div>
@@ -21,7 +21,7 @@
               </ion-img>     
             </div> -->
 
-            <ion-card-header color="warning">
+            <ion-card-header color="primary">
               <ion-card-subtitle>
                 <p>{{idiom.phrase}}</p>
               </ion-card-subtitle>
@@ -47,7 +47,7 @@
             </div>
           </ion-card>
         </ion-col>
-      </ng-container>
+    }
     </ion-row>
   </ion-grid>
 </ion-content>

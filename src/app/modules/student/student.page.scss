@@ -50,7 +50,7 @@ ion-card-subtitle {
     }
 
     .bp {
-        background: var(--ion-color-secondary);
+        background: var(--ion-color-primary);
         padding: 5px;
         width: 3rem;
         border-radius: 10px 0 0 10px;
@@ -76,6 +76,7 @@ ion-toggle {
 
 .info {
     text-align: center;
+    color: var(--ion-color-primary);
 }
 
 .action-top {

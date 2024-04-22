@@ -19,11 +19,11 @@
           </ion-card>
    
     <ion-row class="student">
-      <ng-container *ngFor="let list of birthdayList;let i = index">
+      @for (list of birthdayList; track list; let  i = $index) {
         <ion-col size="12">
           <p class="title">{{months[list.month]}}</p>
         </ion-col>
-        <ng-container *ngFor="let std of list.items;let i = index">
+        @for (std of list.items; track std; let  i = $index) {
         <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngIf="std">
           <ion-card>
             <div class="image-conatiner">
@@ -42,8 +42,8 @@
             </ion-card-content>
           </ion-card>
         </ion-col>
-      </ng-container>
-      </ng-container>
+    }
+    }
 
 
     </ion-row>

@@ -26,8 +26,6 @@
       "@modules/*": ["src/app/modules/*"],
       "@shared-service/*": ["src/app/shared-service/*"],
       "@components/*": ["src/app/components/*"],
-      "@core/*": ["src/app/core/*"],
-      "@features/*": ["src/app/features/*"],
       "@pages/*": ["src/app/pages/*"],
       "@environments/*": ["src/environments/*"],
       "@assets/*": ["src/assets/*"],

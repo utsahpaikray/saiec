@@ -34,7 +34,7 @@
         <ion-col size="12" size-sm="6" size-md="4" size-lg="4" *ngIf="std && std['Status']==='Active' || std['Status']==='Y'">
           <ion-card>
             <div class="glossy">
-              <ion-card-header color="secondary" class="ion-no-padding">
+              <ion-card-header color="primary" class="ion-no-padding">
                 <ion-label *ngIf="std.StudentName">{{std.StudentName|titlecase}}</ion-label>
             </ion-card-header>
             
@@ -67,11 +67,11 @@
                 <ion-icon name="home"></ion-icon> : <b> {{std.Habitation|titlecase}}</b>
               </div>
               <div class="action">
-                <ion-button class="ion-activatable ripple-parent" shape="round" size="small" color="warning"
+                <ion-button class="ion-activatable ripple-parent" shape="round" size="small" color="primary"
                   (click)="showModal(std)">Detail
                   <ion-ripple-effect></ion-ripple-effect>
                 </ion-button>
-                <ion-button class="ion-activatable ripple-parent" shape="round"  size="small" color="warning"
+                <ion-button class="ion-activatable ripple-parent" shape="round"  size="small" color="primary"
                   (click)="showReport(std)" [class.button-disabled]="std.report!=='Y'">Report
                   <ion-ripple-effect></ion-ripple-effect>
                 </ion-button>

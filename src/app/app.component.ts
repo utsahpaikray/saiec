@@ -15,235 +15,228 @@ import { AppRoutes } from './router-segment.enum';
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
-  isAuthenticated = false;
-  public appPages=[
+  isAuthenticated = true;
+  isLoggedIn= false;
+  public appPages = [
     {
       title: 'Home',
       url: `/${AppRoutes.Home}`,
-      icon: 'home',
-      access:true,
+      icon: 'home-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Student',
       url: `/${AppRoutes.Student}`,
-      icon: 'man',
-      access:true,
+      icon: 'person-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Faculty',
       url: `/${AppRoutes.Faculty}`,
-      icon: 'people',
-      access:true,
+      icon: 'people-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Birthday',
       url: `/${AppRoutes.Birthday}`,
-      icon: 'gift',
-      access:true,
+      icon: 'gift-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Exam Detail',
       url: `/${AppRoutes.ExamDetail}`,
-      icon: 'receipt',
-      access:true,
+      icon: 'document-text-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Events',
       url: `/${AppRoutes.Events}`,
-      icon: 'bicycle',
-      access:true,
+      icon: 'calendar-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Notification',
       url: `/${AppRoutes.Notification}`,
-      icon: 'notifications',
-      access:true,
+      icon: 'notifications-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Auto Fee',
       url: `/${AppRoutes.AutoFee}`,
-      icon: 'car',
-      access:true,
+      icon: 'car-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Student Fee',
       url: `/${AppRoutes.StudentFee}`,
-      icon: 'cash',
-      access:true,
+      icon: 'cash-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
-      title:'Staff Payment',
+      title: 'Staff Payment',
       url: `/${AppRoutes.StaffPayment}`,
-      icon:"cash",
-      access:true,
+      icon: 'cash-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
-      title:'Offering',
+      title: 'Offering',
       url: `/${AppRoutes.Offering}`,
-      icon:"gift",
+      icon: 'gift-outline',
       open: false,
-      access:false,
-      navigation:false
+      access: false,
+      navigation: false
     },
     {
-      title:'Event Transaction Book',
+      title: 'Event Transaction Book',
       url: `/${AppRoutes.EventTransactionBook}`,
-      icon:"document-text",
+      icon: 'book-outline',
       open: false,
-      access:false,
-      navigation:false
+      access: false,
+      navigation: false
     },
     {
       title: 'Adv',
       url: `/${AppRoutes.Adv}`,
-      icon: 'radio',
-      access:true,
+      icon: 'radio-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'News',
       url: `/${AppRoutes.News}`,
-      icon: 'newspaper',
-      access:true,
+      icon: 'newspaper-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Question',
       url: `/${AppRoutes.Questionset}`,
-      icon: 'aperture',
-      access:true,
+      icon: 'help-circle-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Story',
       url: `/${AppRoutes.Story}`,
-      icon: 'aperture',
-      access:true,
+      icon: 'book-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Idioms',
       url: `/${AppRoutes.Idioms}`,
-      icon: 'aperture',
-      access:true,
+      icon: 'language-outline',
+      access: true,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
       title: 'Login',
       url: `/${AppRoutes.Admin}/login`,
-      icon: 'finger-print',
-      access:true,
+      icon: 'log-in-outline',
+      access: !this.isLoggedIn,
       open: false,
-      navigation:false
+      navigation: false
     },
     {
-      title: 'Tabular View',
-      icon: 'bar-chart',
+      title: 'Admin',
+      icon: 'grid-outline',
       open: false,
-      access:false,
+      access: false,
       children: [
         {
           title: 'Student Info',
           url: `/${AppRoutes.StudentTabular}`,
           open: false,
-          icon: 'list',
-          navigation:true
+          icon: 'list-outline',
+          navigation: true
         },
         {
           title: 'School Fee',
           url: `/${AppRoutes.StudentSchoolFee}`,
           open: false,
-          icon: 'cash',
-          navigation:true
+          icon: 'cash-outline',
+          navigation: true
         },
         {
           title: 'School Auto Fee',
           url: `/${AppRoutes.StudentAutoFee}`,
           open: false,
-          icon: 'car',
-          navigation:true
+          icon: 'car-outline',
+          navigation: true
         },
         {
           title: 'Faculty',
           url: `/${AppRoutes.FacultyForm}`,
           open: false,
-          icon: 'people',
-          navigation:true
+          icon: 'people-outline',
+          navigation: true
         },
         {
-          title:'Faculty Fee',
+          title: 'Faculty Fee',
           url: `/${AppRoutes.StaffTabularView}`,
           open: false,
-          icon:'people',
-          navigation:true
+          icon: 'cash-outline',
+          navigation: true
         },
         {
           title: 'Store',
           url: `/${AppRoutes.Store}`,
-          icon: 'cube',
+          icon: 'basket-outline',
           access: false,
           navigation: true
         },
         {
           title: 'Store Transaction Report',
           url: `/${AppRoutes.StoreReport}`,
-          icon: 'cube',
+          icon: 'document-text-outline',
           access: false,
           navigation: true
         },
         {
-          title:'Store form',
+          title: 'Store form',
           url: `/${AppRoutes.StoreTransaction}`,
           open: false,
-          icon:'images',
-          navigation:true
+          icon: 'images-outline',
+          navigation: true
         },
-        // {
-        //   title:'Exam Form',
-        //   url: `/${AppRoutes.ExamForm}`,
-        //  open: false, 
-        //  icon:'book',
-        //   navigation:true
-        // },
         {
-          title:'Gallery form',
+          title: 'Gallery form',
           url: `/${AppRoutes.Gallery}`,
           open: false,
-          icon:'images',
-          navigation:true
+          icon: 'images-outline',
+          navigation: true
         },
-     
         {
           title: 'Notifications',
           url: `/${AppRoutes.NotificationForm}`,
           open: false,
-          icon: 'notifications',
-          navigation:true
+          icon: 'notifications-outline',
+          navigation: true
         },
       ]
     },
@@ -263,8 +256,6 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private router: Router,
     public  afAuth:  AngularFireAuth,
-    private alertCtrl: AlertController,
-    private toastCtrl: ToastController,
     private authService: AuthService,
   ) {
     this.initializeApp();
@@ -273,6 +264,7 @@ export class AppComponent implements OnInit {
     this.toggleDarkTheme(this.prefersDark.matches);
    
   }
+  
   toggleDarkTheme(shouldAdd?: any) {
     document.body.classList.toggle('dark', shouldAdd);
   }
@@ -292,7 +284,9 @@ export class AppComponent implements OnInit {
           this.appPages.forEach(item=>{
             item.access=true;
           })
-          this.appPages=this.appPages
+          this.isLoggedIn =  isAuthorized
+          //this.appPages=this.appPages
+          console.log(this.appPages)
         }
       } else {
         localStorage.setItem('user', '');
