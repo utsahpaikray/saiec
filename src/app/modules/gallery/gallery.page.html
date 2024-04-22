@@ -10,80 +10,80 @@
 <ion-content>
   <ion-grid>
     <ion-row class="ion-align-items-center">
-      <ion-col size="12" size-sm="12" size-md="12" size-lg="12"  >
-        <div class=" form-container">
-
-          <form  [formGroup]="galleryForm">
-            <div class="image-container">
-              <ion-img class="image" src="assets/icon/favicon.png"></ion-img>
-
-            </div>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Title</mat-label>
-              <input type="text" matInput formControlName="title">
-            </mat-form-field>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Source</mat-label>
-              <input type="text" matInput formControlName="source">
-            </mat-form-field>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Description</mat-label>
-              <input type="text" matInput formControlName="description">
-            </mat-form-field>
-            <div formArrayName="imageCollection">
-              @for (imageGroup of t.controls; track imageGroup; let i = $index) {
-                <div>
-                  <div class="form-row" [formGroupName]="i">
+        <ion-col size="12" size-sm="12" size-md="12" size-lg="12"  >
+            <div class=" form-container">
+                
+                <form  [formGroup]="galleryForm">
+                  <div class="image-container">
+                    <ion-img class="image" src="assets/icon/favicon.png"></ion-img>
+                    
+                   </div>
                     <mat-form-field class="example-full-width" appearance="fill">
-                      <mat-label>Images</mat-label>
-                      <input type="text" matInput formControlName="image">
-                    </mat-form-field>
-                    <ion-button (click)="deleteImage(i)" class="edit ion-float-right" color="danger">
-                      <ion-icon name="trash"></ion-icon>
-                    </ion-button>
-                  </div>
-                </div>
-              }
+                        <mat-label>Title</mat-label>
+                        <input type="text" matInput formControlName="title">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Source</mat-label>
+                        <input type="text" matInput formControlName="source">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Description</mat-label>
+                        <input type="text" matInput formControlName="description">
+                      </mat-form-field>
+                      <div formArrayName="imageCollection">
+              @for (imageGroup of t.controls; track imageGroup; let i = $index) {
+                        <div>
+                          <div class="form-row" [formGroupName]="i">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Images</mat-label>
+                              <input type="text" matInput formControlName="image">
+                            </mat-form-field>
+                            <ion-button (click)="deleteImage(i)" class="edit ion-float-right" color="danger">
+                              <ion-icon name="trash"></ion-icon>
+                            </ion-button>
+                          </div>
+                        </div>
+                      }
+                      </div>
+                      <ion-button  shape="round"(click)="addImage()">
+                        Add Image
+                      </ion-button>
+                      <ion-button (click)="save()" shape="round" >
+                       save
+                      </ion-button>
+                  </form>
             </div>
-            <ion-button  shape="round"(click)="addImage()">
-              Add Image
-            </ion-button>
-            <ion-button (click)="save()" shape="round" >
-              save
-            </ion-button>
-          </form>
-        </div>
-      </ion-col>
+        </ion-col>
     </ion-row>
-
+    
   </ion-grid>
   <!-- <form [formGroup]="galleryForm" (ngSubmit)="save(galleryForm)">
-  <div>
-    <label>
-      Title
-      <input formControlName="title" placeholder="Your name">
-    </label>
-  </div>
-  <div>
-    <label>
-      Source
-      <input formControlName="source" placeholder="Your email">
-    </label>
-  </div>
-  <div>
-    <label>
-      Description
-      <input formControlName="description" placeholder="Your message">
-    </label>
-  </div>
-  <div  *ngFor="let t of t?.controls; let i = index">
-    <div [formGroup]="t" class="form-row">
-      <input formControlName='image' type="text"placeholder="Enter image address" />
+    <div>
+      <label>
+        Title
+        <input formControlName="title" placeholder="Your name">
+      </label>
     </div>
-
-
-  </div>
-  <button (click)="addImage()">Add Image</button>
-  <button type="submit">Send</button>
-</form> -->
+    <div>
+      <label>
+        Source
+        <input formControlName="source" placeholder="Your email">
+      </label>
+    </div>
+    <div>
+      <label>
+       Description
+        <input formControlName="description" placeholder="Your message">
+      </label>
+    </div>
+    <div  *ngFor="let t of t?.controls; let i = index">
+      <div [formGroup]="t" class="form-row">
+        <input formControlName='image' type="text"placeholder="Enter image address" />
+      </div>
+      
+    
+    </div>
+    <button (click)="addImage()">Add Image</button>
+    <button type="submit">Send</button>
+  </form> -->
 </ion-content>
