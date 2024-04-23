@@ -12,7 +12,7 @@
       <ion-item class="bill-item">
         <ion-label class="bill-details">
           <h2 class="customer-name">{{ bill.customerName }}</h2>
-          <p class="bill-info">Bill Number: {{ bill.billNumber }} | Note: {{ bill.note }}</p>
+          <p class="bill-info">Bill Number: {{ bill.billNumber }} | Note: {{ bill.note }} | Date: {{ bill.date.toDate() |  date:"MMM dd, yyyy"}}</p>
         </ion-label>
         <ion-button fill="clear" slot="end" (click)="toggleDetails(bill)">
           {{ bill.showDetails ? 'Hide Details' : 'Show Details' }}

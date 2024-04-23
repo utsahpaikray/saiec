@@ -4,70 +4,125 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Transation Form</ion-title>
-
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <form [formGroup]="storeForm">
-    <ion-list >
+    <ion-list>
       <ion-item>
-        <ion-input label="Name" formControlName="customerName" type="text" placeholder="Name" ></ion-input>
+        <ion-input
+          label="Name"
+          formControlName="customerName"
+          type="text"
+          placeholder="Name"
+        ></ion-input>
       </ion-item>
     </ion-list>
     <ion-list formArrayName="items">
       @for (item of items.controls; track item; let i = $index) {
-        <ng-container [formGroupName]="i">
-          <ion-list>
-            <ion-item>
-              <ion-select placeholder="Select Item" #class  formControlName="itemName"
-                (ionChange)="setUnitvalue(class.value,i)" label="Select Item">
-                @for (item of allProducts; track item) {
-                  <ion-select-option [value]="item.Name">{{ item.Name }}</ion-select-option>
-                }
-              </ion-select>
-            </ion-item>
-          </ion-list>
-          <ion-list>
-            <ion-item>
-              <ion-input label="Unit Price" formControlName="unitPrice" type="number" placeholder="Unit Price" readonly></ion-input>
-            </ion-item>
-          </ion-list>
-          <ion-list>
-            <ion-item>
-              <ion-input label="Available in Store" formControlName="quantityAvailable" type="number" placeholder="Available Quantity" readonly ></ion-input>
-            </ion-item>
-          </ion-list>
-          <ion-list>
-            <ion-item>
-              <ion-input label="Quantity Needed" formControlName="quantityNeeded" type="number" placeholder="Quantity Needed"></ion-input>
-            </ion-item>
-          </ion-list>
-          <ion-list slot="end">
-            <ion-item class="ion-float-right"> Price: {{ calculatePrice(item.value) }}</ion-item>
-          </ion-list>
-        </ng-container>
+      <ion-card [formGroupName]="i">
+        <ion-list>
+          <ion-item>
+            <ion-select
+              placeholder="Select Item"
+              #product
+              interface="action-sheet"
+              formControlName="productName"
+              (ionChange)="setUnitvalue(product.value,i)"
+              label="Select Item"
+            >
+              @for (item of allProducts; track item) {
+              <ion-select-option [value]="{id: item.$id, name: item.Name}"
+                >{{ item.Name }}</ion-select-option
+              >
+              }
+            </ion-select>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item>
+            <ion-input
+              label="Unit Price"
+              formControlName="unitPrice"
+              type="number"
+              placeholder="Unit Price"
+              readonly
+            ></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item>
+            <ion-input
+              label="Available in Store"
+              formControlName="quantityAvailable"
+              type="number"
+              placeholder="Available Quantity"
+              readonly
+            ></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item>
+            <ion-input
+              label="Quantity Needed"
+              formControlName="quantityNeeded"
+              type="number"
+              placeholder="Quantity Needed"
+            ></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-list slot="end">
+          <ion-item class="ion-float-right">
+            Price: {{ calculatePrice(item.value) }}</ion-item
+          >
+        </ion-list>
+        @if(items.length>1){
+        <ion-list>
+          <div class="ion-float-right" slot="end">
+            <ion-button (click)="removeItem(i)" size="small" color="warning"
+              ><ion-icon name="trash-outline"></ion-icon>Remove
+              Item</ion-button
+            >
+          </div>
+        </ion-list>
+        }
+      </ion-card>
       }
     </ion-list>
     <ion-list>
       <div class="ion-float-right" slot="end">
-        <ion-button (click)="addItem()" size="small">Add Item</ion-button>
+        <ion-button (click)="addItem()" size="small"><ion-icon name="add-outline"></ion-icon>Add Item</ion-button>
       </div>
-
     </ion-list>
-    <ion-list >
+    <ion-list>
       <ion-item>
-        <ion-input label="Bill Number" formControlName="billNumber" type="text" placeholder="BIll Number" ></ion-input>
+        <ion-input
+          label="Bill Number"
+          formControlName="billNumber"
+          type="text"
+          placeholder="BIll Number"
+        ></ion-input>
       </ion-item>
     </ion-list>
-    <ion-list >
+    <ion-list>
       <ion-item>
-        <ion-input label="Note" formControlName="note" type="text" placeholder="Any Note" ></ion-input>
+        <ion-input
+          label="Note"
+          formControlName="note"
+          type="text"
+          placeholder="Any Note"
+        ></ion-input>
       </ion-item>
     </ion-list>
   </form>
   <ion-list>
-    <ion-item class="ion-text-end ion-float-right"> <div>Total Price: {{ totalPrice }}</div></ion-item>
+    <ion-item class="ion-text-end ion-float-right">
+      <div>Total Price: {{ totalPrice }}</div></ion-item
+    >
   </ion-list>
-  <div class="ion-float-right"><ion-button (click)="submit()" size="small">Submit</ion-button></div>>
+  <div class="ion-float-right">
+    <ion-button (click)="submit()" size="small">Submit</ion-button>
+  </div>
+  >
 </ion-content>

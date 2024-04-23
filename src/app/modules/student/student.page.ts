@@ -9,8 +9,8 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { selectLoadedStatus, selectStudents, selectTotalStudents } from '../../states/student/student.selector';
 import { loadStudents } from '../../states/student/student.actions';
-import { AppState } from '../../states/student/student.interface';
 import { Student } from './student.interface';
+import { AppState } from 'src/app/states/state.interface';
 @Component({
     selector: 'app-student',
     templateUrl: './student.page.html',

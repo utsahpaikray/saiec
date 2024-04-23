@@ -36,6 +36,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { facultyReducerStore } from './states/faculty/faculty.reducer';
 import { FacultyEffects } from './states/faculty/faculty.effects';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { bookReducerStore } from './states/bookStore/bookstore.reducer';
+import { BookstoreEffects } from './states/bookStore/bookstore.effects';
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   imports: [
@@ -57,8 +59,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     }),
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideRemoteConfig(() => getRemoteConfig()),
-    StoreModule.forRoot({students:studentReducerStore, faculty:facultyReducerStore}),
-    EffectsModule.forRoot([StudentEffects, FacultyEffects]),
+    StoreModule.forRoot({students:studentReducerStore, faculty:facultyReducerStore, bookStore: bookReducerStore}),
+    EffectsModule.forRoot([StudentEffects, FacultyEffects, BookstoreEffects]),
     // StoreModule.forRoot({faculty:facultyReducerStore}),
     // EffectsModule.forRoot([FacultyEffects]),
     StoreDevtoolsModule.instrument({

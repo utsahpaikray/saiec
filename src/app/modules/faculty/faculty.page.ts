@@ -3,11 +3,11 @@ import {
   OnInit
 } from '@angular/core';
 import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
-import { AppState } from 'src/app/states/student/student.interface';
 import { Store, select } from '@ngrx/store';
 import { loadFaculty } from 'src/app/states/faculty/faculty.actions';
 import { selectFaculty } from 'src/app/states/faculty/faculty.selector';
 import { Observable } from 'rxjs';
+import { AppState } from 'src/app/states/state.interface';
 
 @Component({
   selector: 'app-faculty',

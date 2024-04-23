@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { Store, select } from '@ngrx/store';
 import { FirebaseService } from '@shared-service/firebaseService/firebase-service.service';
 import { ToasterService } from '@shared-service/toaster.service';
+import { loadBookstore } from 'src/app/states/bookStore/bookstore.actions';
+import { selectBookStore } from 'src/app/states/bookStore/bookstore.selector';
+import { AppState } from 'src/app/states/state.interface';
+import { selectLoadedStatus } from 'src/app/states/student/student.selector';
 @Component({
   selector: 'app-store-transaction-form',
   templateUrl: './store-transaction-form.page.html',
@@ -16,8 +21,9 @@ export class StoreTransactionPage implements OnInit {
   name: any;
   allProducts: any =[];
   totalPrice = 0;
-  constructor(private toasterService:ToasterService,private fb:FormBuilder,public firebaseService:FirebaseService,private route : ActivatedRoute) { }
+  constructor(private toasterService:ToasterService,private fb:FormBuilder,public firebaseService:FirebaseService, private store:Store<AppState>) { }
   ngOnInit() {
+    this.store.dispatch(loadBookstore())
     this.storeForm = this.fb.group({
       customerName:['', Validators.required],
       items: this.fb.array([]),
@@ -30,12 +36,12 @@ export class StoreTransactionPage implements OnInit {
   }
 
   getStoreItems(){
-     this.firebaseService.getAllProducts().subscribe((items:any)=>{
+     this.store.pipe(select(selectBookStore)).subscribe((items:any)=>{
       this.allProducts = items
     })
   }
-  public setUnitvalue(value: string, formIndex: number) {
-    const index = this.allProducts.findIndex((item:any) => item.Name === value);
+  public setUnitvalue(value: {id: string, name: string}, formIndex: number) {
+   const index = this.allProducts.findIndex((item:any) => item.$id === value.id);
   
     if (index !== -1) {
       const unitPrice = this.allProducts[index].SellingPrice;
@@ -57,10 +63,13 @@ export class StoreTransactionPage implements OnInit {
   addItem() {
     this.items.push(this.createItem());
   }
-
+  removeItem(i: number){
+    let itemsControl= this.storeForm.controls['items']  as FormArray
+    itemsControl.removeAt(i)
+  }
   createItem(): FormGroup {
     return this.fb.group({
-      itemName: ['', Validators.required],
+      productName: ['', Validators.required],
       unitPrice: [0],
       quantityAvailable: [0],
       quantityNeeded: [0, Validators.required],
@@ -80,19 +89,37 @@ export class StoreTransactionPage implements OnInit {
     });
   }
   public submit() {
+    console.log(this.storeForm.value)
     if(!this.storeForm.valid){
       return
     }
     this.storeForm.value.items.forEach((item:any) => {
       item.totalPrice = this.calculatePrice(item)
+     item.itemName = item.productName.name   
     })
    this.firebaseService.pushItems('store-transactions', {...this.storeForm.value, totalPrice: this.totalPrice, date: new Date() }).then(()=>{
-    console.log('done')
     this.toasterService.presentToast('Successfully Updated',2000)
+    this.mapFormValueWithStore(this.storeForm.value.items)
     this.storeForm.reset()
    }).catch(()=>{
     this.toasterService.presentToast('Error',2000)
    })
 
     }
+    mapFormValueWithStore(items: any[]) {
+      return items.map(item => {
+        console.log(item)
+        const storeItem = this.allProducts.find((s: any) => s.$id === item.productName.name);
+    
+        if (storeItem) {
+          const updatedStoreItem = {
+            ...storeItem,
+            Availability: storeItem.Availability - item.quantityNeeded
+          };
+          console.log(updatedStoreItem)
+         this.firebaseService.updateProduct(updatedStoreItem.$id, updatedStoreItem)
+        }
+      });
+    }
+
 }
