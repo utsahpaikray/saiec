@@ -1,0 +1,101 @@
+<ion-header translucent>
+ <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Contacts</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="card-container">
+    @if(loaded$|async){
+    @for (student of this.students$ | async; track student) {
+        <ion-card>
+          <div class="card-header" color="">
+            <ion-avatar>
+              <img [src]="student.Image" [alt]="student.StudentName">
+            </ion-avatar>
+            <div>
+              <span>{{ student.StudentName | uppercase}}</span>
+              <br>
+              <span>{{ student.StudentID | uppercase}}</span>
+             
+            </div>
+          </div>
+          <ion-card-content>
+            <ion-list>
+              
+              <ion-item>
+                <ion-label>StudentID</ion-label>
+                <ion-note slot="end">{{ student.StudentID }}</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Standard</ion-label>
+                <ion-note slot="end">{{ student.class }}</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Gender</ion-label>
+                <ion-note slot="end">{{ student.Gender }}</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Date of Birth</ion-label>
+                <ion-note slot="end">{{ student.DateofBirth }}</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Blood Group</ion-label>
+                <ion-note slot="end">{{ student.bloodGroup }}</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Social Category</ion-label>
+                <ion-note slot="end">{{ student.SocialCategory }}</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Mobile Number</ion-label>
+                <ion-note slot="end">{{ student.MobileNumber }}</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Email Address</ion-label>
+                <ion-note slot="end">{{ student["Email Address"] }}</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Father's Name</ion-label>
+                <ion-note slot="end">{{ student.FatherName }}</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>Mother's Name</ion-label>
+                <ion-note slot="end">{{ student.MotherName }}</ion-note>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      }
+    }@else{
+      <div>
+        <ion-row>
+          @for (item of [1,2,3,4,5,6]; track item) {
+            <ion-col size="12" size-sm="6" size-md="6">
+              <ion-list>
+                <ion-item>
+                  <ion-thumbnail slot="start">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                  </ion-thumbnail>
+                  <ion-label>
+                    <h3>
+                      <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                      <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          }
+        </ion-row>
+      </div>
+    }
+   </div>
+</ion-content>

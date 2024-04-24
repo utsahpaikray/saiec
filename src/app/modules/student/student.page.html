@@ -1,11 +1,11 @@
 <ion-header translucent>
-  <ion-toolbar>
+ <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Student</ion-title>
   </ion-toolbar>
-  <ion-toolbar>
+ <ion-toolbar color="primary">
     <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (ionChange)="onInput()" showCancelButton="focus" value=""
       animated>
     </ion-searchbar>
@@ -34,8 +34,8 @@
         @for (std of allStudentInfo; track std) {
           @if (std && std['Status']==='Active' || std['Status']==='Y') {
             <ion-col size="12" size-sm="6" size-md="4" size-lg="4">
-              <ion-card>
-                <div class="glossy">
+              <ion-card class="glossy">
+                <div >
                   <ion-card-header color="primary" class="ion-no-padding">
                     @if (std.StudentName) {
                       <ion-label>{{std.StudentName|titlecase}}</ion-label>
