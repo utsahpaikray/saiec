@@ -21,3 +21,8 @@ export const selectLoadedStatus = createSelector(
   selectBookStoreState,
   (state: bookStoreState) => state.loaded
 );
+export const selectBookItemById = (bookItemId: string) =>
+  createSelector(
+    selectBookStore,
+    (bookStore) => bookStore.find((item) => item.$id === bookItemId)
+);

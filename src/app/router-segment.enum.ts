@@ -32,6 +32,7 @@ export enum AppRoutes {
     Report = 'report',
     TransactionReport = 'transaction-report',
     News = 'news',
-    StoreReport= "store-report"
+    StoreReport= "store-report",
+    Contacts = "contacts"
   }
   

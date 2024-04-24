@@ -157,6 +157,10 @@ const routes: Routes = [
   {
     path: AppRoutes.News,
     loadChildren: () => import('@modules/news/news.module').then(m => m.NewsPageModule)
+  },
+  {
+    path: AppRoutes.Contacts,
+    loadChildren: () => import('./modules/contact/contact.module').then( m => m.ContactPageModule)
   }
 ];
 

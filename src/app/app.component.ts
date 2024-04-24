@@ -155,6 +155,14 @@ export class AppComponent implements OnInit {
       navigation: false
     },
     {
+      title: 'Contacts',
+      url: `/${AppRoutes.Contacts}`,
+      icon: 'language-outline',
+      access: true,
+      open: false,
+      navigation: false
+    },
+    {
       title: 'Login',
       url: `/${AppRoutes.Admin}/login`,
       icon: 'log-in-outline',
