@@ -155,4 +155,29 @@ export const story: { name: string, image: string }[]=[
     name:'The Magic Hen',
     image: '//www.booksetgo.com/cdn/shop/products/9789387971493-3_2048x.jpg?v=1651917016'
   },
+  // {
+  //   name:'The Magic Hen',
+  //   image: 'https://www.dreamlandpublications.com/wp-content/uploads/2023/01/9789387971493_7-1-1583x2048.jpg'
+  // },
+  {
+    name:'The Magic Hen',
+    image: 'https://www.dreamlandpublications.com/wp-content/uploads/2023/01/9789387971493_6-1-1583x2048.jpg'
+  },
+  {
+    name:'The Magic Hen',
+    image: 'https://www.dreamlandpublications.com/wp-content/uploads/2023/01/9789387971493_5-1-1583x2048.jpg'
+  },
+  {
+    name:'The Magic Hen',
+    image: 'https://www.dreamlandpublications.com/wp-content/uploads/2023/01/9789387971493_4-1-1583x2048.jpg'
+  },
+  {
+    name:'The Magic Hen',
+    image: 'https://www.dreamlandpublications.com/wp-content/uploads/2023/01/9789387971493_3-1-1583x2048.jpg'
+  },
+
+  // {
+  //   name:'The Magic Hen',
+  //   image: 'https://www.dreamlandpublications.com/wp-content/uploads/2023/01/9789387971493_1-1-1583x2048.jpg'
+  // },
  ];

@@ -19,6 +19,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "ag-grid-enterprise",
+              "@firebase/firestore",
+              "moment",
+              "pdfmake"
+           ],
             "assets": [
               {
                 "glob": "**/*",
