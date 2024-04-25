@@ -157,7 +157,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Contacts',
       url: `/${AppRoutes.Contacts}`,
-      icon: 'language-outline',
+      icon: 'people-circle-outline',
       access: true,
       open: false,
       navigation: false
