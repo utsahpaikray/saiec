@@ -31,7 +31,6 @@ export class GalleryPage implements OnInit,OnDestroy {
       description: [''],
       imageCollection: this.fb.array([this.createImage()])
     });
-    console.log(this.galleryForm);
   }
 
   createImage(): FormGroup {
@@ -62,16 +61,24 @@ export class GalleryPage implements OnInit,OnDestroy {
     })
   }
   save(){
+    if(this.galleryForm.valid){
       this.createGallery(this.galleryForm.value)
+    }
+      
   }
   createGallery(data:any) {
-    console.log(this.edit)
     if(this.edit){
       this.firebaseService.saveGallery({id:this.param,record:data})
+      
     }else{
       this.firebaseService.pushItems('gallery',data)
       
     }
+    this.galleryForm.reset()
+    }
+    deleteGallery(){
+      this.firebaseService.deleteGallery(this.param)
+      this.galleryForm.reset()
     }
     deleteImage(index: number){
       this.t.removeAt(index)

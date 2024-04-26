@@ -1,5 +1,5 @@
 <ion-header translucent>
- <ion-toolbar color="primary">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,15 +9,15 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row class="ion-align-items-center center">
-      <ion-col size="12" size-sm="12" size-md="8" size-lg="8">
+    <ion-row>
+     
         <div class="form-container">
           <form [formGroup]="galleryForm">
             <div class="image-container">
-                  <ion-img class="image" src="assets/icon/favicon.png"></ion-img>
-                </div>
+              <ion-img class="image" src="assets/icon/favicon.png"></ion-img>
+            </div>
 
-            <ion-item>
+            <ion-item >
               <ion-label position="floating">Title</ion-label>
               <ion-input type="text" formControlName="title"></ion-input>
             </ion-item>
@@ -37,58 +37,39 @@
               {
 
               <div [formGroupName]="i">
-                <ion-item>
+                <ion-item >
                   <ion-label position="floating">Images</ion-label>
                   <ion-input type="text" formControlName="image"></ion-input>
-                  <ion-button
-                    (click)="deleteImage(i)"
-                    slot="end"
-                    color="danger"
-                  >
-                    <ion-icon name="trash"></ion-icon>
-                  </ion-button>
                 </ion-item>
+                @if(t.controls.length>1){
+                <ion-item lines="none" >
+                  <ion-button
+                  (click)="deleteImage(i)"
+                  slot="end"
+                  color="danger"
+                >
+                  <ion-icon name="trash"></ion-icon>
+                </ion-button>
+                </ion-item>
+              }
               </div>
               }
             </div>
+            <div  class="ion-text-end" slot="end">
+              <ion-button (click)="addImage()" size="small" outline>
+                Add Image
+              </ion-button>
 
-            <ion-button (click)="addImage()" expand="block" fill="outline">
-              Add Image
-            </ion-button>
-
-            <ion-button (click)="save()" expand="block"> Save </ion-button>
+             
+            </div>
+            <ion-button (click)="save()" size="small" expand="block"> Save </ion-button>
+            @if(edit){
+              <ion-button (click)="deleteGallery()" size="small" expand="block"> Delete </ion-button>
+            }
+           
           </form>
         </div>
-      </ion-col>
+   
     </ion-row>
   </ion-grid>
-  <!-- <form [formGroup]="galleryForm" (ngSubmit)="save(galleryForm)">
-    <div>
-      <label>
-        Title
-        <input formControlName="title" placeholder="Your name">
-      </label>
-    </div>
-    <div>
-      <label>
-        Source
-        <input formControlName="source" placeholder="Your email">
-      </label>
-    </div>
-    <div>
-      <label>
-       Description
-        <input formControlName="description" placeholder="Your message">
-      </label>
-    </div>
-    <div  *ngFor="let t of t?.controls; let i = index">
-      <div [formGroup]="t" class="form-row">
-        <input formControlName='image' type="text"placeholder="Enter image address" />
-      </div>
-      
-    
-    </div>
-    <button (click)="addImage()">Add Image</button>
-    <button type="submit">Send</button>
-  </form> -->
-</ion-content>
+ </ion-content>

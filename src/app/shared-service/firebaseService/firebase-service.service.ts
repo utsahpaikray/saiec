@@ -115,6 +115,9 @@ export class FirebaseService {
   getGallery(id: string | undefined){
     return this.firestore.collection('gallery').doc(id).valueChanges();
   }
+  deleteGallery(recordID: any) {
+    this.firestore.doc(`gallery/${recordID}`).delete();
+  }
   saveGallery({ id,record }: { id: string, record: unknown }) {
     this.firestore.collection('gallery').doc(id).set(record);
    }
