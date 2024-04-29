@@ -100,7 +100,6 @@ export class StudentTabularPage  {
   return result;
 }
 public updateStudent(params: any) {
-  console.log(params)
  this.firebaseService.updateStudent('studentInfo',params.node.data.$id,params.node.data)
 }
 public deleteStudent(params: any) {

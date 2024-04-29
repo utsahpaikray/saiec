@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
 import { FirebaseService } from '@shared-service/firebaseService/firebase-service.service';
 import { ToasterService } from '@shared-service/toaster.service';
 import { loadBookstore } from 'src/app/states/bookStore/bookstore.actions';
 import { selectBookStore } from 'src/app/states/bookStore/bookstore.selector';
 import { AppState } from 'src/app/states/state.interface';
-import { selectLoadedStatus } from 'src/app/states/student/student.selector';
 @Component({
   selector: 'app-store-transaction-form',
   templateUrl: './store-transaction-form.page.html',

@@ -33,6 +33,7 @@ export enum AppRoutes {
     TransactionReport = 'transaction-report',
     News = 'news',
     StoreReport= "store-report",
-    Contacts = "contacts"
+    Contacts = "contacts",
+    ContactsEdit = "contacts/:edit"
   }
   

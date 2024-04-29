@@ -21,6 +21,7 @@
               <span>{{ student.StudentID | uppercase}}</span>
              
             </div>
+            @if (isAuthorized) { <ion-button (click)="edit(student.$id)" class="edit" size="small"> <ion-icon name="create"></ion-icon> <ion-label>{{editLabel}}</ion-label> </ion-button> }
           </div>
           <ion-card-content>
             <ion-list>
@@ -28,6 +29,10 @@
               <ion-item>
                 <ion-label>StudentID</ion-label>
                 <ion-note slot="end">{{ student.StudentID }}</ion-note>
+              </ion-item>
+              <ion-item>
+                <ion-label>AdhaarID</ion-label>
+                <ion-note slot="end">{{ student.AadharNumber }}</ion-note>
               </ion-item>
               <ion-item>
                 <ion-label>Standard</ion-label>

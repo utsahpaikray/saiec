@@ -9,6 +9,12 @@ export const selectStudents = createSelector(
   selectStudentState,
   (state: StudentState) => state.students
 );
+// Select the  of student with id
+export const selectStudentById = (studentId: string) =>
+  createSelector(
+    selectStudents,
+    (state) => state.find((item) => item.$id === studentId)
+);
 
 // Select the total number of students
 export const selectTotalStudents = createSelector(

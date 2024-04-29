@@ -1,0 +1,214 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Edit Student</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+        <ion-item>
+          <ion-label position="floating">Student Name</ion-label>
+          <ion-input type="text" formControlName="StudentName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Aadhar Number</ion-label>
+          <ion-input type="text" formControlName="AadharNumber"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Student ID</ion-label>
+          <ion-input type="text" formControlName="StudentID"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Date of Birth</ion-label>
+          <ion-input type="text" formControlName="DateofBirth"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Father's Name</ion-label>
+          <ion-input type="text" formControlName="FatherName"></ion-input>
+        </ion-item>
+            
+        <ion-item>
+          <ion-label position="floating">Mother's Name</ion-label>
+          <ion-input type="text" formControlName="MotherName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Habitation</ion-label>
+          <ion-input type="text" formControlName="Habitation"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+      
+          <ion-label position="floating">Gender</ion-label>
+          <ion-select
+          placeholder="Select Gender"
+          interface="action-sheet"
+          #gender
+          formControlName="Gender"
+        >
+          @for (item of genderList; track item) {
+          <ion-select-option [value]="item.value">{{item.gender}}</ion-select-option>
+          }
+        </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Blood Group</ion-label>
+         
+          <ion-select formControlName="bloodGroup">
+            @for (group of bloodGroupList; track group) {
+            <ion-select-option  [value]="group.value">{{ group.name }}</ion-select-option>
+            }
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Image</ion-label>
+          <ion-input type="text" formControlName="Image"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Mobile Number</ion-label>
+          <ion-input type="text" formControlName="MobileNumber"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Class</ion-label>
+          <ion-select
+          #gender
+          formControlName="class"
+        >
+          @for (item of classList; track item) {
+          <ion-select-option [value]="item.value">{{item.std}}</ion-select-option>
+          }
+        </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Date of Admission</ion-label>
+          <ion-input type="text" formControlName="DateOfAdmission"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Admission Number</ion-label>
+          <ion-input type="text" formControlName="Admission Numbe"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Religion</ion-label>
+          <ion-select formControlName="Religion">
+            @for (religion of religionList; track religion) {
+            <ion-select-option [value]="religion.value">{{ religion.name }}</ion-select-option>
+            }
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Status</ion-label>
+          <ion-input type="text" formControlName="Status"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Address</ion-label>
+          <ion-input type="text" formControlName="Address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Medium</ion-label>
+          <ion-input type="text" formControlName="Medium"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Previous Year</ion-label>
+          <ion-input type="text" formControlName="PreviousYear"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">District</ion-label>
+          <ion-input type="text" formControlName="District"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Sub-Status</ion-label>
+          <ion-input type="text" formControlName="Sub-Status"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Type of Disability</ion-label>
+          <ion-input type="text" formControlName="TypeOfDisability"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Email Address</ion-label>
+          <ion-input type="email" formControlName="Email Address"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Student Opted</ion-label>
+          <ion-input type="text" formControlName="StudentOpted"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Eye Screening</ion-label>
+          <ion-input type="text" formControlName="EyeScreening"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Session</ion-label>
+          <ion-input type="text" formControlName="Session"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Report</ion-label>
+          <ion-input type="text" formControlName="report"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Social Category</ion-label>
+          <ion-select formControlName="SocialCategory">
+            @for (category of socialCategoryList; track category) {
+            <ion-select-option  [value]="category.value">{{ category.name }}</ion-select-option>
+            }
+          </ion-select>
+          <!-- <ion-input type="text" formControlName="SocialCategory"></ion-input> -->
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">BPL</ion-label>
+          <ion-select
+          #gender
+          formControlName="BPL"
+        >
+          @for (item of flagList; track item) {
+          <ion-select-option [value]="item.value">{{item.name}}</ion-select-option>
+          }
+        </ion-select>
+          
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Block</ion-label>
+          <ion-input type="text" formControlName="Block"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="floating">Mother Tongue</ion-label>
+          <ion-input type="text" formControlName="MotherTongue"></ion-input>
+        </ion-item>
+      
+      
+        <ion-item>
+          <ion-label>2023-2024</ion-label>
+          <ion-checkbox formControlName="2023-2024"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>2022-2023</ion-label>
+          <ion-checkbox formControlName="2022-2023"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>2024-2025</ion-label>
+          <ion-checkbox formControlName="2024-2025"></ion-checkbox>
+        </ion-item>
+      
+    
+      
+        <ion-button type="submit" [disabled]="studentForm.invalid" expand="block">Submit</ion-button>
+      </form>
+    </ion-row>
+  </ion-grid>
+</ion-content>

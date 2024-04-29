@@ -1,6 +1,6 @@
 import { Component, DestroyRef, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take, takeUntil } from 'rxjs';
 import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -15,7 +15,7 @@ export class GalleryPage implements OnInit,OnDestroy {
   edit: boolean = false;
   constructor(private fb:FormBuilder,public firebaseService:FirebaseService,private route : ActivatedRoute) { }
   private destroyRef = inject(DestroyRef);
-
+  private router = inject(Router)
   ngOnInit() {
     this.param = this.route.snapshot.params['id'];
     this.edit=this.param?true:false
@@ -75,15 +75,20 @@ export class GalleryPage implements OnInit,OnDestroy {
       
     }
     this.galleryForm.reset()
+    this.redirect()
     }
     deleteGallery(){
       this.firebaseService.deleteGallery(this.param)
       this.galleryForm.reset()
+      this.redirect();
     }
     deleteImage(index: number){
       this.t.removeAt(index)
     }
     ngOnDestroy(): void {
       this.galleryForm.reset()
+    }
+    redirect(){
+      this.router.navigate(['/events'])
     }
 }

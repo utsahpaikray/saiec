@@ -286,7 +286,6 @@ export class AppComponent implements OnInit {
         const localStorageKey = 'user';
         localStorage.setItem(localStorageKey, JSON.stringify(this.user));
         let isAuthorized= this.authService.isAuthorizedUser
-        console.log(isAuthorized)
         if(isAuthorized){
           this.isAuthenticated = true;
           this.appPages.forEach(item=>{
@@ -294,7 +293,6 @@ export class AppComponent implements OnInit {
           })
           this.isLoggedIn =  isAuthorized
           //this.appPages=this.appPages
-          console.log(this.appPages)
         }
       } else {
         localStorage.setItem('user', '');

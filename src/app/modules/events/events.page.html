@@ -8,40 +8,29 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-grid class="padding-top">
-    @for (event of events; track event; let i = $index) {
-      <ion-row>
-        <ion-col>
-          <ion-card class="ion-margin-bottom  ion-no-margin top">
-            <ion-card-header >
-              @if (isAuthorized) {
-                <ion-tab-button (click)="edit(event.$id)" class="edit">
-                  <ion-icon name="create"></ion-icon>
-                  <ion-label>{{editLabel}}</ion-label>
-                </ion-tab-button>
-              }
-              @if (event.source) {
-                <ion-card-subtitle color="primary">Source: {{event.source}}</ion-card-subtitle>
-              }
-              @if (event.title) {
-                <ion-card-title color="primary">{{event.title}}</ion-card-title>
-              }
-            </ion-card-header>
-            @if (event.description) {
-              <ion-card-content>{{event.description}}</ion-card-content>
-            }
-          </ion-card>
-          <ion-row>
-            @for (img of event.imageCollection; track img; let i = $index) {
-              <ion-col size="12" size-sm="6" size-md="3" size-lg="3">
-                <ion-card class="ion-no-margin">
-                  <ion-img [src]="img.image"></ion-img>
-                </ion-card>
-              </ion-col>
-            }
-          </ion-row>
-        </ion-col>
-      </ion-row>
+  <div class="gallery">
+    <div class="gallery-header">
+      <h1>Photo Gallery</h1>
+    </div>
+    <div class="events">
+      @for (event of events; track event; let i = $index) { 
+        
+      <div class="event">
+        <div class="event-header">
+          <h2>{{ event.title }}</h2>
+          @if (isAuthorized) { <ion-tab-button (click)="edit(event.$id)" class="edit"> <ion-icon name="create"></ion-icon> <ion-label>{{editLabel}}</ion-label> </ion-tab-button> }
+          <!-- <p class="source" *ngIf="event.source">Source: {{ event.source }}</p> -->
+        </div>
+        <p class="description" *ngIf="event.description">{{ event.description }}</p>
+
+        <div class="image-grid">
+          <div class="image-container" *ngFor="let img of event.imageCollection">
+            <ion-img [src]="img.image" alt="Event Image"></ion-img>
+          </div>
+        </div>
+
+      </div>
     }
-  </ion-grid>
+    </div>
+  </div>
 </ion-content>

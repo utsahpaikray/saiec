@@ -37,7 +37,6 @@ export class StudentPage implements OnInit {
     ngOnInit() {
         this.getStudentsFromStore()
         this.students$.subscribe((items: Student[]) => {
-            console.log(items)
            let inStudent = items.filter((item)=>(item.Status == "Active"|| item.Status==='Y'))
             this.totalStudent = inStudent.length;
             this.allStudentInfo = sortBy(inStudent, ['class', 'StudentName']);

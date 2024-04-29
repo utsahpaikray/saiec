@@ -100,7 +100,7 @@ export class FirebaseService {
     return this.firestore.collection('my-school-list').snapshotChanges();
   }
   updateStudent(path: string,recordID: any,record: Partial<unknown>){
-   this.firestore.doc(`${path}/${recordID}`).update(record);
+   return this.firestore.doc(`${path}/${recordID}`).update(record);
   }
  
   deleteStudent(path: string,recordID: any) {

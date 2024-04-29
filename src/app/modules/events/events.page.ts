@@ -22,12 +22,7 @@ public editLabel = "Edit"
   }
   getEvents(){
     this.firebaseService.getAll('gallery').subscribe(res=>{
-      // res.forEach((item: any)=>{
-      //   item['imageCollection'] = item['imageCollection'].map(({ image }) => image)
-      // })
- 
       this.events=res
-      console.log(res)
     })
   }
 edit(id: any){
