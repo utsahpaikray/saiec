@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { Student } from '@modules/student/student.interface';
 import { Store, select } from '@ngrx/store';
 import { AuthService } from '@shared-service/auth-service.service';
-import { Observable, shareReplay } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AppState } from 'src/app/states/state.interface';
 import { loadStudents } from 'src/app/states/student/student.actions';
-import { selectTotalStudents, selectStudents, selectLoadedStatus } from 'src/app/states/student/student.selector';
+import { selectLoadedStatus, selectStudents, selectTotalStudents } from 'src/app/states/student/student.selector';
 
 @Component({
   selector: 'app-contact',
@@ -23,6 +23,7 @@ export class ContactPage implements OnInit {
   loaded$!: Observable<boolean>;
   public isAuthorized: boolean =  false;
   public editLabel = "Edit"
+  searchQuery: any;
   ngOnInit() {
     this.getStudentsFromStore()
     this.isAuthorized = this.authService.isAuthorizedUser
@@ -37,4 +38,17 @@ export class ContactPage implements OnInit {
 edit(id: any){
   this.router.navigate([`/contacts/${id}`]);
   }
+  public onInput() {
+    const elements = document?.querySelector('.student-info')?.children;
+    const items = Array.from(elements ?? []);
+    requestAnimationFrame(() => {
+        items.forEach((item) => {
+            Array.from(item.children).forEach((item: any) => {
+                const shouldShow = item.textContent.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
+                item['style'].display = shouldShow ? 'block' : 'none';
+            })
+        });
+
+    });
+}
 }

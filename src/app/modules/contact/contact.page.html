@@ -5,27 +5,36 @@
     </ion-buttons>
     <ion-title>Contacts</ion-title>
   </ion-toolbar>
+
 </ion-header>
 <ion-content>
-  <div class="card-container">
+  <!-- <ion-toolbar color="primary">
+    <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (ionChange)="onInput()" showCancelButton="focus" value=""
+      animated>
+    </ion-searchbar>
+  </ion-toolbar> -->
+  <div class="card-container student-info">
     @if(loaded$|async){
+     
     @for (student of this.students$ | async; track student) {
-        <ion-card>
+        <ion-card class="ion-no-margin ">
           <div class="card-header" color="">
             <ion-avatar>
               <img [src]="student.Image" [alt]="student.StudentName">
             </ion-avatar>
             <div>
-              <span>{{ student.StudentName | uppercase}}</span>
-              <br>
-              <span>{{ student.StudentID | uppercase}}</span>
-             
+              <span>{{ student.StudentName | uppercase}}</span>         
             </div>
-            @if (isAuthorized) { <ion-button (click)="edit(student.$id)" class="edit" size="small"> <ion-icon name="create"></ion-icon> <ion-label>{{editLabel}}</ion-label> </ion-button> }
+          
           </div>
+          @if (isAuthorized) { <div class="ion-text-end" justify="space-between">
+            <ion-button (click)="edit(student.$id)" class="edit " size="small">
+              <ion-icon name="create"></ion-icon>
+              <ion-label>{{editLabel}}</ion-label>
+            </ion-button>
+          </div> }
           <ion-card-content>
             <ion-list>
-              
               <ion-item>
                 <ion-label>StudentID</ion-label>
                 <ion-note slot="end">{{ student.StudentID }}</ion-note>

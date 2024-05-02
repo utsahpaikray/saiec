@@ -1,0 +1,1645 @@
+{
+  "version": "6.0",
+  "nxVersion": "18.3.0",
+  "deps": {
+    "@angular/animations": "^17.3.5",
+    "@angular/cdk": "^17.3.4",
+    "@angular/common": "^17.3.5",
+    "@angular/compiler": "^17.3.5",
+    "@angular/core": "^17.3.5",
+    "@angular/fire": "^17.0.1",
+    "@angular/forms": "^17.3.5",
+    "@angular/material": "^17.3.0",
+    "@angular/platform-browser": "^17.3.5",
+    "@angular/platform-browser-dynamic": "^17.3.5",
+    "@angular/platform-server": "^17.3.5",
+    "@angular/router": "^17.3.5",
+    "@angular/service-worker": "^17.0.2",
+    "@angular/ssr": "^17.3.5",
+    "@capacitor/android": "5.7.3",
+    "@capacitor/app": "5.0.7",
+    "@capacitor/core": "5.7.3",
+    "@capacitor/haptics": "5.0.7",
+    "@capacitor/keyboard": "5.0.8",
+    "@capacitor/status-bar": "5.0.7",
+    "@ionic/angular": "^8.0.0",
+    "@ngrx/effects": "^17.2.0",
+    "@ngrx/entity": "^17.2.0",
+    "@ngrx/store": "^17.2.0",
+    "@ngrx/store-devtools": "^17.2.0",
+    "@types/date-fns": "^2.6.0",
+    "@types/pdfmake": "^0.2.1",
+    "ag-grid-angular": "^31.1.1",
+    "ag-grid-community": "^31.1.1",
+    "ag-grid-enterprise": "^31.1.1",
+    "angular-calendar": "^0.29.0",
+    "chart.js": "^3.9.1",
+    "cordova-plugin-fcm-with-dependecy-updated": "^7.8.0",
+    "date-fns": "^2.29.1",
+    "express": "^4.18.2",
+    "firebase": "^10.9.0",
+    "html-to-pdfmake": "^2.4.5",
+    "ionicons": "^7.0.0",
+    "jspdf": "^2.5.1",
+    "moment": "^2.29.4",
+    "pdfmake": "^0.2.5",
+    "rxjs": "~7.8.0",
+    "swiper": "^11.1.1",
+    "tslib": "^2.3.0",
+    "xlsx": "^0.18.5",
+    "zone.js": "~0.14.2",
+    "@angular-devkit/build-angular": "^17.3.5",
+    "@angular-eslint/builder": "^17.0.0",
+    "@angular-eslint/eslint-plugin": "^17.0.0",
+    "@angular-eslint/eslint-plugin-template": "^17.0.0",
+    "@angular-eslint/schematics": "^17.0.0",
+    "@angular-eslint/template-parser": "^17.0.0",
+    "@angular/cli": "^17.3.5",
+    "@angular/compiler-cli": "^17.3.5",
+    "@angular/language-service": "^17.3.5",
+    "@capacitor/cli": "5.7.3",
+    "@ionic/angular-toolkit": "^9.0.0",
+    "@types/express": "^4.17.17",
+    "@types/jasmine": "~5.1.0",
+    "@types/lodash": "^4.17.0",
+    "@types/node": "^18.18.0",
+    "browser-sync": "^3.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "firebase-tools": "^13.5.1",
+    "jasmine-core": "~5.1.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.2.2"
+  },
+  "pathMappings": {
+    "@modules/*": [
+      "src/app/modules/*"
+    ],
+    "@shared-service/*": [
+      "src/app/shared-service/*"
+    ],
+    "@components/*": [
+      "src/app/components/*"
+    ],
+    "@pages/*": [
+      "src/app/pages/*"
+    ],
+    "@environments/*": [
+      "src/environments/*"
+    ],
+    "@assets/*": [
+      "src/assets/*"
+    ],
+    "@stores/*": [
+      "src/app/stores/*"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "src/assets/student-info/pioneer.ts",
+        "hash": "13018997831684525890"
+      },
+      {
+        "file": "src/app/shared-service/services/auth.guard.ts",
+        "hash": "12420305017840332025"
+      },
+      {
+        "file": "src/app/modules/store-module/store-transaction-list/store-transaction-list-routing.module.ts",
+        "hash": "7167317484710823639"
+      },
+      {
+        "file": "src/app/states/student/student.effects.ts",
+        "hash": "17407402234880463971"
+      },
+      {
+        "file": "src/app/modules/story/story.module.ts",
+        "hash": "10569165560017135420"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png",
+        "hash": "16696879462706858720"
+      },
+      {
+        "file": "src/assets/student-info/standard5.ts",
+        "hash": "11414856235493140538"
+      },
+      {
+        "file": "src/app/modules/report/report.page.spec.ts",
+        "hash": "11528014480982118538"
+      },
+      {
+        "file": "src/manifest.webmanifest",
+        "hash": "2647199238085457923"
+      },
+      {
+        "file": "src/app/modules/staff-payment/staff-payment.page.ts",
+        "hash": "14100208160131503067"
+      },
+      {
+        "file": "src/app/modules/exam-form/exam-form.page.scss",
+        "hash": "10159854179423734858"
+      },
+      {
+        "file": "android/.gitignore",
+        "hash": "16088808965373471785"
+      },
+      {
+        "file": "src/app/modules/faculty/faculty.module.ts",
+        "hash": "5318752935158473386"
+      },
+      {
+        "file": "src/app/modules/store-module/store-transaction-form/store-transaction-form.page.scss",
+        "hash": "6711149434580130169"
+      },
+      {
+        "file": "android/settings.gradle",
+        "hash": "426215723856156424"
+      },
+      {
+        "file": "src/app/modules/exam-detail/exam-detail.page.ts",
+        "hash": "9676401364918627122"
+      },
+      {
+        "file": "src/app/modules/transaction-report/transaction-report.module.ts",
+        "hash": "18335502509306084183"
+      },
+      {
+        "file": "src/app/modules/exam-form/components/transaction-form/exam-form.component.html",
+        "hash": "15620299800197223262"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png",
+        "hash": "1772322197088498798"
+      },
+      {
+        "file": "android/gradlew.bat",
+        "hash": "8837338129170646035"
+      },
+      {
+        "file": "src/app/states/faculty/faculty.actions.ts",
+        "hash": "9845632505370552719"
+      },
+      {
+        "file": "src/app/app.module.server.ts",
+        "hash": "7885674756072090716"
+      },
+      {
+        "file": "src/assets/icons/icon-128x128.png",
+        "hash": "16119513566521364320"
+      },
+      {
+        "file": "src/app/states/bookStore/bookstore.interface.ts",
+        "hash": "16905993060794662211"
+      },
+      {
+        "file": "src/app/modules/admin/register/register.component.html",
+        "hash": "15461037395588619933"
+      },
+      {
+        "file": "src/assets/student-info/standard4.ts",
+        "hash": "10088249175713458723"
+      },
+      {
+        "file": "src/theme/variables.scss",
+        "hash": "11672260546808855838"
+      },
+      {
+        "file": "src/app/modules/events/services/events.service.ts",
+        "hash": "12767587893339280289"
+      },
+      {
+        "file": "src/app/modules/news/news.page.ts",
+        "hash": "4060555419723808925"
+      },
+      {
+        "file": "src/assets/icons/icon-72x72.png",
+        "hash": "8211841038932698272"
+      },
+      {
+        "file": "src/app/modules/idioms/idioms-routing.module.ts",
+        "hash": "13722165999463264110"
+      },
+      {
+        "file": "src/app/modules/exam-form/components/non-academic-form/non-academic-form.component.html",
+        "hash": "18248376652378566858"
+      },
+      {
+        "file": "src/app/states/faculty/faculty.selector.ts",
+        "hash": "6259500990158406571"
+      },
+      {
+        "file": "android/app/capacitor.build.gradle",
+        "hash": "9786418785311657232"
+      },
+      {
+        "file": "src/app/modules/events/events.module.ts",
+        "hash": "12910686421385825745"
+      },
+      {
+        "file": "src/app/model/file-upload.ts",
+        "hash": "833182151494110682"
+      },
+      {
+        "file": "src/app/modules/autofee/autofee.page.html",
+        "hash": "4066547085624579314"
+      },
+      {
+        "file": "src/app/modules/gallery/gallery.page.scss",
+        "hash": "12030892008901358585"
+      },
+      {
+        "file": "src/app/modules/questionset/questionset.page.scss",
+        "hash": "13372487094627876972"
+      },
+      {
+        "file": "src/app/modules/contact/edit/edit.page.scss",
+        "hash": "5114033476851717846"
+      },
+      {
+        "file": "src/app/modules/exam-detail/exam-detail-routing.module.ts",
+        "hash": "11950280246122474425"
+      },
+      {
+        "file": "src/app/modules/report/report.page.scss",
+        "hash": "17974666512861379099"
+      },
+      {
+        "file": "src/app/modules/faculty-form/faculty-form.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/states/bookStore/bookstore.selector.ts",
+        "hash": "9525141219034848603"
+      },
+      {
+        "file": "android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java",
+        "hash": "1280125089554780403"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+        "hash": "15163013499175324231"
+      },
+      {
+        "file": "android/gradlew",
+        "hash": "9896656627243825026"
+      },
+      {
+        "file": "src/app/modules/exam-form/components/transaction-form/exam-form.component.ts",
+        "hash": "15468741161373343385"
+      },
+      {
+        "file": "src/app/modules/notification/notification.page.html",
+        "hash": "9572051008897763538"
+      },
+      {
+        "file": "karma.conf.js",
+        "hash": "13719387092471133633"
+      },
+      {
+        "file": "src/app/modules/student-school-fee/student-school-fee.page.html",
+        "hash": "17146375820450670288"
+      },
+      {
+        "file": "src/app/modules/birthday/birthday.page.html",
+        "hash": "6416258585512132152"
+      },
+      {
+        "file": "src/app/modules/home/home.page.html",
+        "hash": "13664065921323418060"
+      },
+      {
+        "file": "src/app/states/student/student.selector.ts",
+        "hash": "14133428383572529258"
+      },
+      {
+        "file": "src/firebase-messaging-sw.js",
+        "hash": "10747557455058780169"
+      },
+      {
+        "file": "src/global.scss",
+        "hash": "2891724598290214231"
+      },
+      {
+        "file": "src/app/modules/transaction-report/components/report-form/report-form.component.ts",
+        "hash": "4549233109324558080"
+      },
+      {
+        "file": "src/main.ts",
+        "hash": "6271238438193873573"
+      },
+      {
+        "file": "src/app/modules/birthday/birthday.module.ts",
+        "hash": "2874042227421968588"
+      },
+      {
+        "file": "android/app/src/main/res/drawable/ic_launcher_background.xml",
+        "hash": "4055909962711590499"
+      },
+      {
+        "file": "src/app/modules/news/news.module.ts",
+        "hash": "8364483904028513537"
+      },
+      {
+        "file": "src/app/modules/report/directives/mark-base.directive.ts",
+        "hash": "5920963501462014053"
+      },
+      {
+        "file": "src/app/modules/shared/upload-details/upload-details.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/admin/forgot-password/forgot-password.component.html",
+        "hash": "4304938983301424269"
+      },
+      {
+        "file": "src/app/states/faculty/faculty.interface.ts",
+        "hash": "14459208410699990044"
+      },
+      {
+        "file": "src/app/modules/gallery/gallery.module.ts",
+        "hash": "3288163723670983919"
+      },
+      {
+        "file": "src/app/modules/student-fee/student-fee.page.ts",
+        "hash": "9677574654027468283"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml",
+        "hash": "16602625396055746895"
+      },
+      {
+        "file": "src/app/modules/home/home.page.spec.ts",
+        "hash": "1911688935699071121"
+      },
+      {
+        "file": "src/app/modules/student-tabular/student-tabular.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/student-auto-fee/student-auto-fee.module.ts",
+        "hash": "15873278469179078817"
+      },
+      {
+        "file": "src/test.ts",
+        "hash": "3357298665419860780"
+      },
+      {
+        "file": "src/app/modules/staff-tabular-view/staff-tabular-view.page.html",
+        "hash": "14026470577896170784"
+      },
+      {
+        "file": "src/app/modules/student/student.page.ts",
+        "hash": "10899160197506528670"
+      },
+      {
+        "file": "android/app/src/main/res/values/ic_launcher_background.xml",
+        "hash": "9482601953118464086"
+      },
+      {
+        "file": "src/app/modules/event-transaction-book/event-transaction-book-routing.module.ts",
+        "hash": "1844002481869126065"
+      },
+      {
+        "file": "src/app/modules/event-transaction-book/event-transaction-book.page.ts",
+        "hash": "8375706411628068551"
+      },
+      {
+        "file": "src/app/modules/exam-detail/exam-detail.page.html",
+        "hash": "1623171303732109062"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+        "hash": "9342129704159603628"
+      },
+      {
+        "file": ".firebaserc",
+        "hash": "2792460228009933108"
+      },
+      {
+        "file": "src/app/modules/idioms/idioms.page.ts",
+        "hash": "16487224074034412510"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+        "hash": "10700838889768688031"
+      },
+      {
+        "file": "src/app/modules/admin/login/login.component.ts",
+        "hash": "16706237264133202627"
+      },
+      {
+        "file": "src/app/modules/shared/extract-student/extract-student.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/shared/extract-student/extract-student.component.ts",
+        "hash": "3898257752436993399"
+      },
+      {
+        "file": "src/app/modules/staff-tabular-view/staff-tabular-view.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/student-school-fee/student-school-fee-routing.module.ts",
+        "hash": "15055009724984393855"
+      },
+      {
+        "file": "src/app/modules/student-tabular/student-tabular-routing.module.ts",
+        "hash": "16867140203412693108"
+      },
+      {
+        "file": "src/app/shared-service/messaging.service.spec.ts",
+        "hash": "16182292225577317825"
+      },
+      {
+        "file": "android/app/.gitignore",
+        "hash": "3800628318224317187"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-land-hdpi/splash.png",
+        "hash": "12618218220193540786"
+      },
+      {
+        "file": "src/app/states/bookStore/bookstore.reducer.ts",
+        "hash": "3305937241637429087"
+      },
+      {
+        "file": "src/app/states/bookStore/bookstore.effects.ts",
+        "hash": "14265278919186409526"
+      },
+      {
+        "file": "src/app/states/student/student.reducer.ts",
+        "hash": "3400363500896393802"
+      },
+      {
+        "file": "src/assets/icons/icon-192x192.png",
+        "hash": "5426725225393538606"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-port-hdpi/splash.png",
+        "hash": "7870574596552345396"
+      },
+      {
+        "file": "src/app/modules/transaction-report/transaction-report-routing.module.ts",
+        "hash": "1004968592703337998"
+      },
+      {
+        "file": "src/app/modules/student-fee/student-fee.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/adv/adv.page.html",
+        "hash": "14654328016700719542"
+      },
+      {
+        "file": "src/app/modules/notification-form/notification-form-routing.module.ts",
+        "hash": "3612629669279035080"
+      },
+      {
+        "file": "src/app/modules/shared/student-detail/student-detail.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/questionset/question.ts",
+        "hash": "5873568303197393059"
+      },
+      {
+        "file": "src/app/modules/faculty-form/faculty-form-routing.module.ts",
+        "hash": "9028791723991318237"
+      },
+      {
+        "file": "src/app/modules/staff-payment/staff-payment.page.scss",
+        "hash": "4519877678706696140"
+      },
+      {
+        "file": "src/app/modules/home/home.module.ts",
+        "hash": "9684849702191070380"
+      },
+      {
+        "file": "src/app/modules/staff-tabular-view/staff-tabular-view.page.ts",
+        "hash": "6707942847497250189"
+      },
+      {
+        "file": "ionic.config.json",
+        "hash": "15988217769226920536"
+      },
+      {
+        "file": "src/app/modules/store-module/store-transaction-list/store-transaction-list.page.scss",
+        "hash": "6416265523030630066"
+      },
+      {
+        "file": "src/app/modules/student-auto-fee/student-auto-fee-routing.module.ts",
+        "hash": "8842584421037684743"
+      },
+      {
+        "file": "src/app/modules/event-transaction-book/components/transaction-form/transaction-form.component.scss",
+        "hash": "7328099390688443596"
+      },
+      {
+        "file": "src/app/states/student/student.actions.ts",
+        "hash": "3370472740340983000"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png",
+        "hash": "17762064175266230691"
+      },
+      {
+        "file": "src/app/app.component.ts",
+        "hash": "12136211889117647476"
+      },
+      {
+        "file": "src/assets/student-info/allStudentInfo.ts",
+        "hash": "13488710161232039275"
+      },
+      {
+        "file": "src/app/modules/student/student.page.scss",
+        "hash": "14068030708606302655"
+      },
+      {
+        "file": "src/app/modules/shared/upload-list/upload-list.component.ts",
+        "hash": "10908910480555382699"
+      },
+      {
+        "file": "src/assets/icons/icon-144x144.png",
+        "hash": "7918264055681161054"
+      },
+      {
+        "file": "src/app/modules/report/components/graph/graph.component.html",
+        "hash": "6589539912958728069"
+      },
+      {
+        "file": "src/app/modules/birthday/birthday.page.scss",
+        "hash": "4868480594788627095"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+        "hash": "11484431673195189447"
+      },
+      {
+        "file": "src/app/modules/holiday-calender/holiday-calender.module.ts",
+        "hash": "4978966294414036685"
+      },
+      {
+        "file": "src/app/modules/holiday-calender/holiday-calender.page.ts",
+        "hash": "2169475122522723050"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-land-mdpi/splash.png",
+        "hash": "13354102016025079206"
+      },
+      {
+        "file": "android/variables.gradle",
+        "hash": "9467210284462474397"
+      },
+      {
+        "file": ".browserslistrc",
+        "hash": "7979060078399394427"
+      },
+      {
+        "file": "src/app/modules/store-module/store/store.module.ts",
+        "hash": "16930611662527892451"
+      },
+      {
+        "file": "server.ts",
+        "hash": "2880657707836389109"
+      },
+      {
+        "file": "src/app/modules/event-transaction-book/components/transaction-form/transaction-form.component.html",
+        "hash": "4757533903909635072"
+      },
+      {
+        "file": "src/app/modules/shared/upload-details/upload-details.component.html",
+        "hash": "13527917534829465321"
+      },
+      {
+        "file": "src/app/modules/events/events.page.ts",
+        "hash": "9002393496204651301"
+      },
+      {
+        "file": "src/app/modules/offering/components/offering-form/offering-form.component.ts",
+        "hash": "10840197847257652371"
+      },
+      {
+        "file": "src/app/modules/autofee/autofee.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/student/student-routing.module.ts",
+        "hash": "11710175523710191229"
+      },
+      {
+        "file": "src/assets/icon/favicon.png",
+        "hash": "281532119426304643"
+      },
+      {
+        "file": "src/app/modules/idioms/idioms.page.html",
+        "hash": "6593765984914182561"
+      },
+      {
+        "file": "src/assets/shapes.svg",
+        "hash": "4708889011185296100"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "14555918630938920276"
+      },
+      {
+        "file": "src/app/modules/admin/admin.page.html",
+        "hash": "11676645100641821510"
+      },
+      {
+        "file": "src/app/modules/admin/register/register.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/events/events-routing.module.ts",
+        "hash": "12604046934844872215"
+      },
+      {
+        "file": "src/app/modules/faculty-form/faculty-form.module.ts",
+        "hash": "8772053622685442762"
+      },
+      {
+        "file": "src/app/modules/student/student.page.html",
+        "hash": "11794823944330383304"
+      },
+      {
+        "file": "src/app/shared-service/messaging.service.ts",
+        "hash": "12792763791442406391"
+      },
+      {
+        "file": "firebase.json",
+        "hash": "210395764761480308"
+      },
+      {
+        "file": "src/app/modules/staff-tabular-view/staff-tabular-view-routing.module.ts",
+        "hash": "16473598168559107015"
+      },
+      {
+        "file": "src/app/modules/home/home.page.scss",
+        "hash": "8827539765671185618"
+      },
+      {
+        "file": "src/app/modules/shared/upload-details/upload-details.component.ts",
+        "hash": "2445191809002721476"
+      },
+      {
+        "file": "src/app/modules/exam-form/components/transaction-form/exam-form.component.scss",
+        "hash": "7328099390688443596"
+      },
+      {
+        "file": "android/app/src/main/res/layout/activity_main.xml",
+        "hash": "13540211242698942768"
+      },
+      {
+        "file": "src/app/modules/student-auto-fee/student-auto-fee.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/adv/adv.module.ts",
+        "hash": "1439502949376371510"
+      },
+      {
+        "file": "src/app/modules/autofee/autofee-routing.module.ts",
+        "hash": "8815335970737040385"
+      },
+      {
+        "file": "src/app/modules/exam-detail/exam-detail.module.ts",
+        "hash": "931051137904159929"
+      },
+      {
+        "file": "src/app/modules/admin/verify-email/verify-email.component.ts",
+        "hash": "18363193930167560331"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+        "hash": "6321943060948364586"
+      },
+      {
+        "file": "src/app/modules/student-tabular/student-tabular.page.ts",
+        "hash": "6089576677823514287"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+        "hash": "16176709064596667284"
+      },
+      {
+        "file": "angular.json",
+        "hash": "7253068611420365318"
+      },
+      {
+        "file": "src/app/modules/transaction-report/transaction-report.page.ts",
+        "hash": "7514842050391500425"
+      },
+      {
+        "file": "src/app/router-segment.enum.ts",
+        "hash": "16370433035824836211"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18210278994710539225"
+      },
+      {
+        "file": "ngsw-config.json",
+        "hash": "12579492061924086660"
+      },
+      {
+        "file": "src/app/app.component.html",
+        "hash": "17826700713456979987"
+      },
+      {
+        "file": "src/app/modules/story/story.page.ts",
+        "hash": "15407349907676314993"
+      },
+      {
+        "file": "src/app/shared-service/dashboard.service.ts",
+        "hash": "8572135828842527363"
+      },
+      {
+        "file": "android/build.gradle",
+        "hash": "15247024166514751308"
+      },
+      {
+        "file": "src/app/modules/exam-detail/exam-detail.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/offering/components/offering-form/offering-form.component.html",
+        "hash": "9195014511997289186"
+      },
+      {
+        "file": "src/app/shared-service/download-url.service.ts",
+        "hash": "7388986114117648764"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png",
+        "hash": "14088589834205738071"
+      },
+      {
+        "file": "src/app/modules/exam-form/exam-form-routing.module.ts",
+        "hash": "16982438524220036396"
+      },
+      {
+        "file": "src/environments/environment.prod.ts",
+        "hash": "1533426691196121963"
+      },
+      {
+        "file": "src/app/modules/events/events.page.scss",
+        "hash": "17507479202732256381"
+      },
+      {
+        "file": "src/app/modules/shared/modal/modal.page.html",
+        "hash": "5091718533197020708"
+      },
+      {
+        "file": "src/app/modules/report/report.page.html",
+        "hash": "10903093371717639544"
+      },
+      {
+        "file": "src/app/modules/contact/edit/edit-routing.module.ts",
+        "hash": "909147065371428438"
+      },
+      {
+        "file": "src/app/modules/home/qoutes.ts",
+        "hash": "2145269937064020004"
+      },
+      {
+        "file": "database.rules.json",
+        "hash": "7598072661940620932"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-land-xhdpi/splash.png",
+        "hash": "16928120350772912315"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "12763127704340196210"
+      },
+      {
+        "file": "src/app/modules/questionset/questionset.page.html",
+        "hash": "16629965545807850307"
+      },
+      {
+        "file": "src/app/modules/exam-form/components/non-academic-form/non-academic-form.component.css",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-port-xxxhdpi/splash.png",
+        "hash": "7224188242308859997"
+      },
+      {
+        "file": "src/app/modules/admin/forgot-password/forgot-password.component.ts",
+        "hash": "6363736201352962960"
+      },
+      {
+        "file": "src/app/modules/adv/adv.page.scss",
+        "hash": "17418487140083559449"
+      },
+      {
+        "file": "src/app/modules/contact/edit/edit.page.html",
+        "hash": "520185024393412886"
+      },
+      {
+        "file": "src/app/modules/faculty-form/faculty-form.page.ts",
+        "hash": "4512935020940732702"
+      },
+      {
+        "file": "src/app/modules/shared/upload-form/upload-form.component.html",
+        "hash": "12617651158418683368"
+      },
+      {
+        "file": "src/app/modules/student-auto-fee/student-auto-fee.page.html",
+        "hash": "13295840242654234725"
+      },
+      {
+        "file": "src/app/modules/gallery/gallery.page.ts",
+        "hash": "17658200181220535731"
+      },
+      {
+        "file": "src/app/modules/admin/login/login.component.html",
+        "hash": "4517864239042025283"
+      },
+      {
+        "file": "android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java",
+        "hash": "11856600006954306230"
+      },
+      {
+        "file": "src/app/modules/contact/edit/edit.page.ts",
+        "hash": "17393646884382958000"
+      },
+      {
+        "file": "src/app/modules/events/events.page.html",
+        "hash": "8875508530971003280"
+      },
+      {
+        "file": "src/app/modules/home/slide-animation.ts",
+        "hash": "12760044202361619170"
+      },
+      {
+        "file": "src/app/modules/idioms/idioms.page.scss",
+        "hash": "411518121800236470"
+      },
+      {
+        "file": "src/app/modules/student-school-fee/student-school-fee.module.ts",
+        "hash": "14773943582013319920"
+      },
+      {
+        "file": "src/app/modules/student-auto-fee/student-auto-fee.page.ts",
+        "hash": "6348021578067182263"
+      },
+      {
+        "file": "src/app/modules/shared/extract-student/extract-student.component.html",
+        "hash": "8993030418770857916"
+      },
+      {
+        "file": "src/app/modules/student-tabular/component/status.ts",
+        "hash": "13489300528569330909"
+      },
+      {
+        "file": "src/app/modules/event-transaction-book/event-transaction-book.module.ts",
+        "hash": "5472553044446660203"
+      },
+      {
+        "file": "src/app/modules/faculty/faculty-routing.module.ts",
+        "hash": "12009926390568475424"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+        "hash": "18428292913404649045"
+      },
+      {
+        "file": "src/app/modules/transaction-report/components/report-form/report-form.component.html",
+        "hash": "17459534209046267815"
+      },
+      {
+        "file": "src/app/shared-service/auth-service.service.ts",
+        "hash": "10738705284959029801"
+      },
+      {
+        "file": "android/gradle/wrapper/gradle-wrapper.properties",
+        "hash": "10340632815092109200"
+      },
+      {
+        "file": "src/assets/icons/icon-384x384.png",
+        "hash": "14349113523743396697"
+      },
+      {
+        "file": "src/assets/icons/icon-96x96.png",
+        "hash": "17857169027528193372"
+      },
+      {
+        "file": "src/assets/student-info/standard3.ts",
+        "hash": "7636339741107330123"
+      },
+      {
+        "file": "src/assets/welcome.png",
+        "hash": "13631132160377860075"
+      },
+      {
+        "file": "tsconfig.spec.json",
+        "hash": "17198424518534092990"
+      },
+      {
+        "file": "src/app/modules/story/story-routing.module.ts",
+        "hash": "4795432191206352364"
+      },
+      {
+        "file": "android/app/src/main/res/values/strings.xml",
+        "hash": "4134957418740599265"
+      },
+      {
+        "file": "src/app/modules/questionset/questionset-routing.module.ts",
+        "hash": "17823500349548380015"
+      },
+      {
+        "file": "src/app/modules/student-school-fee/student-school-fee.page.ts",
+        "hash": "17970107217151029801"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-port-xhdpi/splash.png",
+        "hash": "13168839858812363171"
+      },
+      {
+        "file": "src/app/shared-service/toaster.service.ts",
+        "hash": "3197522530673948132"
+      },
+      {
+        "file": "src/assets/image.png",
+        "hash": "13546677554222161747"
+      },
+      {
+        "file": "src/app/app.module.ts",
+        "hash": "11867217553650820014"
+      },
+      {
+        "file": "android/gradle/wrapper/gradle-wrapper.jar",
+        "hash": "13643854122011606232"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-land-xxhdpi/splash.png",
+        "hash": "8114284271146720243"
+      },
+      {
+        "file": "src/app/modules/admin/admin.page.ts",
+        "hash": "5791151011807508858"
+      },
+      {
+        "file": "src/app/modules/autofee/autofee.page.ts",
+        "hash": "1752689442139108351"
+      },
+      {
+        "file": "src/app/states/state.interface.ts",
+        "hash": "856774422798722973"
+      },
+      {
+        "file": "src/app/app.component.scss",
+        "hash": "7422069546146173523"
+      },
+      {
+        "file": "src/app/modules/offering/components/offering-form/offering-form.component.scss",
+        "hash": "5682730845147861143"
+      },
+      {
+        "file": "src/app/modules/notification-form/notification-form.page.ts",
+        "hash": "9500309044996628654"
+      },
+      {
+        "file": "src/app/modules/faculty/faculty.page.ts",
+        "hash": "13922890681637264753"
+      },
+      {
+        "file": "src/app/modules/store-module/store-transaction-form/store-transaction-form.module.ts",
+        "hash": "8850966644640382953"
+      },
+      {
+        "file": "manifest.webmanifest",
+        "hash": "73658336631779984"
+      },
+      {
+        "file": "src/app/modules/store-module/store-transaction-form/store-transaction-form.page.html",
+        "hash": "10372463636596944350"
+      },
+      {
+        "file": "src/app/states/student/student.interface.ts",
+        "hash": "4226150293157415542"
+      },
+      {
+        "file": "src/main.server.ts",
+        "hash": "1797789495484982956"
+      },
+      {
+        "file": "src/app/modules/store-module/store-transaction-form/store-transaction-form.page.ts",
+        "hash": "800062783086948175"
+      },
+      {
+        "file": "src/zone-flags.ts",
+        "hash": "15978931094625041668"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "666918975060480992"
+      },
+      {
+        "file": "src/app/modules/idioms/idioms.module.ts",
+        "hash": "14489150481877342736"
+      },
+      {
+        "file": "src/app/modules/student/student.module.ts",
+        "hash": "11853889344123657209"
+      },
+      {
+        "file": "package.json",
+        "hash": "16626096058452515596"
+      },
+      {
+        "file": "src/assets/part2.png",
+        "hash": "7458150538579917787"
+      },
+      {
+        "file": "android/app/src/main/res/xml/file_paths.xml",
+        "hash": "14753087816109454837"
+      },
+      {
+        "file": "src/app/modules/staff-payment/staff-payment.page.html",
+        "hash": "261866462512386264"
+      },
+      {
+        "file": "src/app/modules/student/student.interface.ts",
+        "hash": "12442064894948500907"
+      },
+      {
+        "file": "capacitor.config.ts",
+        "hash": "8055678165222208915"
+      },
+      {
+        "file": "src/assets/icons/icon-152x152.png",
+        "hash": "15801439294603939434"
+      },
+      {
+        "file": "src/app/modules/student-tabular/student-tabular.page.html",
+        "hash": "658642410233663742"
+      },
+      {
+        "file": "src/app/modules/store-module/store-transaction-list/store-transaction-list.page.html",
+        "hash": "18083600235037260447"
+      },
+      {
+        "file": "src/app/modules/contact/contact-routing.module.ts",
+        "hash": "12607878089207591275"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+        "hash": "15127275078370164788"
+      },
+      {
+        "file": "src/app/modules/contact/contact.page.scss",
+        "hash": "1334731336885308519"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-port-xxhdpi/splash.png",
+        "hash": "1546567578093946022"
+      },
+      {
+        "file": "android/app/build.gradle",
+        "hash": "4462205925370081679"
+      },
+      {
+        "file": "src/app/modules/story/story.page.html",
+        "hash": "3842161291674464950"
+      },
+      {
+        "file": "src/app/modules/shared/student-detail/student-detail.module.ts",
+        "hash": "12865831729639419"
+      },
+      {
+        "file": "src/app/modules/transaction-report/transaction-report.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/notification-form/notification-form.module.ts",
+        "hash": "1026484633458600900"
+      },
+      {
+        "file": "src/app/shared-service/fetch-file.service.ts",
+        "hash": "18197118672220133367"
+      },
+      {
+        "file": "src/app/modules/admin/admin.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/event-transaction-book/components/transaction-form/transaction-form.component.ts",
+        "hash": "9136438591949429448"
+      },
+      {
+        "file": "src/assets/student-info/standard7.ts",
+        "hash": "17956880597224210557"
+      },
+      {
+        "file": "android/gradle.properties",
+        "hash": "2024862945433011340"
+      },
+      {
+        "file": "src/polyfills.ts",
+        "hash": "14546246018454271712"
+      },
+      {
+        "file": "src/app/modules/student-fee/student-fee.page.html",
+        "hash": "15493357892537853157"
+      },
+      {
+        "file": "src/app/modules/report/report.module.ts",
+        "hash": "7411810280167682646"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-port-mdpi/splash.png",
+        "hash": "512985810174291431"
+      },
+      {
+        "file": "src/app/modules/store-module/store/store-routing.module.ts",
+        "hash": "9410089544041267516"
+      },
+      {
+        "file": "src/index.html",
+        "hash": "8444547053621722002"
+      },
+      {
+        "file": "src/app/app-routing.module.ts",
+        "hash": "8421943223118331166"
+      },
+      {
+        "file": "src/app/states/faculty/faculty.module.ts",
+        "hash": "15193710378767205180"
+      },
+      {
+        "file": "src/app/modules/contact/contact.page.ts",
+        "hash": "12477066779641253194"
+      },
+      {
+        "file": "src/app/modules/shared/modal/modal-routing.module.ts",
+        "hash": "7614313098313575915"
+      },
+      {
+        "file": "src/app/modules/staff-payment/staff-payment.module.ts",
+        "hash": "12975272803472849028"
+      },
+      {
+        "file": "src/assets/icons/icon-512x512.png",
+        "hash": "15496412176428542718"
+      },
+      {
+        "file": "src/app/modules/autofee/autofee.module.ts",
+        "hash": "15762811007612490475"
+      },
+      {
+        "file": "android/app/src/main/res/values/styles.xml",
+        "hash": "17918612613785874663"
+      },
+      {
+        "file": "src/app/modules/notification-form/notification-form.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+        "hash": "6222172872530160361"
+      },
+      {
+        "file": "src/app/modules/offering/offering.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/notification/notification.page.scss",
+        "hash": "66068786643161595"
+      },
+      {
+        "file": "src/app/modules/offering/offering.module.ts",
+        "hash": "4024726826147380202"
+      },
+      {
+        "file": "src/app/modules/shared/student-detail/student-detail-routing.module.ts",
+        "hash": "11713473258425571836"
+      },
+      {
+        "file": "tsconfig.app.json",
+        "hash": "9041030522571917449"
+      },
+      {
+        "file": "src/app/modules/notification/notification.module.ts",
+        "hash": "11150944099790148749"
+      },
+      {
+        "file": "src/app/states/faculty/faculty.effects.ts",
+        "hash": "11983766390885466306"
+      },
+      {
+        "file": "src/app/modules/holiday-calender/holiday-calender.page.scss",
+        "hash": "1667941773019040482"
+      },
+      {
+        "file": "src/app/modules/store-module/store-transaction-list/store-transaction-list.page.ts",
+        "hash": "6825034067008359455"
+      },
+      {
+        "file": "src/assets/student-info/standard2.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "android/app/proguard-rules.pro",
+        "hash": "16319704539319765030"
+      },
+      {
+        "file": "src/app/modules/report/components/graph/graph.component.ts",
+        "hash": "9126684590032506121"
+      },
+      {
+        "file": "src/app/modules/contact/contact.page.html",
+        "hash": "10406234667944993161"
+      },
+      {
+        "file": "src/app/modules/notification/notification.page.ts",
+        "hash": "1593475025854069869"
+      },
+      {
+        "file": "src/app/modules/holiday-calender/holiday-calender.page.html",
+        "hash": "5306558504348185188"
+      },
+      {
+        "file": "src/app/modules/event-transaction-book/event-transaction-book.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/shared/upload-form/upload-form.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "592272277800690021"
+      },
+      {
+        "file": "src/app/modules/gallery/gallery-routing.module.ts",
+        "hash": "567626231876810589"
+      },
+      {
+        "file": "src/app/modules/birthday/birthday-routing.module.ts",
+        "hash": "11101718059521796555"
+      },
+      {
+        "file": "src/app/modules/exam-form/exam-form.module.ts",
+        "hash": "9436151186312339272"
+      },
+      {
+        "file": "src/app/modules/student-tabular/student-tabular.module.ts",
+        "hash": "9634568111558951694"
+      },
+      {
+        "file": "src/app/modules/questionset/questionset.module.ts",
+        "hash": "9429116208101557470"
+      },
+      {
+        "file": "src/app/modules/student-fee/student-fee.module.ts",
+        "hash": "12338190767207120625"
+      },
+      {
+        "file": "src/app/states/bookStore/bookstore.actions.ts",
+        "hash": "1050555260015503675"
+      },
+      {
+        "file": "src/app/modules/adv/adv-routing.module.ts",
+        "hash": "5930376194539838827"
+      },
+      {
+        "file": "src/app/modules/transaction-report/transaction-report.page.html",
+        "hash": "14175537253588680681"
+      },
+      {
+        "file": "src/app/modules/store-module/store-transaction-form/store-transaction-form-routing.module.ts",
+        "hash": "18118997666177881081"
+      },
+      {
+        "file": "src/app/modules/birthday/birthday.page.ts",
+        "hash": "1669099745848868542"
+      },
+      {
+        "file": "src/assets/student-info/standard6.ts",
+        "hash": "15032648964014006676"
+      },
+      {
+        "file": "src/service.worker.js",
+        "hash": "10951188505912774659"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png",
+        "hash": "9039760806353812177"
+      },
+      {
+        "file": "src/app/modules/notification/notification-routing.module.ts",
+        "hash": "16122789064307132606"
+      },
+      {
+        "file": "src/app/modules/questionset/questionset.page.ts",
+        "hash": "8537319933115131717"
+      },
+      {
+        "file": "src/app/modules/admin/register/register.component.ts",
+        "hash": "2693872073575876944"
+      },
+      {
+        "file": "src/app/modules/contact/contact.module.ts",
+        "hash": "12577520389966267710"
+      },
+      {
+        "file": "src/app/modules/events/events.ts",
+        "hash": "9470762815168672692"
+      },
+      {
+        "file": "src/app/modules/admin/verify-email/verify-email.component.html",
+        "hash": "429828003309324538"
+      },
+      {
+        "file": "src/app/modules/notification-form/notification-form.page.html",
+        "hash": "3932878811394546190"
+      },
+      {
+        "file": "src/app/modules/story/storypage.scss",
+        "hash": "5537397892872529732"
+      },
+      {
+        "file": "src/app/modules/event-transaction-book/event-transaction-book.page.html",
+        "hash": "5381246726520615740"
+      },
+      {
+        "file": "src/app/modules/store-module/store/store.page.html",
+        "hash": "10923674726226162555"
+      },
+      {
+        "file": "src/app/modules/home/home.page.ts",
+        "hash": "5491244269741004957"
+      },
+      {
+        "file": "android/app/src/main/res/drawable/splash.png",
+        "hash": "13354102016025079206"
+      },
+      {
+        "file": "android/app/src/main/res/drawable-land-xxxhdpi/splash.png",
+        "hash": "10648225290896133372"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+        "hash": "4133705743351324192"
+      },
+      {
+        "file": "src/app/modules/store-module/store/store.page.ts",
+        "hash": "3425235861950788511"
+      },
+      {
+        "file": "src/app/modules/admin/login/login.component.scss",
+        "hash": "1483808120517171395"
+      },
+      {
+        "file": "src/app/modules/exam-form/exam-form.page.ts",
+        "hash": "14801339598335523633"
+      },
+      {
+        "file": "android/app/src/main/AndroidManifest.xml",
+        "hash": "15143078514206279353"
+      },
+      {
+        "file": "src/app/modules/faculty/faculty.page.html",
+        "hash": "16974054688375029491"
+      },
+      {
+        "file": "src/app/modules/report/report-routing.module.ts",
+        "hash": "347521527587655679"
+      },
+      {
+        "file": "src/app/modules/staff-tabular-view/staff-tabular-view.module.ts",
+        "hash": "2949687459136768645"
+      },
+      {
+        "file": "src/assets/notification/notification.ts",
+        "hash": "4174844082495779739"
+      },
+      {
+        "file": "tsconfig.server.json",
+        "hash": "5896860408690188676"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+        "hash": "16176709064596667284"
+      },
+      {
+        "file": "src/app/states/bookStore/bookstore.module.ts",
+        "hash": "15282815121043467150"
+      },
+      {
+        "file": "src/app/modules/faculty/faculty.page.scss",
+        "hash": "5374651536514099214"
+      },
+      {
+        "file": "src/assets/back.jpg",
+        "hash": "8103855929448643770"
+      },
+      {
+        "file": "src/app/modules/shared/upload-form/upload-form.component.ts",
+        "hash": "17888886939317647600"
+      },
+      {
+        "file": "src/app/modules/staff-payment/staff-payment-routing.module.ts",
+        "hash": "1918983712224428939"
+      },
+      {
+        "file": "src/app/modules/shared/student-detail/student-detail.page.html",
+        "hash": "1555179405892546864"
+      },
+      {
+        "file": "src/app/modules/gallery/gallery.page.html",
+        "hash": "14758917592522490172"
+      },
+      {
+        "file": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+        "hash": "5466540626246768150"
+      },
+      {
+        "file": "src/app/modules/admin/verify-email/verify-email.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/store-module/store-transaction-list/store-transaction-list.module.ts",
+        "hash": "4503693653451240191"
+      },
+      {
+        "file": "src/environments/environment.ts",
+        "hash": "3215011382180390309"
+      },
+      {
+        "file": "src/app/modules/offering/offering.page.ts",
+        "hash": "15888346093039241870"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "6686520031028425313"
+      },
+      {
+        "file": "src/app/modules/holiday-calender/holiday-calender-routing.module.ts",
+        "hash": "5352966432459538984"
+      },
+      {
+        "file": "src/app/modules/shared/student-detail/student-detail.page.ts",
+        "hash": "9021416539130500852"
+      },
+      {
+        "file": "src/app/modules/news/news.page.html",
+        "hash": "15026855604067611529"
+      },
+      {
+        "file": "src/app/modules/exam-form/exam-form.page.html",
+        "hash": "3675049387941365219"
+      },
+      {
+        "file": "src/app/modules/offering/offering-routing.module.ts",
+        "hash": "13425812364801800075"
+      },
+      {
+        "file": "src/app/modules/student-school-fee/student-school-fee.page.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/report/report.page.ts",
+        "hash": "6401354411981869443"
+      },
+      {
+        "file": "src/app/modules/story/story.ts",
+        "hash": "12707949867796472609"
+      },
+      {
+        "file": "android/app/src/main/java/io/ionic/starter/MainActivity.java",
+        "hash": "18189106575645248423"
+      },
+      {
+        "file": "src/app/shared-service/firebaseService/firebase-service.service.ts",
+        "hash": "11348289310183360866"
+      },
+      {
+        "file": "src/app/modules/admin/forgot-password/forgot-password.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/shared/upload-list/upload-list.component.html",
+        "hash": "6825751668805442117"
+      },
+      {
+        "file": "src/app/modules/contact/edit/edit.module.ts",
+        "hash": "12314940548481467513"
+      },
+      {
+        "file": "src/app/modules/faculty-form/faculty-form.page.html",
+        "hash": "14094466140553965814"
+      },
+      {
+        "file": "src/app/modules/shared/modal/modal.page.spec.ts",
+        "hash": "4073496640874229432"
+      },
+      {
+        "file": "src/app/modules/student-fee/student-fee-routing.module.ts",
+        "hash": "13955063671651004124"
+      },
+      {
+        "file": "src/app/modules/exam-form/components/non-academic-form/non-academic-form.component.ts",
+        "hash": "17887840092971942443"
+      },
+      {
+        "file": "src/app/modules/shared/modal/modal.page.ts",
+        "hash": "18084283903717302665"
+      },
+      {
+        "file": "src/app/modules/admin/admin.module.ts",
+        "hash": "15101215774017584767"
+      },
+      {
+        "file": "src/app/shared-service/file-upload.service.ts",
+        "hash": "18015719618462431359"
+      },
+      {
+        "file": "src/app/states/faculty/faculty.reducer.ts",
+        "hash": "12744485928569776069"
+      },
+      {
+        "file": "src/app/modules/exam-form/exam-detail.ts",
+        "hash": "2591037123626453739"
+      },
+      {
+        "file": "src/app/modules/adv/adv.page.ts",
+        "hash": "17072108835173612831"
+      },
+      {
+        "file": "src/app/modules/news/news.page.scss",
+        "hash": "2026809050258189968"
+      },
+      {
+        "file": "src/app/modules/store-module/store/store.page.scss",
+        "hash": "2472311683153803773"
+      },
+      {
+        "file": "src/app/modules/shared/upload-list/upload-list.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/report/components/graph/graph.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "1151538777131426085"
+      },
+      {
+        "file": "src/app/modules/offering/offering.page.html",
+        "hash": "10918786888527739932"
+      },
+      {
+        "file": "src/app/states/student/student.module.ts",
+        "hash": "12258625259579373328"
+      },
+      {
+        "file": "src/ngsw-worker.js",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/modules/home/home-routing.module.ts",
+        "hash": "10197262553865492585"
+      },
+      {
+        "file": "src/app/modules/transaction-report/components/report-form/report-form.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "android/capacitor.settings.gradle",
+        "hash": "14622451423594914531"
+      },
+      {
+        "file": "src/app/modules/shared/modal/modal.page.scss",
+        "hash": "16183871941433571460"
+      },
+      {
+        "file": "src/app/modules/admin/admin-routing.module.ts",
+        "hash": "3977585406861396587"
+      },
+      {
+        "file": "src/OneSignalSDKWorker.js",
+        "hash": "11086942692188093820"
+      },
+      {
+        "file": "src/app/modules/shared/modal/modal.module.ts",
+        "hash": "10676929403259753945"
+      }
+    ],
+    "projectFileMap": {}
+  }
+}
