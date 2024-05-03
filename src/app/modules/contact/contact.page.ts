@@ -23,7 +23,7 @@ export class ContactPage implements OnInit {
   loaded$!: Observable<boolean>;
   public isAuthorized: boolean =  false;
   public editLabel = "Edit"
-  searchQuery: any;
+
   ngOnInit() {
     this.getStudentsFromStore()
     this.isAuthorized = this.authService.isAuthorizedUser
@@ -38,17 +38,19 @@ export class ContactPage implements OnInit {
 edit(id: any){
   this.router.navigate([`/contacts/${id}`]);
   }
-  public onInput() {
+  public onInput(event: any) {
+    this.filterStudents(event.target.value.toLowerCase());
+  }
+  public filterStudents(searchQuery: string) {
     const elements = document?.querySelector('.student-info')?.children;
     const items = Array.from(elements ?? []);
     requestAnimationFrame(() => {
-        items.forEach((item) => {
-            Array.from(item.children).forEach((item: any) => {
-                const shouldShow = item.textContent.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
-                item['style'].display = shouldShow ? 'block' : 'none';
-            })
+      Array.prototype.forEach.call(items, (parentItem: HTMLElement) => {
+        Array.from(parentItem.children).forEach((item: any) => {
+          const shouldShow = item.textContent.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1;
+          parentItem.style.display = shouldShow ? 'block' : 'none';
         });
-
+      });
     });
-}
+  }
 }

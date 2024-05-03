@@ -6,7 +6,7 @@
     <ion-title>Student</ion-title>
   </ion-toolbar>
  <ion-toolbar color="primary">
-    <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (ionChange)="onInput()" showCancelButton="focus" value=""
+    <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (ionInput)="onInput()" showCancelButton="focus" value=""
       animated>
     </ion-searchbar>
   </ion-toolbar>

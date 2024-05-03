@@ -8,14 +8,12 @@
 
 </ion-header>
 <ion-content>
-  <!-- <ion-toolbar color="primary">
-    <ion-searchbar [(ngModel)]="searchQuery" [debounce]="250" (ionChange)="onInput()" showCancelButton="focus" value=""
-      animated>
+  <ion-toolbar color="primary">
+    <ion-searchbar [debounce]="1000" (ionInput)="onInput($event)" show-clear-button="always" clear-icon="trash-bin" value="" class="no-padding">
     </ion-searchbar>
-  </ion-toolbar> -->
+  </ion-toolbar>
   <div class="card-container student-info">
-    @if(loaded$|async){
-     
+    @if(loaded$|async){  
     @for (student of this.students$ | async; track student) {
         <ion-card class="ion-no-margin ">
           <div class="card-header" color="">
@@ -82,6 +80,9 @@
             </ion-list>
           </ion-card-content>
         </ion-card>
+      }
+      @empty {
+        <div>No Courses found...</div>
       }
     }@else{
       <div>
