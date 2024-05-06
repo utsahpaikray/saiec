@@ -9,13 +9,13 @@
 </ion-header>
 <ion-content>
   <ion-toolbar color="primary">
-    <ion-searchbar [debounce]="1000" (ionInput)="onInput($event)" show-clear-button="always" clear-icon="trash-bin" value="" class="no-padding">
+    <ion-searchbar [debounce]="1000"  [(ngModel)]="searchQuery" (ionInput)="onInput()" show-clear-button="always" clear-icon="trash-bin" value="" class="no-padding">
     </ion-searchbar>
   </ion-toolbar>
-  <div class="card-container student-info">
+  <div class="card-container ">
     @if(loaded$|async){  
     @for (student of this.students$ | async; track student) {
-        <ion-card class="ion-no-margin ">
+        <ion-card class="ion-no-margin student-info">
           <div class="card-header" color="">
             <ion-avatar>
               <img [src]="student.Image" [alt]="student.StudentName">

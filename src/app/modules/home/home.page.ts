@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { qoutes } from './qoutes';
-import * as moment from 'moment';
+import moment from 'moment';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',

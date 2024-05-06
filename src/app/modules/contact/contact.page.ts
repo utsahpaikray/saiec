@@ -14,6 +14,7 @@ import { selectLoadedStatus, selectStudents, selectTotalStudents } from 'src/app
   styleUrls: ['./contact.page.scss'],
 })
 export class ContactPage implements OnInit {
+  searchQuery: any;
 
   constructor( private store:Store<AppState>) { }
   private router = inject(Router)
@@ -38,19 +39,15 @@ export class ContactPage implements OnInit {
 edit(id: any){
   this.router.navigate([`/contacts/${id}`]);
   }
-  public onInput(event: any) {
-    this.filterStudents(event.target.value.toLowerCase());
-  }
-  public filterStudents(searchQuery: string) {
-    const elements = document?.querySelector('.student-info')?.children;
+  public onInput() {
+    const elements = document?.querySelectorAll('.student-info');
     const items = Array.from(elements ?? []);
     requestAnimationFrame(() => {
-      Array.prototype.forEach.call(items, (parentItem: HTMLElement) => {
-        Array.from(parentItem.children).forEach((item: any) => {
-          const shouldShow = item.textContent.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1;
-          parentItem.style.display = shouldShow ? 'block' : 'none';
+        items.forEach((item: any) => {
+                const shouldShow = item.innerText.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
+                item['style'].display = shouldShow ? 'block' : 'none';
         });
-      });
+
     });
-  }
+}
 }

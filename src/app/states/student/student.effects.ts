@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
@@ -9,6 +9,8 @@ import { Student } from '@modules/student/student.interface';
 
 @Injectable()
 export class StudentEffects {
+  private actions$ = inject(Actions);
+  private firebaseService = inject(FirebaseService);
   loadStudents$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadStudents),
@@ -24,6 +26,4 @@ export class StudentEffects {
       )
     )
   );
-
-  constructor(private actions$: Actions, private firebaseService: FirebaseService) {}
 }

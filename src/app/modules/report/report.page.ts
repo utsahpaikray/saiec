@@ -68,7 +68,6 @@ this.firebaseService.getAllstudent().subscribe(items => {
   info.score=writtenScore+oralScore;
   info.total=writtenTotal+oralTotal;
   info.percentage= (((writtenScore+oralScore)/(writtenTotal+oralTotal))*100).toFixed(2)
-
   }
   public total(a: any,b: any){
     return Number(a)+Number(b);
@@ -89,9 +88,9 @@ this.firebaseService.getAllstudent().subscribe(items => {
       // If score is 60 or greater
       case value >= 60:
         return "C";
-        case value >= 70:
+      case value >= 50:
           return "D";
-      // Anything 59 or below is failing
+      // Anything 49 or below is failing
       default:
         return "F";
     }
