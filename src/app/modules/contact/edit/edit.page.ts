@@ -28,7 +28,7 @@ export class EditPage implements OnInit{
   private toasterService = inject(ToasterService)
   param: any;
   public genderList = [{gender: 'Male', value: 'Male'}, {gender: 'Female', value: 'Female'}];
-public classList = [{std: 'K.G', value: 'K.G'}, {std: 'Nursery', value: 'Nursery'}, {std: '1', value: '1'}, {std: '2', value: '2'}, {std: '3', value: '3'}, {std: '4', value: '4'},{std: '5', value: '5'},{std: '6', value: '6'}, {std: '7', value: '7'}, {std: '8', value: '8'}, {std: '9', value: '9'}, {std: '10', value: '1o'}];
+public classList = [{std: 'KG', value: 'KG'}, {std: 'Nursery', value: 'Nursery'}, {std: '1', value: '1'}, {std: '2', value: '2'}, {std: '3', value: '3'}, {std: '4', value: '4'},{std: '5', value: '5'},{std: '6', value: '6'}, {std: '7', value: '7'}, {std: '8', value: '8'}, {std: '9', value: '9'}, {std: '10', value: '1o'}];
 public flagList = [{name: 'Yes', value: 'Yes'}, {name: 'No', value: 'No'}];
 public flagListBoolean = [{name: true, value: true}, {gender: false, value: false}];
 public bloodGroupList = [

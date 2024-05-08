@@ -160,7 +160,6 @@ const routes: Routes = [
   },
   {
     path: AppRoutes.Contacts,
-    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/contact/contact.module').then( m => m.ContactPageModule)
   },
   {
