@@ -1,0 +1,73 @@
+@if (student(); as student) {
+  <ion-card class="glossy">
+    <ion-card-header color="primary" class="ion-no-padding">
+      @if (student.StudentName) {
+        <ion-label>{{student.StudentName|titlecase}}</ion-label>
+      }
+    </ion-card-header>
+    <div class="img-icon">
+      <ion-img src="assets/icon/favicon.png"> </ion-img>
+      @if (student.bloodGroup) {
+        <div class="bp">{{student.bloodGroup}}</div>
+        } @if (student.class) {
+        <div class="bp">{{student.class}}</div>
+        } @if (student['Sub-Status']) {
+        <div class="bp" [class.out]="student['Sub-Status']==='In Transfer'">
+          @if (student['Sub-Status']==='In School') {
+            <span> IN </span>
+            } @if (student['Sub-Status']==='In Transfer') {
+            <span> OUT </span>
+          }
+        </div>
+      }
+    </div>
+    <div class="image-conatiner">
+      <a
+        [download]="student.Image"
+        [href]="student.Image"
+        [title]="student.StudentName"
+        target="_blank"
+        >
+        @if (student.Image) {
+          <ion-img src="{{student.Image}}"></ion-img>
+        }
+      </a>
+    </div>
+    @if (student) {
+      <ion-card-content>
+        @if (isAuthorized) {
+          <div class="info">
+            <ion-icon name="call"></ion-icon> : <b> <a href="tel: {{student.MobileNumber}}">
+          {{student.MobileNumber}}</a>
+        </b>
+      </div>
+    }
+    <div class="info">
+      <ion-icon name="home"></ion-icon> :
+      <b> {{student.Habitation|titlecase}}</b>
+    </div>
+    <div class="action">
+      <ion-button
+        class="ion-activatable ripple-parent"
+        shape="round"
+        size="small"
+        color="primary"
+        (click)="showModal(student)"
+        >Detail
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+      <ion-button
+        class="ion-activatable ripple-parent"
+        shape="round"
+        size="small"
+        color="primary"
+        (click)="showReport(student)"
+        [class.button-disabled]="student.report!=='Y'"
+        >Report
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+    </div>
+  </ion-card-content>
+}
+</ion-card>
+}

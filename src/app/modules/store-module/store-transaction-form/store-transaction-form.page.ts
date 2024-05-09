@@ -38,6 +38,8 @@ export class StoreTransactionPage implements OnInit {
     })
   }
   public setUnitvalue(value: {id: string, name: string}, formIndex: number) {
+    console.log(value)
+    console.log(this.allProducts)
    const index = this.allProducts.findIndex((item:any) => item.$id === value.id);
   
     if (index !== -1) {
@@ -106,7 +108,7 @@ export class StoreTransactionPage implements OnInit {
     mapFormValueWithStore(items: any[]) {
       return items.map(item => {
         console.log(item)
-        const storeItem = this.allProducts.find((s: any) => s.$id === item.productName.name);
+        const storeItem = this.allProducts.find((s: any) => s.$id === item.productName.id);
     
         if (storeItem) {
           const updatedStoreItem = {

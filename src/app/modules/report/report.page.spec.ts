@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ReportPage } from './report.page';
 import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ReportPage', () => {
   let component: ReportPage;
@@ -29,7 +30,8 @@ describe('ReportPage', () => {
       providers: [
         { provide: FirebaseService, useValue: firebaseServiceMock },
         { provide: ActivatedRoute, useValue: activatedRouteMock }
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
 
     fixture = TestBed.createComponent(ReportPage);

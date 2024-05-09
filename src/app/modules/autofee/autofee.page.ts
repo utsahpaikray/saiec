@@ -3,7 +3,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { sortBy } from 'lodash';
 import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
-import { allStudentInfo } from '../../../assets/student-info/allStudentInfo';
 import { StudentDetailPage } from '../shared/student-detail/student-detail.page';
 @Component({
   selector: 'app-autofee',
@@ -11,7 +10,7 @@ import { StudentDetailPage } from '../shared/student-detail/student-detail.page'
   styleUrls: ['./autofee.page.scss'],
 })
 export class AutofeePage implements OnInit {
-  public allStudentInfo = allStudentInfo;
+  public allStudentInfo = [];
   params: Params | undefined;
   allStudentClassWise: any[] | undefined;
   inSchoolStudentData: any[] | undefined;

@@ -24,7 +24,11 @@
               "ag-grid-enterprise",
               "@firebase/firestore",
               "moment",
-              "pdfmake"
+              "pdfmake",
+              "jspdf-autotable",
+              "raf",
+              "core-js",
+              "rgbcolor"
            ],
             "assets": [
               {

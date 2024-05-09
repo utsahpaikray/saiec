@@ -1,5 +1,5 @@
 <ion-header  translucent>
- <ion-toolbar color="primary">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -13,24 +13,28 @@
       <h1>Photo Gallery</h1>
     </div>
     <div class="events">
-      @for (event of events; track event; let i = $index) { 
-        
-      <div class="event">
-        <div class="event-header">
-          <h2>{{ event.title }}</h2>
-          @if (isAuthorized) { <ion-tab-button (click)="edit(event.$id)" class="edit"> <ion-icon name="create"></ion-icon> <ion-label>{{editLabel}}</ion-label> </ion-tab-button> }
-          <!-- <p class="source" *ngIf="event.source">Source: {{ event.source }}</p> -->
-        </div>
-        <p class="description" *ngIf="event.description">{{ event.description }}</p>
+      @for (event of events; track event; let i = $index) {
 
-        <div class="image-grid">
-          <div class="image-container" *ngFor="let img of event.imageCollection">
-            <ion-img [src]="img.image" alt="Event Image"></ion-img>
+        <div class="event">
+          <div class="event-header">
+            <h2>{{ event.title }}</h2>
+            @if (isAuthorized) { <ion-tab-button (click)="edit(event.$id)" class="edit"> <ion-icon name="create"></ion-icon> <ion-label>{{editLabel}}</ion-label> </ion-tab-button> }
+            <!-- <p class="source" *ngIf="event.source">Source: {{ event.source }}</p> -->
           </div>
-        </div>
+          @if (event.description) {
+            <p class="description">{{ event.description }}</p>
+          }
 
-      </div>
-    }
+          <div class="image-grid">
+            @for (img of event.imageCollection; track img) {
+              <div class="image-container">
+                <ion-img [src]="img.image" alt="Event Image"></ion-img>
+              </div>
+            }
+          </div>
+
+        </div>
+      }
     </div>
   </div>
 </ion-content>

@@ -1,0 +1,72 @@
+  <ion-grid>
+    <ion-row class="student">
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-select
+              placeholder="Sort By"
+              #class
+              (ionChange)="sortBy(class.value)"
+              label="Sort By"
+              slot="end"
+              value="class"
+            >
+              <ion-select-option value="class">Class</ion-select-option>
+              <ion-select-option value="Habitation">Village</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-list [inset]="true" lines="none">
+      <ion-accordion-group multiple>
+        @for (std of allStudentClassWise() ; track std) {
+        <ion-accordion value="{{std[0]['class']}}">
+          <ion-item slot="header" >
+            <ion-chip color="primary">
+              <ion-label
+                >{{sortByProperty()|uppercase}} :
+                {{std[0]['class']|titlecase}} -- ({{ std.length
+                }})</ion-label
+              >
+            </ion-chip>
+          </ion-item>
+          <ion-list slot="content" class="custom-list" [inset]="true" lines="none">
+            @for (studentInfo of std; track studentInfo) { 
+              @if (
+            studentInfo['Status']==='Active' || studentInfo['Status']==='Y') {
+            <ion-item-sliding>
+              <ion-item-options side="start">
+                <ion-item-option (click)="showModal(studentInfo)"
+                  >Detail</ion-item-option
+                >
+              </ion-item-options>
+              <ion-item (click)="showModal(studentInfo)" class="student-item">
+                <ion-thumbnail slot="start" class="thumbnail">
+                  <img [src]="studentInfo.Image" alt="Student Image">
+                </ion-thumbnail>
+                <ion-label class="info">
+                  <h2 class="name">{{ studentInfo.StudentName | titlecase }}</h2>
+                  @if(class.value ==="class"){
+                    <p class="habitation">{{ studentInfo.Habitation | titlecase }}</p>
+                  }@else{
+                    <p class="habitation">Standard: {{ studentInfo.class }}</p>
+                  }
+                  
+                </ion-label>
+            
+              </ion-item>
+              <ion-item-options side="end">
+                <ion-item-option (click)="showModal(studentInfo)"
+                  >Detail</ion-item-option
+                >
+              </ion-item-options>
+            </ion-item-sliding>
+            } 
+          }
+          </ion-list>
+        </ion-accordion>
+        }
+      </ion-accordion-group>
+    </ion-list>
+  </ion-grid>

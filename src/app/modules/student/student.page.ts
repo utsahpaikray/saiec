@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { groupBy, sortBy, values } from 'lodash';
 import { DownloadUrlService } from '../../shared-service/download-url.service';
@@ -31,10 +31,14 @@ export class StudentPage implements OnInit {
     totalStudent$!: Observable<number>;
     students$!: Observable<Student[]>;
     loaded$!: Observable<boolean>;
-    constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService, public firebaseService: FirebaseService, private router: Router, private store:Store<AppState>) {
+    title = signal('');
+    constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService, public firebaseService: FirebaseService, private router: Router, private store:Store<AppState>, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
+        const data = this.route.snapshot.data;
+        this.title.set(data['title'])
+
         this.getStudentsFromStore()
         this.students$.subscribe((items: Student[]) => {
            let inStudent = items.filter((item)=>(item.Status == "Active"|| item.Status==='Y'))

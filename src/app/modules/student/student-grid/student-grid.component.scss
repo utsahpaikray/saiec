@@ -1,0 +1,37 @@
+
+  
+  .category {
+    text-transform: uppercase;
+  }
+  
+  .student-item {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 8px;
+    border: 1px solid #d2d2d2;
+  }
+  
+  .thumbnail {
+    --border-radius: 8px;
+  }
+  
+  .info {
+    padding: 12px;
+    text-align: center;
+    margin-bottom: 8px;
+    color: var(--ion-color-primary);
+}
+  .name {
+    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .habitation {
+    color: #666;
+  }
+  
+  .detail-button {
+    color: var(--ion-color-primary);
+  }
+  

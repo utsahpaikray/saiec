@@ -1,7 +1,7 @@
 {
   "name": "SAIEC",
   "short_name": "SAIEC",
-  "theme_color": "#1976d2",
+  "theme_color": "#49af75",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",

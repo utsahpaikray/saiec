@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { allStudentInfo } from '../../../assets/student-info/allStudentInfo';
-import { groupBy, values,sortBy } from 'lodash';
+import { Params } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { StudentDetailPage } from '../shared/student-detail/student-detail.page';
+import { sortBy } from 'lodash';
 import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
+import { StudentDetailPage } from '../shared/student-detail/student-detail.page';
 
 @Component({
   selector: 'app-student-fee',
@@ -13,7 +12,7 @@ import { FirebaseService } from '../../shared-service/firebaseService/firebase-s
 })
 export class StudentFeePage implements OnInit {
 
-  public allStudentInfo = allStudentInfo;
+  public allStudentInfo = []
   params: Params | undefined;
   allStudentClassWise: any[] =[];
   inSchoolStudentData: any[]=[];

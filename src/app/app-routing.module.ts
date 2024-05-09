@@ -10,10 +10,11 @@ const routes: Routes = [
   },
   {
     path: AppRoutes.Home,
-    loadChildren: () => import('./modules/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('@modules/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: AppRoutes.Student,
+    data:{title: 'Student'},
     loadChildren: () => import('@modules/student/student.module').then(m => m.StudentPageModule)
   },
   {
