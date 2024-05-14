@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { AlertController, Platform, ToastController } from '@ionic/angular';
+import { AlertController, IonMenu, Platform, ToastController } from '@ionic/angular';
 
 import { NavigationEnd, Router } from '@angular/router';
 
@@ -256,7 +256,8 @@ export class AppComponent implements OnInit {
   public name: string = 'SAIEC'
   readonly VAPID_PUBLIC_KEY = "BIO6yW3VtwChWkL61__mF4c5k-8PLU62PkE0Arh4oGSqdBmt0HeuKDqBh1hXTnBqsfL7JGn6EHbtvr3EFFKUY_Q";
   prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
- 
+  @ViewChild('menu') menu!: IonMenu;
+  isCompactView = false;
     
     // // Listen for changes to the prefers-color-scheme media query
     // prefersDark.addListener((mediaQuery) => toggleDarkTheme(mediaQuery.matches));
@@ -267,8 +268,6 @@ export class AppComponent implements OnInit {
     private authService: AuthService,
   ) {
     this.initializeApp();
-    this.listenForMessages();
-   // this.requestPermission()
     this.toggleDarkTheme(this.prefersDark.matches);
    
   }
@@ -319,71 +318,8 @@ export class AppComponent implements OnInit {
     }
    // this.getFiles(5)
   }
-  listenForMessages() {
-    // this.messagingService.getMessages().subscribe(async (msg: any) => {
-    // //  console.log(msg)
-    //     const alert = await this.alertCtrl.create({
-    //     header: msg.notification.title,
-    //     subHeader: msg.notification.body,
-    //     message: msg.data.info,
-    //     buttons: ['Yes'],
-    //   });
- 
-    //   await alert.present();
-    // },((error: any)=>{
-    //   alert(error)
-    // }));
+  toggleMenuView() {
+    this.isCompactView = !this.isCompactView;
   }
- 
-  requestPermission() {
-    // this.messagingService.requestPermission().subscribe(
-    //   async (token: any) => {
-    //     const toast = await this.toastCtrl.create({
-    //       message: token,
-    //       duration: 2000
-    //     });
-    //     toast.present();
-    //   },
-    //   async (err: any) => {
-    //     const alert = await this.alertCtrl.create({
-    //       header: 'Error',
-    //       message: err,
-    //       buttons: ['YEs'],
-    //     });
- 
-    //     await alert.present();
-    //   }
-    // );
-  }
- 
-  async deleteToken() {
-    // this.messagingService.deleteToken();
-    // const toast = await this.toastCtrl.create({
-    //   message: 'Token removed',
-    //   duration: 2000
-    // });
-    // toast.present();
-  }
-  // requestPermissions() {
-  //   const messaging = getMessaging();
-  //   getToken(messaging, 
-  //    { vapidKey: environment.firebaseConfig.vapidKey}).then(
-  //      (currentToken) => {
-  //        if (currentToken) {
-  //          console.log("Hurraaa!!! we got the token.....");
-  //          console.log(currentToken);
-  //        } else {
-  //          console.log('No registration token available. Request permission to generate one.');
-  //        }
-  //    }).catch((err) => {
-  //       console.log('An error occurred while retrieving token. ', err);
-  //   });
-  // }
-  // listen() {
-  //   const messaging = getMessaging();
-  //   onMessage(messaging, (payload) => {
-  //     console.log('Message received. ', payload);
-  //     this.message=payload;
-  //   });
-  // }
+
 }

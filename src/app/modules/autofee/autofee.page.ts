@@ -22,8 +22,7 @@ export class AutofeePage implements OnInit {
 
   ngOnInit() {
     this.firebaseService.getAllstudentFee('student-auto-fee').subscribe(auto=>{
-      let autoFee=auto;
-      this.generateAutoFeeStructure(autoFee)
+      this.generateAutoFeeStructure(auto)
     })
   }
   extractInschoolData() {

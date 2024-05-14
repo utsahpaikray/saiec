@@ -2,8 +2,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridApi, GridOptions, GridReadyEvent, MenuItemDef } from 'ag-grid-community';
-  
-  import { sortBy } from 'lodash';
+import { sortBy } from 'lodash';
 import { Observable } from 'rxjs';
 import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 
@@ -65,6 +64,7 @@ export class StudentAutoFeePage  {
    onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
     this.firebaseService.getAllstudentFee('student-auto-fee').subscribe(items=>{
+      console.log(items)
        this.rowData = sortBy(items,['class','name']);
     })
     

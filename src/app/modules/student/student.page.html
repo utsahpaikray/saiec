@@ -22,8 +22,8 @@
   <ion-grid>
     <div class="action-top">
       <div class="grid-view">
-        <ion-chip color="warning">
-          <ion-label color="dark">Total Student: {{totalStudent}}</ion-label>
+        <ion-chip color="primary">
+          <ion-label color="dark">Total Student: {{totalStudent$|async}}</ion-label>
         </ion-chip>
       </div>
       <div class="grid-view">
@@ -36,7 +36,7 @@
   @if (!gridValue) {
   <ion-grid class="padding-top student-info">
     <ion-row class="student">
-      @for (std of allStudentInfo; track std) { 
+      @for (std of allStudentInfo$|async; track std) { 
         @if (std && std['Status']==='Active' || std['Status']==='Y') {
           @defer{
           <ion-col size="12" size-sm="6" size-md="4" size-lg="4">
@@ -57,11 +57,10 @@
   </ion-grid>
   } @else {
     @defer{
-      <app-student-grid 
-      [allStudentClassWise]="allStudentClassWise"
-      [allStudentInfo]="allStudentInfo"
-      [sortByProperty]="sortByProperty"
-      [classValue]="'class'">
+      
+      <app-student-grid  *ngIf="allStudentInfo$ | async as users"
+      [allStudentInfo]="users"
+      [sortByProperty]="'class'">
     </app-student-grid>
     }
   } @if ((loaded$|async)===false) {

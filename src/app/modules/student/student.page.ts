@@ -2,11 +2,11 @@ import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { groupBy, sortBy, values } from 'lodash';
-import { DownloadUrlService } from '../../shared-service/download-url.service';
-import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
+import { DownloadUrlService } from '@shared-service/download-url.service';
+import { FirebaseService } from '@shared-service/firebaseService/firebase-service.service';
 import { ModalPage } from '../shared/modal/modal.page';
 import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, combineLatest, filter, map, mergeMap, of, startWith, switchMap, tap } from 'rxjs';
 import { selectLoadedStatus, selectStudents, selectTotalStudents } from '../../states/student/student.selector';
 import { loadStudents } from '../../states/student/student.actions';
 import { Student } from './student.interface';
@@ -29,40 +29,85 @@ export class StudentPage implements OnInit {
     loaded=false;
     sortByProperty = 'class'
     totalStudent$!: Observable<number>;
-    students$!: Observable<Student[]>;
+    students$: Observable<Student[]> =of([]);
     loaded$!: Observable<boolean>;
     title = signal('');
+    public allStudentInfo$: Observable<Student[]>= of([]);
+    sortByProperty$: Observable<string> = of('class').pipe(startWith('class'));
+    allStudentClassWise$: Observable<Student[]>;
     constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService, public firebaseService: FirebaseService, private router: Router, private store:Store<AppState>, private route: ActivatedRoute) {
+        this.getStudentsFromStore()
+        this.allStudentInfo$ = combineLatest([
+            this.students$.pipe(filter(students => students !== null)), // Filtering out null values
+            this.sortByProperty$.pipe(filter(property => property !== null)) // Filtering out null values
+          ]).pipe(
+            map(([students, sortByProperty]) => this.sortStudents(students, sortByProperty))
+          );
+        this.totalStudent$ = this.allStudentInfo$.pipe(
+            map(students => students.filter(student => student['2024-2025'])),
+            map(inStudent => inStudent.length)
+          );
+          this.allStudentClassWise$ = combineLatest([
+            this.allStudentInfo$,
+            this.sortByProperty$
+          ]).pipe(
+            filter(([students, _]) => students !== null), // Filtering out null values
+            map(([students, property]) => {
+              if (students === null) {
+                // Handle the case where students array is null
+                return []; // Or you can return some default value
+              } else {
+                return this.sortStudents(students, property);
+              }
+            })
+          );
+          
     }
-
+ 
     ngOnInit() {
+        this.store.dispatch(loadStudents());
         const data = this.route.snapshot.data;
         this.title.set(data['title'])
-
-        this.getStudentsFromStore()
-        this.students$.subscribe((items: Student[]) => {
-           let inStudent = items.filter((item)=>(item.Status == "Active"|| item.Status==='Y'))
-            this.totalStudent = inStudent.length;
-            this.allStudentInfo = sortBy(inStudent, ['class', 'StudentName']);
-            var grouped = groupBy(this.allStudentInfo, function (it) {
-                return it.DateofBirth.split('-')[1];
-            });
-            this.allStudentClassWise = this.sortStudent(this.sortByProperty)
-           this.inSchoolStudentData = this.extractInschoolData();
-            //this.generateAutoFeeStructure(this.inSchoolStudentData)
-            this.loaded=true;
-        },err=>{
-            this.loaded=false;
-        })
+ 
+        // this.students$.subscribe({
+        //     next: (items: Student[]) => {
+        //       let inStudent = items.filter((item) => (item['2024-2025']));
+        //       this.totalStudent = inStudent.length;
+        //       this.allStudentInfo = sortBy(inStudent, ['class', 'StudentName']);
+        //       this.allStudentClassWise = this.sortStudent(this.sortByProperty);
+        //       this.inSchoolStudentData = this.extractInschoolData();
+        //       console.log(this.allStudentInfo);
+        //       // this.generateAutoFeeStructure(this.inSchoolStudentData);
+        //       this.loaded = true;
+        //     },
+        //     error: (err) => {
+        //       this.loaded = false;
+        //     }
+        //   });
 
 
     }
-    getStudentsFromStore(){
-            this.store.dispatch(loadStudents()); // Dispatch action to load students
-            this.totalStudent$ = this.store.pipe(select(selectTotalStudents));
-            this.students$ = this.store.pipe(select(selectStudents))
-            this.loaded$ = this.store.pipe(select(selectLoadedStatus))
+
+
+    private sortStudents(students: Student[] | null, property: string): Student[] {
+      if (!students) {
+        return [];
+      }
+      // Use lodash groupBy to group students by the specified property
+      const groupedStudents = groupBy(students, property);
+      // Use lodash values to get an array of arrays of students
+      const studentArrays = values(groupedStudents);
+      // Use Array.prototype.concat to flatten the array of arrays into a single array
+      return Array.prototype.concat(...studentArrays);
     }
+    
+      
+      getStudentsFromStore() {
+        // Dispatch action to load students
+        this.totalStudent$ = this.store.select(selectTotalStudents);
+        this.students$ = this.store.select(selectStudents);
+        this.loaded$ = this.store.select(selectLoadedStatus);
+      }
     sortStudent(property: any){
         this.sortByProperty = property
         return values(groupBy(this.allStudentInfo, property))
@@ -72,397 +117,9 @@ export class StudentPage implements OnInit {
         this.allStudentClassWise = this.sortStudent(property)
     }
     extractInschoolData() {
-        // this.totalStudent = 0;
         let filterData = this.allStudentClassWise.map(item => {
             return item.filter((innerItem: any) => {
-                // innerItem['exmaDetail'] =
-                //     [
-                //         {
-                //             "month": "Jan",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "Feb",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "Mar",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "April",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "May",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "jun",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "july",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "Aug",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "September",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "Oct",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "November",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },
-                //         {
-                //             "month": "December",
-                //             "Subject": [
-                //                 {
-                //                     topic: 'Math',
-                //                     total: 25,
-                //                     occ: 20
-                //                 },
-                //                 {
-                //                     topic: 'Science',
-                //                     total: 25,
-                //                     occ: 19
-                //                 },
-                //                 {
-                //                     topic: 'English',
-                //                     total: 25,
-                //                     occ: 15
-
-                //                 },
-                //                 {
-                //                     topic: 'MIL(Odia)',
-                //                     total: 25,
-                //                     occ: 10
-
-                //                 },
-                //                 {
-                //                     topic: 'History',
-                //                     total: 25,
-                //                     occ: 12
-                //                 },
-                //             ],
-                //         },]
                 if (innerItem['Sub-Status'] == 'In School') {
-                    //   this.totalStudent = this.totalStudent + 1;
                     return true;
                 };
                 return false
@@ -524,25 +181,6 @@ export class StudentPage implements OnInit {
            AutoFeeMonthwise.push({ month: month, studentInf: studentInfoArray })
         })
 
-    }
-    random_hex_color_code = () => {
-        let n = (Math.random() * 0xfffff * 1000000).toString(16);
-        return '#' + n.slice(0, 6);
-    };
-     randomColor = () => {
-        let hexCode = "#";
-        for( let i=0; i<6; i++){
-            hexCode += this.hexString[Math.floor(Math.random() * this.hexString.length)];
-        }
-        return hexCode;
-    }
-    
-     generateGrad = () => {
-        let colorOne = this.random_hex_color_code();
-        let colorTwo = this.random_hex_color_code();
-        let angle = Math.floor(Math.random() * 360);
-       // this.cdr.detectChanges();
-        return `linear-gradient(${angle}deg, ${colorOne}, ${colorTwo})`;
     }
 
 }

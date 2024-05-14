@@ -20,13 +20,14 @@
     </ion-row>
     <ion-list [inset]="true" lines="none">
       <ion-accordion-group multiple>
-        @for (std of allStudentClassWise() ; track std) {
-        <ion-accordion value="{{std[0]['class']}}">
+        @for (std of allStudentClassWise(); track std) {
+          
+        <ion-accordion value="{{std[0][sortByProperty()]}}">
           <ion-item slot="header" >
             <ion-chip color="primary">
               <ion-label
                 >{{sortByProperty()|uppercase}} :
-                {{std[0]['class']|titlecase}} -- ({{ std.length
+                {{std[0][sortByProperty()]|titlecase}} -- ({{ std.length
                 }})</ion-label
               >
             </ion-chip>

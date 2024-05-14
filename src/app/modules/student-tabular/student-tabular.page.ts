@@ -34,6 +34,7 @@ export class StudentTabularPage  {
    {field: '2022-2023',  cellRenderer: CompanyRendererComponent},
    {field: '2023-2024',  cellRenderer: CompanyRendererComponent},
    {field: '2024-2025',  cellRenderer: CompanyRendererComponent},
+   {field: 'Auto-Service',  cellRenderer: CompanyRendererComponent},
  ];
 
  // DefaultColDef sets props common to all Columns

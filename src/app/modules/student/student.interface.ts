@@ -1,4 +1,5 @@
 export interface Student {
+  [key: string]: string;
     Session: string;
     SocialCategory: string;
     $id: string;

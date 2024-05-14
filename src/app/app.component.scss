@@ -9,10 +9,6 @@ ion-menu ion-content {
   --padding-bottom: 20px;
 }
 
-ion-menu ion-list {
-  // padding: 20px 0;
-}
-
 ion-menu ion-note {
   margin-bottom: 30px;
 }
@@ -135,18 +131,44 @@ ion-item.selected {
 ion-toggle {
   height: 1rem;
 }
-ion-menu ion-item.active {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
+ion-menu {
+  ion-item.active, ion-list ion-item.active {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-primary-contrast);
+  }
+
+  ion-item.parent-active {
+    --background: rgba(var(--ion-color-primary-rgb), 0.1);
+  }
+
+  &.split-pane-side.ios.menu-type-overlay.menu-enabled.menu-side-start.hydrated.menu-pane-visible {
+    max-width: 300px;
+  }
+}
+@media screen and (min-width: 992px) {
+  ion-menu.compact {
+    ion-label {
+      display: none;
+    }
+
+    ion-icon.ios.hydrated {
+      margin-inline-end: 0;
+    }
+
+    &.split-pane-side.ios.menu-type-overlay.menu-enabled.menu-side-start.hydrated.menu-pane-visible {
+      max-width: 90px;
+      min-width: auto;
+    }
+
+    ion-item {
+      --padding-start: 14px;
+      --padding-end: 0;
+      --min-height: 50px;
+    }
+  }
 }
 
-/* Style for active sub-menu item */
-ion-menu ion-list ion-item.active {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
-}
-
-/* Style for parent menu item when a sub-menu item is active */
-ion-menu ion-item.parent-active {
-  --background: rgba(var(--ion-color-primary-rgb), 0.1);
+ion-toggle {
+  height: 1.5rem;
+  zoom: 0.7;
 }
