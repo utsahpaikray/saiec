@@ -1,0 +1,17 @@
+fragment GenericTermsAndConditions on Generic {
+  title
+  contentSection {
+    json
+  }
+}
+
+query termsAndConditions {
+  genericCollection(
+    where: { slug: "my-vanderlande-terms-and-conditions" }
+    limit: 1
+  ) {
+    items {
+      ...GenericTermsAndConditions
+    }
+  }
+}

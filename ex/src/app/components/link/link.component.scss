@@ -1,0 +1,24 @@
+.link-primary {
+  background-color: var(--gravity-button-background-color-ghost);
+  color: var(--gravity-button-color-ghost);
+  height: var(--grav-height-s);
+  padding: 0 var(--grav-space-s);
+
+  &:hover {
+    background-color: var(--gravity-button-background-color-ghost-hover);
+    color: var(--gravity-button-color-ghost-hover);
+  }
+}
+
+.link-secondary,
+.link-icon-secondary {
+  color: var(--grav-color-base-white);
+
+  &:hover {
+    color: var(--grav-color-base-grey-100);
+  }
+}
+
+:host app-dynamic-link ::ng-deep a[target=_blank] {
+  border: none;
+}

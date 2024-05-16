@@ -1,0 +1,30 @@
+<a
+  [routerLink]="['../']"
+  class="d-inline-flex items-center gap-xs text-blue-700 hover:text-blue-800"
+  data-testid="back-button"
+>
+  <grav-svg-icon class="text-orange-500" key="chevron-left"></grav-svg-icon>
+  {{ 'Contracts.ContractsOverview' | transloco }}
+</a>
+
+<ng-container *ngIf="!loading; else loader">
+  <h2
+    class="grav-text-header-3-medium text-grey-900 mt-xl mb-m lg:mb-xl lg:grav-text-header-medium"
+    data-testid="service-package-title"
+  >
+    {{ servicePackage.title }}
+  </h2>
+
+  <app-service-package-table
+    [contractLines]="contractLines"
+    data-testid="agreement-service-package-table"
+  ></app-service-package-table>
+</ng-container>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner data-testid="service-package-table-loading-spinner">
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

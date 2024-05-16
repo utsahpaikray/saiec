@@ -1,0 +1,41 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+.overlay-custom {
+  background-color: rgb(3 2 0 / 0.2); //replace this with updated grav color
+  
+  &.\!opacity-100 {
+    opacity: 1 !important;
+  }
+  &.opacity-0 {
+    opacity: 0;
+  }
+  &.\!visible {
+    visibility: visible !important;
+  }
+}
+
+.modal-custom {
+  transform: translate(-50%, -50%);
+
+  &.small {
+    max-width: calc(var(--grav-space-3-xl) * 7) /* 346px */;
+  }
+
+  max-height: 100vh;
+}
+
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+  .modal-custom {
+    &.small {
+      max-width: calc(var(--grav-space-3-xl) * 10) /* 488px */;
+    }
+    &.large {
+      max-width: calc(#{map-get(breakpoints.$breakpoints_min, 'xl')}px - 10px)
+        /* 1270px */;
+    }
+  }
+}
+
+.modal-close-btn {
+  color: inherit;
+}

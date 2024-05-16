@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Load the Husky commit-msg hook script (assuming husky.sh is located in a known path)
+. "$(dirname "$0")/_/husky.sh"
+
+# Change to the 'src/portal-ng' directory
+cd src/portal-ng
+
+# Run commitlint to check the format of the commit message
+commitMessageFile="$1"
+npx commitlint --edit "$commitMessageFile"

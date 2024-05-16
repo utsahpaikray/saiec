@@ -1,0 +1,29 @@
+fragment PortalUser on Portal_usersConnection {
+  totalCount
+  pageInfo {
+    hasNextPage
+    hasPreviousPage
+  }
+  edges {
+    cursor
+    node {
+      relatedIdentityData {
+        firstName
+        lastName
+        email
+        customerEmail
+        id
+      }
+    }
+  }
+}
+
+query portalUsers($portalId: UUID!, $cursor: String) {
+  portal_users(
+    first: 15
+    after: $cursor
+    where: { portals: { some: { id: { eq: $portalId } } } }
+  ) {
+    ...PortalUser
+  }
+}

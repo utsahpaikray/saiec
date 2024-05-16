@@ -1,0 +1,58 @@
+@use '../variables/breakpoints' as breakpoints;
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media (#{$breakpoint-value}) {
+    @each $space in ('xs', 's', 'm', 'l', 'xl', '2-xl', '3-xl', '4-xl', '5-xl')
+    {
+      $value: var(--grav-space-#{$space});
+      @each $key, $shorthand in ('margin': 'm', 'padding': 'p') {
+        .#{$breakpoint-name}\:#{$shorthand}-#{$space} {
+          #{$key}: #{$value};
+        }
+        .#{$breakpoint-name}\:\!#{$shorthand}-#{$space} {
+          #{$key}: #{$value} !important;
+        }
+        .#{$breakpoint-name}\:#{$shorthand}x-#{$space} {
+          #{$key}-left: #{$value};
+          #{$key}-right: #{$value};
+        }
+        .#{$breakpoint-name}\:\!#{$shorthand}x-#{$space} {
+          #{$key}-left: #{$value} !important;
+          #{$key}-right: #{$value} !important;
+        }
+        .#{$breakpoint-name}\:#{$shorthand}y-#{$space} {
+          #{$key}-bottom: #{$value};
+          #{$key}-top: #{$value};
+        }
+        .#{$breakpoint-name}\:\!#{$shorthand}y-#{$space} {
+          #{$key}-bottom: #{$value} !important;
+          #{$key}-top: #{$value} !important;
+        }
+        .#{$breakpoint-name}\:#{$shorthand}t-#{$space} {
+          #{$key}-top: #{$value};
+        }
+        .#{$breakpoint-name}\:\!#{$shorthand}t-#{$space} {
+          #{$key}-top: #{$value} !important;
+        }
+        .#{$breakpoint-name}\:#{$shorthand}r-#{$space} {
+          #{$key}-right: #{$value};
+        }
+        .#{$breakpoint-name}\:\!#{$shorthand}r-#{$space} {
+          #{$key}-right: #{$value} !important;
+        }
+        .#{$breakpoint-name}\:#{$shorthand}b-#{$space} {
+          #{$key}-bottom: #{$value};
+        }
+        .#{$breakpoint-name}\:\!#{$shorthand}b-#{$space} {
+          #{$key}-bottom: #{$value} !important;
+        }
+        .#{$breakpoint-name}\:#{$shorthand}l-#{$space} {
+          #{$key}-left: #{$value};
+        }
+        .#{$breakpoint-name}\:\!#{$shorthand}l-#{$space} {
+          #{$key}-left: #{$value} !important;
+        }
+      }
+    }
+  }
+}

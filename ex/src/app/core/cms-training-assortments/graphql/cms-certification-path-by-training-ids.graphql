@@ -1,0 +1,13 @@
+query certificationPathByTrainingIds($trainingIds: [String]) {
+  trainingCollection(where: { sys: { id_in: $trainingIds } }) {
+    items {
+      linkedFrom {
+        certificationPathCollection(limit: 3) {
+          items {
+            ...CertificationPathItem
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+mutation documentationSettingsDeleteDocument(
+  $documentName: String!
+  $siteId: UUID!
+) {
+  deleteDocument(documentName: $documentName, siteId: $siteId)
+}

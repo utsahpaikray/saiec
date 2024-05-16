@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '../../../../../styles/variables/breakpoints' as breakpoints;
+
+grav-card {
+  flex-basis: calc(100% - (var(--global-spacing-3-xl) * 2));
+
+  &.current-user,
+  &.current-user grav-card-content {
+    background-color: var(--global-color-primary-minimal);
+  }
+}
+
+@media #{map-get(breakpoints.$media_queries, '\\<md')} {
+  grav-card {
+    flex-basis: calc(100% - var(--global-spacing-3-xl));
+  }
+}

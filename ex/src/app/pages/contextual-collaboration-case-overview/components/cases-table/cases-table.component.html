@@ -1,0 +1,107 @@
+<div *ngIf="vm">
+  <div *ngIf="vm.body && vm.body.length">
+    <ng-context
+      *ngTemplateOutlet="
+        vm.isDesktop ? desktopView : tabletView;
+        context: {
+          body: vm.body,
+          headers: vm.headers,
+          lastUpdatedKey: vm.lastUpdatedTranslationKey
+        }
+      "
+    >
+    </ng-context>
+  </div>
+</div>
+
+<!-- Desktop Only view -->
+
+<ng-template
+  #desktopView
+  let-body="body"
+  let-headers="headers"
+  let-lastUpdatedKey="lastUpdatedKey"
+>
+  <table class="w-full bg-white">
+    <thead>
+      <tr>
+        <th scope="col">{{ headers.eventSource | transloco }}</th>
+        <th scope="col">{{ headers.summary | transloco }}</th>
+        <th scope="col">{{ headers.caseNumber | transloco }}</th>
+        <th scope="col">{{ headers.lastUpdated | transloco }}</th>
+        <th scope="row">{{ headers.status | transloco }}</th>
+        <th scope="col">{{ headers.workOrderID | transloco }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let row of body"
+        [routerLink]="row.routerLink"
+        class="cursor-pointer"
+      >
+        <td nowrap>{{ row.eventSource | transloco }}</td>
+        <td class="ellipsis w-quarter">
+          {{ row.summary }}
+        </td>
+        <td nowrap>{{ row.caseNumber }}</td>
+        <td nowrap>
+          {{
+            lastUpdatedKey
+              | transloco
+                : {
+                    updatedOn: row.lastUpdated
+                  }
+          }}
+        </td>
+        <td *transloco="let t" nowrap>
+          <grav-tag [appStatus]="row.tag">
+            {{ t(row.status) }}
+          </grav-tag>
+        </td>
+        <td nowrap>{{ row.workOrderID || '-' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<!-- Tablet and lower screens view -->
+<ng-template #tabletView let-body="body" let-headers="headers">
+  <ng-container *ngFor="let case of body">
+    <div [routerLink]="case.routerLink" class="w-full bg-white my-m p-m">
+      <div class="d-flex justify-space-between pb-s items-center">
+        <p class="grav-text-body-bold">{{ case.caseNumber }}</p>
+        <p *transloco="let t">
+          <grav-tag [appStatus]="case.tag">
+            {{ t(case.status) }}
+          </grav-tag>
+        </p>
+      </div>
+      <div class="d-flex items-flex-start flex-col">
+        <grav-key-value>
+          <span grav-key>{{ headers.eventSource | transloco }}</span>
+          <span grav-value class="ellipsis">{{
+            case.eventSource | transloco
+          }}</span>
+        </grav-key-value>
+        <grav-key-value>
+          <span grav-key>{{ headers.summary | transloco }}</span>
+          <span grav-value class="ellipsis">{{ case.summary }}</span>
+        </grav-key-value>
+        <grav-key-value>
+          <span grav-key>{{ headers.lastUpdated | transloco }}</span>
+          <span grav-value class="ellipsis" *transloco="let t">
+            {{
+              t(case.lastUpdatedKey, {
+                updatedOn: case.lastUpdated
+              })
+            }}
+          </span>
+        </grav-key-value>
+        <grav-key-value>
+          <span grav-key>{{ headers.workOrderID | transloco }}</span>
+          <span grav-value class="ellipsis">{{ case.workOrderID || '-' }}</span>
+        </grav-key-value>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

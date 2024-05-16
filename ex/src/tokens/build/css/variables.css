@@ -1,0 +1,71 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 04 Apr 2023 13:54:14 GMT
+ */
+
+:root {
+  --assets-font-roboto-name: Roboto;
+  --assets-font-noto-name: Noto Sans SC;
+  --breakpoint-xs-max: 639.9px;
+  --breakpoint-sm-min: 640px;
+  --breakpoint-sm-max: 767.9px;
+  --breakpoint-md-min: 768px;
+  --breakpoint-md-max: 1023.9px;
+  --breakpoint-lg-min: 1024px;
+  --breakpoint-lg-max: 1279.9px;
+  --breakpoint-xl-min: 1280px;
+  --breakpoint-xl-max: 1535.9px;
+  --breakpoint-2xl-min: 1536px;
+  --color-base-transparent: rgba(0, 0, 0, 0);
+  --color-base-current: #000000;
+  --color-base-white: #ffffff;
+  --color-base-black: #000000;
+  --color-base-gray-50: #f5f5f5;
+  --color-base-gray-100: #f2f2f2;
+  --color-base-gray-200: #d2d3d5;
+  --color-base-gray-300: #a8a9ab;
+  --color-base-gray-400: #828385;
+  --color-base-gray-500: #58595b;
+  --color-base-gray-700: #333333;
+  --color-base-gray-800: #2a2828;
+  --color-base-gray-900: #030200;
+  --color-base-orange-200: #e6a972;
+  --color-base-orange-500: #ef7b10;
+  --color-base-orange-800: #cd5b1c;
+  --color-base-blue-50: #edf1f6;
+  --color-base-blue-100: #e4eaf1;
+  --color-base-blue-200: #acbdd3;
+  --color-base-blue-500: #6baccc;
+  --color-base-blue-600: #559dc0;
+  --color-base-blue-700: #6786b0;
+  --color-base-blue-800: #5c7aa1;
+  --color-base-blue-900: #0a5798;
+  --color-base-green-100: #bef4db;
+  --color-base-green-500: #0eaf00;
+  --color-base-green-800: #14670d;
+  --color-base-red-100: #ffe2e2;
+  --color-base-red-500: #f50000;
+  --color-base-yellow-100: #fff6d3;
+  --font-family-base: Roboto;
+  --font-family-fallback: Noto Sans SC, sans-serif;
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+  --size-font-xs: 0.75rem;
+  --size-font-sm: 0.875rem;
+  --size-font-md: 1rem;
+  --size-font-lg: 1.125rem;
+  --size-font-xl: 1.25rem;
+  --size-font-2xl: 1.5rem;
+  --size-font-3xl: 1.875rem;
+  --size-font-4xl: 2.25rem;
+  --size-font-5xl: 3rem;
+  --size-font-6xl: 3.75rem;
+  --size-font-7xl: 4.5rem;
+  --size-font-8xl: 6rem;
+  --size-font-9xl: 8rem;
+  --size-font-base: 1rem;
+}

@@ -1,0 +1,30 @@
+<nav
+  [ngClass]="{
+    'is-vertical justify-space-between gap-m lg:gap-x-xs lg:gap-y-s':
+      isVertical,
+    'gap-s': !isVertical,
+    'grid-custom-18': !isCollapsed && !isVertical && !isCompact,
+    'grid-custom-cols-4': !isVertical && !isCompact,
+    'grid-custom-cols-21_25': !isVertical && isCompact
+  }"
+  class="d-grid"
+>
+  <grav-tooltip *ngFor="let item of items">
+    <app-navigation-item
+      [attr.data-testid]="'navigation-' + item.icon"
+      [icon]="item.icon"
+      [isCollapsed]="isCollapsed"
+      [isCompact]="isCompact"
+      [isExact]="item.url.length === 0"
+      [isVertical]="isVertical"
+      [url]="item.url"
+    >
+      {{ item.label | transloco }}
+    </app-navigation-item>
+    <template>
+      <grav-container elevated>
+        {{ item.label | transloco }}
+      </grav-container>
+    </template>
+  </grav-tooltip>
+</nav>

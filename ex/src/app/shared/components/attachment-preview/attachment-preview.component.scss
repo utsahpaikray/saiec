@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use '../../../../styles/variables/breakpoints' as breakpoints;
+
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+  grav-card {
+    max-height: calc(100vh - var(--global-spacing-2-xl));
+    max-width: calc(100vw - var(--global-spacing-5-xl));
+  }
+}
+
+object {
+  height: 100vh;
+  width: 100vw;
+  object-fit: scale-down;
+  min-height: 0;
+}
+
+grav-card-content {
+  min-height: 0;
+}
+

@@ -1,0 +1,9 @@
+query documentationSettingsCategories($culture: String) {
+  categories {
+    id
+    codeName
+    categoryCultures(where: { culture: { eq: $culture } }) {
+      name
+    }
+  }
+}

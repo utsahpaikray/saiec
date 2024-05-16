@@ -1,0 +1,26 @@
+fragment AssortedTrainingItemByCertificationPath on Training {
+  title
+  targetGroup
+  duration
+  sys {
+    id
+  }
+}
+
+fragment CertificationPathWithAssortedTraining on CertificationPath {
+  ...CertificationPathItem
+  trainingsCollection(where: { sys: { id_in: $assortedTrainingIds } }) {
+    items {
+      ...AssortedTrainingItemByCertificationPath
+    }
+  }
+}
+
+query assortedTrainingsByCertificationPath(
+  $certificationPathId: String!
+  $assortedTrainingIds: [String]
+) {
+  certificationPath(id: $certificationPathId) {
+    ...CertificationPathWithAssortedTraining
+  }
+}

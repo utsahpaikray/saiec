@@ -1,0 +1,17 @@
+query documentCategories($culture: String, $siteId: UUID!) {
+  categories(
+    where: { categoryCultures: { some: { culture: { eq: $culture } } } }
+  ) {
+    id
+    codeName
+    categoryCultures(where: { culture: { eq: $culture } }) {
+      name
+      culture
+      description
+    }
+    categoryAccesses {
+      roleReference
+    }
+  }
+  categoriesBySite(siteId: $siteId)
+}

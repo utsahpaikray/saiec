@@ -1,0 +1,52 @@
+<ng-container *ngIf="documents && documents.length">
+  <ul class="px-m pb-m">
+    <li
+      *ngFor="let document of documents"
+      [ngClass]="{ 'cursor-pointer': document.url }"
+      (click)="onDocumentClick(document)"
+      class="mb-m last:mb-0"
+      data-testid="document-row"
+    >
+      <div class="d-flex justify-space-between items-center">
+        <span
+          *ngIf="document"
+          class="font-bold text-grey-900 break-words"
+          data-testid="document-name"
+        >
+          <ng-container *ngIf="document.name; else fileNumber">
+            {{ document.name }}
+          </ng-container>
+          <ng-template #fileNumber>
+            {{ document.key?.number }}
+          </ng-template>
+        </span>
+        <button [disabled]="!document.url" ghost>
+          <grav-svg-icon
+            [key]="
+              document.__typename === 'File' ? 'download' : 'link-external'
+            "
+            data-testid="document-icon"
+          ></grav-svg-icon>
+        </button>
+      </div>
+      <span
+        class="text-grey-700 break-words"
+        data-testid="document-description"
+        >{{ document.description }}</span
+      >
+    </li>
+  </ul>
+  <div
+    *ngIf="isLoadingMore || hasMoreDocuments"
+    class="d-flex justify-center px-m pb-m"
+  >
+    <button
+      [disabled]="isLoadingMore"
+      (click)="showMoreEvent.emit($event)"
+      data-testid="show-more"
+      ghost
+    >
+      {{ 'General.ShowMore' | transloco }}
+    </button>
+  </div>
+</ng-container>

@@ -1,0 +1,68 @@
+<ul class="divide-y-2 divide-grey-100">
+  <li
+    *ngFor="let file of files$ | async; let i = index"
+    class="d-flex gap-m <md:flex-col <md:p-m md:items-center md:gap-s md:p-l"
+    data-testid="file-upload-list-row"
+  >
+    <div class="width-custom-2/3">
+      <p
+        class="break-words grav-text-body-small-medium <md:grav-text-body-small-medium"
+        data-testid="file-upload-list-name"
+      >
+        {{ file.name }}
+      </p>
+      <p
+        [attr.data-testid]="'file-upload-list-category-' + i"
+        class="tex-grey-700 grav-text-body-small"
+      >
+        {{ file.category }}
+      </p>
+    </div>
+    <div
+      [ngClass]="{ 'md:d-flex md:justify-flex-end': file.progress === 100 }"
+      class="md:w-third"
+    >
+      <app-progress-bar
+        [attr.data-testid]="'file-upload-list-progress-bar-' + i"
+        [progress]="file.progress"
+        (cancel)="cancelProgressBarByFileId(file.id)"
+      >
+        <span [attr.data-testid]="'file-upload-list-uploading-' + i">{{
+          'General.Uploading' | transloco
+        }}</span>
+        <ng-container [ngSwitch]="true" complete>
+          <ng-container *ngSwitchCase="file.canceled">
+            <span [attr.data-testid]="'file-upload-list-canceled-' + i">{{
+              'General.Canceled' | transloco
+            }}</span>
+            <svg-icon
+              [attr.data-testid]="'file-upload-list-canceled-icon-' + i"
+              name="x-circle"
+              svgClass="text-red-500 grav-text-header-3"
+            ></svg-icon
+          ></ng-container>
+          <ng-container *ngSwitchCase="!file.processed && !file.canceled">
+            <span [attr.data-testid]="'file-upload-list-processing-' + i">{{
+              'General.Processing' | transloco
+            }}</span>
+            <app-progress-spinner
+              [attr.data-testid]="'file-upload-list-progress-spinner-' + i"
+              size="xs"
+            ></app-progress-spinner
+          ></ng-container>
+          <ng-container *ngSwitchDefault>
+            <span [attr.data-testid]="'file-upload-list-uploaded-' + i">{{
+              'General.Uploaded' | transloco
+            }}</span>
+            <svg-icon
+              *ngIf="file.processed"
+              [attr.data-testid]="'file-upload-list-uploaded-icon-' + i"
+              name="check"
+              svgClass="text-green-500 grav-text-header-3"
+            ></svg-icon
+          ></ng-container>
+        </ng-container>
+      </app-progress-bar>
+    </div>
+  </li>
+</ul>

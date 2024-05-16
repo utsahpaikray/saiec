@@ -1,0 +1,56 @@
+<app-title text="{{ 'General.Users' | transloco }}"></app-title>
+
+<app-link
+  *ngIf="portal"
+  [linkText]="portal.name"
+  class="mt-l d-inline-block"
+  data-testid="back-button"
+  iconName="chevron-left"
+  iconPosition="left"
+  linkUrl="../"
+  size="lg"
+>
+</app-link>
+
+<div
+  [ngClass]="!portal ? 'md:justify-space-between' : 'md:justify-flex-end'"
+  class="mt-l md:d-flex my-l mt-xl"
+>
+  <app-search-input
+    *ngIf="!portal"
+    [delay]="300"
+    [searchText]="searchText"
+    (changeEvent)="search($event)"
+    class="d-block w-full"
+    data-testid="user-search"
+    placeholder="{{ 'General.Search' | transloco }}"
+  ></app-search-input>
+
+  <app-add-user class="d-block <md:mt-m"></app-add-user>
+</div>
+
+<app-user-table
+  [noDataText]="searchText ? ('PortalAdmin.NoUsersFound' | transloco) : ''"
+  [users]="users"
+  (selectUser)="goToUserProfilePage($event)"
+  class="mt-l d-block"
+  data-testid="user-table"
+></app-user-table>
+
+<p
+  *ngIf="totalCount && users.length !== 0"
+  class="mt-l d-flex justify-center grav-text-body-small-medium leading-4"
+>
+  {{
+    'General.Showing' | transloco : { amount: users.length, total: totalCount }
+  }}
+</p>
+
+<div
+  *ngIf="hasNextPage && users.length !== 0"
+  class="mt-m d-flex justify-center"
+>
+  <button (click)="loadMore()" data-testid="show-more-button" ghost>
+    {{ 'General.ShowMore' | transloco }}
+  </button>
+</div>

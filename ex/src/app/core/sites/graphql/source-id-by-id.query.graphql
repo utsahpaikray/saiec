@@ -1,0 +1,5 @@
+query sourceIdById($id: UUID) {
+  sites(where: { id: { eq: $id } }) {
+    sourceId
+  }
+}

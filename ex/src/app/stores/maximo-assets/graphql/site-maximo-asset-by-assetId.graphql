@@ -1,0 +1,11 @@
+query assetBySystemComponentId($siteId: UUID!, $systemComponentId: String!) {
+  assetBySystemComponentId(
+    siteId: $siteId
+    systemComponentId: $systemComponentId
+  ) {
+    systemComponentId
+    description
+    markCode
+    markNumber
+  }
+}

@@ -1,0 +1,72 @@
+<ng-container *ngIf="!loading; else loader">
+  <section *ngIf="documents && documents.length > 0; else notFound">
+    <div
+      *ngFor="let document of documents; let i = index"
+      [attr.data-testid]="'document-search-result-' + i"
+      class="mb-xs d-flex bg-white p-s hover:bg-grey-100 md:py-l md:px-3-xl"
+    >
+      <div data-testid="table-file-icon">
+        <svg-icon
+          name="document-text-outline"
+          svgClass="grav-text-header-2 d-flex text-steelblue-300"
+        ></svg-icon>
+      </div>
+
+      <div class="mx-m flex-grow text-left">
+        <div class="d-flex">
+          <div
+            *ngIf="document.highlightText"
+            [attr.data-testid]="'document-search-title-' + i"
+            [innerHTML]="document.highlightText | safeHtml"
+            class="break-words text-left text-grey-900 md:grav-text-header-3"
+          ></div>
+
+          <span
+            *ngIf="document.contentLength"
+            class="ml-2-xl whitespace-nowrap md:ml-20"
+          >
+            {{ document.contentLength | fileSize }}
+          </span>
+        </div>
+
+        <p
+          *ngIf="document.location"
+          class="mt-xs <md:grav-text-body-small md:mt-s"
+        >
+          {{ document.location }}
+        </p>
+
+        <p
+          *ngIf="document.content"
+          [attr.data-testid]="'document-search-content-' + i"
+          [innerHTML]="document.content | safeHtml"
+          class="mt-xs break-words <md:grav-text-body-small md:mt-s"
+        ></p>
+      </div>
+      <button
+        [attr.data-testid]="'download-search-result-' + i"
+        (click)="download(document)"
+        ghost
+      >
+        <svg-icon
+          name="download-outline"
+          svgClass="grav-text-header-3 text-steelblue-500"
+        ></svg-icon>
+      </button>
+    </div>
+  </section>
+</ng-container>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner data-testid="document-search-spinner">
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #notFound>
+  <p data-testid="document-table-not-found">
+    {{ 'Documentation.NotFoundMessage' | transloco }}
+  </p>
+</ng-template>

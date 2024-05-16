@@ -1,0 +1,105 @@
+@use 'sass:map';
+@use '../variables/breakpoints' as breakpoints;
+
+$transition_duration: (
+  '0': 0s,
+  '75': 75ms,
+  '100': 100ms,
+  '150': 150ms,
+  '200': 200ms,
+  '300': 300ms,
+  '500': 500ms,
+  '700': 700ms,
+  '1000': 1000ms
+);
+
+$timing_func: (
+  'linear': linear,
+  'in': cubic-bezier(0.4, 0, 1, 1),
+  'out': cubic-bezier(0, 0, 0.2, 1),
+  'in-out': cubic-bezier(0.4, 0, 0.2, 1)
+);
+
+.transition {
+    transition-property: 'color', 'background-color', 'border-color',
+      'text-decoration-color', 'fill', 'stroke', 'opacity', 'box-shadow',
+      'transform', 'filter', 'backdrop-filter';
+    transition-timing-function: map-get($timing_func, 'in-out');
+    transition-duration: map-get($transition_duration, '150');
+  }
+
+  @each $property
+    in ('none', 'all', 'colors', 'opacity', 'shadow', 'transform')
+  {
+    .transition-#{$property} {
+      @if $property == 'none' {
+        transition-property: #{$property};
+      } @else {
+        transition-property: #{$property};
+        transition-timing-function: map-get($timing_func, 'in-out');
+        transition-duration: map-get($transition_duration, '150');
+      }
+    }
+  }
+
+  @each $duration, $value in $transition_duration {
+    .duration-#{$duration} {
+      transition-duration: #{$value};
+    }
+  }
+
+  @each $timing, $value in $timing_func {
+    .ease-#{$timing} {
+      transition-timing-function: #{$value};
+    }
+  }
+
+  @each $delay, $value in $transition_duration {
+    .delay-#{$delay} {
+      transition-delay: #{$value};
+    }
+  }
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media #{$breakpoint-value} {
+    .#{$breakpoint-name}\:transition {
+      transition-property: 'color', 'background-color', 'border-color',
+        'text-decoration-color', 'fill', 'stroke', 'opacity', 'box-shadow',
+        'transform', 'filter', 'backdrop-filter';
+      transition-timing-function: map-get($timing_func, 'in-out');
+      transition-duration: map-get($transition_duration, '150');
+    }
+
+    @each $property
+      in ('none', 'all', 'colors', 'opacity', 'shadow', 'transform')
+    {
+      .#{$breakpoint-name}\:transition-#{$property} {
+        @if $property == 'none' {
+          transition-property: #{$property};
+        } @else {
+          transition-property: #{$property};
+          transition-timing-function: map-get($timing_func, 'in-out');
+          transition-duration: map-get($transition_duration, '150');
+        }
+      }
+    }
+
+    @each $duration, $value in $transition_duration {
+      .#{$breakpoint-name}\:duration-#{$duration} {
+        transition-duration: #{$value};
+      }
+    }
+
+    @each $timing, $value in $timing_func {
+      .#{$breakpoint-name}\:ease-#{$timing} {
+        transition-timing-function: #{$value};
+      }
+    }
+
+    @each $delay, $value in $transition_duration {
+      .#{$breakpoint-name}\:delay-#{$delay} {
+        transition-timing-function: #{$value};
+      }
+    }
+  }
+}

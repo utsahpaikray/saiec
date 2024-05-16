@@ -1,0 +1,13 @@
+query assortedTrainingIds($segment: [String]) {
+  assortmentCollection(where: { segment_contains_all: $segment }, limit: 1) {
+    items {
+      trainingsCollection {
+        items {
+          sys {
+            id
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<aside *ngIf="training">
+  <app-picture
+    *ngIf="image"
+    [imageTitle]="image.title"
+    [imageXs]="image.url"
+    data-testid="training-detail-image"
+    imageClass="w-full"
+  ></app-picture>
+
+  <div class="mt-m p-l">
+    <div
+      *ngIf="training.targetGroup"
+      class="mb-l"
+      data-testid="training-detail-target-group"
+    >
+      <h5
+        class="text-grey-900 <md:leading-6 md:grav-text-header-3-medium md:leading-7"
+      >
+        {{ 'Training.MetaTargetGroup' | transloco }}
+      </h5>
+      <p class="text-grey-900 <md:leading-6 md:grav-text-header-3 md:leading-7">
+        {{ training.targetGroup }}
+      </p>
+    </div>
+
+    <div
+      *ngIf="training.entryRequirements"
+      class="mb-l"
+      data-testid="training-detail-prerequisites"
+    >
+      <h5
+        class="text-grey-900 <md:leading-6 md:grav-text-header-3-medium md:leading-7"
+      >
+        {{ 'Training.MetaPrerequisites' | transloco }}
+      </h5>
+      <p class="text-grey-900 <md:leading-6 md:grav-text-header-3 md:leading-7">
+        {{ training.entryRequirements }}
+      </p>
+    </div>
+
+    <div *ngIf="training.duration" data-testid="training-detail-duration">
+      <h5
+        class="text-grey-900 <md:leading-6 md:grav-text-header-3-medium md:leading-7"
+      >
+        {{ 'Training.MetaDuration' | transloco }}
+      </h5>
+      <p class="text-grey-900 <md:leading-6 md:grav-text-header-3 md:leading-7">
+        {{ training.duration }}
+      </p>
+    </div>
+  </div>
+</aside>

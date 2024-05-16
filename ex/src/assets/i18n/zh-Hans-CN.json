@@ -1,0 +1,989 @@
+{
+	"General": {
+		"Dashboard": "首页",
+		"Calendar": "日历",
+		"Documentation": "文档",
+		"Contacts": "联系方式",
+		"SpareParts": "备件",
+		"ViaInsights": "VIA Insights",
+		"Pace": "Pace",
+		"Vidi": "VIDI",
+		"Performance": "性能",
+		"Contracts": "联系方式",
+		"Training": "培训",
+		"TrainingOverview": "培训概述",
+		"NewsInsights": "新闻和见解",
+		"Maintenance": "维护",
+		"Requests": "请求",
+		"SiteSettings": "网站设置",
+		"AllSiteSettings": "所有网站设置",
+		"Portals": "门户",
+		"Users": "用户",
+		"Close": "关闭",
+		"AllPortals": "所有门户",
+		"View": "查看",
+		"Login": "登录",
+		"Sites": "网站",
+		"User": "用户",
+		"LogOut": "注销",
+		"Email": "电子邮箱",
+		"PhoneNumber": "电话号码",
+		"Address": "地址",
+		"Optional": "可选",
+		"Required": "必需",
+		"Request": "请求",
+		"SuccessMessage": "请求已发送。",
+		"ApiError": "出了点问题。请稍后再试。",
+		"GoToHome": "返回首页",
+		"MandatoryField": "此字段必须填写。",
+		"ValidEmail": "请输入有效的电子邮件地址。",
+		"SpecialCharacter": "请勿输入特殊字符“&lt;”和“&gt;”。",
+		"GoToSite": "前往网站",
+		"MaxCharacter": "保持此文本短于{{ total }}个字符。",
+		"FileTypeWarning": "不支持以下文件类型：",
+		"MyProfile": "我的个人资料",
+		"AddPortalButton": "添加门户",
+		"Save": "保存",
+		"Confirm": "确认",
+		"Cancel": "取消",
+		"Keep": "储存",
+		"Delete": "删除",
+		"ReadMore": "阅读更多",
+		"Loading": "正在加载中",
+		"Showing": "显示{{amount}}的{{ total }}",
+		"ShowMore": "显示更多",
+		"ShowResult": "显示{{ number }}的{{ total }}",
+		"NoSitesOrPortals": "您没有访问任何门户和/或站点的权限。",
+		"NoPortalsFound": "没有符合您的搜索条件的门户。",
+		"NoPortals": "无可用门户。",
+		"Back": "返回",
+		"ViewDetails": "查看详情",
+		"Uploaded": "已上传",
+		"Processing": "处理中",
+		"Canceled": "已取消",
+		"Uploading": "上传中",
+		"Yes": "是",
+		"No": "无",
+		"MarkcodeOrSystem": "标记代码或系统",
+		"Availability": "可用性",
+		"Parts": "零件",
+		"Labour": "人力",
+		"ByPhone": "电话响应时间（小时）",
+		"OnSite": "现场（小时）",
+		"Visits": "访问次数",
+		"ManpowerDaysPerVisit": "每次访问的人力天数",
+		"StartAndEndDate": "开始和结束日期",
+		"NoStartDate": "无开始日期",
+		"NoEndDate": "无结束日期",
+		"Title": "标题",
+		"NewMessage": "新消息",
+		"Message": "留言",
+		"SendMessage": "发送消息",
+		"AddingMessage": "添加消息",
+		"DateCreated": "创建日期",
+		"Created": "创建",
+		"Status": "状态",
+		"Priority": "优先级",
+		"Type": "型号",
+		"Number": "编号",
+		"LoadMore": "加载更多",
+		"Search": "搜索",
+		"ReportOn": "报告日期",
+		"MaximoAccessError": "某些功能（我的合同、我的服务单）目前不可用。稍后刷新页面即可访问这些功能。",
+		"Description": "描述",
+		"ItemNumber": "商品编号",
+		"ItemDescription": "商品描述",
+		"AddItem": "添加商品",
+		"NoItems": "没有与您的条件相匹配的商品。",
+		"Edit": "编辑",
+		"Remove": "移除",
+		"Quantity": "数量",
+		"Classification": "分类",
+		"Category": "类别",
+		"PleaseAddFile": "当前此处没有文件。请添加有关商品的文件。",
+		"Name": "名称"
+	},
+	"None": "无",
+	"Category": "类别",
+	"Dashboard": {
+		"WelcomeMessage": "欢迎来到“我的范德兰德”，",
+		"WelcomeTag": "欢迎",
+		"WelcomeTitle": "欢迎来到“我的范德兰德”客户门户的试行版本!",
+		"WelcomeDesc": "在这里，您可以访问网站的文档，订购备件，浏览和请求培训和认证，并查找范德兰德联系方式的详情。",
+		"FeedbackTag": "反馈",
+		"FeedbackTitle": "您认为门户怎么样？",
+		"FeedbackDesc": "完善门户，让我们知道您的想法，给予我们提示和建议，让我们能够给您更多帮助。请使用本页面和其他页面的反馈框，或将其发送到myvanderlande@vanderlande.com",
+		"NewsInsightsTag": "新闻和见解",
+		"ReadMore": "更多新闻和见解",
+		"AirportTitle": "Vanderlande to develop innovative checkpoint concept for US Department of Homeland Security",
+		"AirportDesc": "Vanderlande’s concept for a self-screening passenger security checkpoint solution for airports has been selected by the US Department of Homeland Security (DHS) for further design, development and operational testing.",
+		"ParcelTitle": "Vanderlande cooperates with PostNord on new parcel sites in Finland",
+		"ParcelDesc": "Vanderlande has been chosen to supply two state-of-the-art sortation systems to the PostNord Group – one of the leading parcel distribution companies in Scandinavia.",
+		"WarehouseTitle": "Speed is of the essence",
+		"WarehouseDesc": "The delivery windows for home delivery of groceries are getting shorter and shorter. The latest trend is to deliver groceries directly to your home within ten minutes.",
+		"SitePerformance": {
+			"Title": "网站性能",
+			"Button": "查看{{ app名称 }}",
+			"Filters": {
+				"OneDay": "1D",
+				"SevenDays": "7D",
+				"ThirtyDays": "30D",
+				"OneYear": "1Y",
+				"ALL": "全部"
+			},
+			"Charts": {
+				"Availability": {
+					"Title": "可用性",
+					"Value": "{{数值}}%",
+					"Explanation": "目标下的{{{数值}}%"
+				},
+				"Performance": {
+					"Title": "性能",
+					"Value": "{{数值}}%",
+					"Explanation": "目标下的{{{数值}}%"
+				},
+				"Throughput": {
+					"Title": "吞吐量",
+					"Value": "{{数值}}%",
+					"Explanation": "目标下的{{{数值}}%"
+				}
+			}
+		}
+	},
+	"Documentation": {
+		"Size": "大小",
+		"Language": "语言",
+		"Location": "位置",
+		"MyDocumentation": "我的文档",
+		"OverviewMessage": "指尖轻触，即可查看与您的系统相关的所有文件。如果您有任何疑问，请与您的合同经理联系。",
+		"NoDocuments": "无可用文件。",
+		"NotFoundMessage": "没有与您的搜索请求相匹配的结果。尝试使用其他搜索词。",
+		"SearchResultsFor": "“{{searchText}}”的搜索结果",
+		"DownloadOmManual": "下载《运维手册》完整版",
+		"FailedToDownloadOmManual": "出了点问题。请稍后再试。",
+		"View": "查看",
+		"Certifications": "认证",
+		"CertificationsDesc": "机械设备的报告和认证。",
+		"Contracts": "合同",
+		"ContractsDesc": "项目和服务合同。",
+		"HealthSafetyEnvironment": "健康、安全与环境 ",
+		"HealthSafetyEnvironmentDesc": "技术信息函和安全说明。",
+		"LifeCycleDocumentation": "生命周期文档",
+		"LifeCycleDocumentationDesc": "关于系统维护、物流管理和业务改进的文件。",
+		"OmManual": "运维手册",
+		"OmManualDesc": "您已安装设备的数据库的完整文档。",
+		"OtItDocumentation": "OT&IT 文档",
+		"OtItDocumentationDesc": "业务和技术软件文件。",
+		"Projects": "项目",
+		"ProjectsDesc": "项目报告、系统规范、移交文档。",
+		"ReportsAndOthers": "报告和其他",
+		"ReportsAndOthersDesc": "杂项文件和报告。"
+	},
+	"Landing": {
+		"WelcomeMessage": "欢迎来到“我的范德兰德”",
+		"LadingUnloggedMessage": "要使用“我的范德兰德”，您必须登录。",
+		"NotRegistered": "还没有注册？",
+		"ContactManager": "请联系您的客户经理。",
+		"LandingTextTitle": "“我的范德兰德”是您的以下数字接触点：",
+		"LandingTextLine1": "技术和运营文档",
+		"LandingTextLine2": "与范德兰德顺畅沟通",
+		"LandingTextLine3": "您的系统的性能和健康状况",
+		"LandingTextLine4": "我们的全套服务和培训组合",
+		"LandingTextLine5": "访问所有数字应用程序",
+		"ContactLink": "联系方式",
+		"CopyrightText": "版权所有 © {{year}} Vanderlande industries B.V.。保留所有权利。",
+		"PrivacyLink": "隐私声明",
+		"CookiePolicy": "Cookie 政策",
+		"CookiePreferences": "Cookie 偏好",
+		"LogInTitle": "登录",
+		"LogInButton": "登录"
+	},
+	"NotFound": {
+		"Message": "链接失效或本页已移动。"
+	},
+	"ErrorStatePIModule": {
+		"Message": "无法打开Process Insights。",
+		"Reason": "为访问Process Insights机场模块，您需连接VPN。"
+	},
+	"AccessDenied": {
+		"Message": "您尝试打开的页面访问受限。 \n请与您的范德兰德联系人联系，以获取访问权限。"
+	},
+	"Portal": {
+		"Overview": "门户概述"
+	},
+	"Training": {
+		"MyTraining": "我的培训",
+		"Description": "使您的员工能够有效地运营和维护您的系统。课程根据您的已安装设备的数据库定制，并针对您团队的特定需求而设计。",
+		"Certifications": "认证",
+		"CertificationPath": "认证路径",
+		"CertificationAndTraining": "获得培训和认证",
+		"CardLinkText": "阅读更多",
+		"Suggested": "建议",
+		"TrainingColumn": "培训",
+		"ForColumn": "之",
+		"DurationColumn": "持续时间",
+		"NoTrainings": "无培训。",
+		"TrainingBackBtn": "培训概述",
+		"RequestBtn": "请求",
+		"Modules": "模块",
+		"ElectiveModules": "选修课程模块",
+		"MetaTargetGroup": "目标群体",
+		"MetaPrerequisites": "前提条件",
+		"MetaDuration": "持续时间",
+		"MetaMaxTrainees": "最多学员数量",
+		"MetaSystemAvailability": "系统可用性",
+		"Required": "必需",
+		"SendBtn": "发送",
+		"RequestSuccessMsg": "您的培训请求已发送。",
+		"OperationsTitle": "操作",
+		"OperationsDesc": "如何操作您的系统 - 有效利用操作员工作站。",
+		"LogisticsTitle": "后勤",
+		"LogisticsDesc": "如何有效保障您的 MHS 的整体运行。了解您的系统，以便优化您的绩效。",
+		"MaintenanceTitle": "维护和 IT",
+		"MaintenanceDesc": "如何维护您的系统 - 有效维护所有部件（机械部件、电气部件及低级和高级控件）。"
+	},
+	"UserProfile": {
+		"Title": "用户个人资料",
+		"Access": "访问",
+		"AddPortal": "添加门户",
+		"Privacy": "隐私",
+		"PrivacyLink": "隐私声明",
+		"CookiePolicy": "Cookie 政策",
+		"TermsAndConditions": "条款和条件",
+		"CookiePreferences": "Cookie 偏好",
+		"Preferences": "首选项",
+		"PreferredLanguage": "首选语言",
+		"LanguageUpdated": "首选语言已更新。",
+		"ProfileTab": "个人资料和偏好",
+		"AuthorizationTab": "授权和访问"
+	},
+	"UserAccess": {
+		"SelectPortal": "选择门户",
+		"RevokeAccess": "撤销访问",
+		"AccessAdded": "添加了对{{name}}的访问。",
+		"AccessRevoked": "撤销了对{{name}}及其网站的访问。",
+		"SiteAccessRevoked": "撤销了对 {{name}} 的访问权限。",
+		"Title": "访问",
+		"DeallocateContractManagerError": "合同经理无法从其网站中解除分配。",
+		"SitesSubtitle": "网站"
+	},
+	"UserAuthorization": {
+		"Title": "授权",
+		"Message": "用户角色适用于所有连接的门户和网站。",
+		"VanderlandeUserMessage": "可以阅读他们所访问的站点和门户的所有信息。",
+		"CustomerMessage": "客户用户的账号。只能访问和查看单个门户的网站。",
+		"SuperUserMessage": "可以编辑任何门户或站点的任何信息。 ",
+		"PortalAdminMessage": "可以以管理员身份编辑门户和站点，上传和删除文件、联系人等。",
+		"RoleAssigned": "用户角色已分配：{{role}}。"
+	},
+	"TrainingRequest": {
+		"PreviousPage": "上一页",
+		"Title": "新请求",
+		"Required": "必需",
+		"YourRequest": "Your request",
+		"RequestType": {
+			"Label": "What would you like to request?",
+			"ErrorText": "Please select what you would like to request.",
+			"Training": "Training",
+			"Certification": "Certification"
+		},
+		"Remarks": {
+			"Label": "Remarks",
+			"Placeholder": "Third-party equipment, other requests and specifications."
+		},
+		"Topics": {
+			"Label": "Topics",
+			"Placeholder": "Select certification path",
+			"ErrorText": "Please select a certification path."
+		},
+		"Trainings": {
+			"ErrorText": "Please select at least one training."
+		},
+		"PreviousTraining": {
+			"Label": "Previous training",
+			"Placeholder": "Have the trainees received relevant training before?"
+		},
+		"WhenAndWhere": "When and where",
+		"PreferredDatesOrPeriod": {
+			"Label": "Preferred date(s) or period",
+			"Placeholder": "Specific date or Q1, next spring, before Christmas or as soon as possible.",
+			"Note": "A cancellation less than 7 days before the start date results in a cancellation fee similar to the preparation and training hours of the training"
+		},
+		"PreferredTrainingLocation": {
+			"Label": "Preferred training location",
+			"NoteVeghel": "Customer Centre is responsible for all travel arrangements and accommodation requirements. This includes travel arrangements from hotel to Vanderlande and back. Please send a copy of the travel arrangements to the Trainer.",
+			"NoteAnotherLocation": "We will charge travel and accommodation costs for the trainer."
+		},
+		"PreferredLocation": {
+			"Label": "Preferred location",
+			"Placeholder": "Location where you would like to receive the training."
+		},
+		"Participants": {
+			"Label": "Participants",
+			"Note": "The minimum amount of participants is 2. Large groups may have to be broken up into smaller ones.",
+			"Name": {
+				"Label": "Name",
+				"Placeholder": "Name"
+			},
+			"Email": {
+				"Label": "E-mail",
+				"Placeholder": "E-mail address",
+				"ErrorText": "Please enter a valid e-mail address."
+			},
+			"AddParticipants": "Add participants"
+		},
+		"Location": {
+			"Label": "Location",
+			"Placeholder": "Site where the participants are working."
+		},
+		"RequestDetails": "Request details",
+		"Contact": {
+			"Label": "Contact",
+			"Placeholder": "Project / Account / Maintenance Manager or Customer Centre"
+		},
+		"Requester": {
+			"Label": "Requester"
+		},
+		"RequesterName": {
+			"Label": "Requester name",
+			"Placeholder": "Name",
+			"RequiredError": "This field is mandatory."
+		},
+		"RequesterRole": {
+			"Label": "Requester role",
+			"Placeholder": "Role or Job title"
+		},
+		"RequesterEmail": {
+			"Label": "Requester e-mail",
+			"Placeholder": "E-mail address",
+			"RequiredError": "Please enter an e-mail address.",
+			"ValidError": "Please enter a valid e-mail address.",
+			"Note": "You will receive the confirmation of this request on this e-mail address."
+		},
+		"Send": "发送",
+		"DiscardTitle": "放弃修改？",
+		"DiscardText": "您已输入信息，如果继续操作，这些信息将会丢失。您想继续吗？",
+		"KeepEditing": "继续编辑",
+		"NoSiteContracManager": {
+			"ErrorText": "在线申请培训暂时不可用。请与您的范德兰德联系人联系，以申请培训。"
+		}
+	},
+	"Contacts": {
+		"MyContacts": "我的联系人",
+		"AccountManagerContact": "客户经理",
+		"ContractManagerContact": "合同经理",
+		"ItManagerContact": "IT 经理",
+		"SparePartsContact": "备件联系人",
+		"ServiceDeskContact": "服务台",
+		"VisitingOfficeContact": "参观办公室",
+		"DownloadAsVCard": "下载为 vCard",
+		"OutsideWorkingHours": "工作时间外",
+		"NoContacts": "无可用联系方式。"
+	},
+	"AddPortal": {
+		"NewPortal": "新门户",
+		"PortalTitle": "门户标题",
+		"PortalTitleDesc": "客户会看到这个。与客户确认他们希望如何命名。检查主数据的标题是否正确和相关。",
+		"PortalTitleErr1": "已经存在一个以此命名的门户。请使用其他名称。",
+		"PortalTitleErr2": "此字段必须填写。请输入门户标题。",
+		"PortalTitleErr3": "此标题过长，确保不超过 50 个字符。",
+		"PortalTitleErr4": "请只使用字母和数字。",
+		"Customer": "客户",
+		"CustomerDesc": "客户的公司名称。内部管理所需。",
+		"CustomerErr1": "此字段必须填写。请输入客户。",
+		"CustomerErr2": "我们没有找到任何名为{{name}}的客户。",
+		"CustomerErr2Button": "添加为新客户",
+		"AddPortal": "添加门户",
+		"Cancel": "取消"
+	},
+	"PortalAdmin": {
+		"Administration": "管理",
+		"PortalSettings": "门户设置",
+		"Users": "用户",
+		"NoUsersFound": "没有符合您的搜索条件的用户。",
+		"NoUsers": "无用户。",
+		"Sites": "网站",
+		"AddSite": "添加网站",
+		"SitesEmpty": "此门户尚未添加任何网站。",
+		"NewSite": "新网站",
+		"SiteName": "网站名称",
+		"SitenameDesc": "客户会看到此标题。使用描述性名称。",
+		"SiteID": "网站 ID",
+		"SiteIdDesc": "使用主数据中唯一的网站标识符 - 来自 Enovia 的已安装设备的数据库编号。",
+		"Cancel": "取消",
+		"SiteTitleErr1": "“我的范德兰德”已存在有此 ID 的网站。请使用其他 ID。",
+		"SiteTitleErr2": "此字段必须填写。",
+		"SiteTitleErr3": "此标题过长。",
+		"NotPublishedLabel": "未发布"
+	},
+	"PortalGeneralSettings": {
+		"GeneralSettings": "一般设置",
+		"Training": "培训",
+		"TrainingDesc": "此门户内的网站应显示哪些培训分类？",
+		"TrainingErrorText": "请选择至少一个培训分类。",
+		"TrainingErrorToast": "培训分类无法保存。请重试。",
+		"SettingsSaveSuccessMsg": "设置已保存。",
+		"DeletePortal": "删除门户",
+		"DeletePortalDesc": "所有数据将被删除且无法恢复。用户将无权访问门户或其网站。"
+	},
+	"SiteAdmin": {
+		"PublishNotification": "此网站尚未发布，因此客户看不到。",
+		"PublishButton": "发布",
+		"Users": "用户",
+		"GeneralSettings": "一般站点设置",
+		"Documentation": "文档",
+		"Contacts": "联系方式"
+	},
+	"SiteAdminDocumentation": {
+		"Subtitle": "管理网站文件",
+		"AmountOfDocuments": "# 文件",
+		"AmountOfDocumentsZero": "{{number}} 文件",
+		"AmountOfDocumentsOne": "{{number}} 文件",
+		"AmountOfDocumentsPlural": "{{number}} 文件",
+		"MessageZeroDocs": "此文件夹不会显示给用户",
+		"AddDocuments": "添加文件",
+		"SelectedDocuments": "所选文件",
+		"DocumentCategory": "文件类别",
+		"DocumentCategoryError": "选择文件类别",
+		"DocumentLanguage": "文件语言",
+		"DocumentLanguageError": "选择文件语言。",
+		"SelectFiles": "请选择一个文件。",
+		"SelectFolder": "请选择一个文件夹。",
+		"AllowedFileTypes": "您选择的一个或多个文件类型不支持。",
+		"CancelButton": "取消",
+		"UploadButton": "上传",
+		"Download7Zip": "下载7zip",
+		"ZipFileSelected": "请确保.zip文件由7zip程序创建。为确保所有字符均能正确显示，请在创建档案时在“参数”栏中输入“cu”。",
+		"UploadError": "{{fileName}} 上传失败。",
+		"CancelUploadSuccess": "上传被取消。",
+		"DeleteFileSuccess": "文件被删除。",
+		"TableDocumentTitle": "文件标题",
+		"TableDateUploaded": "上传日期",
+		"TableUploadedBy": "上传人",
+		"OAndMMessage": "如果没有运维手册、缺少一些内容或某些内容不正确，请联系 {{email}}",
+		"OAndMLink": "发送电子邮件",
+		"DragNDropLink": "选择文件",
+		"DragNDropText": "或拖放到这里",
+		"Pop-upUploadDoc": "上传文件",
+		"UploadErr1": "出了点问题。再次上传。",
+		"CancelUploadsModalTitle": "取消所有上传？",
+		"CancelUploadsModalText": "您的上传还未完成。您想取消正在进行的上传吗？",
+		"CancelUploadsModalText2": "您添加的某些文件的上传无法再取消。如欲撤消上传，请等待文件处理完成，再将其删除。",
+		"CancelUploadsModalConfirmText": "取消上传",
+		"CancelUploadsModalConfirmText2": "",
+		"CancelUploadsModalCancelText": "继续上传",
+		"BottomSheetTitle": "上传进度",
+		"ConfirmationModalTitle": "是否删除文件？",
+		"ConfirmationModalMessage": "是否确定要删除？客户将无法再访问此文件。"
+	},
+	"SiteAdminContacts": {
+		"AccountManager": "客户经理",
+		"ContractManager": "合同经理",
+		"ITManager": "IT 经理",
+		"SparePartsContact": "备件联系人",
+		"VisitingOffice": "参观办公室",
+		"ServiceDesk": "服务台",
+		"PreferredServiceDesk": "首选服务台",
+		"CustomTitle": "自定义职位",
+		"CustomTitleDesc": "要用不同的职位名称代替‘{{Account manager}}’，请填在此处",
+		"ShowThisContactChkbx": "向客户出示该合同",
+		"ShowThisContactChkbxDisabled": "该联系人无法隐藏",
+		"NameAndLastName": "名和姓",
+		"NameOfOffice": "办公室名称",
+		"EMail": "电子邮件",
+		"PhoneNumberOutsideWorkingHours": "办公时间以外的电话号码",
+		"ContactDetails": "联系方式",
+		"FieldErr1": "此字段不能为空。"
+	},
+	"SiteAdminGeneralSettings": {
+		"SiteDetails": "网站详情",
+		"SpareParts": "备件商店",
+		"SparePartsQ1": "此网站是否有备件商店账户？",
+		"Vidi": "VIDI",
+		"VidiQ1": "客户应在菜单中看到VIDI的链接吗？",
+		"MyContracts": "我的合同",
+		"MyContractsQ1": "客户应在菜单中看到“我的合同”的链接吗？",
+		"ProcessInsights": "Process Insights",
+		"ProcessInsightsLabel": "客户是否应在菜单中看到Process Insights的链接？",
+		"DivertHealth": "Divert Health",
+		"DivertHealthLabel": "客户是否应在菜单中看到Divert Health的链接？",
+		"DivertHealthRequiredErrorLabel": "请提供您的Divert Health环境的URL。",
+		"DivertHealthInvalidErrorLabel": "请提供您的Divert Health环境的有效URL。",
+		"DivertHealthInputLabel": "Divert Health的URL是什么？",
+		"ShuttleHealth": "Shuttle Health",
+		"ShuttleHealthLabel": "客户是否应在菜单中看到Shuttle Health的链接？",
+		"ShuttleHealthRequiredErrorLabel": "请提供您的Shuttle Health环境的URL。",
+		"ShuttleHealthInvalidErrorLabel": "请提供您的Shuttle Health环境的有效URL。",
+		"ShuttleHealthInputLabel": "Shuttle Health的URL是什么？",
+		"Cases": {
+			"Title": "案例",
+			"EventSources": {
+				"Label": "案例转工单升级规则",
+				"Rules": {
+					"Disabled": "已禁用",
+					"Manual": "手动",
+					"Automatic": "自动"
+				},
+				"Types": {
+					"Monitron": "放射监视器",
+					"ShuttleHealth": "Shuttle Health",
+					"DivertHealth": "Divert Health",
+					"OperationalAwareness": "运营状况"
+				}
+			},
+			"Enable": {
+				"Label": "菜单中是否应显示“案例”的链接？"
+			},
+			"ErrorMessage": "请至少启用一项工单升级规则"
+		},
+		"SettingsSaveSuccessMsg": "设置已保存。",
+		"SiteStatus": "网站状态",
+		"Status": "状态：",
+		"NotPublished": "未发布",
+		"NotPublishedDesc": "客户用户还不能访问它或看到任何数据。",
+		"PublishBtn": "发布",
+		"Published": "已发布",
+		"PublishedDesc": "客户可以访问与此网站有关的所有信息。",
+		"DeleteSite": "删除网站",
+		"DeleteSiteDesc": "所有数据将被删除且无法恢复。用户将无权访问它。",
+		"DeleteBtn": "删除"
+	},
+	"SiteAdminPublishSite": {
+		"DoYouWant": "是否想要发布{{Site name}}？",
+		"DoYouWantDesc": "链接的用户将能够看到该网站及其详情。",
+		"PublishBtn": "发布",
+		"CancelBtn": "取消",
+		"PublishedToaster": "{{Site name}}已发布。"
+	},
+	"AddUserModal": {
+		"AddUserBtn": "添加用户",
+		"ModalTitle": "添加用户",
+		"InputLabel": "通过 vanderlande-cloud.com 账户搜索",
+		"InputPlaceholder": "输入账户",
+		"InputErrorText": "请输入有效账户。",
+		"InfoText": "Vanderlande-cloud.com 账户也称为 UPN（用户主体名称）。",
+		"SearchBtn": "搜索",
+		"SearchNoResults": "没有与您的搜索条件相匹配的用户。",
+		"AddUserMsg1": "此用户已找到，可以添加至“我的范德兰德”。请确保指定门户和站点。",
+		"OpenProfileBtn": "打开个人资料",
+		"AddUserMsg2": "此用户尚无范德兰德账户。请确保使用以“@vanderlande-cloud.com”结尾的Azure账户查找该用户。",
+		"RequestAccountBtn": "请求账号",
+		"AddUserSuccessMsg": "{{name}}添加至“我的范德兰德”",
+		"CancelBtn": "取消",
+		"DisabledUserError": "此用户无法添加，因为其Azure AD账户不活跃。您可以通过TopDesk请求激活。"
+	},
+	"BusinessUnits": {
+		"Airport": "机场",
+		"Parcel": "包裹",
+		"Warehouse": "仓储"
+	},
+	"Contracts": {
+		"MyContracts": "我的合同",
+		"Contract": "合同",
+		"NoContracts": "无可用合同详情。",
+		"ExistingContracts": "现有合同",
+		"AgreementLabel": "合同编号",
+		"StartDateLabel": "开始日期",
+		"EndDateLabel": "结束日期",
+		"ContractsOverview": "合同概述",
+		"WholeSystem": "整个系统",
+		"NoContractLines": "无可用合同详情。"
+	},
+	"WarrantyClaims": {
+		"MyWarranty": "保修索赔",
+		"NewWarranty": "新的保修索赔",
+		"SelectItemModal": {
+			"Title": "选择保修商品",
+			"SearchInputPlaceholder": "搜索商品编号、描述、发行单位分类或类别"
+		},
+		"CustomerSiteContact": {
+			"Title": "客户现场联系方式",
+			"Placeholder": "选择联系人",
+			"LeftAssertiveText": "选择现场联系方式"
+		},
+		"TicketReference": {
+			"Title": "您的服务单参考编号",
+			"LeftAssertiveText": "您内部服务单系统中的服务单编号"
+		},
+		"Summary": {
+			"Title": "摘要",
+			"LeftAssertiveText": "为保修索赔提供一个简短的标题，以便您可以轻松识别该索赔。"
+		},
+		"CreateWarrantyClaim": "创建保修索赔",
+		"SelectedItem": {
+			"Title": "商品信息",
+			"Placeholder": "选择商品以及已损坏商品的数量"
+		},
+		"SelectItemButton": "选择商品",
+		"ChangeItemButton": "更改商品",
+		"WarrantyParts": "保修部件",
+		"AddWarrantyItem": "添加保修商品",
+		"SerialNumber": "序列号",
+		"WarrantyReasonLabel": "详细故障描述",
+		"WarrantyReasonInfoText": "请提供故障描述，解释您提出索赔的原因",
+		"WarrantyInfo": "保修信息",
+		"BreakdownDate": "故障日期",
+		"AddToWarranty": "添加至保修"
+	},
+	"Tickets": {
+		"MyTickets": "我的票据",
+		"AllTickets": "所有服务单",
+		"OpenTickets": "开放票据",
+		"NoOpenTickets": "无开放票据。",
+		"TicketNumber": "票据{{ number }}",
+		"TicketPriority": "优先级{{ priority }}",
+		"ViewAllTickets": " 查看所有票据",
+		"CreateTicket": "创建票据",
+		"NewTicket": "新票据",
+		"Details": "详情",
+		"TicketType": "",
+		"IssueType": {
+			"Title": "这张票据关于什么？",
+			"Incident": {
+				"Label": "事件",
+				"Description": "范德兰德系统的服务意外中断或日常运营质量下降"
+			},
+			"Servicerequest": {
+				"Label": "服务请求",
+				"Description": ""
+			},
+			"Problem": {
+				"Label": "",
+				"Description": ""
+			},
+			"Change": {
+				"Label": "",
+				"Description": ""
+			},
+			"Changerequest": {
+				"Label": "变更请求",
+				"Description": "添加、修改或删除任何可能影响范德兰德系统或服务交付的内容"
+			},
+			"Problemreport": {
+				"Label": "问题报告",
+				"Description": "需要范德兰德调查的一项或多项事件的原因或潜在原因"
+			}
+		},
+		"Priority": {
+			"Placeholder": "选择优先级",
+			"AssistiveText": "对于最高优先级的票据，您必须致电服务台。这将确保及时响应。"
+		},
+		"InternalReferenceNumber": {
+			"Label": "内部参考编号",
+			"AssistiveText": "您的内部票据系统中的票据号码 - 如果您使用一个票据。"
+		},
+		"Situation": "情况",
+		"ShortSummary": {
+			"Label": "简要说明",
+			"AssistiveText": "这将作为票据标题。"
+		},
+		"Description": {
+			"Incident": "特征：\n错误：\n地区/区域：\n对客户的商业后果：\n\n来电人的故障排除步骤：\n重复发生的事件：\n事件发生前发生了什么：\n最近或过去48小时内系统是否发生了任何变化：\n\n现场联系人是否在现场：\n现场联系人不可用，直到：\n确认事件的日期和大致时间： ",
+			"Servicerequest": "请求描述：\n提出这一请求的原因：",
+			"Changerequest": "",
+			"Problemreport": ""
+		},
+		"Links": {
+			"Title": "链接"
+		},
+		"OnSiteContact": {
+			"Title": "现场联系人",
+			"Label": "名和姓",
+			"Placeholder": "选择联系人",
+			"AssistiveText": "要在可能联系人名单中添加新联系人，请联系您的范德兰德联系人。"
+		},
+		"Information": "服务单信息",
+		"ViewTicket": "查看服务单",
+		"ReportedOn": {
+			"Label": "报告日期"
+		},
+		"ReferenceNumber": {
+			"Title": "内部参考编号"
+		},
+		"SendTicketButton": "发送票据",
+		"TicketLog": {
+			"Label": "服务单日志"
+		},
+		"NoMessagesAvailable": "没有关于这服务单的消息。",
+		"TicketCreated": "服务单已创建。",
+		"CustomerSatisfaction": {
+			"Subtitle": "您的意见很重要",
+			"Info": "我们想知道范德兰德在解决此事件期间的表现如何。请点击下面最符合您体验的笑脸图标。",
+			"Satisfied": "满意",
+			"Neutral": "一般",
+			"Dissatisfied": "不满意"
+		}
+	},
+	"Asset": {
+		"AffectedAsset": "受影响资产",
+		"AssetInfo": "资产信息",
+		"SelectAssetBtn": "选择资产",
+		"ChangeAssetBtn": "更改资产",
+		"AddAsset": "",
+		"SelectAssetModalTitle": "选择受影响资产",
+		"SelectAssetModal": {
+			"SearchInputPlaceholder": "根据名称、标记代码、标记号码、描述进行搜索"
+		},
+		"SelectAssetTable": {
+			"AddToTicketBtn": "添加票据"
+		},
+		"Description": "描述",
+		"MarkCode": "唛头代码",
+		"MarkNumber": "唛头编号",
+		"Asset": "资产",
+		"AssetDescription": "资产描述",
+		"MarkCodeAndNumber": "唛头标码及编号"
+	},
+	"Assets": {
+		"SelectAssetTable": {
+			"NoAssets": "没有符合您的搜索条件的资产。"
+		}
+	},
+	"Attachments": {
+		"Title": "附件",
+		"AddBtn": "添加附件",
+		"Information": "最大附件为10MB。",
+		"FileSizeError": "您选择的一个或多个文件太大。请上传10MB或更小的文件。",
+		"UploadWarning": "上传后您无法删除此文件。",
+		"DescriptionPlaceholder": "关于此文件内容和用途的备注",
+		"FileUploadMessage": "将文件添加至服务单"
+	},
+	"ContextualCollaboration": {
+		"MyCases": "我的案件",
+		"NoCases": "无任何案例。",
+		"CaseStatusOpen": "开始",
+		"CaseStatusInProgress": "正在进行中",
+		"CaseStatusClosed": "已关闭",
+		"ViewCase": "查看案例",
+		"CaseInfo": "案件相关信息",
+		"EventDetails": "事件详情",
+		"CaseStatusChangedSuccessMsg": "状态更改为“{{ 案例状态 }}”",
+		"CaseOverview": {
+			"PageHeader": {
+				"Title": "案例",
+				"NewCase": "新案例",
+				"Breadcrumbs": {
+					"Cases": "案例",
+					"Site": "地点"
+				}
+			},
+			"CaseTable": {
+				"Headers": {
+					"EventSource": "事件源",
+					"Summary": "摘要",
+					"CaseNumber": "案例编号",
+					"LastUpdated": "最近更新",
+					"Status": "状态",
+					"WorkorderID": "工单ID"
+				}
+			},
+			"Status": {
+				"Open": "开始",
+				"InProgress": "正在进行中",
+				"Closed": "已关闭",
+				"Rejected": "已拒绝"
+			},
+			"LastUpdated": "",
+			"EventSource": {
+				"Monitron": "Monitron",
+				"ShuttleHealth": "Shuttle Health",
+				"DivertHealth": "Divert Health",
+				"OperationalAwareness": "Operational Awareness"
+			}
+		},
+		"Breadcrumbs": {
+			"Cases": "案例",
+			"NewCase": "新案例",
+			"CaseDetails": "案例详情"
+		},
+		"NewCase": {
+			"CreateCase": "创建案例",
+			"Title": "新案例",
+			"WhatIsThisCaseAbout": "此案例的概况？",
+			"TitleField": {
+				"Eyebrow": "案例标题 - 必填"
+			},
+			"AssetSelector": {
+				"Eyebrow": "受影响的资产"
+			},
+			"DescriptionField": {
+				"Eyebrow": "描述 - 必填"
+			},
+			"Attachments": {
+				"AddAttachment": "添加附件",
+				"Emptystate": {
+					"Title": "未添加文件",
+					"Explanation": "请添加相关商品的文件。"
+				},
+				"Eyebrow": "添加附件至案例"
+			},
+			"OnSiteContact": {
+				"Placeholder": "选择现场联系方式",
+				"AssistiveText": "未扩展此列表，请联系您的范德兰德联系人。",
+				"Eyebrow": "现场联系人 - 必填"
+			},
+			"EventSource": {
+				"Eyebrow": "事件源 - 必填",
+				"Placeholder": "选择事件源"
+			}
+		},
+		"CaseDetails": {
+			"CaseMessaging": "留言",
+			"CaseInformation": "案例信息",
+			"Description": "描述",
+			"Details": "详情",
+			"Attachments": "附件（{{ 计数 }}）",
+			"AddAttachments": "添加附件",
+			"Dismiss": "解雇",
+			"Promote": "晋升",
+			"Case": "{{ 案例ID }} - 案例",
+			"Status": "状态",
+			"StatusOpen": "开始",
+			"StatusInProgress": "正在进行中",
+			"StatusClosed": "已关闭",
+			"StatusUnknown": "未知",
+			"ReportedOn": "报告日期",
+			"ReportedBy": "报告人",
+			"AffectedAsset": "受影响的资产",
+			"OnSiteContact": "现场联系人",
+			"FileUploadedOn": "文件上传时间：{ uploadedOn, date, long }",
+			"EventSource": "",
+			"WorkOrderId": "",
+			"Header": {
+				"Title": "",
+				"Breadcrumbs": {
+					"Cases": "",
+					"CaseDetails": ""
+				},
+				"Status": {
+					"Open": "",
+					"InProgress": "",
+					"Closed": "",
+					"Rejected": ""
+				},
+				"Action": {
+					"WorkOrder": "",
+					"Close": "",
+					"Reject": "",
+					"InProgress": ""
+				}
+			},
+			"ReportedOnDate": "",
+			"ConfirmationModal": {
+				"CreateWorkOrder": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"CloseCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"RejectCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"InProgressCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				}
+			},
+			"Error": {
+				"CreateWorkOrder": ""
+			}
+		}
+	},
+	"AttachmentComponent": {
+		"AddAttachment": "添加附件",
+		"EmptyStateTitle": "未添加文件",
+		"EmptyStateExplanation": "请添加您的文件",
+		"Eyebrow": "添加附件"
+	},
+	"AddFileDescriptionDialog": {
+		"Title": "添加附件",
+		"Submit": "保存",
+		"Cancel": "取消",
+		"Form": {
+			"Title": "文件",
+			"Explanation": "文件上传后无法删除"
+		},
+		"Item": {
+			"Eyebrow": "{{ 商品 }} 说明 - 必填",
+			"Placeholder": "关于此文件内容和用途的备注"
+		}
+	},
+	"AddDescriptionDialog": {
+		"Title": "添加描述",
+		"Submit": "保存",
+		"Cancel": "取消",
+		"Form": {
+			"Title": "商品",
+			"Explanation": "请提供每种商品的描述"
+		},
+		"Item": {
+			"Eyebrow": "{{ 商品 }} 说明 - 必填",
+			"Placeholder": "关于此商品内容和用途的备注"
+		}
+	},
+	"ContactSelector": {
+		"Placeholder": "选择联系人"
+	},
+	"AssetSelector": {
+		"Eyebrow": "受影响的资产",
+		"SelectAsset": "选择资产",
+		"ChangeAsset": "更改资产",
+		"EmptyState": {
+			"Title": "未选择资产",
+			"Explanation": "请选择您的资产"
+		}
+	},
+	"Messaging": {
+		"NewMessage": "新消息",
+		"SendMessage": "发送消息",
+		"NewMessagePlaceholder": "请在此处输入您的留言",
+		"MessageHeader": "{{ 名称 }} - { messagedOn, date, long } / { messagedOn, time }"
+	},
+	"GlobalHeader": {
+		"NoPortals": "",
+		"NoSites": "",
+		"SelectPortals": "",
+		"SelectSites": "",
+		"SelectApplication": "",
+		"Portal": "",
+		"Site": "",
+		"Application": "",
+		"Home": "",
+		"User": "",
+		"LogOut": "",
+		"Profile": "",
+		"Showing": "",
+		"NoResult": "",
+		"Applications": {
+			"Cases": "",
+			"ProcessInsights": "",
+			"Tickets": "",
+			"Contacts": "",
+			"Settings": "",
+			"Training": "",
+			"Contracts": "",
+			"Documentation": "",
+			"SpareParts": "",
+			"VIDI": "",
+			"DivertHealth": "",
+			"ShuttleHealth": "",
+			"PaceInsights": "",
+			"VIAInsights": "",
+			"WSInsights": "",
+			"WarrantyClaims": "",
+			"System": "",
+			"Home": ""
+		}
+	}
+}

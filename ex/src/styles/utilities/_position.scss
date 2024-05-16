@@ -1,0 +1,11 @@
+@use '../variables/breakpoints' as breakpoints;
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media #{$breakpoint-value} {
+    @each $position in (static, fixed, absolute, relative, sticky) {
+      .#{$breakpoint-name}\:#{$position} {
+        position: $position;
+      }
+    }
+  }
+}

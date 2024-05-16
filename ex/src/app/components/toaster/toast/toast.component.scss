@@ -1,0 +1,16 @@
+@use '../../../../styles/variables/breakpoints' as breakpoints;
+
+@media #{map-get(breakpoints.$media_queries, '\\<md')} {
+    .not-visible {
+        transform: translateY(calc(var(--grav-space-m) * -1));
+    }
+}
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+    .not-visible {
+        transform: translateY(var(--grav-space-m));
+    }
+}
+
+.visible {
+    transform: translateY(0);
+}

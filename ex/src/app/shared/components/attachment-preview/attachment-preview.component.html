@@ -1,0 +1,42 @@
+@if (dialogData; as VM) {
+  @if (attachmentPreview$ | async; as attachment) {
+    <grav-card *transloco="let t">
+      <grav-card-header>
+        <span card-title>{{ VM.titleKey | transloco }}</span>
+
+        <span card-subtitle>
+          {{ t(VM.subTitleKey, { objectName: VM.subTitleValue }) }}
+        </span>
+        <button
+          (click)="dialogRef.close(false)"
+          card-suffix-button
+          ghost
+          secondary
+        >
+          <grav-svg-icon key="close" size="xl"></grav-svg-icon>
+        </button>
+      </grav-card-header>
+
+      <grav-card-content>
+        <object
+          [data]="attachment.objectUrl | SafeResourceUrl"
+          [type]="attachment.type"
+          frameborder="0"
+          [ngStyle]="
+            attachment.type.startsWith('image')
+              ? { width: '100vw', height: '100vh' }
+              : null
+          "
+        ></object>
+      </grav-card-content>
+
+      <grav-card-footer>
+        <button id="download-button" ghost>
+          <a [download]="attachment.fileName" [href]="attachment.objectUrl">
+            {{ t(VM.buttonKey) }}
+          </a>
+        </button>
+      </grav-card-footer>
+    </grav-card>
+  }
+}

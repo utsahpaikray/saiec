@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "resolveJsonModule": true,
+    "types": ["jest", "node"]
+  },
+  "typeAcquisition": {
+    "include": ["jest"]
+  },
+  "files": ["src/app/core/locale/transloco-testing.module.ts"],
+  "include": ["src/**/*.spec.jest.ts", "src/**/*.d.ts"]
+}

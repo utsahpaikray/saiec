@@ -1,0 +1,28 @@
+@import './base';
+@import './components/scrollbar';
+@import '@vanderlande-gravity/core/src/style/typography';
+@import '@vanderlande-gravity/core/src/style/table';
+@import '@vanderlande-gravity/core/src/style/input';
+@import '@vanderlande-gravity/core/src/style/button';
+@import '@vanderlande-gravity/core/src/style/checkbox';
+@import '@vanderlande-gravity/core/src/style/radio';
+@import '@vanderlande-gravity/core/src/style/fieldset';
+@import '@vanderlande-gravity/core/src/style/toggle-switch';
+
+// TODO: remove these once grav-assistive-text and grav-field [error] are fixed in gravity
+@import './web-component/grav-assisitive-text';
+@import './web-component/grav-field';
+
+// TODO: remove once grav-dropdown not scrollable issue is fixed in Gravity
+@import './web-component/grav-overlay';
+
+// TODO: remove once tailwind css is removed
+@import './web-component/grav-list-item';
+
+// TODO: remove once grav-card-content padding issue is fixed in Gravity
+@import './web-component/grav-card';
+@import './utilities';
+
+// TODO: remove once gravity team provides release 
+// TODO: note about how to map the new css variables to the old ones and after mapping is done
+@import '@vanderlande-gravity/core/src/style/tokens/css-variables.deprecated.css'

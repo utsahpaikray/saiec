@@ -1,0 +1,10 @@
+query userSiteById($id: UUID) {
+  me {
+    relatedPortalData {
+      sites(where: { id: { eq: $id } }) {
+        name
+        ...SitePortal
+      }
+    }
+  }
+}

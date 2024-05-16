@@ -1,0 +1,23 @@
+fragment sitePriority on SitePriority {
+  description
+  value
+}
+
+fragment maximoSiteContact on MaximoSiteContact {
+  id
+  name
+  email
+  phone
+}
+
+query siteTicketInfo($siteId: UUID!) {
+  ticketingSiteInfo(siteId: $siteId) {
+    priorities {
+      ...sitePriority
+    }
+    contacts {
+      ...maximoSiteContact
+    }
+    languageCode
+  }
+}

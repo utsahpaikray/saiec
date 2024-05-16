@@ -1,0 +1,7 @@
+query siteByIdContractManager($siteId: UUID!) {
+  sites(where: { id: { eq: $siteId } }) {
+    contractManagerContact {
+      emailAddress
+    }
+  }
+}

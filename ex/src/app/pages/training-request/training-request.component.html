@@ -1,0 +1,387 @@
+<app-training-request-back-link></app-training-request-back-link>
+
+<h2
+  class="mt-l grav-text-header-2-medium text-grey-900 md:mt-xl md:grav-text-header-medium"
+  data-testid="training-request-title"
+>
+  {{ 'TrainingRequest.Title' | transloco }}
+</h2>
+
+<ng-container *ngIf="!loading; else loader">
+  <ng-container *ngIf="hasContractManager; else alert">
+    <app-form
+      *ngIf="form; else loader"
+      [buttonDisabled]="requestTrainingLoading"
+      [formGroup]="form"
+      [submitText]="'Training.SendBtn' | transloco"
+      (submitEvent)="onSubmit()"
+      data-testid="training-request-form"
+    >
+      <!-- Your request section -->
+      <h3
+        class="mt-2-xl grav-text-header-3 text-grey-900 md:grav-text-header-2"
+      >
+        {{ 'TrainingRequest.YourRequest' | transloco }}
+      </h3>
+      <div
+        class="mt-s b-m border-solid border-white p-m lg:mt-m lg:py-m lg:px-l"
+      >
+        <div class="lg:w-half">
+          <grav-field
+            [error]="
+              requestTypes && requestTypes.invalid && requestTypes.touched
+            "
+            data-testid="request-type-group"
+            formGroupName="requestTypes"
+          >
+            <grav-field-eyebrow data-testid="checkbox-eyebrow"
+              >{{ 'TrainingRequest.RequestType.Label' | transloco }} -
+              {{ 'TrainingRequest.Required' | transloco }}</grav-field-eyebrow
+            >
+            <grav-svg-icon
+              *ngIf="
+                requestTypes && requestTypes.invalid && requestTypes.touched
+              "
+              data-testid="checkbox-error-icon"
+              grav-input-suffix
+              key="exclamation-circle"
+              size="l"
+            ></grav-svg-icon>
+            <fieldset>
+              <div>
+                <input
+                  id="request-type-training"
+                  name="training"
+                  data-testid="request-type-training"
+                  type="checkbox"
+                  formControlName="training"
+                />
+                <label for="request-type-training">{{
+                  'TrainingRequest.RequestType.Training' | transloco
+                }}</label>
+              </div>
+              <div>
+                <input
+                  id="request-type-certification"
+                  name="certification"
+                  data-testid="request-type-certification"
+                  type="checkbox"
+                  formControlName="certification"
+                />
+                <label for="request-type-certification">{{
+                  'TrainingRequest.RequestType.Certification' | transloco
+                }}</label>
+              </div>
+            </fieldset>
+            <grav-assistive-text
+              *ngIf="
+                requestTypes && requestTypes.invalid && requestTypes.touched
+              "
+              data-testid="checkbox-group-error"
+              error
+              left
+            >
+              <span data-testid="request-type-error">
+                {{ 'TrainingRequest.RequestType.ErrorText' | transloco }}
+              </span>
+            </grav-assistive-text>
+          </grav-field>
+
+          <app-training-request-topic-selector
+            [formGroup]="requestTopics"
+          ></app-training-request-topic-selector>
+
+          <div class="mt-l lg:mt-2-xl">
+            <app-text-area
+              name="remarks"
+              data-testid="training-request-remarks"
+              formControlName="remarks"
+              label="{{ 'TrainingRequest.Remarks.Label' | transloco }}"
+              placeholder="{{
+                'TrainingRequest.Remarks.Placeholder' | transloco
+              }}"
+            >
+            </app-text-area>
+          </div>
+
+          <div class="mt-l lg:mt-2-xl">
+            <app-text-area
+              name="previousTraining"
+              data-testid="training-request-previous-training"
+              formControlName="previousTraining"
+              label="{{ 'TrainingRequest.PreviousTraining.Label' | transloco }}"
+              placeholder="{{
+                'TrainingRequest.PreviousTraining.Placeholder' | transloco
+              }}
+              "
+            >
+            </app-text-area>
+          </div>
+        </div>
+      </div>
+
+      <!-- When and where section -->
+      <h3
+        class="mt-xl grav-text-header-3 text-grey-900 md:mt-2-xl md:grav-text-header-2"
+      >
+        {{ 'TrainingRequest.WhenAndWhere' | transloco }}
+      </h3>
+      <div
+        class="mt-s b-m border-solid border-white p-m lg:mt-m lg:py-m lg:px-l"
+      >
+        <div class="lg:w-half">
+          <div>
+            <app-text-area
+              name="preferredDates"
+              data-testid="training-request-preferred-dates"
+              formControlName="preferredDates"
+              infoText="{{
+                'TrainingRequest.PreferredDatesOrPeriod.Note' | transloco
+              }}"
+              label="{{
+                'TrainingRequest.PreferredDatesOrPeriod.Label' | transloco
+              }}"
+              placeholder="{{
+                'TrainingRequest.PreferredDatesOrPeriod.Placeholder' | transloco
+              }}
+              "
+            >
+            </app-text-area>
+          </div>
+
+          <div
+            class="mt-l lg:mt-2-xl"
+            formGroupName="preferredTrainingLocationGroup"
+          >
+            <grav-field>
+              <grav-field-eyebrow>
+                {{
+                  'TrainingRequest.PreferredTrainingLocation.Label' | transloco
+                }}
+              </grav-field-eyebrow>
+              <fieldset>
+                <div class="md:d-flex md:justify-space-between md:gap-px">
+                  <div
+                    *ngFor="
+                      let preferredTrainingLocation of trainingLocations;
+                      let i = index
+                    "
+                    class="w-full d-flex bg-white p-s"
+                  >
+                    <input
+                      [id]="'training-request-location-' + i"
+                      [value]="preferredTrainingLocation"
+                      name="preferredTrainingLocation"
+                      type="radio"
+                      formControlName="preferredTrainingLocation"
+                    />
+                    <label
+                      [attr.data-testid]="'training-request-location-' + i"
+                      [for]="'training-request-location-' + i"
+                      >{{ preferredTrainingLocation }}</label
+                    >
+                  </div>
+                </div>
+              </fieldset>
+            </grav-field>
+
+            <!-- show text if selected Veghel in radio button -->
+            <p
+              *ngIf="
+                form.value.preferredTrainingLocationGroup
+                  ?.preferredTrainingLocation === trainingLocations[0]
+              "
+              class="text-grey-600 mt-s md:grav-text-body-small"
+              data-testid="veghel-location-note"
+            >
+              {{
+                'TrainingRequest.PreferredTrainingLocation.NoteVeghel'
+                  | transloco
+              }}
+            </p>
+            <!-- show text and text input if selected another location in radio button -->
+            <div
+              *ngIf="
+                form.value.preferredTrainingLocationGroup
+                  ?.preferredTrainingLocation === trainingLocations[1]
+              "
+            >
+              <p
+                class="text-grey-600 mt-s md:grav-text-body-small"
+                data-testid="another-location-note"
+              >
+                {{
+                  'TrainingRequest.PreferredTrainingLocation.NoteAnotherLocation'
+                    | transloco
+                }}
+              </p>
+              <div class="mt-l lg:mt-2-xl">
+                <grav-field data-testid="preferred-training-location">
+                  <grav-field-eyebrow>
+                    {{ 'TrainingRequest.PreferredLocation.Label' | transloco }}
+                  </grav-field-eyebrow>
+                  <input
+                    [placeholder]="
+                      'TrainingRequest.PreferredLocation.Placeholder'
+                        | transloco
+                    "
+                    name="preferredLocation"
+                    formControlName="preferredLocation"
+                    grav-input
+                  />
+                </grav-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Participants section -->
+      <h3
+        class="mt-xl grav-text-header-3 text-grey-900 md:mt-2-xl md:grav-text-header-2"
+      >
+        {{ 'TrainingRequest.Participants.Label' | transloco }}
+      </h3>
+      <div
+        class="mt-s b-m border-solid border-white p-m lg:mt-m lg:py-m lg:px-l"
+      >
+        <p class="grav-text-body-small text-grey-900">
+          {{ 'TrainingRequest.Participants.Note' | transloco }}
+        </p>
+
+        <div class="mt-s">
+          <app-participants
+            [formGroup]="requestParticipants"
+          ></app-participants>
+        </div>
+      </div>
+
+      <!-- Request details section -->
+      <h3
+        class="mt-xl grav-text-header-3 text-grey-900 md:mt-2-xl md:grav-text-header-2"
+      >
+        {{ 'TrainingRequest.RequestDetails' | transloco }}
+      </h3>
+      <div
+        class="mt-s b-m border-solid border-white p-m lg:mt-m lg:py-m lg:px-l"
+      >
+        <div class="lg:w-half">
+          <grav-field data-testid="training-request-contact">
+            <grav-field-eyebrow>
+              {{ 'TrainingRequest.Contact.Label' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              [placeholder]="'TrainingRequest.Contact.Placeholder' | transloco"
+              name="contact"
+              formControlName="contact"
+              grav-input
+            />
+          </grav-field>
+
+          <grav-field class="mt-s" data-testid="training-requester-name-input">
+            <grav-field-eyebrow>
+              {{ 'TrainingRequest.RequesterName.Label' | transloco }} -
+              {{ 'TrainingRequest.Required' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              [attr.error]="isInvalid(requesterName) ? '' : null"
+              [attr.readOnly]="userName"
+              [placeholder]="
+                'TrainingRequest.RequesterName.Placeholder' | transloco
+              "
+              name="requesterName"
+              formControlName="requesterName"
+              grav-input
+            />
+            <ng-container *ngIf="isInvalid(requesterName)">
+              <grav-svg-icon
+                grav-input-prefix
+                key="exclamation-circle"
+                size="l"
+              ></grav-svg-icon>
+              <grav-assistive-text
+                class="grav-text-body-small"
+                data-testid="training-requester-name-required-error"
+                error
+                left
+              >
+                {{ 'TrainingRequest.RequesterName.RequiredError' | transloco }}
+              </grav-assistive-text>
+            </ng-container>
+          </grav-field>
+
+          <grav-field data-testid="training-requester-role-input">
+            <grav-field-eyebrow>
+              {{ 'TrainingRequest.RequesterRole.Label' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              [placeholder]="
+                'TrainingRequest.RequesterRole.Placeholder' | transloco
+              "
+              name="requesterTitle"
+              formControlName="requesterTitle"
+              grav-input
+            />
+          </grav-field>
+
+          <grav-field class="mt-s" data-testid="training-requester-email-input">
+            <grav-field-eyebrow>
+              {{ 'TrainingRequest.RequesterEmail.Label' | transloco }} -
+              {{ 'TrainingRequest.Required' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              [attr.error]="isInvalid(requesterEmail) ? '' : null"
+              [placeholder]="
+                'TrainingRequest.RequesterEmail.Placeholder' | transloco
+              "
+              name="requesterEmail"
+              formControlName="requesterEmail"
+              grav-input
+            />
+            <grav-assistive-text left>
+              {{ 'TrainingRequest.RequesterEmail.Note' | transloco }}
+            </grav-assistive-text>
+            <ng-container *ngIf="isInvalid(requesterEmail)">
+              <grav-svg-icon
+                grav-input-prefix
+                key="exclamation-circle"
+                size="l"
+              ></grav-svg-icon>
+              <grav-assistive-text
+                class="grav-text-body-small"
+                data-testid="training-requester-email-error"
+                error
+                left
+              >
+                {{
+                  requesterEmail.errors?.required
+                    ? ('TrainingRequest.RequesterEmail.RequiredError'
+                      | transloco)
+                    : ('TrainingRequest.RequesterEmail.ValidError' | transloco)
+                }}
+              </grav-assistive-text>
+            </ng-container>
+          </grav-field>
+        </div>
+      </div>
+    </app-form>
+  </ng-container>
+</ng-container>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #alert>
+  <div class="d-flex items-center py-2-xl">
+    <app-alert
+      [alert]="noContractManagerAlert"
+      class="lg:w-2/3"
+      data-testid="training-request-alert"
+    ></app-alert>
+  </div>
+</ng-template>

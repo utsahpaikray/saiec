@@ -1,0 +1,31 @@
+fragment UserProfilePortal on Portal {
+  id
+  name
+}
+
+fragment UserProfile on IdentityUser {
+  firstName
+  lastName
+  prefix
+  email
+  id
+  roles {
+    id
+    name
+  }
+  language
+  relatedPortalData {
+    portals {
+      ...UserProfilePortal
+    }
+    sites {
+      id
+    }
+  }
+}
+
+query userProfile($userId: UUID!) {
+  user(userId: $userId) {
+    ...CurrentUser
+  }
+}

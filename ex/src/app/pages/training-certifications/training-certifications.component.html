@@ -1,0 +1,90 @@
+<app-link
+  [linkText]="'General.TrainingOverview' | transloco"
+  class="mt-l d-inline-block"
+  data-testid="back-button"
+  iconName="chevron-left"
+  iconPosition="left"
+  linkUrl="../"
+  size="lg"
+>
+</app-link>
+
+<ng-container
+  *ngIf="genericCertifications && genericCertifications[0]; else loading"
+>
+  <h2
+    class="mt-l grav-text-header-2-medium text-grey-900 md:mt-xl md:grav-text-header-medium"
+    data-testid="certifications-title"
+  >
+    {{ genericCertifications[0].title }}
+  </h2>
+</ng-container>
+
+<ng-container *ngIf="genericCertifications && genericCertifications[0]">
+  <div
+    class="mt-s w-full md:d-inline-flex md:items-start md:justify-space-between"
+  >
+    <p
+      class="grav-text-header-3 text-grey-900"
+      data-testid="certifications-description"
+    >
+      {{ genericCertifications[0].description }}
+    </p>
+
+    <div class="<md:mt-l <md:d-flex <md:justify-flex-end md:ml-xl">
+      <button
+        (click)="goToRequestPage()"
+        data-testid="certifications-request-button"
+      >
+        {{ 'General.Request' | transloco }}
+      </button>
+    </div>
+  </div>
+</ng-container>
+
+<section class="mt-3-xl">
+  <ng-container *ngIf="certifications">
+    <div
+      *ngFor="let certification of certifications"
+      class="mb-m d-flex bg-white <md:flex-wrap md:mb-xl md:items-center md:even:flex-row-reverse"
+      data-testid="certification-card"
+    >
+      <ng-container
+        *ngIf="certification?.certificationImageCollection?.items?.length"
+      >
+        <div class="md:d-inline-block md:w-half">
+          <app-picture
+            [imageXs]="getImageUrl(certification)"
+            data-testid="certification-image"
+            imageClass="w-full"
+          ></app-picture>
+        </div>
+      </ng-container>
+
+      <div class="px-m py-xl md:d-inline-block md:w-half md:p-2-xl">
+        <h3
+          class="pb-m grav-text-header-3-medium text-grey-900 md:pb-m md:grav-text-header-2-bold"
+          data-testid="certification-title"
+        >
+          {{ certification?.title }}
+        </h3>
+
+        <ng-container *ngIf="certification?.certificationInfo?.json">
+          <app-rich-text
+            [richText]="certification?.certificationInfo?.json"
+            (processLink)="goToRelativePage($event)"
+            data-testid="certification-rich-text"
+          ></app-rich-text>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</section>
+
+<ng-template #loading>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

@@ -1,0 +1,33 @@
+<app-default-template>
+  @if (isSuperUser$ | async) {
+    <app-admin-navigation
+      head
+      data-testid="app-admin-navigation-template"
+    ></app-admin-navigation>
+  }
+  <div body class="d-grid h-full grid-rows-auto">
+    <app-title text="{{ 'General.Portals' | transloco }}"></app-title>
+
+    <app-search-input
+      (changeEvent)="search($event)"
+      class="my-l mt-xl d-block w-full"
+      data-testid="portal-search"
+      placeholder="{{ 'General.Search' | transloco }}"
+    ></app-search-input>
+
+    <app-portals-list
+      [loading$]="portalLoading$"
+      [noDataText]="
+        (searchText$ | async) ? ('General.NoPortalsFound' | transloco) : ''
+      "
+      [portals$]="portalsShown$"
+      data-testid="portals-list"
+    ></app-portals-list>
+
+    <app-load-more
+      [hasMore]="(hasMore$ | async) ?? false"
+      [loading]="false"
+      (loadMore)="showMore()"
+    ></app-load-more>
+  </div>
+</app-default-template>

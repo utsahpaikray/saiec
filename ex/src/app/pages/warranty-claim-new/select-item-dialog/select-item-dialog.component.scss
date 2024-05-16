@@ -1,0 +1,73 @@
+.classification-list {
+  .classification-list-item {
+    display: inline;
+
+    + .classification-list-item::before {
+      content: ' | ';
+    }
+  }
+}
+
+.warranty-items-table-container {
+  & table thead {
+    position: sticky;
+    box-shadow: var(--grav-elevation-s);
+    top: 0;
+    background-color: var(--grav-color-base-white);
+
+    & tr {
+      border-bottom: 0;
+    }
+  }
+}
+
+// position the scrollbar inline with tbody
+.vertical-scrollbar::-webkit-scrollbar-track {
+  margin-top: var(--grav-space-4-xl);
+}
+
+ //TODO replace/removed all grav-* related style with specific classes after removal of tailwind
+grav-field input {
+  font-size: var(--grav-font-size-s);
+}
+
+.item-dialog-content {
+  display: grid;
+  grid-template-areas:
+    'search'
+    'pagination'
+    'itemContent'
+    'loadMore';
+  grid-template-rows: auto auto 1fr 60px 0;
+  height: 90vh;
+
+  & > grav-field {
+    grid-area: search;
+  }
+
+  & > app-load-more-paginator {
+    grid-area: pagination;
+  }
+
+  & > .warranty-items-table-container {
+    grid-area: itemContent;
+  }
+
+  & > app-load-more {
+    grid-area: loadMore;
+  }
+
+  & > .loader-spinner {
+    grid-area: itemContent;
+  }
+}
+
+.clear-search-text {
+  position: absolute;
+  right: var(--grav-space-m);
+  height:  var(--grav-height-xs);
+}
+
+.w-custom-9 {
+  width: calc(var(--grav-space-3-xl) * 3)
+}

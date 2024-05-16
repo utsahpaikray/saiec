@@ -1,0 +1,6 @@
+mutation setSiteContacts(
+  $siteId: UUID!
+  $siteContacts: SiteContactsMutationDtoInput!
+) {
+  editSiteContacts(siteId: $siteId, siteContacts: $siteContacts)
+}

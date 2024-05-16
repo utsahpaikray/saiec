@@ -1,0 +1,3 @@
+mutation addRoleToUser($userId: UUID!, $roleId: UUID!) {
+  addRoleToUser(userId: $userId, roleId: $roleId)
+}

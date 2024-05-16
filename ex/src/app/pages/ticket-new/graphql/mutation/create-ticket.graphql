@@ -1,0 +1,3 @@
+mutation createTicket($siteId: UUID!, $ticket: TicketCreateInput!) {
+  createTicket(siteId: $siteId, ticket: $ticket)
+}

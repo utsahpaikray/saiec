@@ -1,0 +1,163 @@
+<div class="d-flex justify-flex-end">
+  <button
+    (click)="openModal('add-user-modal')"
+    data-testid="add-user-button"
+    outline
+  >
+    <grav-svg-icon key="plus" size="s"></grav-svg-icon>
+    {{ 'AddUserModal.AddUserBtn' | transloco }}
+  </button>
+
+  <app-modal
+    (closeEvent)="resetData()"
+    id="add-user-modal"
+    data-testid="add-user-modal"
+    title="{{ 'AddUserModal.ModalTitle' | transloco }}"
+  >
+    <form
+      [formGroup]="addUserForm"
+      (ngSubmit)="onSubmit()"
+      data-testid="add-user-form"
+    >
+      <grav-field data-testid="add-user-field">
+        <grav-field-eyebrow>
+          {{ 'AddUserModal.InputLabel' | transloco }}
+        </grav-field-eyebrow>
+        <input
+          [attr.error]="isInvalid('upnId') ? '' : null"
+          [placeholder]="'AddUserModal.InputPlaceholder' | transloco"
+          name="upnId"
+          data-testid="add-user-text-input"
+          formControlName="upnId"
+          grav-input
+        />
+        <ng-container *ngIf="isInvalid('upnId')">
+          <grav-svg-icon
+            grav-input-prefix
+            key="exclamation-circle"
+            size="l"
+          ></grav-svg-icon>
+          <grav-assistive-text
+            class="grav-text-body-small"
+            data-testid="email-error"
+            error
+            left
+          >
+            {{ 'AddUserModal.InputErrorText' | transloco }}
+          </grav-assistive-text>
+        </ng-container>
+        <grav-assistive-text data-testid="add-user-assertive-text" left>
+          {{ 'AddUserModal.InfoText' | transloco }}
+        </grav-assistive-text>
+      </grav-field>
+
+      <div class="mt-s d-flex justify-flex-end pb-s">
+        <button data-testid="search-button">
+          {{ 'AddUserModal.SearchBtn' | transloco }}
+        </button>
+      </div>
+    </form>
+
+    <!-- show user summary if user exists-->
+    <ng-container *ngIf="externalUserAccount && !loading">
+      <div
+        *ngIf="
+          (externalUserAccount?.firstName && externalUserAccount?.lastName) ||
+          externalUserAccount?.email
+        "
+        class="d-inline-flex pb-s md:pb-l"
+      >
+        <svg-icon
+          class="pr-m grav-text-header text-steelblue-300"
+          name="user-outline"
+        ></svg-icon>
+        <div>
+          <div
+            *ngIf="
+              externalUserAccount?.firstName && externalUserAccount?.lastName
+            "
+            class="grav-text-body-bold"
+            data-testid="user-name"
+          >
+            {{ externalUserAccount.firstName }}
+            {{ externalUserAccount.lastName }}
+          </div>
+          <div
+            *ngIf="
+              externalUserAccount?.customerEmail || externalUserAccount?.email
+            "
+            class="break-words"
+            data-testid="user-email"
+          >
+            {{ externalUserAccount.customerEmail || externalUserAccount.email }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- show alerts & action buttons after upn field is filled -->
+    <ng-container *ngIf="addUserForm.value.upnId && !loading">
+      <!-- if external user account doesn't exist -->
+      <app-alert
+        *ngIf="!externalUserAccount; else disabledUser"
+        [alert]="warningAlert"
+        data-testid="warning-alert"
+      ></app-alert>
+
+      <!-- if external user account is disabled -->
+      <ng-template #disabledUser>
+        <ng-container
+          *ngIf="
+            externalUserAccount && !externalUserAccount.accountEnabled;
+            else userNotAdded
+          "
+        >
+          <app-alert
+            [alert]="disabledUserAlert"
+            data-testid="error-alert"
+          ></app-alert>
+        </ng-container>
+      </ng-template>
+
+      <!-- if user exists but is not added to my vanderlande -->
+      <ng-template #userNotAdded>
+        <app-alert
+          *ngIf="externalUserAccount && identityUser"
+          [alert]="infoAlert"
+          data-testid="info-alert"
+        ></app-alert>
+      </ng-template>
+
+      <div class="mt-m d-flex items-center justify-flex-end md:mt-l">
+        <div class="pr-s">
+          <button
+            (click)="closeModal('add-user-modal')"
+            data-testid="cancel-button"
+            outline
+          >
+            {{ 'AddUserModal.CancelBtn' | transloco }}
+          </button>
+        </div>
+        <button
+          [disabled]="
+            !!externalUserAccount && !externalUserAccount.accountEnabled
+          "
+          (click)="onActionButtonClick()"
+          data-testid="action-button"
+        >
+          <span *ngIf="!externalUserAccount">{{
+            'AddUserModal.RequestAccountBtn' | transloco
+          }}</span>
+          <!-- if existing user is added to my vanderlande -->
+          <span *ngIf="externalUserAccount && identityUser">{{
+            'AddUserModal.OpenProfileBtn' | transloco
+          }}</span>
+          <!-- if existing user is not added to my vanderlande -->
+          <span *ngIf="externalUserAccount && !identityUser">{{
+            'AddUserModal.AddUserBtn' | transloco
+          }}</span>
+        </button>
+      </div>
+    </ng-container>
+  </app-modal>
+</div>

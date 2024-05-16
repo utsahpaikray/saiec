@@ -1,0 +1,71 @@
+<app-dynamic-link
+  [isExact]="isExact"
+  [url]="url"
+  class="d-block h-full"
+  linkClass="h-full d-flex flex-col"
+>
+  <span
+    [ngClass]="{
+      '!bg-bluegrey-500': !isVertical && isActive,
+      'gap-x-m p-m ': !isVertical && !isCollapsed,
+      'bg-steelblue-300 text-white hover:bg-bluegrey-500': !isVertical,
+      'p-s text-center hover:bg-grey-100': isVertical,
+      'lg:d-flex min-h-custom-5 lg:items-center lg:px-l lg:py-m':
+        !isVertical && !isCollapsed && !isCompact,
+      'd-flex items-center lg:p-l': !isVertical && !isCollapsed && isCompact
+    }"
+    class="d-block h-full rounded-m transition-colors duration-300 ease-in-out"
+    data-testid="navigation-item"
+  >
+    <span
+      [ngClass]="{
+        '!bg-bluegrey-500': isActive,
+        'd-flex flex-shrink-0 items-center justify-center':
+          !isVertical && !isCollapsed,
+        'bg-steelblue-300 text-white hover:bg-bluegrey-500': isVertical,
+        'relative d-block w-full rounded-m pt-5-xl transition-colors duration-300 ease-in-out':
+          isVertical || isCollapsed
+      }"
+      class="grav-text-header dynamic-link-icon"
+    >
+      <svg-icon
+        [name]="icon"
+        [svgClass]="
+          isVertical || isCollapsed
+            ? 'absolute top-half left-half icon-custom text-white'
+            : 'text-white'
+        "
+        data-testid="icon"
+      ></svg-icon>
+    </span>
+
+    <p
+      *ngIf="!isCollapsed"
+      [ngClass]="{
+        '<lg:d-none lg:flex-grow lg:grav-text-header-3':
+          !isVertical && !isCompact,
+        'flex-grow grav-text-header-3':
+          !isVertical && !isCollapsed && isCompact,
+        'mt-s grav-text-caption leading-3': isVertical
+      }"
+      class="dynamic-link-text"
+    >
+      <span
+        [ngClass]="{
+          'd-flex justify-center': isVertical
+        }"
+        class="break-word"
+        data-testid="text"
+      >
+        <ng-content></ng-content>
+      </span>
+    </p>
+    <svg-icon
+      *ngIf="!isVertical && !isCollapsed"
+      [ngClass]="{ '<lg:d-none': !isCompact }"
+      name="chevron-right"
+      data-testid="chevron"
+      svgClass="!text-white lg:grav-text-header-2"
+    ></svg-icon>
+  </span>
+</app-dynamic-link>

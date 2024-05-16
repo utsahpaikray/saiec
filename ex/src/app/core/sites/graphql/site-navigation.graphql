@@ -1,0 +1,52 @@
+fragment SiteSpareParts on Site {
+  sparePartsShopConfig {
+    ...SiteSparePartsConfig
+  }
+}
+
+fragment SiteSparePartsConfig on SparePartsShopConfig {
+  enabled
+}
+
+fragment SiteVidi on Site {
+  vidiConfig {
+    ...SiteVidiConfig
+  }
+}
+
+fragment SiteVidiConfig on VidiConfig {
+  enabled
+}
+
+query siteNavigation($siteId: UUID!) {
+  sites(where: { id: { eq: $siteId } }) {
+    ...SiteSpareParts
+    ...SiteVidi
+    ...SiteProjectsSegment
+    contractVisible
+  }
+}
+
+fragment SiteDivertHealth on Site {
+  divertHealthConfig {
+    ...SiteDivertHealthConfig
+  }
+}
+
+fragment SiteDivertHealthConfig on DivertHealthConfig {
+  enabled
+}
+
+query siteNavigationAccessibleSites($siteId: UUID!) {
+  me {
+    relatedPortalData {
+      AccessibleSites(where: { id: { eq: $siteId } }) {
+        ...SiteSpareParts
+        ...SiteVidi
+        ...SiteProjectsSegment
+        ...SiteDivertHealth
+        contractVisible
+      }
+    }
+  }
+}

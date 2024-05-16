@@ -1,0 +1,10 @@
+query siteBySiteId($siteId: UUID!) {
+  me {
+    relatedPortalData {
+      AccessibleSites(where: { id: { eq: $siteId } }) {
+        id
+        name
+      }
+    }
+  }
+}

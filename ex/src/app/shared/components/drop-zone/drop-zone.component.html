@@ -1,0 +1,21 @@
+<div grav-empty-state-title>
+  @switch (state$ | async) {
+    @case (ComponentState.Valid) {
+      {{ 'DragAndDrop.ValidState' | transloco }}
+    }
+    @case (ComponentState.FileNotAllowed) {
+      {{
+        'DragAndDrop.FileNotAllowed'
+          | transloco
+            : {
+                validTypes: vm()?.acceptedExtensions?.join(', ')
+              }
+      }}
+    }
+    @case (ComponentState.FileCountExceeded) {
+      {{
+        'DragAndDrop.FileCountExceeded' | transloco: { count: vm()?.maxFiles }
+      }}
+    }
+  }
+</div>

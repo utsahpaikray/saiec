@@ -1,0 +1,3 @@
+query documentUrl($name: String!, $siteId: UUID!) {
+  documentUrl(name: $name, siteId: $siteId)
+}

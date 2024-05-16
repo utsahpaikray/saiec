@@ -1,0 +1,11 @@
+<app-link
+  *ngIf="backLink"
+  [linkText]="backLink.title"
+  [linkUrl]="backLink.url"
+  class="mt-l d-inline-block"
+  data-testid="back-button"
+  iconName="chevron-left"
+  iconPosition="left"
+  size="lg"
+>
+</app-link>

@@ -1,0 +1,95 @@
+<div class="bg-grey-800 px-m pt-xl pb-xl text-white md:!pb-xl md:p-5-xl">
+  <div class="mx-auto max-w-screen-2xl">
+    <div
+      class="mb-l d-flex justify-space-between md:mb-5-xl md:justify-flex-end md:gap-xl"
+    >
+      <a
+        data-testid="twitter-link"
+        href="https://twitter.com/Vanderlande"
+        target="_blank"
+      >
+        <app-footer-logo iconName="logo-twitter"></app-footer-logo>
+      </a>
+      <a
+        data-testid="facebook-link"
+        href="https://www.facebook.com/vanderlande.industries/"
+        target="_blank"
+      >
+        <app-footer-logo iconName="logo-facebook"></app-footer-logo>
+      </a>
+      <a
+        data-testid="linkedin-link"
+        href="https://www.linkedin.com/company/vanderlande/"
+        target="_blank"
+      >
+        <app-footer-logo iconName="logo-linkedin"></app-footer-logo>
+      </a>
+      <a
+        data-testid="youtube-link"
+        href="https://www.youtube.com/user/Vanderlandetube"
+        target="_blank"
+      >
+        <app-footer-logo iconName="logo-youtube"></app-footer-logo>
+      </a>
+      <a
+        data-testid="instagram-link"
+        href="https://www.instagram.com/vanderlande.official/"
+        target="_blank"
+      >
+        <app-footer-logo iconName="logo-instagram"></app-footer-logo>
+      </a>
+      <a
+        data-testid="wechat-link"
+        href="https://www.vanderlande.com/wp-content/uploads/2021/02/wechat.png"
+        target="_blank"
+      >
+        <app-footer-logo iconName="logo-wechat"></app-footer-logo>
+      </a>
+      <a
+        data-testid="xing-link"
+        href="https://www.xing.com/pages/vanderlandeindustries"
+        target="_blank"
+      >
+        <app-footer-logo iconName="logo-xing"></app-footer-logo>
+      </a>
+    </div>
+    <div
+      class="gap-x-l b-none bt-s border-solid border-white pt-m lg:d-flex lg:justify-space-between"
+    >
+      <p class="md:text-right lg:mb-0 lg:text-left copyright-text">
+        {{ 'Landing.CopyrightText' | transloco : { year: year } }}
+      </p>
+      <div
+        class="d-flex flex-wrap gap-x-l gap-y-s font-bold md:justify-flex-end"
+      >
+        <app-link
+          [linkUrl]="vanderlandePrivacyStatementUrl"
+          class="font-bold cookie-policy-link"
+          data-testid="privacy-statement-link"
+          linkText="{{ 'Landing.PrivacyLink' | transloco }}"
+          size="xl"
+          variant="secondary"
+        >
+        </app-link>
+
+        <app-link
+          [linkUrl]="vanderlandeCookiePolicyUrl"
+          class="font-bold cookie-policy-link"
+          data-testid="cookie-policy-link"
+          linkText="{{ 'Landing.CookiePolicy' | transloco }}"
+          size="xl"
+          variant="secondary"
+        >
+        </app-link>
+
+        <a
+          (click)="openCookieConsent()"
+          class="cursor-pointer cookie-policy-link"
+          data-testid="cookie-consent-button"
+        >
+          {{ 'Landing.CookiePreferences' | transloco }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

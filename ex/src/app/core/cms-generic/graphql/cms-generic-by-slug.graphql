@@ -1,0 +1,13 @@
+fragment GenericItem on Generic {
+  title
+  cardDescription
+  slug
+}
+
+query genericContentBySlug($slug: String!) {
+  genericCollection(where: { slug_contains: $slug }) {
+    items {
+      ...GenericItem
+    }
+  }
+}

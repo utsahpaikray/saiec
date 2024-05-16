@@ -1,0 +1,69 @@
+<ng-container *transloco="let t">
+  <div *ngIf="vm$ | async as vm" class="d-flex flex-col gap-m">
+    <div
+      (blur)="onBlur()"
+      (click)="fileInput.click()"
+      class="d-flex gap-m"
+      tabindex="-1"
+    >
+      <input
+        [disabled]="vm.disabled"
+        [multiple]="!vm.single || null"
+        (change)="inputChange$.next(fileInput)"
+        type="file"
+        #fileInput
+        hidden
+      />
+      <input
+        [attr.error]="error || null"
+        [disabled]="vm.disabled"
+        class="flex-1"
+        type="text"
+        grav-input
+        readonly
+      />
+      <button
+        [disabled]="vm.disabled"
+        data-testid="ticket-new-add-attachment"
+        type="button"
+        outline
+      >
+        {{ t(vm.labels.ADD_ATTACHMENT) }}
+      </button>
+    </div>
+    <div *ngIf="hasFiles$ | async; else emptyState">
+      <div *ngFor="let file of files$ | async; let i = index">
+        <grav-list-item>
+          <div class="d-flex flex-col gap-xs">
+            <span class="grav-text-body">{{ file.name }}</span>
+            <span class="grav-text-caption">{{ file.description }}</span>
+          </div>
+          <button
+            *ngIf="file.removable && !vm.disabled"
+            (click)="removeFile(file)"
+            type="button"
+            ghost
+          >
+            <grav-svg-icon key="trash" size="large"></grav-svg-icon>
+          </button>
+          <button
+            *ngIf="file.url"
+            (click)="downloadFile(file)"
+            type="button"
+            ghost
+          >
+            <grav-svg-icon key="download" size="large"></grav-svg-icon>
+          </button>
+        </grav-list-item>
+      </div>
+    </div>
+    <ng-template #emptyState>
+      <div grav-empty-state="small">
+        <span grav-empty-state-title>{{ t(vm.labels.EMPTY_STATE_TITLE) }}</span>
+        <span grav-empty-state-explanation>{{
+          t(vm.labels.EMPTY_STATE_EXPLANATION)
+        }}</span>
+      </div>
+    </ng-template>
+  </div>
+</ng-container>

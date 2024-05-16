@@ -1,0 +1,41 @@
+@use 'sass:map';
+
+$breakpoints_min: (
+  'sm': 640,
+  'md': 768,
+  'lg': 1024,
+  'xl': 1280,
+  '\\2xl': 1536
+);
+
+$breakpoints_max: (
+  '\\<xs': 567,
+  '\\<sm': 639.9,
+  '\\<md': 767.9,
+  '\\<lg': 1023.9,
+  '\\<xl': 1279.9,
+  '\\<2xl': 1535.9
+);
+
+$media_queries_min: ();
+
+@each $key, $value in $breakpoints_min {
+
+  $media_queries_min: map-merge(
+    $media_queries_min,
+    (
+      $key: '(min-width: #{$value}px)'
+    )
+  );
+}
+
+$media_queries_max: ();
+@each $key, $value in $breakpoints_max {
+  $media_queries_max: map-merge(
+    $media_queries_max,
+    (
+      $key: '(max-width: #{$value}px)'
+    )
+  );
+}
+$media_queries: map-merge($media_queries_min, $media_queries_max);

@@ -1,0 +1,3 @@
+mutation changeUserLanguage($userId: UUID!, $language: String!) {
+  changeUserLanguage(userId: $userId, language: $language)
+}

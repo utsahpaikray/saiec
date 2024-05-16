@@ -1,0 +1,26 @@
+<main>
+  <span [appElementRef]="trigger$" class="d-flex" #trigger>
+    <span class="absolute p-s overlay-prefix-icon">
+      <ng-content select="[overlayPrefixIcon]"></ng-content>
+    </span>
+    <ng-content select="[appDropdownTrigger]"></ng-content>
+
+    <grav-svg-icon
+      [ngStyle]="{
+        rotate: (open$ | async) ? '180deg' : '0deg'
+      }"
+      class="absolute p-s right-xs"
+      key="arrow-drop-down"
+      size="l"
+    ></grav-svg-icon>
+  </span>
+  <ng-template [appTemplateRef]="popover$">
+    <div
+      [style.width.px]="trigger.getBoundingClientRect().width"
+      [style.boxShadow]="'var(--global-box-shadow-s)'"
+      class="popover-container"
+    >
+      <ng-content></ng-content>
+    </div>
+  </ng-template>
+</main>

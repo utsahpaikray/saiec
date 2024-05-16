@@ -1,0 +1,27 @@
+overwrite: true
+watch: false
+schema: 'https://myvanderlande.tst.vanderlande.com/gateway'
+documents:
+  - 'src/**/*.graphql'
+  - '!src/**/cms-*.graphql'
+generates:
+  src/app/core/generated/types.ts:
+    plugins:
+      - 'typescript'
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .graphql-gen.ts
+      baseTypesPath: /app/core/generated/types.ts
+    plugins:
+      - 'typescript-operations'
+      - 'typescript-apollo-angular'
+      - 'named-operations-object'
+  src/./:
+    preset: near-operation-file
+    presetConfig:
+      extension: .graphql-gen.mock.ts
+      baseTypesPath: /app/core/generated/types.ts
+    plugins:
+      - 'typescript-operations'
+      - 'typescript-msw'

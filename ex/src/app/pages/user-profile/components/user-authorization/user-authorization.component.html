@@ -1,0 +1,67 @@
+<h3 class="mt-l mb-m grav-text-header-2 text-grey-900">
+  {{ 'UserAuthorization.Title' | transloco }}
+</h3>
+
+<div class="b-m border-solid border-white p-l pt-m pb-m">
+  <p class="mb-s grav-text-body text-grey-900">
+    {{ 'UserAuthorization.Message' | transloco }}
+  </p>
+
+  <div *ngIf="user && roles">
+    <div
+      *ngIf="roles.length === 1"
+      class="bg-white p-m <sm:bg-blue-100"
+      data-testid="single-role-block"
+    >
+      <p class="grav-text-body-medium" data-testid="role-label">
+        {{
+          (roles[0] | roleDisplayContent : roleDisplayContents)?.label
+            | transloco
+        }}
+      </p>
+      <p class="grav-text-body-small text-grey-500" data-testid="role-warning">
+        {{ 'UserAuthorization.CustomerMessage' | transloco }}
+      </p>
+    </div>
+    <ng-container *ngIf="roles.length > 1">
+      <grav-field>
+        <fieldset class="bg-white">
+          <div class="lg:d-flex lg:justify-space-between lg:w-full">
+            <div *ngFor="let role of roles" class="w-full gap-px">
+              <div>
+                <input
+                  [attr.data-testid]="role.name"
+                  [disabled]="
+                    (role | roleDisplayContent : roleDisplayContents)
+                      ?.isDisabled || false
+                  "
+                  [id]="role.name"
+                  [value]="role"
+                  (ngModelChange)="onRoleChange($event)"
+                  [(ngModel)]="selectedRole"
+                  name="role-selection"
+                  type="radio"
+                />
+                <label
+                  [attr.checked]="
+                    selectedRole ? selectedRole.name === role?.name : false
+                  "
+                  [for]="role.name"
+                  >{{
+                    (role | roleDisplayContent : roleDisplayContents)?.label ??
+                      role.name
+                  }}</label
+                >
+              </div>
+              <grav-assistive-text data-testid="radio-button-description" left>
+                {{
+                  (role | roleDisplayContent : roleDisplayContents)?.description
+                }}
+              </grav-assistive-text>
+            </div>
+          </div>
+        </fieldset>
+      </grav-field>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,484 @@
+<app-title text="{{ 'SiteAdmin.Contacts' | transloco }}"></app-title>
+
+<app-link
+  [linkText]="'General.AllSiteSettings' | transloco"
+  class="mt-l d-inline-block"
+  iconName="chevron-left"
+  iconPosition="left"
+  linkUrl="../"
+  size="lg"
+>
+</app-link>
+
+<ng-container *ngIf="form && !loading; else loader">
+  <app-form
+    *ngIf="[readOnlyContacts$ | async] as readOnlyContacts"
+    [formGroup]="form"
+    (submitEvent)="onSubmit()"
+    class="mt-2-xl d-block md:mt-20"
+    data-testid="site-settings-contacts-form"
+  >
+    <!-- Contract Manager -->
+    <h2 class="grav-text-header-3 text-grey-900 md:grav-text-header-2">
+      {{ 'SiteAdminContacts.ContractManager' | transloco }}
+    </h2>
+    <p class="mt-xs grav-text-body-small md:mt-s">
+      {{ 'SiteAdminContacts.ShowThisContactChkbxDisabled' | transloco }}
+    </p>
+    <div
+      class="mt-s b-m border-solid border-white p-m md:mt-l md:py-m md:px-l"
+      formGroupName="contractManagerContact"
+    >
+      <div *ngIf="readOnlyContacts">
+        <ng-content
+          *ngTemplateOutlet="
+            readOnlyContactsTemplate;
+            context: readOnlyContacts[0]?.contractManagerContact
+          "
+        ></ng-content>
+      </div>
+      <grav-field class="md:w-half" data-testid="contract-manager-title">
+        <grav-field-eyebrow>
+          {{ 'SiteAdminContacts.CustomTitle' | transloco }} -
+          {{ 'General.Optional' | transloco }}
+        </grav-field-eyebrow>
+        <input
+          name="alternativeContactTitle"
+          formControlName="alternativeContactTitle"
+          grav-input
+        />
+        <grav-assistive-text left>
+          {{
+            'SiteAdminContacts.CustomTitleDesc'
+              | transloco
+                : {
+                    'Account manager':
+                      'SiteAdminContacts.ContractManager' | transloco
+                  }
+          }}
+        </grav-assistive-text>
+      </grav-field>
+    </div>
+
+    <!-- Account Manager -->
+    <h2 class="mt-xl grav-text-header-3 text-grey-900 md:grav-text-header-2">
+      {{ 'SiteAdminContacts.AccountManager' | transloco }}
+    </h2>
+    <div
+      class="mt-s b-m border-solid border-white p-m md:mt-l md:py-m md:px-l"
+      formGroupName="accountManagerContact"
+    >
+      <grav-field class="mt-xs md:mt-s">
+        <input
+          id="account-manager-checkbox"
+          name="show"
+          type="checkbox"
+          formControlName="show"
+        />
+        <label
+          data-testid="account-manager-checkbox"
+          for="account-manager-checkbox"
+          >{{ 'SiteAdminContacts.ShowThisContactChkbx' | transloco }}</label
+        >
+      </grav-field>
+      <app-expansion-panel
+        [isOpen]="!!form.get('accountManagerContact.show')?.value"
+      >
+        <div *ngIf="readOnlyContacts">
+          <ng-content
+            *ngTemplateOutlet="
+              readOnlyContactsTemplate;
+              context: readOnlyContacts[0]?.accountManagerContact
+            "
+          ></ng-content>
+        </div>
+
+        <div class="md:w-half">
+          <grav-field data-testid="account-manager-title">
+            <grav-field-eyebrow>
+              {{ 'SiteAdminContacts.CustomTitle' | transloco }} -
+              {{ 'General.Optional' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              name="alternativeContactTitle"
+              formControlName="alternativeContactTitle"
+              grav-input
+            />
+            <grav-assistive-text left>
+              {{
+                'SiteAdminContacts.CustomTitleDesc'
+                  | transloco
+                    : {
+                        'Account manager':
+                          'SiteAdminContacts.AccountManager' | transloco
+                      }
+              }}
+            </grav-assistive-text>
+          </grav-field>
+        </div>
+      </app-expansion-panel>
+    </div>
+    <div
+      [ngClass]="{
+        'mt-xl border-b-2 border-white': !form.get('accountManagerContact.show')
+          ?.value
+      }"
+      class="transition-[margin] duration-300 ease-in-out"
+    ></div>
+
+    <!-- IT Manager -->
+    <h2 class="mt-xl grav-text-header-3 text-grey-900 md:grav-text-header-2">
+      {{ 'SiteAdminContacts.ITManager' | transloco }}
+    </h2>
+    <div
+      class="mt-s b-m border-solid border-white p-m md:mt-l md:py-m md:px-l"
+      formGroupName="itManagerContact"
+    >
+      <grav-field class="mt-xs md:mt-s">
+        <input
+          id="it-manager-checkbox"
+          name="show"
+          type="checkbox"
+          formControlName="show"
+        />
+        <label data-testid="it-manager-checkbox" for="it-manager-checkbox">{{
+          'SiteAdminContacts.ShowThisContactChkbx' | transloco
+        }}</label>
+      </grav-field>
+      <app-expansion-panel
+        [isOpen]="!!form.get('itManagerContact.show')?.value"
+      >
+        <div *ngIf="readOnlyContacts">
+          <ng-content
+            *ngTemplateOutlet="
+              readOnlyContactsTemplate;
+              context: readOnlyContacts[0]?.itManagerContact
+            "
+          ></ng-content>
+        </div>
+        <div class="md:w-half">
+          <grav-field data-testid="it-manager-title">
+            <grav-field-eyebrow>
+              {{ 'SiteAdminContacts.CustomTitle' | transloco }} -
+              {{ 'General.Optional' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              name="alternativeContactTitle"
+              formControlName="alternativeContactTitle"
+              grav-input
+            />
+            <grav-assistive-text left>
+              {{
+                'SiteAdminContacts.CustomTitleDesc'
+                  | transloco
+                    : {
+                        'Account manager':
+                          'SiteAdminContacts.ITManager' | transloco
+                      }
+              }}
+            </grav-assistive-text>
+          </grav-field>
+        </div>
+      </app-expansion-panel>
+    </div>
+    <div
+      [ngClass]="{
+        'mt-xl border-b-2 border-white': !form.get('itManagerContact.show')
+          ?.value
+      }"
+      class="transition-[margin] duration-300 ease-in-out"
+    ></div>
+
+    <!-- Service Desk -->
+    <h2 class="mt-xl grav-text-header-3 text-grey-900 md:grav-text-header-2">
+      {{ 'SiteAdminContacts.ServiceDesk' | transloco }}
+    </h2>
+    <div
+      class="mt-s b-m border-solid border-white p-m md:mt-l md:py-m md:px-l"
+      formGroupName="serviceDeskContact"
+    >
+      <grav-field class="mt-xs md:mt-s">
+        <input
+          id="service-desk-checkbox"
+          name="show"
+          type="checkbox"
+          formControlName="show"
+        />
+        <label
+          data-testid="service-desk-checkbox"
+          for="service-desk-checkbox"
+          >{{ 'SiteAdminContacts.ShowThisContactChkbx' | transloco }}</label
+        >
+      </grav-field>
+
+      <app-expansion-panel
+        [isOpen]="!!form.get('serviceDeskContact.show')?.value"
+      >
+        <div *ngIf="readOnlyContacts">
+          <ng-content
+            *ngTemplateOutlet="
+              readOnlyContactsTemplate;
+              context: readOnlyContacts[0]?.serviceDeskContact
+            "
+          ></ng-content>
+        </div>
+
+        <div class="md:w-half">
+          <grav-field data-testid="service-desk-title">
+            <grav-field-eyebrow>
+              {{ 'SiteAdminContacts.CustomTitle' | transloco }} -
+              {{ 'General.Optional' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              name="alternativeContactTitle"
+              formControlName="alternativeContactTitle"
+              grav-input
+            />
+            <grav-assistive-text left>
+              {{
+                'SiteAdminContacts.CustomTitleDesc'
+                  | transloco
+                    : {
+                        'Account manager':
+                          'SiteAdminContacts.ServiceDesk' | transloco
+                      }
+              }}
+            </grav-assistive-text>
+          </grav-field>
+        </div>
+      </app-expansion-panel>
+    </div>
+
+    <div
+      [ngClass]="{
+        'mt-xl border-b-2 border-white': !form.get('serviceDeskContact.show')
+          ?.value
+      }"
+      class="transition-[margin] duration-300 ease-in-out"
+    ></div>
+
+    <!-- Spare Parts Contact -->
+    <h2 class="mt-xl grav-text-header-3 text-grey-900 md:grav-text-header-2">
+      {{ 'SiteAdminContacts.SparePartsContact' | transloco }}
+    </h2>
+    <div
+      class="mt-s b-m border-solid border-white p-m md:mt-l md:py-m md:px-l"
+      formGroupName="sparePartsContact"
+    >
+      <grav-field class="mt-xs md:mt-s">
+        <input
+          id="spare-parts-checkbox"
+          name="show"
+          type="checkbox"
+          formControlName="show"
+        />
+        <label data-testid="spare-parts-checkbox" for="spare-parts-checkbox">{{
+          'SiteAdminContacts.ShowThisContactChkbx' | transloco
+        }}</label>
+      </grav-field>
+      <app-expansion-panel
+        [isOpen]="!!form.get('sparePartsContact.show')?.value"
+      >
+        <div class="md:w-half">
+          <grav-field data-testid="spare-parts-title">
+            <grav-field-eyebrow>
+              {{ 'SiteAdminContacts.CustomTitle' | transloco }} -
+              {{ 'General.Optional' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              name="alternativeContactTitle"
+              formControlName="alternativeContactTitle"
+              grav-input
+            />
+            <grav-assistive-text left>
+              {{
+                'SiteAdminContacts.CustomTitleDesc'
+                  | transloco
+                    : {
+                        'Account manager':
+                          'SiteAdminContacts.SparePartsContact' | transloco
+                      }
+              }}
+            </grav-assistive-text>
+          </grav-field>
+
+          <grav-field class="mt-s" data-testid="spare-parts-email">
+            <grav-field-eyebrow>
+              {{ 'General.Email' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              [attr.error]="
+                isInvalid(form, 'sparePartsContact.emailAddress') ? '' : null
+              "
+              name="emailAddress"
+              formControlName="emailAddress"
+              grav-input
+            />
+            <ng-container
+              *ngIf="isInvalid(form, 'sparePartsContact.emailAddress')"
+            >
+              <grav-svg-icon
+                grav-input-prefix
+                key="exclamation-circle"
+                size="l"
+              ></grav-svg-icon>
+              <grav-assistive-text
+                class="grav-text-body-small"
+                data-testid="spare-parts-email-error"
+                error
+                left
+              >
+                {{
+                  getFormControl(form, 'sparePartsContact.emailAddress')?.errors
+                    ?.required
+                    ? ('General.MandatoryField' | transloco)
+                    : ('General.ValidEmail' | transloco)
+                }}
+              </grav-assistive-text>
+            </ng-container>
+          </grav-field>
+        </div>
+      </app-expansion-panel>
+    </div>
+    <div
+      [ngClass]="{
+        'mt-xl border-b-2 border-white': !form.get('sparePartsContact.show')
+          ?.value
+      }"
+      class="transition-[margin] duration-300 ease-in-out"
+    ></div>
+
+    <!-- Visiting Office -->
+    <h2 class="mt-xl grav-text-header-3 text-grey-900 md:grav-text-header-2">
+      {{ 'SiteAdminContacts.VisitingOffice' | transloco }}
+    </h2>
+    <div
+      class="mt-s b-m border-solid border-white p-m md:mt-l md:py-m md:px-l"
+      formGroupName="visitingOfficeContact"
+    >
+      <grav-field class="mt-xs md:mt-s">
+        <input
+          id="custom-visiting-office-checkbox"
+          name="show"
+          type="checkbox"
+          formControlName="show"
+        />
+        <label
+          data-testid="custom-visiting-office-checkbox"
+          for="custom-visiting-office-checkbox"
+          >{{ 'SiteAdminContacts.ShowThisContactChkbx' | transloco }}</label
+        >
+      </grav-field>
+      <app-expansion-panel
+        [isOpen]="!!form.get('visitingOfficeContact.show')?.value"
+      >
+        <div class="md:w-half">
+          <grav-field data-testid="custom-visiting-office-title">
+            <grav-field-eyebrow>
+              {{ 'SiteAdminContacts.CustomTitle' | transloco }} -
+              {{ 'General.Optional' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              name="alternativeContactTitle"
+              formControlName="alternativeContactTitle"
+              grav-input
+            />
+            <grav-assistive-text left>
+              {{
+                'SiteAdminContacts.CustomTitleDesc'
+                  | transloco
+                    : {
+                        'Account manager':
+                          'SiteAdminContacts.VisitingOffice' | transloco
+                      }
+              }}
+            </grav-assistive-text>
+          </grav-field>
+
+          <grav-field class="mt-s" data-testid="custom-visiting-office-name">
+            <grav-field-eyebrow>
+              {{ 'SiteAdminContacts.NameOfOffice' | transloco }} -
+              {{ 'General.Optional' | transloco }}
+            </grav-field-eyebrow>
+            <input name="name" formControlName="name" grav-input />
+          </grav-field>
+
+          <app-text-area
+            [label]="'General.Address' | transloco"
+            class="mt-l d-block md:mt-2-xl"
+            name="address"
+            data-testid="custom-visiting-office-address"
+            formControlName="address"
+          >
+          </app-text-area>
+
+          <grav-field class="mt-s" data-testid="custom-visiting-office-email">
+            <grav-field-eyebrow>
+              {{ 'General.Email' | transloco }} -
+              {{ 'General.Optional' | transloco }}
+            </grav-field-eyebrow>
+            <input name="email" formControlName="email" grav-input />
+          </grav-field>
+
+          <grav-field class="mt-s" data-testid="custom-visiting-office-phone">
+            <grav-field-eyebrow>
+              {{ 'General.PhoneNumber' | transloco }} -
+              {{ 'General.Optional' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              name="phoneNumber"
+              formControlName="phoneNumber"
+              grav-input
+            />
+          </grav-field>
+        </div>
+      </app-expansion-panel>
+    </div>
+  </app-form>
+</ng-container>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template
+  #readOnlyContactsTemplate
+  let-email="emailAddress"
+  let-name="name"
+  let-phoneNumber="phoneNumber"
+  let-phoneOutside="phoneNumberOutsideWorkingHours"
+>
+  <div class="md:w-half">
+    <grav-field>
+      <grav-field-eyebrow>
+        {{ 'General.Email' | transloco }}
+      </grav-field-eyebrow>
+      <input [value]="email" type="text" disabled grav-input />
+    </grav-field>
+
+    <grav-field>
+      <grav-field-eyebrow>
+        {{ 'General.Name' | transloco }}
+      </grav-field-eyebrow>
+      <input [value]="name" type="text" disabled grav-input />
+    </grav-field>
+
+    <grav-field>
+      <grav-field-eyebrow>
+        {{ 'General.PhoneNumber' | transloco }}
+      </grav-field-eyebrow>
+      <input [value]="phoneNumber || '-'" type="text" disabled grav-input />
+    </grav-field>
+
+    <grav-field *ngIf="phoneOutside">
+      <grav-field-eyebrow>
+        {{ 'SiteAdminContacts.PhoneNumberOutsideWorkingHours' | transloco }}
+      </grav-field-eyebrow>
+      <input [value]="phoneOutside" type="text" disabled grav-input />
+    </grav-field>
+  </div>
+</ng-template>

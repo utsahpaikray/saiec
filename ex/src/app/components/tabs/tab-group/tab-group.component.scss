@@ -1,0 +1,31 @@
+.tab-list {
+  &\:w-full {
+    &:hover::before {
+      content: '';
+      width: 100%;
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 0.125rem;
+    width: 0;
+    transform: translate(-50%);
+    background-color: var(--grav-color-base-grey-400);
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: width;
+    transition-duration: 150ms;
+  }
+}
+
+.underline-tracker {
+  margin-top: -0.125rem;
+  height: 0.125rem;
+
+  & > span {
+    background-color: var(--grav-color-base-bluegrey-500);
+  }
+}

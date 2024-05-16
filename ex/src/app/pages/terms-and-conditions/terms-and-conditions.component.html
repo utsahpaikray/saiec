@@ -1,0 +1,27 @@
+<app-content-template>
+  <div *ngIf="genericTermsAndConditions$ | async" class="lg:w-2/3">
+    <ng-container
+      *ngFor="
+        let genericTermsAndConditions of genericTermsAndConditions$ | async
+      "
+    >
+      <h2
+        class="mt-m mb-2 grav-text-header-3-medium text-grey-900 md:mt-l md:grav-text-header-medium"
+        data-testid="terms-and-conditions-title"
+      >
+        {{ genericTermsAndConditions.title }}
+      </h2>
+
+      <app-rich-text
+        [richText]="genericTermsAndConditions.contentSection?.json"
+        (processLink)="goToRelativePage($event)"
+        data-testid="terms-and-conditions-rich-text"
+      ></app-rich-text>
+    </ng-container>
+  </div>
+</app-content-template>
+
+<app-footer
+  *ngIf="isFooterVisible$ | async"
+  data-testid="terms-and-conditions-footer"
+></app-footer>

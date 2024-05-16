@@ -1,0 +1,138 @@
+<app-expansion-panel
+  [isOpen]="category.isOpen"
+  (toggleEvent)="onToggle($event)"
+  data-testid="documentation-table-category"
+>
+  <ng-container header>
+    <div
+      [ngClass]="{
+        'cursor-pointer transition-colors duration-300 ease-in-out hover:bg-grey-100':
+          category.documentsAmount !== 0
+      }"
+      class="category-header-inner d-flex items-center gap-s p-s <md:flex-wrap md:p-m b-none bt-s border-solid border-grey-300"
+    >
+      <div data-testid="table-category-icon">
+        <svg-icon
+          name="folder-outline"
+          svgClass="grav-text-header-2 text-steelblue-300"
+        ></svg-icon>
+      </div>
+      <div
+        *ngIf="category.name"
+        class="text-grey-900 table-category-name <md:grav-text-body-small-medium md:w-third"
+        data-testid="table-category-name"
+      >
+        {{ category.name }}
+      </div>
+      <div
+        class="category-section md:flex-grow <md:d-flex <md:justify-flex-end <md:flex-1"
+      >
+        <span
+          *ngIf="category.documents"
+          class="<md:grav-text-caption-medium <md:leading-4 md:d-none"
+        >
+          <ng-template [ngIf]="category.documentsAmount === 0">{{
+            'SiteAdminDocumentation.AmountOfDocumentsZero'
+              | transloco : { number: category.documentsAmount }
+          }}</ng-template>
+          <ng-template [ngIf]="category.documentsAmount === 1">{{
+            'SiteAdminDocumentation.AmountOfDocumentsOne'
+              | transloco : { number: category.documentsAmount }
+          }}</ng-template>
+          <ng-template [ngIf]="category.documentsAmount > 1">{{
+            'SiteAdminDocumentation.AmountOfDocumentsPlural'
+              | transloco : { number: category.documentsAmount }
+          }}</ng-template>
+        </span>
+        <span
+          *ngIf="category.documents"
+          class="<md:d-none"
+          data-testid="table-category-amount"
+          >{{ category.documentsAmount }}</span
+        >
+      </div>
+      <div class="text-grey-600 <md:ml-auto">
+        <svg-icon
+          [name]="
+            category.isOpen ? 'chevron-up-outline' : 'chevron-down-outline'
+          "
+          [svgClass]="category.documentsAmount === 0 ? 'text-grey-200' : ''"
+          data-testid="table-folder-chevron"
+          svgClass="grav-text-header-3 "
+        ></svg-icon>
+      </div>
+    </div>
+  </ng-container>
+  <div
+    *ngFor="let document of category.documents; let i = index"
+    class="b-none bt-s border-solid border-grey-300"
+  >
+    <app-expansion-panel
+      [isOpen]="!document.deleted"
+      class="d-block transition-colors duration-300 ease-in-out hover:bg-grey-100"
+      data-testid="documentation-table-item"
+    >
+      <div
+        [ngClass]="{
+          'scale-90 opacity-0': document.deleted,
+          'scale-100 opacity-100': !document.deleted
+        }"
+        class="d-flex w-full transform items-center gap-s p-s transition-all duration-300 ease-in-out <md:flex-wrap md:p-m"
+      >
+        <div
+          class="table-file-icon ml-s d-flex items-start gap-xs before:border-l before:border-b before:border-blue-500"
+          data-testid="table-file-icon"
+        >
+          <svg-icon
+            name="document-text-outline"
+            svgClass="grav-text-header-2 d-flex text-steelblue-300"
+          ></svg-icon>
+        </div>
+        <div
+          class="table-file-name w-full break-words text-left text-grey-900 <md:grav-text-body-small"
+          data-testid="table-file-name"
+        >
+          {{ document.name.split('/').pop() }}
+        </div>
+
+        <div
+          class="text-grey-600 text-left leading-4 <md:w-none <md:flex-grow <md:pl-[calc(3.25rem+0.75rem*2)] <md:grav-text-caption-medium md:w-1/6 md:leading-5"
+          data-testid="table-file-culture"
+        >
+          {{ document.culture }}
+        </div>
+
+        <div
+          class="text-grey-600 flex-grow text-left <md:w-none <md:text-center <md:grav-text-caption-medium <md:leading-4 md:!pl-0"
+          data-testid="table-file-content-length"
+        >
+          {{ document.contentLength | fileSize }}
+        </div>
+        <div class="<md:w-none <md:flex-grow md:mr-[1%]">
+          <button
+            [disabled]="document.isDeleting"
+            (click)="deleteDocument(i, document.name)"
+            class="mx-auto"
+            data-testid="table-document-trash"
+            ghost
+          >
+            <svg-icon
+              name="trash"
+              svgClass="<md:ml-auto grav-text-header-3 text-steelblue-500"
+            ></svg-icon>
+          </button>
+        </div>
+        <button
+          (click)="download(document.name)"
+          data-testid="table-document-download"
+          ghost
+        >
+          <svg-icon
+            name="download-outline"
+            svgClass="<md:ml-auto grav-text-header-2 text-steelblue-500"
+          ></svg-icon>
+        </button>
+      </div>
+    </app-expansion-panel>
+  </div>
+</app-expansion-panel>

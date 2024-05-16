@@ -1,0 +1,36 @@
+fragment TrainingDetailItem on Training {
+  sys {
+    id
+  }
+  title
+  description
+  introduction
+  entryRequirements
+  learningObjectives {
+    json
+  }
+  duration
+  targetGroup
+  trainingModulesCollection {
+    items {
+      ...TrainingDetailModule
+    }
+  }
+  pageImageCollection {
+    items {
+      ...TrainingImage
+    }
+  }
+}
+
+fragment TrainingDetailModule on TrainingModule {
+  title
+  description
+  optionalModule
+}
+
+query trainingDetail($id: String!) {
+  training(id: $id) {
+    ...TrainingDetailItem
+  }
+}

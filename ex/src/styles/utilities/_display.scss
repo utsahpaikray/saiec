@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '../variables/breakpoints' as breakpoints;
+@use '@vanderlande-gravity/core/src/style/utilities/display'
+  as display;
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media (#{$breakpoint-value}) {
+    @each $display in display.$grav-displays {
+      .#{$breakpoint-name}\:d-#{$display} {
+        display: #{$display};
+      }
+    }
+  }
+}

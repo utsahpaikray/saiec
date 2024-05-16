@@ -1,0 +1,10 @@
+query allUsers($searchText: String) {
+  users(search: $searchText) {
+    firstName
+    lastName
+    prefix
+    email
+    customerEmail
+    id
+  }
+}

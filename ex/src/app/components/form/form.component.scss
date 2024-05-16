@@ -1,0 +1,23 @@
+.form-button-wrapper {
+  background-color: var(--grav-color-base-grey-100);
+
+  &::before {
+    bottom: 100%;
+    position: absolute;
+    height: var(--grav-space-l);
+    width: 100%;
+    background-image: linear-gradient(
+      to top,
+      var(--grav-color-base-grey-100),
+      rgb(245 245 245 / 0%)
+    );
+  }
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    height: var(--grav-space-l);
+    width: 100%;
+    background-color: var(--grav-color-base-grey-100);
+  }
+}

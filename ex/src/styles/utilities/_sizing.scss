@@ -1,0 +1,70 @@
+@use '../variables/breakpoints' as breakpoints;
+
+$sizings: (
+  'none': 0,
+  'auto': auto,
+  'full': 100%,
+  'half': 50%,
+  'third': 33.333333%,
+  'quarter': 25%,
+  'xs': var(--grav-space-xs),
+  's': var(--grav-space-s),
+  'm': var(--grav-space-m),
+  'l': var(--grav-space-l),
+  'xl': var(--grav-space-xl),
+  '2-xl': var(--grav-space-2-xl),
+  '3-xl': var(--grav-space-3-xl),
+  '4-xl': var(--grav-space-4-xl),
+  '5-xl': var(--grav-space-5-xl)
+);
+
+// for desktop without breaking-point prefixes
+@each $key in map-keys($sizings) {
+  $value: map-get($sizings, $key);
+  .w-#{$key} {
+    width: #{$value};
+  }
+  .h-#{$key} {
+    height: #{$value};
+  }
+  .min-w-#{$key} {
+    min-width: #{$value};
+  }
+  .min-h-#{$key} {
+    min-height: #{$value};
+  }
+  .max-w-#{$key} {
+    max-width: #{$value};
+  }
+  .max-h-#{$key} {
+    max-height: #{$value};
+  }
+}
+
+//   with breaking-point prefixes
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media (#{$breakpoint-value}) {
+    @each $key in map-keys($sizings) {
+      $value: map-get($sizings, $key);
+      .#{$breakpoint-name}\:w-#{$key} {
+        width: #{$value};
+      }
+      .#{$breakpoint-name}\:h-#{$key} {
+        height: #{$value};
+      }
+      .#{$breakpoint-name}\:min-w-#{$key} {
+        min-width: #{$value};
+      }
+      .#{$breakpoint-name}\:min-h-#{$key} {
+        min-height: #{$value};
+      }
+      .#{$breakpoint-name}\:max-w-#{$key} {
+        max-width: #{$value};
+      }
+      .#{$breakpoint-name}\:max-h-#{$key} {
+        max-height: #{$value};
+      }
+    }
+  }
+}

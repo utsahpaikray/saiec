@@ -1,0 +1,11 @@
+query userSiteContractManager($siteId: UUID!) {
+  me {
+    relatedPortalData {
+      sites(where: { id: { eq: $siteId } }) {
+        contractManagerContact {
+          emailAddress
+        }
+      }
+    }
+  }
+}

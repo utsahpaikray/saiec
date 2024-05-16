@@ -1,0 +1,30 @@
+fragment Ticket on Ticket {
+  id
+  title
+  sourceState
+  priority
+  issueType
+  customerPriority
+  url
+  state
+  reportDate
+}
+
+query siteTickets($siteId: UUID!, $endCursor: String, $sourceState: String) {
+  tickets(
+    siteId: $siteId
+    where: { sourceState: { neq: $sourceState } }
+    order: [{ reportDate: DESC }]
+    first: 15
+    after: $endCursor
+  ) {
+    nodes {
+      ...Ticket
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    totalCount
+  }
+}

@@ -1,0 +1,46 @@
+<app-link
+  [linkText]="'General.TrainingOverview' | transloco"
+  class="mt-l d-inline-block"
+  data-testid="back-button"
+  iconName="chevron-left"
+  iconPosition="left"
+  linkUrl="../"
+  size="lg"
+>
+</app-link>
+
+<ng-container
+  *ngIf="certificationPath$ | async as certificationPath; else loading"
+>
+  <ng-container *ngIf="certificationPath">
+    <h2
+      class="mt-l grav-text-header-3-medium text-grey-900 md:mt-xl md:grav-text-header-medium"
+      data-testid="certificate-title"
+    >
+      {{ certificationPath.title | titlecase }}
+    </h2>
+
+    <p
+      class="mt-s grav-text-header-3 text-grey-900"
+      data-testid="certificate-description"
+    >
+      {{ certificationPath.description }}
+    </p>
+
+    <ng-container *ngIf="certificationPath.trainingsCollection">
+      <app-trainings-table
+        [trainings]="certificationPath.trainingsCollection.items"
+        class="d-block <md:mt-xl md:mt-2-xl"
+        data-testid="table-certificate-trainings"
+      ></app-trainings-table>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #loading>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

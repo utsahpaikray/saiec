@@ -1,0 +1,7 @@
+query documentsForCategory($categoryCodeName: String!, $siteId: UUID!) {
+  documentsBySite(siteId: $siteId, categoryCodeName: $categoryCodeName) {
+    name
+    contentLength
+    culture
+  }
+}

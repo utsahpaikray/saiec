@@ -1,0 +1,33 @@
+fragment ServicePackage on ServicePackage {
+  title
+  slug
+  codes
+  buildingBlock {
+    ...ServiceBuildingBlock
+  }
+}
+
+fragment ServiceBuildingBlock on ServiceBuildingBlock {
+  title
+  serviceSolution {
+    ...ServiceSolution
+  }
+}
+
+fragment ServiceSolution on ServiceSolution {
+  serviceType {
+    ...ServiceType
+  }
+}
+
+fragment ServiceType on ServiceType {
+  title
+}
+
+query servicePackage($packageCodes: [String]) {
+  servicePackageCollection(where: { codes_contains_some: $packageCodes }) {
+    items {
+      ...ServicePackage
+    }
+  }
+}

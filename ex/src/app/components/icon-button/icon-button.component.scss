@@ -1,0 +1,59 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+.icon-button {
+    height: inherit;
+    width: inherit;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &.primary {
+        &:hover {
+            background-color: var(--grav-color-base-bluegrey-700);
+            color: var(--grav-color-base-white);
+        }
+
+        &:disabled {
+            background-color: var(--grav-color-base-steelblue-500);
+        }
+    }
+
+    &.secondary {
+        
+        border-color: transparent;
+        &:hover {
+            border-color: var(--grav-color-base-blue-500);
+            background-color: var(--grav-color-base-blue-500);
+        }
+
+        &:disabled {
+            background-color: var(--grav-color-base-steelblue-500);
+            border-color: transparent;
+        }
+    }
+    &.tertiary {
+        &:hover {
+            color: var(--grav-color-base-blue-700);
+        }
+        &:disabled {
+            color: var(--grav-color-base-blue-500);
+        }
+    }
+
+    &.secondary-tertiary {
+        color: var(--grav-color-base-blue-500);
+    }
+}
+
+@media #{map-get(breakpoints.$media_queries, 'lg')} {
+    .icon-button {
+        &.secondary-tertiary {
+            &:hover {
+                background-color: inherit;
+                // border-color: transparent;
+            }
+        }
+    }
+}

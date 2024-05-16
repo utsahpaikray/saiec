@@ -1,0 +1,26 @@
+<div
+  *ngFor="let satisfaction of satisfactions"
+  class="d-inline-flex mt-m <sm:mr-s @md:mr-m md:mt-l"
+>
+  <!-- TODO gravity design for this button, check with scott -->
+  <button
+    [attr.data-testid]="'satisfaction-button-' + satisfaction.iconKey"
+    (click)="clickEvent.emit(satisfaction)"
+    class="<sm:w-[5.5rem] <sm:h-[5.5rem] @md:w-20 @md:h-20 md:w-24 md:h-24"
+    ghost
+  >
+    <grav-svg-icon
+      [attr.data-testid]="'satisfaction-icon-' + satisfaction.iconKey"
+      [key]="'satisfaction-' + satisfaction.iconKey"
+      size="xl"
+    ></grav-svg-icon>
+    <ng-container *transloco="let t; lang: languageCode">
+      <span
+        [attr.data-testid]="'satisfaction-text-' + satisfaction.iconKey"
+        [ngClass]="'text-' + satisfaction.textColor"
+      >
+        {{ t(satisfaction.translationKey) }}
+      </span>
+    </ng-container>
+  </button>
+</div>

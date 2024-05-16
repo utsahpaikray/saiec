@@ -1,0 +1,13 @@
+fragment GenericCertifications on Generic {
+  title
+  slug
+  description
+}
+
+query genericCertifications {
+  genericCollection(where: { slug: "certifications" }) {
+    items {
+      ...GenericCertifications
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<ng-container *ngIf="modules && modules.length > 0">
+  <h3
+    class="mb-m text-grey-900 <md:grav-text-header-3 <md:leading-7 md:grav-text-header-2 md:leading-8"
+  >
+    {{ 'Training.Modules' | transloco }}
+  </h3>
+  <div
+    *ngFor="let module of modules; let i = index"
+    [attr.data-testid]="'training-detail-module-' + i"
+    class="mb-xs bg-white py-l px-xl last:mb-0"
+  >
+    <div
+      [attr.data-testid]="'training-detail-module-' + i + '-title'"
+      class="mb-xs d-flex items-center justify-space-between gap-s"
+    >
+      <h4
+        class="text-grey-900 <md:grav-text-header-3-medium <md:leading-7 md:grav-text-header-3-medium md:leading-8"
+      >
+        {{ module.title }}
+      </h4>
+      <span
+        *ngIf="module.optionalModule"
+        class="text-grey-600 <md:leading-6 md:leading-none"
+      >
+        {{ 'General.Optional' | transloco }}
+      </span>
+    </div>
+
+    <p
+      [attr.data-testid]="'training-detail-module-' + i + '-description'"
+      class="text-grey-900 <md:leading-6 md:grav-text-header-3 md:leading-7"
+    >
+      {{ module.description }}
+    </p>
+  </div>
+</ng-container>

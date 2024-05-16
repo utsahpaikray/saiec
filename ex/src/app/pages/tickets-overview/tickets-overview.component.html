@@ -1,0 +1,52 @@
+<div class="mt-l d-flex <lg:gap-s lg:justify-flex-end lg:mt-xl lg:gap-s">
+  <button
+    (click)="viewAllTickets($event)"
+    data-testid="view-all-tickets-button"
+    outline
+  >
+    <grav-svg-icon
+      class="d-flex"
+      key="link-external"
+      slot="prefix"
+    ></grav-svg-icon>
+    {{ 'Tickets.ViewAllTickets' | transloco }}
+  </button>
+  <button
+    *ngIf="hasWriteAccess$ | async"
+    data-testid="create-ticket-button"
+    outline
+    routerLink="./new"
+  >
+    <grav-svg-icon key="plus"></grav-svg-icon>
+    {{ 'Tickets.CreateTicket' | transloco }}
+  </button>
+</div>
+
+<grav-tab-group [value]="activeTab" (change)="onTabChange($event)" class="mt-m">
+  <grav-tab
+    [value]="TicketsTabs.Open"
+    class="bg-transparent"
+    data-testid="tab-open-tickets"
+  >
+    {{ 'Tickets.OpenTickets' | transloco }} ({{ openTicketsCount$ | async }})
+  </grav-tab>
+  <grav-tab
+    [value]="TicketsTabs.All"
+    class="bg-transparent"
+    data-testid="tab-all-tickets"
+  >
+    {{ 'Tickets.AllTickets' | transloco }}
+  </grav-tab>
+  <hr />
+</grav-tab-group>
+
+<ng-container [ngSwitch]="activeTab">
+  <app-open-tickets
+    *ngSwitchCase="TicketsTabs.Open"
+    data-testid="open-tickets"
+  ></app-open-tickets>
+  <app-all-tickets
+    *ngSwitchCase="TicketsTabs.All"
+    data-testid="all-tickets"
+  ></app-all-tickets>
+</ng-container>

@@ -1,0 +1,989 @@
+{
+	"General": {
+		"Dashboard": "Ana Sayfa",
+		"Calendar": "Takvim",
+		"Documentation": "Belgelendirme",
+		"Contacts": "Kişiler",
+		"SpareParts": "Yedek parçalar",
+		"ViaInsights": "VIA Insights",
+		"Pace": "Pace",
+		"Vidi": "VIDI",
+		"Performance": "Performans",
+		"Contracts": "Sözleşmeler",
+		"Training": "Eğitim",
+		"TrainingOverview": "Eğitime genel bakış",
+		"NewsInsights": "Haberler ve Değerli Bilgiler",
+		"Maintenance": "Bakım",
+		"Requests": "Talepler",
+		"SiteSettings": "Site Ayarları",
+		"AllSiteSettings": "Tüm site ayarları",
+		"Portals": "Portallar",
+		"Users": "Kullanıcılar",
+		"Close": "Kapat",
+		"AllPortals": "Tüm portallar",
+		"View": "Görünüm",
+		"Login": "Oturum Aç",
+		"Sites": "Siteler",
+		"User": "Kullanıcı",
+		"LogOut": "Oturumu Kapat",
+		"Email": "E-Posta",
+		"PhoneNumber": "Telefon numarası",
+		"Address": "Adres",
+		"Optional": "İsteğe bağlı",
+		"Required": "Gerekli",
+		"Request": "Talep",
+		"SuccessMessage": "Talep gönderildi.",
+		"ApiError": "Bir sorun oluştu. Lütfen daha sonra tekrar deneyin.",
+		"GoToHome": "Ana Sayfaya Git",
+		"MandatoryField": "Bu alan zorunludur.",
+		"ValidEmail": "Lütfen geçerli bir e-posta adresi girin.",
+		"SpecialCharacter": "Lütfen &apos;&lt;&apos; ve &apos;&gt;&apos; özel karakterlerini girmeyin.",
+		"GoToSite": "Siteye git",
+		"MaxCharacter": "Bu metni {{ total }} karakterden kısa tutun.",
+		"FileTypeWarning": "Aşağıdaki dosya türlerine izin verilmez:",
+		"MyProfile": "Profilim",
+		"AddPortalButton": "Portal ekle",
+		"Save": "Kaydet",
+		"Confirm": "Onayla",
+		"Cancel": "İptal",
+		"Keep": "Tut",
+		"Delete": "Sil",
+		"ReadMore": "Devamını oku",
+		"Loading": "Yükleniyor",
+		"Showing": "{{amount}} / {{ total }} gösteriliyor",
+		"ShowMore": "Daha fazlasını göster",
+		"ShowResult": "{{ number }} / {{ total }} gösteriliyor",
+		"NoSitesOrPortals": "Hiçbir portala ve/veya siteye erişiminiz yok.",
+		"NoPortalsFound": "Arama kriterlerinizle eşleşen portal yok.",
+		"NoPortals": "Kullanılabilir portal yok.",
+		"Back": "Geri",
+		"ViewDetails": "Ayrıntıları görüntüle",
+		"Uploaded": "Yüklendi",
+		"Processing": "İşleniyor",
+		"Canceled": "İptal Edildi",
+		"Uploading": "Yükleniyor",
+		"Yes": "Evet",
+		"No": "Hayır",
+		"MarkcodeOrSystem": "İşaret kodu veya sistemi",
+		"Availability": "Uygunluk",
+		"Parts": "Parça",
+		"Labour": "İş Gücü",
+		"ByPhone": "Yanıt süresi telefon (saat)",
+		"OnSite": "İş yerinde (saat)",
+		"Visits": "Ziyaretler",
+		"ManpowerDaysPerVisit": "Ziyaret başına iş gücü gün sayısı",
+		"StartAndEndDate": "Başlangıç ve bitiş tarihi",
+		"NoStartDate": "Başlangıç tarihi yok",
+		"NoEndDate": "Bitiş tarihi yok",
+		"Title": "Başlık",
+		"NewMessage": "Yeni mesaj",
+		"Message": "Mesaj",
+		"SendMessage": "Mesaj gönder",
+		"AddingMessage": "Mesaj ekleme",
+		"DateCreated": "Oluşturulma tarihi",
+		"Created": "Oluşturuldu",
+		"Status": "Durum",
+		"Priority": "Öncelik",
+		"Type": "Tür",
+		"Number": "Sayı",
+		"LoadMore": "Daha fazlasını yükle",
+		"Search": "Ara",
+		"ReportOn": "Raporlandı -",
+		"MaximoAccessError": "Bazı özellikler (Kişilerim, Biletlerim) şu anda kullanılamıyor. Bunlara erişmek için sayfayı sonraki bir zamanda yenileyin.",
+		"Description": "Açıklama",
+		"ItemNumber": "Kalem numarası",
+		"ItemDescription": "Kalem açıklaması",
+		"AddItem": "Kalem ekle",
+		"NoItems": "Ölçütlerinizle eşleşen bir kalem yok",
+		"Edit": "Düzenle",
+		"Remove": "Kaldır",
+		"Quantity": "Miktar",
+		"Classification": "Sınıflandırma",
+		"Category": "Kategori",
+		"PleaseAddFile": "Şu an için burada dosya yok. Lütfen söz konusu kalem ile ilgili bir dosya ekleyin.",
+		"Name": "Ad"
+	},
+	"None": "Hiçbiri",
+	"Category": "Kategori",
+	"Dashboard": {
+		"WelcomeMessage": "My Vanderlande portalına hoş geldiniz,",
+		"WelcomeTag": "Hoş geldiniz",
+		"WelcomeTitle": "My Vanderlande müşteri portalının pilot sürümüne hoş geldiniz!",
+		"WelcomeDesc": "Buradan sitenize ilişkin belgelere erişebilir, yedek parça siparişi verebilir, eğitim ve sertifikasyon olanaklarını gözden geçirip talepte bulunabilir ve Vanderlande kişilerinizle ilgili ayrıntıları arayıp bulabilirsiniz.",
+		"FeedbackTag": "Geri Bildirim",
+		"FeedbackTitle": "Portal hakkında ne düşünüyorsunuz?",
+		"FeedbackDesc": "Portalı geliştirin ve düşüncelerinizi bizimle paylaşın, portalı sizin için nasıl daha kullanışlı hale getirebileceğimize dair ipuçları ve öneriler verin. Bu ve diğer sayfalardaki geri bildirim kutusunu kullanın ya da myvanderlande@vanderlande.com adresine gönderin",
+		"NewsInsightsTag": "Haberler ve değerli bilgiler",
+		"ReadMore": "Diğer Haberler ve İçgörüler",
+		"AirportTitle": "Vanderlande to develop innovative checkpoint concept for US Department of Homeland Security",
+		"AirportDesc": "Vanderlande’s concept for a self-screening passenger security checkpoint solution for airports has been selected by the US Department of Homeland Security (DHS) for further design, development and operational testing.",
+		"ParcelTitle": "Vanderlande cooperates with PostNord on new parcel sites in Finland",
+		"ParcelDesc": "Vanderlande has been chosen to supply two state-of-the-art sortation systems to the PostNord Group – one of the leading parcel distribution companies in Scandinavia.",
+		"WarehouseTitle": "Speed is of the essence",
+		"WarehouseDesc": "The delivery windows for home delivery of groceries are getting shorter and shorter. The latest trend is to deliver groceries directly to your home within ten minutes.",
+		"SitePerformance": {
+			"Title": "Site Performansı",
+			"Button": "{{ appName }} İLE GÖRÜNTÜLE",
+			"Filters": {
+				"OneDay": "1G",
+				"SevenDays": "7G",
+				"ThirtyDays": "30G",
+				"OneYear": "1Y",
+				"ALL": "TÜMÜ"
+			},
+			"Charts": {
+				"Availability": {
+					"Title": "Uygunluk Durumu",
+					"Value": "%{{value}}",
+					"Explanation": "Hedefin %{{value}} altında"
+				},
+				"Performance": {
+					"Title": "Performans",
+					"Value": "%{{value}}",
+					"Explanation": "Hedefin %{{value}} altında"
+				},
+				"Throughput": {
+					"Title": "Verimlilik",
+					"Value": "%{{value}}",
+					"Explanation": "Hedefin %{{value}} altında"
+				}
+			}
+		}
+	},
+	"Documentation": {
+		"Size": "Boyut",
+		"Language": "Dil",
+		"Location": "Konum",
+		"MyDocumentation": "Belgelerim",
+		"OverviewMessage": "Sisteminizle ilgili tüm belgeler elinizin altındadır. Herhangi bir sorunuz olursa sözleşme yöneticinizle iletişime geçin.",
+		"NoDocuments": "Kullanılabilir belge yok.",
+		"NotFoundMessage": "Arama isteğiniz ile eşleşen bir sonuç yok. Başka bir arama terimi kullanmayı deneyin.",
+		"SearchResultsFor": "{{searchText}}' için arama sonuçları",
+		"DownloadOmManual": "İşletim ve Bakım Kılavuzu'nun tamamını indir",
+		"FailedToDownloadOmManual": "Bir sorun oluştu. Lütfen daha sonra tekrar deneyin.",
+		"View": "Görünüm",
+		"Certifications": "Sertifikalar",
+		"CertificationsDesc": "Makinelerle ilgili raporlar ve sertifikalar.",
+		"Contracts": "Sözleşmeler",
+		"ContractsDesc": "Proje ve hizmet sözleşmeleri.",
+		"HealthSafetyEnvironment": "Sağlık, Güvenlik ve Çevre",
+		"HealthSafetyEnvironmentDesc": "Teknik bilgilendirme yazıları ve güvenlik notları.",
+		"LifeCycleDocumentation": "Yaşam Döngüsü Belgeleri",
+		"LifeCycleDocumentationDesc": "Sistem bakımı, lojistik yönetimi ve iş iyileştirme hakkında belgeler.",
+		"OmManual": "İşletim ve Bakım kılavuzu",
+		"OmManualDesc": "Kurulu sisteminizle ilgili tüm belgeler.",
+		"OtItDocumentation": "İşletim Teknolojisi (OT) ve BT Belgeleri",
+		"OtItDocumentationDesc": "İşletim ve teknik yazılım belgeleri.",
+		"Projects": "Projeler",
+		"ProjectsDesc": "Proje raporları, sistem spesifikasyonları, devir teslim belgeleri.",
+		"ReportsAndOthers": "Raporlar ve Diğerleri",
+		"ReportsAndOthersDesc": "Çeşitli dosyalar ve raporlar."
+	},
+	"Landing": {
+		"WelcomeMessage": "My Vanderlande portalına hoş geldiniz",
+		"LadingUnloggedMessage": "My Vanderlande portalını kullanmak için oturum açmış olmanız gerekir.",
+		"NotRegistered": "Henüz kayıtlı değil misiniz?",
+		"ContactManager": "Lütfen hesap yöneticinizle iletişime geçin.",
+		"LandingTextTitle": "My Vanderlande aşağıdaki işlemler için dijital temas noktanızdır:",
+		"LandingTextLine1": "Teknik ve işletim belgeleri",
+		"LandingTextLine2": "Vanderlande ile sorunsuz iletişim",
+		"LandingTextLine3": "Sisteminizin performansı ve sağlığı",
+		"LandingTextLine4": "Eksiksiz hizmet ve eğitim portföyümüz",
+		"LandingTextLine5": "Tüm dijital uygulamalara erişim",
+		"ContactLink": "İletişim",
+		"CopyrightText": "Telif Hakkı {{year}} Vanderlande Industries B.V. Tüm hakları saklıdır.",
+		"PrivacyLink": "Gizlilik bildirimi",
+		"CookiePolicy": "Çerez Politikası",
+		"CookiePreferences": "Çerez tercihleri",
+		"LogInTitle": "Oturum Aç",
+		"LogInButton": "Oturum Aç"
+	},
+	"NotFound": {
+		"Message": "Bu bağlantı bozuk veya bu sayfa taşınmış."
+	},
+	"ErrorStatePIModule": {
+		"Message": "Process Insights açılamadı.",
+		"Reason": "Process Insights havaalanları modülüne erişmek için VPN&apos;ye bağlı olmanız gerekir."
+	},
+	"AccessDenied": {
+		"Message": "Açmaya çalıştığınız sayfa kısıtlı erişime sahiptir. \nErişim sağlamak için Vanderlande irtibat kişiniz ile iletişime geçin."
+	},
+	"Portal": {
+		"Overview": "Portala genel bakış"
+	},
+	"Training": {
+		"MyTraining": "Eğitimim",
+		"Description": "Çalışanlarınızın, sisteminizi verimli bir şekilde işletebilecek ve bakımını yapabilecek yetkinlikte olmasını sağlayın. Kurslar, kurulu sisteminize göre özelleştirilir ve ekibinizin belirli ihtiyaçlarına uygun olarak tasarlanır.",
+		"Certifications": "Sertifikalar",
+		"CertificationPath": "Sertifika yolu",
+		"CertificationAndTraining": "Eğitim alın ve sertifika edinin",
+		"CardLinkText": "Devamını oku",
+		"Suggested": "Önerilen",
+		"TrainingColumn": "Eğitim",
+		"ForColumn": "Hedef Kitle",
+		"DurationColumn": "Süre",
+		"NoTrainings": "Eğitim yok.",
+		"TrainingBackBtn": "Eğitime genel bakış",
+		"RequestBtn": "Talep",
+		"Modules": "Modüller",
+		"ElectiveModules": "Seçmeli modüller",
+		"MetaTargetGroup": "Hedef grup",
+		"MetaPrerequisites": "Ön koşullar",
+		"MetaDuration": "Süre",
+		"MetaMaxTrainees": "Maksimum kursiyer sayısı",
+		"MetaSystemAvailability": "Sistem Uygunluk Durumu",
+		"Required": "Gerekli",
+		"SendBtn": "Gönder",
+		"RequestSuccessMsg": "Eğitim talebiniz gönderildi.",
+		"OperationsTitle": "İşlemler",
+		"OperationsDesc": "Sisteminizin işletimi operatör iş istasyonlarının verimli kullanımı.",
+		"LogisticsTitle": "Lojistik",
+		"LogisticsDesc": "MHS'nizin genel işletimini etkin bir şekilde koruma. Performansınızı en iyi duruma getirmek amacıyla sisteminizi kavrama.",
+		"MaintenanceTitle": "Bakım ve BT",
+		"MaintenanceDesc": "Sisteminizin bakımı â€“ tüm bileşenlerin etkin muhafazası (mekanik, elektrikli, alt ve üst düzey kontroller)."
+	},
+	"UserProfile": {
+		"Title": "Kullanıcı profili",
+		"Access": "Erişim",
+		"AddPortal": "Portal ekle",
+		"Privacy": "Gizlilik",
+		"PrivacyLink": "Gizlilik bildirimi",
+		"CookiePolicy": "Çerez Politikası",
+		"TermsAndConditions": "Hüküm ve koşullar",
+		"CookiePreferences": "Çerez tercihleri",
+		"Preferences": "Tercihler",
+		"PreferredLanguage": "Tercih edilen dil",
+		"LanguageUpdated": "Tercih edilen dil güncel.",
+		"ProfileTab": "Profil ve tercihler",
+		"AuthorizationTab": "Yetkilendirme ve erişim"
+	},
+	"UserAccess": {
+		"SelectPortal": "Portal seç",
+		"RevokeAccess": "Erişimi iptal et",
+		"AccessAdded": "{{name}} için erişim eklendi.",
+		"AccessRevoked": "{{name}} ve sitelerine erişim iptal edildi.",
+		"SiteAccessRevoked": "{{name}} için erişim iptal edildi.",
+		"Title": "Erişim",
+		"DeallocateContractManagerError": "Sözleşme yöneticisinin, kendi sitelerinden tahsisi kaldırılamaz.",
+		"SitesSubtitle": "Siteler"
+	},
+	"UserAuthorization": {
+		"Title": "Yetkilendirme",
+		"Message": "Kullanıcı rolleri tüm portallar ve siteler için geçerlidir.",
+		"VanderlandeUserMessage": "Erişebildiği siteler ve portallar hakkındaki tüm bilgileri okuyabilir.",
+		"CustomerMessage": "Müşteri kullanıcı hesabı. Yalnızca tek bir portala erişebilir ve bu portalın sitelerini görüntüleyebilir.",
+		"SuperUserMessage": "Herhangi bir portal veya sitedeki herhangi tüm bilgileri düzenleyebilir. ",
+		"PortalAdminMessage": "Portalları ve siteleri yönetici olarak düzenleyebilir, belgeleri, kişileri vb. yükleyebilir ve silebilir.",
+		"RoleAssigned": "Kullanıcı rolü atanır: {{role}}."
+	},
+	"TrainingRequest": {
+		"PreviousPage": "Önceki Sayfa",
+		"Title": "Yeni talep",
+		"Required": "Gerekli",
+		"YourRequest": "Your request",
+		"RequestType": {
+			"Label": "What would you like to request?",
+			"ErrorText": "Please select what you would like to request.",
+			"Training": "Training",
+			"Certification": "Certification"
+		},
+		"Remarks": {
+			"Label": "Remarks",
+			"Placeholder": "Third-party equipment, other requests and specifications."
+		},
+		"Topics": {
+			"Label": "Topics",
+			"Placeholder": "Select certification path",
+			"ErrorText": "Please select a certification path."
+		},
+		"Trainings": {
+			"ErrorText": "Please select at least one training."
+		},
+		"PreviousTraining": {
+			"Label": "Previous training",
+			"Placeholder": "Have the trainees received relevant training before?"
+		},
+		"WhenAndWhere": "When and where",
+		"PreferredDatesOrPeriod": {
+			"Label": "Preferred date(s) or period",
+			"Placeholder": "Specific date or Q1, next spring, before Christmas or as soon as possible.",
+			"Note": "A cancellation less than 7 days before the start date results in a cancellation fee similar to the preparation and training hours of the training"
+		},
+		"PreferredTrainingLocation": {
+			"Label": "Preferred training location",
+			"NoteVeghel": "Customer Centre is responsible for all travel arrangements and accommodation requirements. This includes travel arrangements from hotel to Vanderlande and back. Please send a copy of the travel arrangements to the Trainer.",
+			"NoteAnotherLocation": "We will charge travel and accommodation costs for the trainer."
+		},
+		"PreferredLocation": {
+			"Label": "Preferred location",
+			"Placeholder": "Location where you would like to receive the training."
+		},
+		"Participants": {
+			"Label": "Participants",
+			"Note": "The minimum amount of participants is 2. Large groups may have to be broken up into smaller ones.",
+			"Name": {
+				"Label": "Name",
+				"Placeholder": "Name"
+			},
+			"Email": {
+				"Label": "E-mail",
+				"Placeholder": "E-mail address",
+				"ErrorText": "Please enter a valid e-mail address."
+			},
+			"AddParticipants": "Add participants"
+		},
+		"Location": {
+			"Label": "Location",
+			"Placeholder": "Site where the participants are working."
+		},
+		"RequestDetails": "Request details",
+		"Contact": {
+			"Label": "Contact",
+			"Placeholder": "Project / Account / Maintenance Manager or Customer Centre"
+		},
+		"Requester": {
+			"Label": "Requester"
+		},
+		"RequesterName": {
+			"Label": "Requester name",
+			"Placeholder": "Name",
+			"RequiredError": "This field is mandatory."
+		},
+		"RequesterRole": {
+			"Label": "Requester role",
+			"Placeholder": "Role or Job title"
+		},
+		"RequesterEmail": {
+			"Label": "Requester e-mail",
+			"Placeholder": "E-mail address",
+			"RequiredError": "Please enter an e-mail address.",
+			"ValidError": "Please enter a valid e-mail address.",
+			"Note": "You will receive the confirmation of this request on this e-mail address."
+		},
+		"Send": "Gönder",
+		"DiscardTitle": "Değişiklikler atılsın mı?",
+		"DiscardText": "Devam ederseniz kaybolacak bilgiler girdiniz. Devam etmek istiyor musunuz?",
+		"KeepEditing": "Düzenlemeye devam et",
+		"NoSiteContracManager": {
+			"ErrorText": "Çevrimiçi eğitim talebinde bulunma özelliği geçici olarak kullanılamıyor. Eğitim talebinde bulunmak için Vanderlande kişinizle iletişime geçin."
+		}
+	},
+	"Contacts": {
+		"MyContacts": "Kişilerim",
+		"AccountManagerContact": "Hesap yöneticisi",
+		"ContractManagerContact": "Sözleşme yöneticisi",
+		"ItManagerContact": "BT yöneticisi",
+		"SparePartsContact": "Yedek parça sorumlusu",
+		"ServiceDeskContact": "Hizmet Masası",
+		"VisitingOfficeContact": "Ziyaret ofisi",
+		"DownloadAsVCard": "vCard Olarak indir",
+		"OutsideWorkingHours": "mesai saatleri dışında",
+		"NoContacts": "Kullanılabilir İletişim yok."
+	},
+	"AddPortal": {
+		"NewPortal": "Yeni portal",
+		"PortalTitle": "Portal başlığı",
+		"PortalTitleDesc": "Müşteriler bunu görür. Müşteriyle görüşerek nasıl adlandırılmasını istediklerini öğrenin. Doğru ve uygun bir başlık için ana verileri kontrol edin.",
+		"PortalTitleErr1": "Bu adı taşıyan bir portal zaten var. Lütfen farklı bir ad kullanın.",
+		"PortalTitleErr2": "Bu alan zorunludur. Lütfen bir portal başlığı girin.",
+		"PortalTitleErr3": "Bu başlık çok uzun; 50 karakterden uzun olmamasını sağlayın.",
+		"PortalTitleErr4": "Lütfen yalnızca harfleri ve rakamları kullanın.",
+		"Customer": "Müşteri",
+		"CustomerDesc": "Müşterinin şirket adı. İç yönetim için gereklidir.",
+		"CustomerErr1": "Bu alan zorunludur. Lütfen bir müşteri girin.",
+		"CustomerErr2": "{{name}} adında bir müşteri bulamadık.",
+		"CustomerErr2Button": "Yeni müşteri olarak ekle",
+		"AddPortal": "Portal ekle",
+		"Cancel": "İptal"
+	},
+	"PortalAdmin": {
+		"Administration": "Yönetim",
+		"PortalSettings": "Portal ayarları",
+		"Users": "Kullanıcılar",
+		"NoUsersFound": "Arama kriterlerinizle eşleşen kullanıcı yok.",
+		"NoUsers": "Kullanıcı yok.",
+		"Sites": "Siteler",
+		"AddSite": "Site ekle",
+		"SitesEmpty": "Bu portala henüz site eklenmedi.",
+		"NewSite": "Yeni site",
+		"SiteName": "Site adı",
+		"SitenameDesc": "Müşteriler bu başlığı görür. Açıklayıcı bir ad kullanın.",
+		"SiteID": "Site Kimliği",
+		"SiteIdDesc": "Ana verilerdeki benzersiz site tanımlayıcısını (Enovia'daki Kurulu Sistem numarası) kullanın.",
+		"Cancel": "İptal",
+		"SiteTitleErr1": "My Vanderlande portalında bu kimliğe sahip bir site zaten var. Lütfen farklı bir kimlik kullanın.",
+		"SiteTitleErr2": "Bu alan zorunludur.",
+		"SiteTitleErr3": "Bu başlık çok uzun.",
+		"NotPublishedLabel": "Yayımlanmadı"
+	},
+	"PortalGeneralSettings": {
+		"GeneralSettings": "Genel ayarlar",
+		"Training": "Eğitim",
+		"TrainingDesc": "Bu portalda yer alan siteler için hangi eğitim çeşitlerinin gösterilmesi gerekir?",
+		"TrainingErrorText": "Lütfen en az bir eğitim çeşidi seçin.",
+		"TrainingErrorToast": "Eğitim çeşitleri kaydedilemedi. Lütfen tekrar deneyin.",
+		"SettingsSaveSuccessMsg": "Ayarlar kaydedildi.",
+		"DeletePortal": "Portalı sil",
+		"DeletePortalDesc": "Tüm veriler kaldırılacak. Bu veriler geri yüklenemez. Kullanıcılar portala veya portaldaki sitelere erişemez."
+	},
+	"SiteAdmin": {
+		"PublishNotification": "Bu site henüz yayımlanmadı ve dolayısıyla müşteriler siteyi göremiyor.",
+		"PublishButton": "Yayımla",
+		"Users": "Kullanıcılar",
+		"GeneralSettings": "Genel site ayarları",
+		"Documentation": "Belgelendirme",
+		"Contacts": "Kişiler"
+	},
+	"SiteAdminDocumentation": {
+		"Subtitle": "Site belgelerini yönet",
+		"AmountOfDocuments": "# belge",
+		"AmountOfDocumentsZero": "{{number}} belge",
+		"AmountOfDocumentsOne": "{{number}} belge",
+		"AmountOfDocumentsPlural": "{{number}} belge",
+		"MessageZeroDocs": "Bu klasör kullanıcılara gösterilmez",
+		"AddDocuments": "Belge ekle",
+		"SelectedDocuments": "Seçili belgeler",
+		"DocumentCategory": "Belge kategorisi",
+		"DocumentCategoryError": "Belge kategorisini seçin",
+		"DocumentLanguage": "Belgelerin dili",
+		"DocumentLanguageError": "Belge dilini seçin.",
+		"SelectFiles": "Lütfen bir dosya seçin.",
+		"SelectFolder": "Lütfen bir klasör seçin.",
+		"AllowedFileTypes": "Seçtiğiniz bir veya daha fazla dosya türüne izin verilmiyor.",
+		"CancelButton": "İptal",
+		"UploadButton": "Yükle",
+		"Download7Zip": "7zip indir",
+		"ZipFileSelected": ".zip dosyasının 7zip programı ile oluşturulduğundan emin olun. Tüm karakterlerin doğru şekilde görüntülendiğinden emin olmak için arşivi oluştururken 'Parametreler' alanına 'cu' yazın.",
+		"UploadError": "{{fileName}} adlı dosya yüklenemedi.",
+		"CancelUploadSuccess": "Yükleme iptal edildi.",
+		"DeleteFileSuccess": "Dosya silindi.",
+		"TableDocumentTitle": "Belge başlığı",
+		"TableDateUploaded": "Yüklendiği tarih",
+		"TableUploadedBy": "Yükleyen",
+		"OAndMMessage": "İşletim ve Bakım kılavuzu yoksa veya bir eksiklik ya da yanlışlık varsa {{email}} ile iletişime geçin",
+		"OAndMLink": "E-posta gönder",
+		"DragNDropLink": "Dosyaları seçin",
+		"DragNDropText": "veya sürükleyip buraya bırakın",
+		"Pop-upUploadDoc": "Belgeyi yükle",
+		"UploadErr1": "Bir sorun oluştu. Tekrar yüklemeyi deneyin.",
+		"CancelUploadsModalTitle": "Tüm yüklemeler iptal edilsin mi?",
+		"CancelUploadsModalText": "Yüklemeleriniz tamamlanmadı. Devam eden yüklemeleri iptal etmek istiyor musunuz?",
+		"CancelUploadsModalText2": "Eklemekte olduğunuz bazı dosyaların yüklenme işlemi artık iptal edilemez. Yükleme işlemini geri almak istiyorsanız dosyaların işlenmesi tamamlanıncaya kadar bekleyin ve daha sonra dosyaları silin.",
+		"CancelUploadsModalConfirmText": "Yüklemeleri iptal et",
+		"CancelUploadsModalConfirmText2": "",
+		"CancelUploadsModalCancelText": "Yüklemelere devam et",
+		"BottomSheetTitle": "Yükleme ilerleme durumu",
+		"ConfirmationModalTitle": "Belge silinsin mi?",
+		"ConfirmationModalMessage": "Silmek istediğinizden emin misiniz? Müşteri bir daha bu dosyaya erişemeyecektir."
+	},
+	"SiteAdminContacts": {
+		"AccountManager": "Hesap Yöneticisi",
+		"ContractManager": "Sözleşme Yöneticisi",
+		"ITManager": "BT Yöneticisi",
+		"SparePartsContact": "Yedek parça sorumlusu",
+		"VisitingOffice": "Ziyaret Ofisi",
+		"ServiceDesk": "Hizmet Masası",
+		"PreferredServiceDesk": "Tercih Edilen Hizmet Masası",
+		"CustomTitle": "Özel başlık",
+		"CustomTitleDesc": "'{{Account manager}}' yerine farklı bir başlık kullanmak isterseniz burayı doldurun",
+		"ShowThisContactChkbx": "Bu kişiyi müşterilere göster",
+		"ShowThisContactChkbxDisabled": "Bu İletişim gizli olamaz",
+		"NameAndLastName": "Adı ve soyadı",
+		"NameOfOffice": "Ofisin adı",
+		"EMail": "E-posta",
+		"PhoneNumberOutsideWorkingHours": "Mesai saatleri dışında ulaşılabilecek telefon numarası",
+		"ContactDetails": "İlgili İletişim ayrıntıları",
+		"FieldErr1": "Bu alan boş olamaz."
+	},
+	"SiteAdminGeneralSettings": {
+		"SiteDetails": "Site ayrıntıları",
+		"SpareParts": "Yedek parça mağazası",
+		"SparePartsQ1": "Bu sitenin bir Yedek parça mağazası hesabı var mı?",
+		"Vidi": "VIDI",
+		"VidiQ1": "Müşteriler menüde VIDI bağlantısını görsün mü?",
+		"MyContracts": "Sözleşemlerim",
+		"MyContractsQ1": "Müşteriler 'Sözleşmelerim' sayfasının bağlantısını görsün mü?",
+		"ProcessInsights": "Process Insights",
+		"ProcessInsightsLabel": "Müşteriler menüde Process Insights bağlantısını görsün mü?",
+		"DivertHealth": "Divert Health",
+		"DivertHealthLabel": "Müşteriler menüde Divert Health bağlantısını görsün mü?",
+		"DivertHealthRequiredErrorLabel": "Lütfen Divert Health ortamınız için bir URL sağlayın.",
+		"DivertHealthInvalidErrorLabel": "Lütfen Divert Health ortamınız için geçerli bir URL sağlayın.",
+		"DivertHealthInputLabel": "Divert Health URL&apos;si nedir?",
+		"ShuttleHealth": "Shuttle Health",
+		"ShuttleHealthLabel": "Müşteriler menüde Shuttle Health bağlantısını görsün mü?",
+		"ShuttleHealthRequiredErrorLabel": "Lütfen Shuttle Health ortamınız için bir URL sağlayın.",
+		"ShuttleHealthInvalidErrorLabel": "Lütfen Shuttle Health ortamınız için geçerli bir URL sağlayın.",
+		"ShuttleHealthInputLabel": "Shuttle Health URL&apos;si nedir?",
+		"Cases": {
+			"Title": "Vakalar",
+			"EventSources": {
+				"Label": "Vakadan İş Emrine yükseltme kuralları",
+				"Rules": {
+					"Disabled": "Devre dışı",
+					"Manual": "Manuel",
+					"Automatic": "Otomatik"
+				},
+				"Types": {
+					"Monitron": "Monitron",
+					"ShuttleHealth": "Shuttle Health",
+					"DivertHealth": "Divert Health",
+					"OperationalAwareness": "Operational Awareness"
+				}
+			},
+			"Enable": {
+				"Label": "&apos;Vakalar&apos; bağlantısı menüde gösterilsin mi?"
+			},
+			"ErrorMessage": "Lütfen en az bir İş Emri yükseltme kuralını etkinleştirin"
+		},
+		"SettingsSaveSuccessMsg": "Ayarlar kaydedildi.",
+		"SiteStatus": "Site durumu",
+		"Status": "Durum:",
+		"NotPublished": "Yayımlanmadı",
+		"NotPublishedDesc": "Müşteri kullanıcıları henüz buraya erişemez veya verileri göremez.",
+		"PublishBtn": "Yayımla",
+		"Published": "Yayımlandı",
+		"PublishedDesc": "Müşteriler bu siteyle ilgili tüm bilgilere erişebilir.",
+		"DeleteSite": "Siteyi sil",
+		"DeleteSiteDesc": "Tüm veriler kaldırılacak. Bu veriler geri yüklenemez. Kullanıcılar bunlara erişemez.",
+		"DeleteBtn": "Sil"
+	},
+	"SiteAdminPublishSite": {
+		"DoYouWant": "{{Site name}} adlı siteyi yayımlamak istiyor musunuz?",
+		"DoYouWantDesc": "Bağlı kullanıcılar siteyi ve siteyle ilgili ayrıntıları görebilir.",
+		"PublishBtn": "Yayımla",
+		"CancelBtn": "İptal",
+		"PublishedToaster": "{{Site name}} yayımlandı."
+	},
+	"AddUserModal": {
+		"AddUserBtn": "Kullanıcı ekle",
+		"ModalTitle": "Kullanıcı ekle",
+		"InputLabel": "vanderlande-cloud.com hesabına göre ara",
+		"InputPlaceholder": "Hesabı girin",
+		"InputErrorText": "Lütfen geçerli bir hesap girin.",
+		"InfoText": "vanderlande-cloud.com hesabı UPN (Kullanıcı Asıl Adı) olarak da bilinir.",
+		"SearchBtn": "Ara",
+		"SearchNoResults": "Arama ölçütlerinizle eşleşen bir kullanıcı yok.",
+		"AddUserMsg1": "Bu kullanıcı bulundu ve My Vanderlande portalına eklenebilir. Portalları ve siteleri atadığınızdan emin olun.",
+		"OpenProfileBtn": "Profil aç",
+		"AddUserMsg2": "Bu kullanıcının henüz bir Vanderlande hesabı yok. Kullanıcıyı \"@vanderlande-cloud.com\" ile biten Azure hesabıyla aradığınızdan emin olun.",
+		"RequestAccountBtn": "Hesap talebinde bulun",
+		"AddUserSuccessMsg": "{{name}} My Vanderlande portalına eklendi",
+		"CancelBtn": "İptal",
+		"DisabledUserError": "Azure AD hesabı etkin olmadığından bu kullanıcı eklenemez. TopDesk talebi ile etkinleştirebilirsiniz."
+	},
+	"BusinessUnits": {
+		"Airport": "Havaalanı",
+		"Parcel": "Parsel",
+		"Warehouse": "Depo"
+	},
+	"Contracts": {
+		"MyContracts": "Sözleşemlerim",
+		"Contract": "Sözleşme",
+		"NoContracts": "Sözleşme ayrıntısı yok.",
+		"ExistingContracts": "Mevcut sözleşmeler",
+		"AgreementLabel": "Sözleşme numarası",
+		"StartDateLabel": "Başlangıç tarihi",
+		"EndDateLabel": "Bitiş tarihi",
+		"ContractsOverview": "Sözleşmelere genel bakış",
+		"WholeSystem": "Tüm sistem",
+		"NoContractLines": "Sözleşme ayrıntısı yok."
+	},
+	"WarrantyClaims": {
+		"MyWarranty": "Garanti talepleri",
+		"NewWarranty": "Yeni garanti talebi",
+		"SelectItemModal": {
+			"Title": "Garanti kalemi seç",
+			"SearchInputPlaceholder": "Kalem numarasına, açıklamaya, sorun birimi sınıflandırmasına veya kategoriye göre arayın"
+		},
+		"CustomerSiteContact": {
+			"Title": "Müşteri tesisi kişisi",
+			"Placeholder": "İrtibat kişisini seçin",
+			"LeftAssertiveText": "İşletme kişisini seçin"
+		},
+		"TicketReference": {
+			"Title": "Bilet referansınız",
+			"LeftAssertiveText": "Dahili bilet sisteminizdeki bilet numarası"
+		},
+		"Summary": {
+			"Title": "Özet",
+			"LeftAssertiveText": "Garanti talebiniz için kısa bir başlık sağlayın. Böylece talebi kolaylıkla ayırt edebilirsiniz."
+		},
+		"CreateWarrantyClaim": "Garanti talebi oluştur",
+		"SelectedItem": {
+			"Title": "Kalem Bilgileri",
+			"Placeholder": "Kalemi ve arıza yaşanan kalemin miktarını seçin"
+		},
+		"SelectItemButton": "Kalem seç",
+		"ChangeItemButton": "Kalemi değiştir",
+		"WarrantyParts": "Garanti parçası",
+		"AddWarrantyItem": "Garanti kalemi ekle",
+		"SerialNumber": "Seri numarası",
+		"WarrantyReasonLabel": "Arızayla ilgili ayrıntılı açıklama",
+		"WarrantyReasonInfoText": "Lütfen talebinizin gerekçesini açıklayan bir arıza açıklaması sağlayın",
+		"WarrantyInfo": "Garanti bilgisi",
+		"BreakdownDate": "Arıza tarihi",
+		"AddToWarranty": "Garantiye ekle"
+	},
+	"Tickets": {
+		"MyTickets": "Biletlerim",
+		"AllTickets": "Tüm biletler",
+		"OpenTickets": "Açık biletler",
+		"NoOpenTickets": "Açık bilet yok.",
+		"TicketNumber": "Bilet {{ number }}",
+		"TicketPriority": "Öncelik: {{ priority }}",
+		"ViewAllTickets": " Tüm biletleri görüntüle",
+		"CreateTicket": "Bilet oluştur",
+		"NewTicket": "Yeni bilet",
+		"Details": "Ayrıntılar",
+		"TicketType": "",
+		"IssueType": {
+			"Title": "Bu bilet ne ile ilgili?",
+			"Incident": {
+				"Label": "Olay",
+				"Description": "Planlanmamış bir Hizmet kesintisi veya Vanderlande sisteminin günlük işlemlerinin Kalitesinde azalma"
+			},
+			"Servicerequest": {
+				"Label": "Hizmet Talebi",
+				"Description": ""
+			},
+			"Problem": {
+				"Label": "",
+				"Description": ""
+			},
+			"Change": {
+				"Label": "",
+				"Description": ""
+			},
+			"Changerequest": {
+				"Label": "Değişiklik talebi",
+				"Description": "Vanderlande sistemi veya hizmet sunumu üzerinde etkisi olabilecek herhangi bir unsurun eklenmesi, değiştirilmesi veya kaldırılması"
+			},
+			"Problemreport": {
+				"Label": "Sorun raporu",
+				"Description": "Vanderlande tarafından incelenmesi gereken bir veya daha fazla Olayın nedeni veya olası nedeni"
+			}
+		},
+		"Priority": {
+			"Placeholder": "Öncelik seç",
+			"AssistiveText": "En yüksek önceliğe sahip biletler için Hizmet Masasını aramalısınız. Bu sayede zamanında müdahale edilebilir."
+		},
+		"InternalReferenceNumber": {
+			"Label": "Dahili referans numarası",
+			"AssistiveText": "Eğer kullanıyorsanız dahili bilet sisteminizdeki bilet numarası."
+		},
+		"Situation": "Durum",
+		"ShortSummary": {
+			"Label": "Kısa özet",
+			"AssistiveText": "Bu, bilet başlığı olarak kullanılacaktır."
+		},
+		"Description": {
+			"Incident": "Belirti:\nHata:\nAlan/bölge:\nMüşteri açısından ticari sonuçlar:\n\nSorun giderme adımlarını belirleyen:\nTekrarlanan Olay:\nOlay gerçekleşmeden önce ne oldu:\nSistemde yakın zamanda veya son 48 saat içinde herhangi bir değişiklik oldu mu:\n\nİşletme kişisi iş yerinde mi:\nSite kişisi şu tarihe kadar uygun:\nOlayın fark edildiği Tarih ve Yaklaşık Saat: ",
+			"Servicerequest": "Talep açıklaması:\nBu talebin nedenleri:",
+			"Changerequest": "",
+			"Problemreport": ""
+		},
+		"Links": {
+			"Title": "Bağlantılar"
+		},
+		"OnSiteContact": {
+			"Title": "İşletme kişisi",
+			"Label": "Adı, soyadı",
+			"Placeholder": "İletişim seçin",
+			"AssistiveText": "Olası kişiler listesine yeni bir İletişim eklemek için Vanderlande kişinizle iletişime geçin."
+		},
+		"Information": "Bilet bilgileri",
+		"ViewTicket": "Bileti görüntüle",
+		"ReportedOn": {
+			"Label": "Raporlandı -"
+		},
+		"ReferenceNumber": {
+			"Title": "Dahili referans numarası"
+		},
+		"SendTicketButton": "Bileti gönder",
+		"TicketLog": {
+			"Label": "Bilet günlüğü"
+		},
+		"NoMessagesAvailable": "Bu bilet ile ilgili bir mesaj yok.",
+		"TicketCreated": "Bilet oluşturuldu.",
+		"CustomerSatisfaction": {
+			"Subtitle": "Görüşünüz önemlidir",
+			"Info": "Bu olayın çözümlenmesi sırasında Vanderlande&apos;nin nasıl bir performans sergilediğini bilmek isteriz. Lütfen aşağıda yaşadığınız deneyime en uygun düşen gülen yüz simgesine tıklayın.",
+			"Satisfied": "Memnun",
+			"Neutral": "Kararsız",
+			"Dissatisfied": "Memnun değil"
+		}
+	},
+	"Asset": {
+		"AffectedAsset": "Etkilenen varlık",
+		"AssetInfo": "Varlık bilgileri",
+		"SelectAssetBtn": "Varlık seç",
+		"ChangeAssetBtn": "Varlığı değiştir",
+		"AddAsset": "",
+		"SelectAssetModalTitle": "Etkilenen varlığı seç",
+		"SelectAssetModal": {
+			"SearchInputPlaceholder": "Ada, işaret koduna, işaret numarasına, açıklamaya göre arayın"
+		},
+		"SelectAssetTable": {
+			"AddToTicketBtn": "Bilete ekle"
+		},
+		"Description": "Açıklama",
+		"MarkCode": "İşaret kodu",
+		"MarkNumber": "İşaret numarası",
+		"Asset": "Varlık",
+		"AssetDescription": "Varlık açıklaması",
+		"MarkCodeAndNumber": "İşaret Kodu ve Numarası"
+	},
+	"Assets": {
+		"SelectAssetTable": {
+			"NoAssets": "Arama kriterlerinizle eşleşen varlık yok."
+		}
+	},
+	"Attachments": {
+		"Title": "Ekler",
+		"AddBtn": "Ek ekle",
+		"Information": "Maksimum ek boyutu 10 MB'tır.",
+		"FileSizeError": "Seçtiğiniz bir veya daha fazla dosya çok büyük. 10 MB veya daha küçük dosyalar yükleyin.",
+		"UploadWarning": "Bu dosyayı yükledikten sonra kaldıramazsınız.",
+		"DescriptionPlaceholder": "Bu dosyanın içeriği ve amacı hakkında açıklamalar",
+		"FileUploadMessage": "Bilete dosya ekleme"
+	},
+	"ContextualCollaboration": {
+		"MyCases": "Vakalarım",
+		"NoCases": "Vaka yok.",
+		"CaseStatusOpen": "Açık",
+		"CaseStatusInProgress": "Devam ediyor",
+		"CaseStatusClosed": "Kapatıldı",
+		"ViewCase": "Vakayı görüntüle",
+		"CaseInfo": "Vaka hakkında bilgiler",
+		"EventDetails": "Olay ayrıntıları",
+		"CaseStatusChangedSuccessMsg": "Durum bilgisi &quot;{{ caseStatus }}&quot; olarak değiştirildi",
+		"CaseOverview": {
+			"PageHeader": {
+				"Title": "Vakalar",
+				"NewCase": "Yeni vaka",
+				"Breadcrumbs": {
+					"Cases": "Vakalar",
+					"Site": "Site"
+				}
+			},
+			"CaseTable": {
+				"Headers": {
+					"EventSource": "Olay kaynağı",
+					"Summary": "Özet",
+					"CaseNumber": "Vaka numarası",
+					"LastUpdated": "Son güncelleme",
+					"Status": "Durum",
+					"WorkorderID": "İş Emri Kimliği"
+				}
+			},
+			"Status": {
+				"Open": "Açık",
+				"InProgress": "Devam ediyor",
+				"Closed": "Kapalı",
+				"Rejected": "Reddedildi"
+			},
+			"LastUpdated": "",
+			"EventSource": {
+				"Monitron": "Monitron",
+				"ShuttleHealth": "Shuttle Health",
+				"DivertHealth": "Divert Health",
+				"OperationalAwareness": "Operational Awareness"
+			}
+		},
+		"Breadcrumbs": {
+			"Cases": "Vakalar",
+			"NewCase": "Yeni Vaka",
+			"CaseDetails": "Vaka Ayrıntıları"
+		},
+		"NewCase": {
+			"CreateCase": "Vaka oluştur",
+			"Title": "Yeni Vaka",
+			"WhatIsThisCaseAbout": "Bu vaka neyle ilgili?",
+			"TitleField": {
+				"Eyebrow": "Vaka başlığı - gerekli"
+			},
+			"AssetSelector": {
+				"Eyebrow": "Etkilenen varlık"
+			},
+			"DescriptionField": {
+				"Eyebrow": "Açıklama - gerekli"
+			},
+			"Attachments": {
+				"AddAttachment": "Ek Ekle",
+				"Emptystate": {
+					"Title": "Dosya eklenmedi",
+					"Explanation": "Lütfen söz konusu kalem ile ilgili dosyalarınızı ekleyin."
+				},
+				"Eyebrow": "Vakaya ek ekle"
+			},
+			"OnSiteContact": {
+				"Placeholder": "İşletme kişisini seçin",
+				"AssistiveText": "Bu listeyi genişletmek için Vanderlande irtibat kişiniz ile iletişime geçin.",
+				"Eyebrow": "İşletme kişisi - gerekli"
+			},
+			"EventSource": {
+				"Eyebrow": "Olay kaynağı - gerekli",
+				"Placeholder": "Olay kaynağını seçin"
+			}
+		},
+		"CaseDetails": {
+			"CaseMessaging": "Mesajlar",
+			"CaseInformation": "Vaka bilgileri",
+			"Description": "Açıklama",
+			"Details": "Ayrıntılar",
+			"Attachments": "Ekler ({{ count }})",
+			"AddAttachments": "Ekleri ekle",
+			"Dismiss": "Kapat",
+			"Promote": "Yükselt",
+			"Case": "{{ caseId }} - Vaka",
+			"Status": "Durum",
+			"StatusOpen": "Açık",
+			"StatusInProgress": "Devam ediyor",
+			"StatusClosed": "Kapalı",
+			"StatusUnknown": "Bilinmiyor",
+			"ReportedOn": "Raporlandı -",
+			"ReportedBy": "Raporlayan -",
+			"AffectedAsset": "Etkilenen varlık",
+			"OnSiteContact": "İşletme kişisi",
+			"FileUploadedOn": "Dosya yüklendi: { uploadedOn, date, long }",
+			"EventSource": "",
+			"WorkOrderId": "",
+			"Header": {
+				"Title": "",
+				"Breadcrumbs": {
+					"Cases": "",
+					"CaseDetails": ""
+				},
+				"Status": {
+					"Open": "",
+					"InProgress": "",
+					"Closed": "",
+					"Rejected": ""
+				},
+				"Action": {
+					"WorkOrder": "",
+					"Close": "",
+					"Reject": "",
+					"InProgress": ""
+				}
+			},
+			"ReportedOnDate": "",
+			"ConfirmationModal": {
+				"CreateWorkOrder": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"CloseCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"RejectCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"InProgressCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				}
+			},
+			"Error": {
+				"CreateWorkOrder": ""
+			}
+		}
+	},
+	"AttachmentComponent": {
+		"AddAttachment": "Ek ekle",
+		"EmptyStateTitle": "Dosya eklenmedi",
+		"EmptyStateExplanation": "Lütfen dosyalarınızı ekleyin",
+		"Eyebrow": "Ekleri ekle"
+	},
+	"AddFileDescriptionDialog": {
+		"Title": "Ek ekle",
+		"Submit": "Kaydet",
+		"Cancel": "İptal",
+		"Form": {
+			"Title": "Dosyalar",
+			"Explanation": "Dosyaları yükledikten sonra kaldıramazsınız"
+		},
+		"Item": {
+			"Eyebrow": "{{ item }} için açıklama - gerekli",
+			"Placeholder": "Bu dosyanın içeriği ve amacı hakkında açıklamalar"
+		}
+	},
+	"AddDescriptionDialog": {
+		"Title": "Açıklama Ekle",
+		"Submit": "Kaydet",
+		"Cancel": "İptal",
+		"Form": {
+			"Title": "Kalemler",
+			"Explanation": "Lütfen her bir kalem için açıklama sağlayın"
+		},
+		"Item": {
+			"Eyebrow": "{{ item }} için açıklama - gerekli",
+			"Placeholder": "Bu kalemin içeriği ve amacı hakkında açıklamalar"
+		}
+	},
+	"ContactSelector": {
+		"Placeholder": "İrtibat Kişisini seçin"
+	},
+	"AssetSelector": {
+		"Eyebrow": "Etkilenen varlık",
+		"SelectAsset": "Varlık seç",
+		"ChangeAsset": "Varlığı değiştir",
+		"EmptyState": {
+			"Title": "Varlık seçilmedi",
+			"Explanation": "Lütfen varlığınızı seçin"
+		}
+	},
+	"Messaging": {
+		"NewMessage": "Yeni mesaj",
+		"SendMessage": "Mesaj gönder",
+		"NewMessagePlaceholder": "Mesajınızı buraya girin",
+		"MessageHeader": "{{ name }} - { messagedOn, date, long } / { messagedOn, time }"
+	},
+	"GlobalHeader": {
+		"NoPortals": "",
+		"NoSites": "",
+		"SelectPortals": "",
+		"SelectSites": "",
+		"SelectApplication": "",
+		"Portal": "",
+		"Site": "",
+		"Application": "",
+		"Home": "",
+		"User": "",
+		"LogOut": "",
+		"Profile": "",
+		"Showing": "",
+		"NoResult": "",
+		"Applications": {
+			"Cases": "",
+			"ProcessInsights": "",
+			"Tickets": "",
+			"Contacts": "",
+			"Settings": "",
+			"Training": "",
+			"Contracts": "",
+			"Documentation": "",
+			"SpareParts": "",
+			"VIDI": "",
+			"DivertHealth": "",
+			"ShuttleHealth": "",
+			"PaceInsights": "",
+			"VIAInsights": "",
+			"WSInsights": "",
+			"WarrantyClaims": "",
+			"System": "",
+			"Home": ""
+		}
+	}
+}

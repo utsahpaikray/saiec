@@ -1,0 +1,45 @@
+<main appDragAndDrop="host">
+  <app-header></app-header>
+
+  <app-toaster class="relative z-50"></app-toaster>
+
+  <app-bottom-sheet
+    [isExpanded]="(bottomSheetIsExpanded$ | async) ?? false"
+    [isOpen]="(bottomSheetIsOpen$ | async) ?? false"
+    (closeEvent)="onBottomSheetClose()"
+    data-testid="file-upload-progress-bottom-sheet"
+    title="{{ 'SiteAdminDocumentation.BottomSheetTitle' | transloco }}"
+  >
+    <app-file-upload-list
+      [files$]="azureBlobStorageService.files$"
+      (cancelFileUploadProgress)="azureBlobStorageService.cancelFile($event)"
+      data-testid="file-upload-progress-list"
+    ></app-file-upload-list>
+  </app-bottom-sheet>
+
+  <app-confirmation-modal
+    [cancelText]="confirmationModalCancelText"
+    [confirmText]="confirmationModalConfirmText"
+    [showCancelButton]="
+      azureBlobStorageService.activeProcessingFiles.length ? false : true
+    "
+    (closeEvent)="onConfirmationClose($event)"
+    id="cancel-all-uploads-confirmation-modal"
+    data-testid="cancel-all-uploads-confirmation-modal"
+    title="{{ 'SiteAdminDocumentation.CancelUploadsModalTitle' | transloco }}"
+  >
+    <p>{{ confirmationModalText }}</p>
+    <ng-container *ngIf="azureBlobStorageService.activeProcessingFiles.length">
+      <ul
+        *ngFor="
+          let processingfile of azureBlobStorageService.activeProcessingFiles
+        "
+        class="list-disc px-m mt-s"
+      >
+        <li>{{ processingfile.name }}</li>
+      </ul>
+    </ng-container>
+  </app-confirmation-modal>
+
+  <router-outlet></router-outlet>
+</main>

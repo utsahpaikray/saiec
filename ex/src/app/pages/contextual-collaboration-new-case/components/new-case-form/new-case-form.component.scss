@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+input[appDropdownTrigger][grav-input] {
+  padding-left: var(--global-sizing-m);
+  padding-right: var(--global-sizing-m);
+}
+
+[open='true'] grav-svg-icon[overlaySuffixIcon] {
+  transform: rotate(180deg);
+}

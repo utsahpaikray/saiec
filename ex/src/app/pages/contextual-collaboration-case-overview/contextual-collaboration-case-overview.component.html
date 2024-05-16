@@ -1,0 +1,61 @@
+<div *ngIf="VM$ | async as VM">
+  <app-page-header>
+    <app-crumbtrail>
+      <a [routerLink]="['../']" class="grav-text-body-medium" ghost>
+        {{
+          'ContextualCollaboration.CaseOverview.PageHeader.Breadcrumbs.Site'
+            | transloco
+        }}
+      </a>
+      <p class="grav-text-body-medium">
+        {{
+          'ContextualCollaboration.CaseOverview.PageHeader.Breadcrumbs.Cases'
+            | transloco
+        }}
+      </p>
+    </app-crumbtrail>
+    <h1>
+      {{ 'ContextualCollaboration.CaseOverview.PageHeader.Title' | transloco }}
+    </h1>
+    <button [routerLink]="['./new']" type="button" primary>
+      <grav-svg-icon key="plus" size="s"></grav-svg-icon>
+      {{
+        'ContextualCollaboration.CaseOverview.PageHeader.NewCase' | transloco
+      }}
+    </button>
+  </app-page-header>
+  <ng-container *ngIf="VM.caseTableVM as caseTableVM; else loader">
+    <app-cases-table
+      [vm]="caseTableVM"
+      data-testid="cases-table"
+    ></app-cases-table>
+  </ng-container>
+
+  <div class="d-flex justify-center">
+    <button
+      *ngIf="VM.hasNextPage"
+      [disabled]="VM.loading"
+      (click)="loadMoreCases(VM.siteId, VM.endCursor)"
+      class="d-flex items-center gap-s mt-s"
+      data-testid="load-more-cases-button"
+      ghost
+    >
+      <grav-svg-icon key="chevron-down"></grav-svg-icon>
+      {{ 'General.LoadMore' | transloco }}
+      <app-progress-spinner
+        *ngIf="VM.loading"
+        class="d-inline-flex align-center gap-m"
+        data-testid="load-more-cases-progress-spinner"
+        size="m"
+      ></app-progress-spinner>
+    </button>
+  </div>
+</div>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

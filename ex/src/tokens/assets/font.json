@@ -1,0 +1,16 @@
+{
+  "assets": {
+    "font": {
+      "roboto": {
+        "name": {
+          "value": "Roboto"
+        }
+      },
+      "noto": {
+        "name": {
+          "value": "Noto Sans SC"
+        }
+      }
+    }
+  }
+}

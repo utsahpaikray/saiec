@@ -1,0 +1,22 @@
+overwrite: true
+watch: false
+schema:
+  - https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/environments/${ENVIRONMENT}:
+      headers:
+        Authorization: 'Bearer ${ACCESS_TOKEN}'
+documents: 'src/**/cms-*.graphql'
+config:
+  namedClient: 'cms'
+generates:
+  src/app/core/generated/cms-types.ts:
+    plugins:
+      - 'typescript'
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .graphql-gen.ts
+      baseTypesPath: /app/core/generated/cms-types.ts
+    plugins:
+      - 'typescript-operations'
+      - 'typescript-apollo-angular'
+      - 'named-operations-object'

@@ -1,0 +1,6 @@
+query portalById($id: UUID) {
+  portals(where: { id: { eq: $id } }) {
+    name
+    id
+  }
+}

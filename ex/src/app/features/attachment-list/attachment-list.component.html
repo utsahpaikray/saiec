@@ -1,0 +1,22 @@
+<grav-list-item
+  *ngFor="let attachment of attachments"
+  data-testid="attachment-list"
+>
+  <div class="w-full">
+    <div class="d-inline-flex justify-space-between w-full items-center">
+      <span class="grav-text-body-bold" data-testid="attachment-name">
+        {{ attachment.documentName }}
+      </span>
+      <button
+        (click)="remove.emit(attachment.id)"
+        data-testid="attachment-delete-button"
+        ghost
+      >
+        <grav-svg-icon key="trash" size="l"></grav-svg-icon>
+      </button>
+    </div>
+    <p class="grav-text-body" data-testid="attachment-description">
+      {{ attachment.description }}
+    </p>
+  </div>
+</grav-list-item>

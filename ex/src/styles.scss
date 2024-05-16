@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@vanderlande-gravity/core/dist/style.css';
+@import '@vanderlande-gravity/core/dist/utilities.css';
+@import '@vanderlande-gravity/core/dist/css-variables.css';
+@import 'tokens/build/css/variables.css';
+@import '@vanderlande-gravity/core/dist/typography.css';
+@import '@fontsource/noto-sans-sc/chinese-simplified.css';
+@import 'styles/main';
+@import '@vanderlande-gravity/core/dist/button.css';
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+.dropdown-backdrop-transparent {
+  background-color: transparent;
+}
+
+:root {
+  --gravity-overlay-container-level: 1000;
+}
+
+.cdk-overlay-container {
+  z-index: 2000;
+}

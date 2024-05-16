@@ -1,0 +1,66 @@
+@use '../variables/breakpoints' as breakpoints;
+@use '../variables/base-color' as base-colors;
+
+//TODO remove this scss once color classes available in gravity
+
+// for desktop
+@each $key in map-keys(base-colors.$base-colors) {
+  $color: map-get(base-colors.$base-colors, $key);
+
+  // for background color
+  .bg-#{$key} {
+    background-color: var(#{$color});
+  }
+  .\!bg-#{$key} {
+    background-color: var(#{$color}) !important;
+  }
+
+  // for text color
+  .text-#{$key} {
+    color: var(#{$color});
+  }
+  .\!text-#{$key} {
+    color: var(#{$color}) !important;
+  }
+
+  // for border color
+  .border-#{$key} {
+    border-color: var(#{$color});
+  }
+  .\!border-#{$key} {
+    border-color: var(#{$color}) !important;
+  }
+}
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media (#{$breakpoint-value}) {
+    @each $key in map-keys(base-colors.$base-colors) {
+      $color: map-get(base-colors.$base-colors, $key);
+
+      // for background color
+      .#{$breakpoint-name}\:bg-#{$key} {
+        background-color: var(#{$color});
+      }
+
+      .#{$breakpoint-name}\:\!bg-#{$key} {
+        background-color: var(#{$color}) !important;
+      }
+
+      // for text color
+      .#{$breakpoint-name}\:text-#{$key} {
+        color: var(#{$color});
+      }
+      .#{$breakpoint-name}\:\!text-#{$key} {
+        color: var(#{$color}) !important;
+      }
+
+      // for border color
+      .#{$breakpoint-name}\:border-#{$key} {
+        border-color: var(#{$color});
+      }
+      .#{$breakpoint-name}\:\!border-#{$key} {
+        border-color: var(#{$color}) !important;
+      }
+    }
+  }
+}

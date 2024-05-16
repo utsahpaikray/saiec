@@ -1,0 +1,290 @@
+<form
+  *ngIf="vm$ | async as VM"
+  [formGroup]="form"
+  (blur)="onBlur()"
+  class="w-full p-xl bg-white"
+>
+  <h2 section-title>
+    {{ 'ContextualCollaboration.NewCase.WhatIsThisCaseAbout' | transloco }}
+  </h2>
+  <div *transloco="let t" class="d-flex gap-l <md:flex-col">
+    <div class="d-flex flex-col flex-1 gap-l">
+      <ng-content
+        *ngTemplateOutlet="
+          titleField;
+          context: {
+            label: t('ContextualCollaboration.NewCase.TitleField.Eyebrow'),
+            maxLength: 320,
+            control: form.controls.title
+          }
+        "
+      ></ng-content>
+      <ng-content
+        *ngTemplateOutlet="
+          assetSelector;
+          context: {
+            label: t('ContextualCollaboration.NewCase.AssetSelector.Eyebrow'),
+            vm: VM.assetSelectorVM,
+            control: form.controls.asset
+          }
+        "
+      ></ng-content>
+      <ng-content
+        *ngTemplateOutlet="
+          descriptionField;
+          context: {
+            label: t(
+              'ContextualCollaboration.NewCase.DescriptionField.Eyebrow'
+            ),
+            rows: 8,
+            maxLength: 32000,
+            control: form.controls.description
+          }
+        "
+      ></ng-content>
+      <ng-content
+        *ngTemplateOutlet="
+          onEventSourceField;
+          context: {
+            label: t('ContextualCollaboration.NewCase.EventSource.Eyebrow'),
+            placeholder: t(
+              'ContextualCollaboration.NewCase.EventSource.Placeholder'
+            ),
+            control: form.controls.eventSource
+          }
+        "
+      ></ng-content>
+      <ng-content
+        *ngTemplateOutlet="
+          onSiteContactField;
+          context: {
+            label: t('ContextualCollaboration.NewCase.OnSiteContact.Eyebrow'),
+            assistiveText: t(
+              'ContextualCollaboration.NewCase.OnSiteContact.AssistiveText'
+            ),
+            placeholder: t(
+              'ContextualCollaboration.NewCase.OnSiteContact.Placeholder'
+            ),
+            control: form.controls.contact
+          }
+        "
+      ></ng-content>
+    </div>
+    <div class="flex-1">
+      <ng-content
+        *ngTemplateOutlet="
+          attachmentsField;
+          context: {
+            label: t('ContextualCollaboration.NewCase.Attachments.Eyebrow'),
+            vm: VM.fileInputVM,
+            control: form.controls.attachments
+          }
+        "
+      ></ng-content>
+    </div>
+  </div>
+</form>
+<ng-template
+  #titleField
+  let-control="control"
+  let-label="label"
+  let-maxLength="maxLength"
+>
+  <grav-field *transloco="let t" data-testid="title-field">
+    <grav-field-eyebrow>
+      <grav-svg-icon
+        *ngIf="control.touched && control.invalid"
+        key="exclamation-circle"
+        size="l"
+      ></grav-svg-icon>
+      {{ label }}
+    </grav-field-eyebrow>
+    <input
+      [attr.error]="(control.touched && control.invalid) || null"
+      [attr.maxlength]="maxLength"
+      [formControl]="control"
+      name="title"
+      #input
+      grav-input
+    />
+    <grav-assistive-text
+      *ngIf="control.touched && control.invalid"
+      class="grav-text-body-small"
+      data-testid="add-attachment-description-error"
+      error
+      left
+    >
+      {{ 'General.MandatoryField' | transloco }}
+    </grav-assistive-text>
+    <grav-assistive-text right>
+      {{ input.value.length }} / {{ maxLength }}
+    </grav-assistive-text>
+  </grav-field>
+</ng-template>
+
+<ng-template #assetSelector let-control="control" let-label="label" let-vm="vm">
+  <grav-field *transloco="let t" data-testid="title-field">
+    <grav-field-eyebrow>
+      {{ label }}
+    </grav-field-eyebrow>
+    <app-asset-selector
+      [error]="(control.touched && control.invalid) || null"
+      [formControl]="control"
+      [vm]="vm"
+    ></app-asset-selector>
+  </grav-field>
+</ng-template>
+
+<ng-template
+  #descriptionField
+  let-control="control"
+  let-label="label"
+  let-maxLength="maxLength"
+  let-rows="rows"
+>
+  <grav-field *transloco="let t" data-testid="title-field">
+    <grav-field-eyebrow>
+      <grav-svg-icon
+        *ngIf="control.touched && control.invalid"
+        key="exclamation-circle"
+        size="l"
+      ></grav-svg-icon>
+      {{ label }}
+    </grav-field-eyebrow>
+    <!-- @TODO: Remove class="h-auto" when Gravity issue fixed -->
+    <textarea
+      [attr.error]="(control.touched && control.invalid) || null"
+      [attr.maxlength]="maxLength"
+      [formControl]="control"
+      [rows]="rows ?? 8"
+      class="h-auto"
+      name="description"
+      #description
+      grav-input
+    ></textarea>
+    <ng-container *ngIf="true">
+      <grav-assistive-text
+        *ngIf="control.touched && control.invalid"
+        class="grav-text-body-small"
+        data-testid="add-attachment-description-error"
+        error
+        left
+      >
+        {{ 'General.MandatoryField' | transloco }}
+      </grav-assistive-text>
+    </ng-container>
+    <grav-assistive-text right>
+      {{ description.value.length }} / {{ maxLength }}
+    </grav-assistive-text>
+  </grav-field>
+</ng-template>
+
+<ng-template
+  #onEventSourceField
+  let-assistiveText="assistiveText"
+  let-control="control"
+  let-label="label"
+  let-placeholder="placeholder"
+>
+  <grav-field *transloco="let t" data-testid="title-field">
+    <grav-field-eyebrow>
+      <grav-svg-icon
+        *ngIf="control.touched && control.invalid"
+        key="exclamation-circle"
+        size="l"
+      ></grav-svg-icon>
+      {{ label | transloco }}
+    </grav-field-eyebrow>
+    <app-dropdown [formControl]="control">
+      <!-- TODO Align on design and update, maybe also move to separate component -->
+      <grav-svg-icon key="search" overlayPrefixIcon size="l"></grav-svg-icon>
+      <input
+        [attr.error]="(control.touched && control.invalid) || null"
+        [placeholder]="placeholder"
+        [value]="control.value?.name | transloco"
+        (keyup)="eventSourceQuery$.next($event.target.value)"
+        appDropdownTrigger
+        grav-input
+      />
+      <!-- TODO Remove height if aligned with UX-->
+      <div style="max-height: 40vh">
+        <grav-list-item
+          *ngFor="let item of filteredEventSources$ | async"
+          [appDropdownItem]="item"
+        >
+          <div class="d-flex flex-col gap-xs">
+            <span class="grav-text-body">{{ item.name | transloco }}</span>
+          </div>
+        </grav-list-item>
+      </div>
+    </app-dropdown>
+    <grav-assistive-text left> {{ assistiveText }} </grav-assistive-text>
+  </grav-field>
+</ng-template>
+
+<ng-template
+  #onSiteContactField
+  let-assistiveText="assistiveText"
+  let-control="control"
+  let-label="label"
+  let-placeholder="placeholder"
+>
+  <grav-field *transloco="let t" data-testid="title-field">
+    <grav-field-eyebrow>
+      <grav-svg-icon
+        *ngIf="control.touched && control.invalid"
+        key="exclamation-circle"
+        size="l"
+      ></grav-svg-icon>
+      {{ label }}
+    </grav-field-eyebrow>
+    <app-dropdown [formControl]="control">
+      <!-- TODO Align on design and update, maybe also move to separate component -->
+      <grav-svg-icon key="search" overlayPrefixIcon size="l"></grav-svg-icon>
+      <input
+        [attr.error]="(control.touched && control.invalid) || null"
+        [placeholder]="placeholder"
+        [value]="control.value?.name"
+        (keyup)="contactsQuery$.next($event.target.value)"
+        appDropdownTrigger
+        grav-input
+      />
+
+      <!-- TODO Remove height if aligned with UX-->
+      <div style="max-height: 40vh">
+        <grav-list-item
+          *ngFor="let item of filteredContacts$ | async"
+          [appDropdownItem]="item"
+        >
+          <div class="d-flex flex-col gap-xs">
+            <span class="grav-text-body">{{ item.name }}</span>
+          </div>
+        </grav-list-item>
+      </div>
+    </app-dropdown>
+    <grav-assistive-text
+      *ngIf="control.touched && control.invalid"
+      class="grav-text-body-small"
+      data-testid="add-attachment-description-error"
+      error
+      left
+    >
+      {{ 'General.MandatoryField' | transloco }}
+    </grav-assistive-text>
+    <grav-assistive-text left> {{ assistiveText }} </grav-assistive-text>
+  </grav-field>
+</ng-template>
+
+<ng-template
+  #attachmentsField
+  let-control="control"
+  let-label="label"
+  let-vm="vm"
+>
+  <grav-field *transloco="let t" data-testid="title-field">
+    <grav-field-eyebrow>
+      {{ label }}
+    </grav-field-eyebrow>
+    <app-file-upload [formControl]="control" [vm]="vm"> </app-file-upload>
+  </grav-field>
+</ng-template>

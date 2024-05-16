@@ -1,0 +1,12 @@
+fragment SitePortal on Site {
+  portal {
+    name
+    id
+  }
+}
+
+fragment SiteProjectsSegment on Site {
+  projects(where: { segment: { neq: NOT_APPLICABLE } }) {
+    segment
+  }
+}

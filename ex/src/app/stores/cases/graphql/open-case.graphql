@@ -1,0 +1,3 @@
+mutation openCase($caseId: UUID!) {
+  openCase(caseId: $caseId)
+}

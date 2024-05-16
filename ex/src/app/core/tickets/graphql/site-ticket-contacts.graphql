@@ -1,0 +1,7 @@
+query siteTicketContacts($siteId: UUID!) {
+  ticketingSiteInfo(siteId: $siteId) {
+    contacts {
+      ...maximoSiteContact
+    }
+  }
+}

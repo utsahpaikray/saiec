@@ -1,0 +1,14 @@
+@use '../../../styles/variables/sizing-parts' as sizing;
+
+.w-custom-16_6 {
+  width: calc(
+    #{map-get(sizing.$sizing-parts, 'half')} - #{map-get(
+        sizing.$sizing-parts,
+        'third'
+      )}
+  ); //16.6667%
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

@@ -1,0 +1,18 @@
+@use '../variables/breakpoints' as breakpoints;
+
+// for desktop
+@each $num in ('1', '2', '3', '4', '5') {
+  .grid-cols-#{$num} {
+    grid-template-columns: repeat(#{$num}, minmax(0, 1fr));
+  }
+}
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media (#{$breakpoint-value}) {
+    @each $num in ('1', '2', '3', '4', '5') {
+      .#{$breakpoint-name}\:grid-cols-#{$num} {
+        grid-template-columns: repeat(#{$num}, minmax(0, 1fr));
+      }
+    }
+  }
+}

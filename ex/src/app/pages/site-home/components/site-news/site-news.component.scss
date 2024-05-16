@@ -1,0 +1,8 @@
+:host {
+  flex-flow: row wrap;
+  place-items: stretch;
+}
+
+grav-card {
+  flex-basis: clamp(33%, 370px, 100%);
+}

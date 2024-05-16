@@ -1,0 +1,8 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+@use '../../../styles/variables/sizing-parts' as sizing;
+
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+    .width-custom-2\/3 {
+        width: calc(100% - #{map-get(sizing.$sizing-parts, 'third')}); //33.33333%
+    }
+}

@@ -1,0 +1,14 @@
+<section class="d-grid grid-cols-none lg:grid-cols-3 gap-xl lg:gap-xl">
+  <div
+    class="section-aside-right-content"
+    data-testid="section-aside-right-content"
+  >
+    <ng-content></ng-content>
+  </div>
+  <aside
+    class="section-aside-right-sidebar"
+    data-testid="section-aside-right-sidebar"
+  >
+    <ng-content select="[aside]"></ng-content>
+  </aside>
+</section>

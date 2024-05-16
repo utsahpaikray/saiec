@@ -20,7 +20,7 @@ export class CompanyRendererComponent implements ICellRendererAngularComp {
   agInit(params: ICellRendererParams): void {
     this.params = params
     this.value = params.value;
-    this.state = ( this.value==="Active" || this.value==="Y" || this.value===true||this.value==="true")
+    this.state = (this.value==="Y" || this.value===true||this.value==="true")
   }
 
   // Return Cell Value
@@ -29,7 +29,7 @@ export class CompanyRendererComponent implements ICellRendererAngularComp {
   }
   onToggleChange(event: any): void {
     this.state = event.detail.checked;
-    this.params.node.setDataValue(this.params.colDef.field, this.state ? "true" : "false");
+    this.params.node.setDataValue(this.params.colDef.field, this.state ? true : false);
     this.params.api.refreshCells({ rowNodes: [this.params.node], force: true });
   }
 }

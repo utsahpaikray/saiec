@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "johnpapa.Angular2",
+    "Angular.ng-template",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "pflannery.vscode-versionlens",
+    "GraphQL.vscode-graphql",
+    "ms-playwright.playwright",
+    "lucono.karma-test-explorer",
+    "streetsidesoftware.code-spell-checker",
+    "orta.vscode-jest"
+  ]
+}

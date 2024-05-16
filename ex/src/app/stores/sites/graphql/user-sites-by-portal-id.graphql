@@ -1,0 +1,24 @@
+fragment ProjectSegmentFragment on Project {
+	segment
+}
+
+fragment SiteFragment on Site {
+	contractVisible
+	id
+	name
+	projects {
+		...ProjectSegmentFragment
+	}
+	published
+	sourceId
+}
+
+query userSitesByPortalId($portalId: UUID!) {
+    me {
+        relatedPortalData {
+            AccessibleSites(order: { name: ASC } where: { portal: { id: { eq: $portalId } } }) {
+                ...SiteFragment
+            }
+        }
+    }
+}

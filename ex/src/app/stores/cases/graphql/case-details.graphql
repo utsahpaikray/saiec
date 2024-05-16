@@ -1,0 +1,66 @@
+fragment CaseDetails on Case {
+  id
+  dateTimeCreated
+  assetSystemComponentId
+  title
+  description
+  status
+  messages {
+    id
+    dateTimeCreated
+    content
+    author {
+      userId
+      firstName
+      middleName
+      lastName
+    }
+  }
+  attachments {
+    id
+    name
+    description
+    dateTimeCreated
+    contentType
+    author {
+      userId
+      firstName
+      middleName
+      lastName
+    }
+    ThumbnailUrlWithToken
+  }
+  author {
+    userId
+    firstName
+    middleName
+    lastName
+  }
+  contactPerson {
+    samAccountName
+    emailAddress
+    name
+  }
+  statusUpdates {
+    id
+    dateTimeCreated
+    status
+    author {
+      userId
+      firstName
+      middleName
+      lastName
+    }
+  }
+  workOrders {
+    orderNumber
+  }
+  source
+  referenceId
+}
+
+query caseDetails($caseId: UUID!) {
+  case(caseId: $caseId) {
+    ...CaseDetails
+  }
+}

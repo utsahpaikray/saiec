@@ -1,0 +1,328 @@
+@if (vm$ | async; as VM) {
+  <app-form-page *transloco="let t">
+    <app-page-header>
+      <app-crumbtrail>
+        <a [routerLink]="['../']" class="grav-text-body-medium" ghost>
+          {{
+            'ContextualCollaboration.CaseDetails.Header.Breadcrumbs.Cases'
+              | transloco
+          }}
+        </a>
+        <p class="grav-text-body-medium">
+          {{
+            'ContextualCollaboration.CaseDetails.Header.Breadcrumbs.CaseDetails'
+              | transloco
+          }}
+        </p>
+      </app-crumbtrail>
+      <h1>{{ VM.headerVM.title }}</h1>
+
+      <div class="<md:align-self-flex-end" tag>
+        <grav-tag [appStatus]="VM.statusTagVM">
+          {{ t(VM.headerVM.statusKey) }}
+        </grav-tag>
+      </div>
+
+      @if (VM.showRejectButton) {
+        <button
+          (click)="
+            openConfirmationModal(
+              VM.rejectConfirmationDialogVM,
+              CaseConfirmationType.ToReject,
+              VM.id
+            )
+          "
+          class="<md:w-full"
+          type="button"
+          outline
+          primary
+        >
+          {{ VM.headerVM.RejectButtonKey | transloco }}
+        </button>
+      }
+
+      @if (VM.showInProgressButton) {
+        <button
+          (click)="
+            openConfirmationModal(
+              VM.inProgressConfirmationDialogVM,
+              CaseConfirmationType.ToInprogress,
+              VM.id
+            )
+          "
+          class="<md:w-full"
+          type="button"
+          primary
+        >
+          {{ VM.headerVM.InProgressButtonKey | transloco }}
+        </button>
+      }
+
+      @if (VM.showCreateWorkOrderButton) {
+        <button
+          (click)="
+            openConfirmationModal(
+              VM.createWorkOrderConfirmationDialogVM,
+              CaseConfirmationType.CreateWorkOrder,
+              VM.id
+            )
+          "
+          class="<md:w-full"
+          type="button"
+          outline
+          primary
+        >
+          {{ VM.headerVM.WorkOrderButtonKey | transloco }}
+        </button>
+      }
+
+      @if (VM.showCloseButton) {
+        <button
+          (click)="
+            openConfirmationModal(
+              VM.closeConfirmationDialogVM,
+              CaseConfirmationType.ToClose,
+              VM.id
+            )
+          "
+          class="<md:w-full"
+          type="button"
+          primary
+        >
+          {{ VM.headerVM.CloseButtonKey | transloco }}
+        </button>
+      }
+    </app-page-header>
+
+    <main class="d-flex gap-l <md:flex-col">
+      <section class="case-messaging d-flex flex-col">
+        <app-message-box
+          [vm]="VM.messageBoxVM"
+          (sendMessage)="addMessage(VM.id, $event)"
+        >
+        </app-message-box>
+
+        <div class="d-flex flex-col gap-m mt-m">
+          @for (message of VM.messages; track message.id) {
+            <app-message [vm]="message">
+              @if (message.attachmentType) {
+                @switch (message.attachmentType) {
+                  @case (AttachmentType.Image) {
+                    <!-- @TODO Remove the ! from the code -->
+                    <app-attachment
+                      (click)="
+                        openAttachmentPreviewDialog(
+                          VM.attachmentPreviewVM,
+                          message.media!.name!,
+                          message.id
+                        )
+                      "
+                      class="cursor-zoom-in"
+                    >
+                      <img [src]="message.media?.url" alt="Thumbnail" />
+                      {{ message.media?.name }}
+                      <button secondary ghost>
+                        <grav-svg-icon key="zoom-in" size="l"></grav-svg-icon>
+                      </button>
+                    </app-attachment>
+                  }
+
+                  @case (AttachmentType.Pdf) {
+                    <!-- @TODO Remove the ! from the code -->
+                    <app-attachment
+                      [vm]="{
+                        variant: AttachmentVariant.Document
+                      }"
+                      (click)="
+                        openAttachmentPreviewDialog(
+                          VM.attachmentPreviewVM,
+                          message.media!.name!,
+                          message.id
+                        )
+                      "
+                      class="cursor-zoom-in"
+                    >
+                      {{ message.media?.name }}
+                      <button secondary ghost>
+                        <grav-svg-icon key="zoom-in" size="l"></grav-svg-icon>
+                      </button>
+                    </app-attachment>
+                  }
+
+                  @case (AttachmentType.MFE) {
+                    <app-attachment
+                      [vm]="{
+                        variant: AttachmentVariant.Mfe
+                      }"
+                      (click)="
+                        openMfePreviewDialog(
+                          VM.mfePreviewVM,
+                          message.mfe!,
+                          message.mfe?.type!
+                        )
+                      "
+                      class="cursor-zoom-in"
+                    >
+                      {{
+                        t('ContextualCollaboration.CaseDetails.MfeThumbNail', {
+                          mfeName: message.mfe?.type
+                        })
+                      }}
+                      <button secondary ghost>
+                        <grav-svg-icon key="zoom-in" size="l"></grav-svg-icon>
+                      </button>
+                    </app-attachment>
+                  }
+
+                  @default {
+                    <app-attachment
+                      [vm]="{
+                        variant: AttachmentVariant.Document
+                      }"
+                      class="cursor-pointer"
+                      (click)="downloadAttachment($event, message.id)"
+                    >
+                      {{ message.media?.name }}
+                      <button secondary ghost>
+                        <grav-svg-icon key="download" size="l"></grav-svg-icon>
+                      </button>
+                    </app-attachment>
+                  }
+                }
+              }
+            </app-message>
+          }
+        </div>
+      </section>
+      <section class="case-information d-flex flex-col gap-m <md:max-w-full">
+        <!-- #region details -->
+        <grav-card [elevated]="false">
+          <grav-card-content>
+            <h4 class="grav-text-body-bold">
+              {{ t('ContextualCollaboration.CaseDetails.Details') }}
+            </h4>
+            <div class="d-flex flex-col">
+              <span class="grav-text-body-medium">
+                {{ t('ContextualCollaboration.CaseDetails.ReportedOn') }}
+              </span>
+              <span class="grav-text-body">
+                {{
+                  t(VM.details.reportedOnKey, {
+                    reportedOn: VM.details.reportedOn
+                  })
+                }}
+              </span>
+            </div>
+            <div class="d-flex flex-col">
+              <span class="grav-text-body-medium">
+                {{ t('ContextualCollaboration.CaseDetails.ReportedBy') }}
+              </span>
+              <span class="grav-text-body">
+                {{ VM.details.reportedBy.name }}
+
+                @if (VM.details.reportedBy.email) {
+                  <a href="mailto:{{ VM.details.reportedBy.email }}">
+                    {{ '<' + VM.details.reportedBy.email + '>' }}
+                  </a>
+                }
+              </span>
+            </div>
+
+            <div class="d-flex flex-col">
+              <span class="grav-text-body-medium">
+                {{ t('ContextualCollaboration.CaseDetails.OnSiteContact') }}
+              </span>
+              <span class="grav-text-body">
+                {{ VM.details.onSiteContact.name }}
+
+                @if (VM.details.onSiteContact.email) {
+                  <a href="mailto:{{ VM.details.onSiteContact.email }}">
+                    {{ '<' + VM.details.onSiteContact.email + '>' }}
+                  </a>
+                }
+              </span>
+            </div>
+            <div class="d-flex flex-col">
+              <span class="grav-text-body-medium">
+                {{ t('ContextualCollaboration.CaseDetails.AffectedAsset') }}
+              </span>
+              <div class="d-flex gap-x-s align-center">
+                <span class="grav-text-body">
+                  {{ VM.details.affectedAsset.name || t('General.None') }}
+                </span>
+                @if (VM.details.affectedAsset.name) {
+                  <button
+                    (click)="openAssetDetailsModal(VM.assetDetailsModalVM)"
+                    ghost
+                    secondary
+                  >
+                    <grav-svg-icon key="infos-outline"></grav-svg-icon>
+                  </button>
+                }
+              </div>
+            </div>
+            <div class="d-flex flex-col">
+              <span class="grav-text-body-medium">
+                {{ t('ContextualCollaboration.CaseDetails.EventSource') }}
+              </span>
+              <span class="grav-text-body">
+                {{ t(VM.details.eventSource) || t('General.None') }}
+              </span>
+            </div>
+            <div class="d-flex flex-col">
+              <span class="grav-text-body-medium">
+                {{ t('ContextualCollaboration.CaseDetails.WorkOrderId') }}
+              </span>
+              <span class="grav-text-body">
+                {{ VM.details.workOrderId || '-' }}
+              </span>
+            </div>
+          </grav-card-content>
+        </grav-card>
+        <!-- #endregion -->
+        <!-- #region attachments -->
+        <grav-card [elevated]="false">
+          <grav-card-content>
+            <h4 class="grav-text-body-bold">
+              {{
+                t('ContextualCollaboration.CaseDetails.Attachments', {
+                  count: VM.fileUploadVM.files.length
+                })
+              }}
+            </h4>
+            <app-file-upload
+              [vm]="VM.fileUploadVM"
+              (addedFiles)="addAttachment(VM.id, $event)"
+            >
+            </app-file-upload>
+          </grav-card-content>
+        </grav-card>
+        <!-- #endregion -->
+        <!-- #region description -->
+        <grav-card [elevated]="false">
+          <grav-card-content>
+            <h4 class="grav-text-body-bold">
+              {{ t('ContextualCollaboration.CaseDetails.Description') }}
+            </h4>
+            <div>
+              {{ VM.description }}
+            </div>
+          </grav-card-content>
+        </grav-card>
+        <!-- #endregion -->
+      </section>
+    </main>
+  </app-form-page>
+}
+
+<ng-template #noThumbnail let-name="name">
+  <grav-tooltip>
+    <button ghost secondary class="align-self-flex-start">
+      <grav-svg-icon size="l" key="highlight-off"></grav-svg-icon>
+      {{ name }}
+    </button>
+    <template>{{
+      'ContextualCollaboration.CaseDetails.NoPreview' | transloco
+    }}</template>
+  </grav-tooltip>
+</ng-template>

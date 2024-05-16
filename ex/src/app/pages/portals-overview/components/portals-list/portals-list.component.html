@@ -1,0 +1,50 @@
+<ng-container *ngIf="portals$ | async as portals">
+  <ng-container *ngIf="(loading$ | async) === false; else loading">
+    <div
+      *ngIf="portals.length > 0; else noPortals"
+      class="d-grid gap-l lg:grid-cols-3"
+    >
+      <grav-card
+        *ngFor="let portal of portals; let i = index"
+        [attr.data-testid]="'portal-card-' + i"
+      >
+        <grav-card-header>
+          <span card-title>{{ portal.name }}</span>
+        </grav-card-header>
+
+        <!-- TODO: remove mt-auto from footer if <gravity-card-content> is used in the future -->
+        <grav-card-footer class="mt-auto">
+          <button
+            data-testid="portal-card-button"
+            ghost
+            routerLink="../{{ portal.id }}"
+          >
+            {{ 'General.View' | transloco }}
+          </button>
+        </grav-card-footer>
+      </grav-card>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #loading>
+  <div
+    class="d-flex w-full items-center justify-center py-2-xl"
+    data-testid="progress-spinner"
+  >
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noPortals>
+  <div
+    class="d-flex h-full flex-col items-center justify-center"
+    data-testid="no-data-texts-portals"
+  >
+    <h2 class="grav-text-header-2-bold lg:grav-text-header-bold">
+      {{ noDataText || ('General.NoPortals' | transloco) }}
+    </h2>
+  </div>
+</ng-template>

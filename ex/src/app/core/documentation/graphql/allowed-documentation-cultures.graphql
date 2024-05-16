@@ -1,0 +1,10 @@
+fragment documentCulture on CultureInfo {
+  englishName
+  name
+}
+
+query allowedDocumentationCultures {
+  allowedDocumentationCultures {
+    ...documentCulture
+  }
+}

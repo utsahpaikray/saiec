@@ -1,0 +1,3 @@
+mutation deallocateUserFromPortal($portalId: UUID!, $userId: UUID!) {
+  deallocateUserFromPortal(portalId: $portalId, userId: $userId)
+}

@@ -1,0 +1,34 @@
+<app-card
+  *ngIf="agreement"
+  class="text-grey-900 lg:text-xl"
+  data-testid="active-site-agreement-card"
+>
+  <app-card-content-list>
+    <app-card-meta data-testid="active-site-agreement-id">
+      <ng-container label>{{
+        'Contracts.AgreementLabel' | transloco
+      }}</ng-container>
+      <ng-template [ngIf]="agreement.agreementId" [ngIfElse]="dash">{{
+        agreement.agreementId
+      }}</ng-template>
+    </app-card-meta>
+    <app-card-meta data-testid="active-site-agreement-start-date">
+      <ng-container label>{{
+        'Contracts.StartDateLabel' | transloco
+      }}</ng-container>
+      <ng-template [ngIf]="agreement.startDate" [ngIfElse]="dash">
+        {{ agreement.startDate | translocoDate : { dateStyle: 'long' } }}
+      </ng-template>
+    </app-card-meta>
+    <app-card-meta data-testid="active-site-agreement-end-date">
+      <ng-container label>{{
+        'Contracts.EndDateLabel' | transloco
+      }}</ng-container>
+      <ng-template [ngIf]="agreement.endDate" [ngIfElse]="dash">
+        {{ agreement.endDate | translocoDate : { dateStyle: 'long' } }}
+      </ng-template>
+    </app-card-meta>
+  </app-card-content-list>
+</app-card>
+
+<ng-template #dash> - </ng-template>

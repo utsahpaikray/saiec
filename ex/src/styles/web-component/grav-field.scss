@@ -1,0 +1,11 @@
+grav-field {
+  grav-svg-icon[key='error'] {
+    color: var(--grav-color-feedback-error-text-default);
+  }
+  grav-svg-icon[grav-input-suffix][align-center], grav-svg-icon[grav-input-prefix][align-center] {
+    top: calc(var(--gravity-field-header-height, 0px) + var(--grav-space-xl));
+  }
+  input[grav-input][error] {
+    padding-left: var(--grav-space-xl);
+  }
+}

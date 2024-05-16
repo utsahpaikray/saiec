@@ -1,0 +1,13 @@
+<div
+  [ngClass]="classes"
+  class="overflow-hidden rounded-m b-s border-solid border-grey-300 bg-white h-full"
+>
+  <section [ngClass]="headClasses" class="head-custom">
+    <ng-content select="[head]"></ng-content>
+  </section>
+  <section
+    class="divide-y divide-grey-200 table-section vertical-scrollbar h-custom"
+  >
+    <ng-content select="[body]"></ng-content>
+  </section>
+</div>

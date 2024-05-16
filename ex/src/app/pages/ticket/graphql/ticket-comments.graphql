@@ -1,0 +1,9 @@
+query ticketComments(
+  $id: String!
+  $commentsFirst: Int = 4
+  $commentsCursor: String
+) {
+  ticket(id: $id) {
+    ...ticketComments
+  }
+}

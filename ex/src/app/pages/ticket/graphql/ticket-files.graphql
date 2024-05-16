@@ -1,0 +1,5 @@
+query ticketFiles($id: String!, $filesFirst: Int = 5, $filesCursor: String) {
+  ticket(id: $id) {
+    ...ticketFiles
+  }
+}

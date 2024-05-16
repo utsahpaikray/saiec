@@ -1,0 +1,989 @@
+{
+	"General": {
+		"Dashboard": "Home",
+		"Calendar": "Kalender",
+		"Documentation": "Documentatie",
+		"Contacts": "Contactpersonen",
+		"SpareParts": "Reserveonderdelen",
+		"ViaInsights": "VIA Insights",
+		"Pace": "Pace",
+		"Vidi": "VIDI",
+		"Performance": "Prestaties",
+		"Contracts": "Contracten",
+		"Training": "Training",
+		"TrainingOverview": "Trainingsoverzicht",
+		"NewsInsights": "Nieuws en inzichten",
+		"Maintenance": "Onderhoud",
+		"Requests": "Tickets",
+		"SiteSettings": "Site-instellingen",
+		"AllSiteSettings": "Alle site-instellingen",
+		"Portals": "Portalen",
+		"Users": "Gebruikers",
+		"Close": "Sluiten",
+		"AllPortals": "Alle portalen",
+		"View": "Bekijk",
+		"Login": "Inloggen",
+		"Sites": "Sites",
+		"User": "Gebruiker",
+		"LogOut": "Uitloggen",
+		"Email": "E-mail",
+		"PhoneNumber": "Telefoonnummer",
+		"Address": "Adres",
+		"Optional": "Optioneel",
+		"Required": "Verplicht",
+		"Request": "Verzoek",
+		"SuccessMessage": "Het verzoek is verstuurd.",
+		"ApiError": "Er is iets fout gegaan. Probeer het later opnieuw.",
+		"GoToHome": "Naar Home",
+		"MandatoryField": "Dit veld is verplicht.",
+		"ValidEmail": "Voer een geldig e-mailadres in.",
+		"SpecialCharacter": "Voer geen speciale tekens '<' en '>' in.",
+		"GoToSite": "Naar site",
+		"MaxCharacter": "Houd deze tekst korter dan {{ total }} karakters.",
+		"FileTypeWarning": "De volgende bestandstype is niet toegestaan:",
+		"MyProfile": "Mijn profiel",
+		"AddPortalButton": "Portaal toevoegen",
+		"Save": "Opslaan",
+		"Confirm": "Bevestigen",
+		"Cancel": "Annuleren",
+		"Keep": "Behouden",
+		"Delete": "Verwijderen",
+		"ReadMore": "Lees meer",
+		"Loading": "Aan het laden",
+		"Showing": "Toont {{amount}} van {{ total }}",
+		"ShowMore": "Toon meer",
+		"ShowResult": "{{ number }} van {{ total }} getoond",
+		"NoSitesOrPortals": "U heeft geen toegang tot portalen en/of sites.",
+		"NoPortalsFound": "Er zijn geen portalen die overeenkomen met deze zoekopdracht.",
+		"NoPortals": "Er zijn geen portalen beschikbaar. ",
+		"Back": "Terug",
+		"ViewDetails": "Toon details",
+		"Uploaded": "Geüpload",
+		"Processing": "Aan het verwerken",
+		"Canceled": "Geannuleerd",
+		"Uploading": "Aan het uploaden",
+		"Yes": "Ja",
+		"No": "Nee",
+		"MarkcodeOrSystem": "Markcode of systeem",
+		"Availability": "Beschikbaarheid",
+		"Parts": "Reserveonderdelen",
+		"Labour": "Arbeid",
+		"ByPhone": "Responstijd telefonisch (uren)",
+		"OnSite": "On-site (uren)",
+		"Visits": "Bezoeken",
+		"ManpowerDaysPerVisit": "Mankrachtdagen per bezoek",
+		"StartAndEndDate": "Begin- en einddatum",
+		"NoStartDate": "Geen begindatum",
+		"NoEndDate": "Geen einddatum",
+		"Title": "Titel",
+		"NewMessage": "Nieuw bericht",
+		"Message": "Bericht",
+		"SendMessage": "Versturen",
+		"AddingMessage": "Aan het versturen",
+		"DateCreated": "Aanmaakdatum",
+		"Created": "Aangemaakt",
+		"Status": "Status",
+		"Priority": "Prioriteit",
+		"Type": "Type",
+		"Number": "Nummer",
+		"LoadMore": "Laad meer",
+		"Search": "Zoeken",
+		"ReportOn": "Gerapporteerd op",
+		"MaximoAccessError": "Sommige features (Mijn contracten, Mijn tickets) zijn op dit moment niet beschikbaar. Ververs de pagina op een later moment als u deze features wilt gebruiken.",
+		"Description": "Beschrijving",
+		"ItemNumber": "Artikelnummer",
+		"ItemDescription": "Artikelomschrijving",
+		"AddItem": "Artikel toevoegen",
+		"NoItems": "Er zijn geen artikelen die aan uw criteria voldoen",
+		"Edit": "Bewerken",
+		"Remove": "Verwijderen",
+		"Quantity": "Hoeveelheid",
+		"Classification": "Eenheidsclassificatie ",
+		"Category": "Categorie",
+		"PleaseAddFile": "Er zijn momenteel geen bestand(en) hier. Voeg een bestand toe over het betreffende artikel.",
+		"Name": "Naam"
+	},
+	"None": "Geen",
+	"Category": "Gategorie",
+	"Dashboard": {
+		"WelcomeMessage": "Welkom bij My Vanderlande,",
+		"WelcomeTag": "Welkom",
+		"WelcomeTitle": "Welkom bij de pilotversie van het My Vanderlande klantenportaal!",
+		"WelcomeDesc": "Hier kunt u toegang krijgen tot de documentatie van uw site, reserveonderdelen bestellen, bladeren en training en certificering aanvragen en de details van uw Vanderlande-contactpersonen opzoeken.",
+		"FeedbackTag": "Feedback",
+		"FeedbackTitle": "Wat vindt u van het portaal?",
+		"FeedbackDesc": "Verbeter ons portaal door ons te laten weten wat u ervan vindt. We horen graag uw tips en suggesties om het portaal handiger voor u te maken. Gebruik hiervoor het feedbackvak op deze en andere pagina's, of stuur uw feedback naar myvanderlande@vanderlande.com",
+		"NewsInsightsTag": "Nieuws en inzichten",
+		"ReadMore": "Meer Nieuws en Inzichten",
+		"AirportTitle": "Vanderlande to develop innovative checkpoint concept for US Department of Homeland Security",
+		"AirportDesc": "Vanderlande’s concept for a self-screening passenger security checkpoint solution for airports has been selected by the US Department of Homeland Security (DHS) for further design, development and operational testing.",
+		"ParcelTitle": "Vanderlande cooperates with PostNord on new parcel sites in Finland",
+		"ParcelDesc": "Vanderlande has been chosen to supply two state-of-the-art sortation systems to the PostNord Group – one of the leading parcel distribution companies in Scandinavia.",
+		"WarehouseTitle": "Speed is of the essence",
+		"WarehouseDesc": "The delivery windows for home delivery of groceries are getting shorter and shorter. The latest trend is to deliver groceries directly to your home within ten minutes.",
+		"SitePerformance": {
+			"Title": "Siteprestaties",
+			"Button": "BEKIJK IN {{ appName }}",
+			"Filters": {
+				"OneDay": "1D",
+				"SevenDays": "7D",
+				"ThirtyDays": "30D",
+				"OneYear": "1Y",
+				"ALL": "Alles"
+			},
+			"Charts": {
+				"Availability": {
+					"Title": "Beschikbaarheid",
+					"Value": "{{value}}%",
+					"Explanation": "{{value}}% onder doel"
+				},
+				"Performance": {
+					"Title": "Prestatie",
+					"Value": "{{value}}%",
+					"Explanation": "{{value}}% onder doel"
+				},
+				"Throughput": {
+					"Title": "Doorvoer",
+					"Value": "{{value}}%",
+					"Explanation": "{{value}}% onder doel"
+				}
+			}
+		}
+	},
+	"Documentation": {
+		"Size": "Grootte",
+		"Language": "Taal",
+		"Location": "Locatie",
+		"MyDocumentation": "Mijn documentatie",
+		"OverviewMessage": "Alle documenten met betrekking tot uw systeem binnen handbereik. Neem bij vragen contact op met uw contractmanager.",
+		"NoDocuments": "Er zijn geen documenten beschikbaar.",
+		"NotFoundMessage": "Er zijn geen resultaten die overeenkomen met deze zoekopdracht. Probeer een andere zoekterm",
+		"SearchResultsFor": "Zoek resultaten voor '{{searchText}}'",
+		"DownloadOmManual": "Download volledige O&M",
+		"FailedToDownloadOmManual": "Er is iets misgegaan. Probeer het later opnieuw.",
+		"View": "Bekijken",
+		"Certifications": "Certificeringen",
+		"CertificationsDesc": "Rapporten en certificeringen van de machines.",
+		"Contracts": "Contracten",
+		"ContractsDesc": "Project- en servicecontracten.",
+		"HealthSafetyEnvironment": "Health, Safety and Environment",
+		"HealthSafetyEnvironmentDesc": "Technische informatiebrieven en veiligheidsdocumenten.",
+		"LifeCycleDocumentation": "Life Cycle Documentatie",
+		"LifeCycleDocumentationDesc": "Documenten over systeemonderhoud, logistiek beheer en bedrijfsverbetering.",
+		"OmManual": "O&M-handleiding",
+		"OmManualDesc": "De volledige documentatie van het bij u geïnstalleerde systeem.",
+		"OtItDocumentation": "OT&IT Documentatie",
+		"OtItDocumentationDesc": "Operationele, technische documenten en softwarehandleidingen.",
+		"Projects": "Projecten",
+		"ProjectsDesc": "Projectrapporten, systeemspecificaties, opleveringsdocumentatie.",
+		"ReportsAndOthers": "Rapporten en overig",
+		"ReportsAndOthersDesc": "Overige bestanden en rapporten."
+	},
+	"Landing": {
+		"WelcomeMessage": "Welkom bij My Vanderlande",
+		"LadingUnloggedMessage": "U moet aangemeld zijn om gebruik te kunnen maken van My Vanderlande.",
+		"NotRegistered": "Nog niet aangemeld?",
+		"ContactManager": "Neem contact op met uw account manager.",
+		"LandingTextTitle": "My Vanderlande is uw digitale touchpoint voor:",
+		"LandingTextLine1": "Technische en operationele documentatie",
+		"LandingTextLine2": "Vlotte communicatie met Vanderlande",
+		"LandingTextLine3": "Inzicht in de prestaties en conditie van uw systeem",
+		"LandingTextLine4": "Ons complete service trainingsportfolio",
+		"LandingTextLine5": "Toegang tot alle digitale apps",
+		"ContactLink": "Contact",
+		"CopyrightText": "Copyright {{year}} Vanderlande Industries B.V. Alle rechten voorbehouden.",
+		"PrivacyLink": "Privacyverklaring",
+		"CookiePolicy": "Cookiebeleid",
+		"CookiePreferences": "Cookievoorkeuren",
+		"LogInTitle": "Inloggen",
+		"LogInButton": "Inloggen"
+	},
+	"NotFound": {
+		"Message": "Deze link bestaat niet of deze pagina is verplaatst."
+	},
+	"ErrorStatePIModule": {
+		"Message": "Process Insights kan niet worden geopend.",
+		"Reason": "Om toegang te krijgen tot de module Process Insights Airports, moet u verbonden zijn met VPN."
+	},
+	"AccessDenied": {
+		"Message": "Het openen van deze pagina is alleen mogelijk met de juiste toegangsrechten. \nNeem contact op met uw Vanderlande contactpersoon om deze rechten te krijgen."
+	},
+	"Portal": {
+		"Overview": "Portaal overzicht"
+	},
+	"Training": {
+		"MyTraining": "Mijn training",
+		"Description": "Maak het mogelijk dat uw medewerkers het systeem efficiënt bedienen en onderhouden. De trainingen zijn aangepast aan de installed base en zijn ontworpen voor de specifieke behoeften van uw team.",
+		"Certifications": "Certificeringen",
+		"CertificationPath": "Certificeringstraject",
+		"CertificationAndTraining": "Vraag training of certificering aan voor",
+		"CardLinkText": "Lees meer",
+		"Suggested": "Aanbevolen",
+		"TrainingColumn": "Training",
+		"ForColumn": "Voor",
+		"DurationColumn": "Duur",
+		"NoTrainings": "Er zijn geen trainingen.",
+		"TrainingBackBtn": "Trainingsoverzicht",
+		"RequestBtn": "Aanvragen",
+		"Modules": "Modules",
+		"ElectiveModules": "Keuzemodules",
+		"MetaTargetGroup": "Doelgroep",
+		"MetaPrerequisites": "Vereisten",
+		"MetaDuration": "Duur",
+		"MetaMaxTrainees": "Maximaal aantal cursisten",
+		"MetaSystemAvailability": "Systeembeschikbaarheid",
+		"Required": "Vereist veld",
+		"SendBtn": "Verzenden",
+		"RequestSuccessMsg": "Uw trainingsverzoek is verzonden.",
+		"OperationsTitle": "Operations",
+		"OperationsDesc": "Hoe u uw systeem bedient – efficiënt gebruik van operatorwerkplekken.",
+		"LogisticsTitle": "Logistiek",
+		"LogisticsDesc": "Hoe de algehele werking van uw MHS efficiënt te beveiligen. Inzicht in uw systeem om uw prestaties te optimaliseren.",
+		"MaintenanceTitle": "Onderhoud & IT",
+		"MaintenanceDesc": "Hoe u uw systeem onderhoudt - effectief onderhoud van alle componenten (mechanische, elektrische en lage en hoge besturing)."
+	},
+	"UserProfile": {
+		"Title": "Gebruikersprofiel",
+		"Access": "Toegang",
+		"AddPortal": "Portaal toevoegen",
+		"Privacy": "Privacy",
+		"PrivacyLink": "Privacyverklaring",
+		"CookiePolicy": "Cookiebeleid",
+		"TermsAndConditions": "Begrippen en voorwaarden",
+		"CookiePreferences": "Cookievoorkeuren",
+		"Preferences": "Voorkeuren",
+		"PreferredLanguage": "Voorkeurstaal",
+		"LanguageUpdated": "Voorkeurstaal is aangepast.",
+		"ProfileTab": "Profiel en voorkeuren",
+		"AuthorizationTab": "Autorisatie en toegang"
+	},
+	"UserAccess": {
+		"SelectPortal": "Selecteer portaal",
+		"RevokeAccess": "Toegang ontzeggen",
+		"AccessAdded": "Toegang tot {{name}}.",
+		"AccessRevoked": "Toegang tot {{name}} en hun sites is ontzegd.",
+		"SiteAccessRevoked": "Toegang tot {{name}} is ontzegd.",
+		"Title": "Toegang",
+		"DeallocateContractManagerError": "De toewijzing van een contractmanager aan zijn sites kan niet ongedaan worden gemaakt.",
+		"SitesSubtitle": "Sites"
+	},
+	"UserAuthorization": {
+		"Title": "Autorisatie",
+		"Message": "Gebruikersrollen gelden voor alle gekoppelde portalen en sites.",
+		"VanderlandeUserMessage": "Kan alle informatie van de sites en portalen waar hij/zij toegang toe heeft, inzien.",
+		"CustomerMessage": "Account voor een klantgebruiker. Kan alleen de site(s) van één portaal openen en bekijken.",
+		"SuperUserMessage": "Kan de gegevens van alle portalen en sites bewerken.",
+		"PortalAdminMessage": "Kan portalen en sites waartoe hij/zij toegang heeft bewerken als admin, mag documenten, contacten enz. bewerken, uploaden en verwijderen.",
+		"RoleAssigned": "Gebruikersrol toegekend: {{role}}."
+	},
+	"TrainingRequest": {
+		"PreviousPage": "Terug",
+		"Title": "Nieuw verzoek",
+		"Required": "Vereist veld",
+		"YourRequest": "Your request",
+		"RequestType": {
+			"Label": "What would you like to request?",
+			"ErrorText": "Please select what you would like to request.",
+			"Training": "Training",
+			"Certification": "Certification"
+		},
+		"Remarks": {
+			"Label": "Remarks",
+			"Placeholder": "Third-party equipment, other requests and specifications."
+		},
+		"Topics": {
+			"Label": "Topics",
+			"Placeholder": "Select certification path",
+			"ErrorText": "Please select a certification path."
+		},
+		"Trainings": {
+			"ErrorText": "Please select at least one training."
+		},
+		"PreviousTraining": {
+			"Label": "Previous training",
+			"Placeholder": "Have the trainees received relevant training before?"
+		},
+		"WhenAndWhere": "When and where",
+		"PreferredDatesOrPeriod": {
+			"Label": "Preferred date(s) or period",
+			"Placeholder": "Specific date or Q1, next spring, before Christmas or as soon as possible.",
+			"Note": "A cancellation less than 7 days before the start date results in a cancellation fee similar to the preparation and training hours of the training"
+		},
+		"PreferredTrainingLocation": {
+			"Label": "Preferred training location",
+			"NoteVeghel": "Customer Centre is responsible for all travel arrangements and accommodation requirements. This includes travel arrangements from hotel to Vanderlande and back. Please send a copy of the travel arrangements to the Trainer.",
+			"NoteAnotherLocation": "We will charge travel and accommodation costs for the trainer."
+		},
+		"PreferredLocation": {
+			"Label": "Preferred location",
+			"Placeholder": "Location where you would like to receive the training."
+		},
+		"Participants": {
+			"Label": "Participants",
+			"Note": "The minimum amount of participants is 2. Large groups may have to be broken up into smaller ones.",
+			"Name": {
+				"Label": "Name",
+				"Placeholder": "Name"
+			},
+			"Email": {
+				"Label": "E-mail",
+				"Placeholder": "E-mail address",
+				"ErrorText": "Please enter a valid e-mail address."
+			},
+			"AddParticipants": "Add participants"
+		},
+		"Location": {
+			"Label": "Location",
+			"Placeholder": "Site where the participants are working."
+		},
+		"RequestDetails": "Request details",
+		"Contact": {
+			"Label": "Contact",
+			"Placeholder": "Project / Account / Maintenance Manager or Customer Centre"
+		},
+		"Requester": {
+			"Label": "Requester"
+		},
+		"RequesterName": {
+			"Label": "Requester name",
+			"Placeholder": "Name",
+			"RequiredError": "This field is mandatory."
+		},
+		"RequesterRole": {
+			"Label": "Requester role",
+			"Placeholder": "Role or Job title"
+		},
+		"RequesterEmail": {
+			"Label": "Requester e-mail",
+			"Placeholder": "E-mail address",
+			"RequiredError": "Please enter an e-mail address.",
+			"ValidError": "Please enter a valid e-mail address.",
+			"Note": "You will receive the confirmation of this request on this e-mail address."
+		},
+		"Send": "Verzenden",
+		"DiscardTitle": "Wijzigingen annuleren?",
+		"DiscardText": "U hebt informatie ingevoerd die verloren gaat als u doorgaat. Wilt u doorgaann?",
+		"KeepEditing": "Blijf bewerken",
+		"NoSiteContracManager": {
+			"ErrorText": "Het online aanvragen van de traning is tijdelijk niet mogelijk. Neem contact op met uw Vanderlande contactpersoon om de training aan te vragen."
+		}
+	},
+	"Contacts": {
+		"MyContacts": "Mijn contacten",
+		"AccountManagerContact": "Accountmanager",
+		"ContractManagerContact": "Contractmanager",
+		"ItManagerContact": "IT-manager",
+		"SparePartsContact": "Contactpersoon reserveonderdelen",
+		"ServiceDeskContact": "Service Desk",
+		"VisitingOfficeContact": "Bezoekkantoor",
+		"DownloadAsVCard": "Downloaden als vCard",
+		"OutsideWorkingHours": "buiten kantooruren",
+		"NoContacts": "Er zijn geen contactpersonen beschikbaar. "
+	},
+	"AddPortal": {
+		"NewPortal": "Nieuw portaal",
+		"PortalTitle": "Naam portaal",
+		"PortalTitleDesc": "Klanten krijgen deze naam te zien. Controleer bij de klant hoe het portaal genoemd moet worden. Controleer de stamgegevens voor een juiste en relevante benaming.",
+		"PortalTitleErr1": "Er bestaat al een portaal met deze naam. Gebruik een andere naam.",
+		"PortalTitleErr2": "Dit veld is verplicht. Voer een portaalnaam in.",
+		"PortalTitleErr3": "Deze benaming is te lang, toegestane maximumlengte is 50 tekens.",
+		"PortalTitleErr4": "Gebruik alleen letters en cijfers.",
+		"Customer": "Klant",
+		"CustomerDesc": "Bedrijfsnaam van de klant. Dit is nodig voor interne administratie.",
+		"CustomerErr1": "Dit veld is verplicht. Voer een klantnaam in.",
+		"CustomerErr2": "We hebben geen klanten gevonden met de naam {{name}}.",
+		"CustomerErr2Button": "Toevoegen als nieuwe klant",
+		"AddPortal": "Portaal toevoegen",
+		"Cancel": "Annuleren"
+	},
+	"PortalAdmin": {
+		"Administration": "Beheer",
+		"PortalSettings": "Portaalinstellingen",
+		"Users": "Gebruikers",
+		"NoUsersFound": "Er zijn geen gebruikers die overeenkomen met deze zoekopdracht.",
+		"NoUsers": "Er zijn geen gebruikers.",
+		"Sites": "Sites",
+		"AddSite": "Site toevoegen",
+		"SitesEmpty": "Er zijn nog geen sites toegevoegd aan dit portaal.",
+		"NewSite": "Nieuwe site",
+		"SiteName": "Sitenaam",
+		"SitenameDesc": "Klanten zien deze titel. Gebruik een beschrijvende naam.",
+		"SiteID": "Site-ID",
+		"SiteIdDesc": "Gebruik de unieke site-ID uit de stamgegevens - het Installed Base-nummer van Enovia.",
+		"Cancel": "Annuleren",
+		"SiteTitleErr1": "Er bestaat al een site met deze ID in My Vanderlande. Gebruik een andere.",
+		"SiteTitleErr2": "Dit veld is verplicht.",
+		"SiteTitleErr3": "Deze titel is te lang.",
+		"NotPublishedLabel": "Niet gepubliceerd"
+	},
+	"PortalGeneralSettings": {
+		"GeneralSettings": "Algemene instellingen",
+		"Training": "Training",
+		"TrainingDesc": "Welk(e) trainingsassortiment(en) moet(en) getoond worden voor de sites binnen dit portaal?",
+		"TrainingErrorText": "Selecteer alstublieft tenminste 1 trainingsassortiment.",
+		"TrainingErrorToast": "Trainingsassortiment is niet opgeslagen. Probeer opnieuw.",
+		"SettingsSaveSuccessMsg": "Instellingen zijn opgeslagen.",
+		"DeletePortal": "Portaal verwijderen",
+		"DeletePortalDesc": "Alle gegevens worden verwijderd en kunnen niet worden hersteld. Gebruikers hebben geen toegang tot het portaal of tot de sites ervan."
+	},
+	"SiteAdmin": {
+		"PublishNotification": "Deze site is nog niet gepubliceerd en dus niet zichtbaar voor de klanten.",
+		"PublishButton": "Publiceren",
+		"Users": "Gebruikers",
+		"GeneralSettings": "Algemene site-instellingen",
+		"Documentation": "Documentatie",
+		"Contacts": "Contactpersonen"
+	},
+	"SiteAdminDocumentation": {
+		"Subtitle": "Site-documenten beheren",
+		"AmountOfDocuments": "# documenten",
+		"AmountOfDocumentsZero": "{{number}} documenten",
+		"AmountOfDocumentsOne": "{{number}} document",
+		"AmountOfDocumentsPlural": "{{number}} documenten",
+		"MessageZeroDocs": "Deze map wordt niet getoond aan de gebruikers",
+		"AddDocuments": "Documenten toevoegen",
+		"SelectedDocuments": "Geselecteerde documenten",
+		"DocumentCategory": "Documentcategorie",
+		"DocumentCategoryError": "Selecteer de documentcategorie",
+		"DocumentLanguage": "Taal van de documenten",
+		"DocumentLanguageError": "Selecteer de documenttaal.",
+		"SelectFiles": "Selecteer een bestand.",
+		"SelectFolder": "Selecteer een map.",
+		"AllowedFileTypes": "Één of meer bestandstype(s) die u hebt geselecteerd is niet toegestaan.",
+		"CancelButton": "Annuleren",
+		"UploadButton": "Uploaden",
+		"Download7Zip": "Download 7zip",
+		"ZipFileSelected": "Zorg ervoor dat het .zip bestand gemaakt is met het 7zip programma.  Typ ‘cu’ in het veld ‘Parameters’ bij het maken van het archief, om ervoor te zorgen dat alle tekens goed worden weergegeven.",
+		"UploadError": "Upload van {{fileName}} mislukt.",
+		"CancelUploadSuccess": "Het uploaden is geannuleerd.",
+		"DeleteFileSuccess": "Het bestand is verwijderd.",
+		"TableDocumentTitle": "Documenttitel",
+		"TableDateUploaded": "Datum geüpload",
+		"TableUploadedBy": "Geüpload door",
+		"OAndMMessage": "Als er geen O&M-handleiding aanwezigis, als er iets ontbreekt of iets niet klopt, neem dan contact op met {{email}}",
+		"OAndMLink": "E-mailbericht versturen",
+		"DragNDropLink": "Selecteer bestand(en)",
+		"DragNDropText": "of sleep ze en zet ze hier neer",
+		"Pop-upUploadDoc": "Document uploaden",
+		"UploadErr1": "Er is iets misgegaan. Probeer opnieuw te uploaden.",
+		"CancelUploadsModalTitle": "Alle uploads annuleren?",
+		"CancelUploadsModalText": "De documenten zijn nog niet volledig geüpload. Wilt u het uploaden ervan annuleren?",
+		"CancelUploadsModalText2": "Het uploaden van sommige bestanden die u heeft toegevoegd kan niet meer geannuleerd worden. Als u het uploaden daarvan toch ongedaan wilt maken, wacht dan tot de verwerking er van af is, en verwijder deze bestand(en) daarna.",
+		"CancelUploadsModalConfirmText": "Uploads annuleren",
+		"CancelUploadsModalConfirmText2": "Ok",
+		"CancelUploadsModalCancelText": "Doorgaan met uploaden",
+		"BottomSheetTitle": "Uploadvoortgang",
+		"ConfirmationModalTitle": "Verwijder dit document?",
+		"ConfirmationModalMessage": "Weet je zeker dat je wilt verwijderen? Dit bestand is niet meer toegankelijk voor de klant."
+	},
+	"SiteAdminContacts": {
+		"AccountManager": "Accountmanager",
+		"ContractManager": "Contractmanager",
+		"ITManager": "IT-manager",
+		"SparePartsContact": "Contactpersoon reserveonderdelen",
+		"VisitingOffice": "Bezoekkantoor",
+		"ServiceDesk": "Service Desk",
+		"PreferredServiceDesk": "Service Desk voorkeur",
+		"CustomTitle": "Aangepaste titel",
+		"CustomTitleDesc": "Vul dit in als u '{{Account manager}}' wilt vervangen door een andere titel",
+		"ShowThisContactChkbx": "Toon dit contact aan klanten",
+		"ShowThisContactChkbxDisabled": "Deze contactpersoon is altijd zichtbaar",
+		"NameAndLastName": "Naam en achternaam",
+		"NameOfOffice": "Naam van het kantoor",
+		"EMail": "E-mail",
+		"PhoneNumberOutsideWorkingHours": "Telefoonnummer buiten kantooruren",
+		"ContactDetails": "Contactgegevens",
+		"FieldErr1": "Dit veld mag niet leeg zijn."
+	},
+	"SiteAdminGeneralSettings": {
+		"SiteDetails": "Sitedetails",
+		"SpareParts": "Reserveonderdelen",
+		"SparePartsQ1": "Heeft deze site een account voor een reserveonderdelenwinkel?",
+		"Vidi": "VIDI",
+		"VidiQ1": "Moeten de klanten de link naar VIDI in het menu zien?",
+		"MyContracts": "Mijn contracten",
+		"MyContractsQ1": "Moet de link naar de pagina 'Mijn contracten' in het menu zichtbaar zijn? Alleen de gebruikers met een DOS Maximo account voor deze site kunnen deze link zien.",
+		"ProcessInsights": "Process Insights",
+		"ProcessInsightsLabel": "Moeten de klanten de link naar Process Insights in het menu zien?",
+		"DivertHealth": "Divert Health",
+		"DivertHealthLabel": "Moeten de klanten de link naar Divert Health in het menu zien?",
+		"DivertHealthRequiredErrorLabel": "Vul hier de URL naar uw Divert Health omgeving in.",
+		"DivertHealthInvalidErrorLabel": "Vul een geldige link naar uw Divert Health omgeving in",
+		"DivertHealthInputLabel": "Wat is de URL voor Divert Health?",
+		"ShuttleHealth": "Shuttle Health",
+		"ShuttleHealthLabel": "Moeten de klanten de link naar Shuttle Health in het menu zien?",
+		"ShuttleHealthRequiredErrorLabel": "Vul hier de URL naar uw Shuttle Health omgeving in.",
+		"ShuttleHealthInvalidErrorLabel": "Vul een geldige link naar uw Shuttle Health omgeving in",
+		"ShuttleHealthInputLabel": "Wat is de URL voor Shuttle Health?",
+		"Cases": {
+			"Title": "Cases",
+			"EventSources": {
+				"Label": "Promotieregels van Case naar Werkorder",
+				"Rules": {
+					"Disabled": "Uitgeschakeld",
+					"Manual": "Manueel",
+					"Automatic": "Automatisch"
+				},
+				"Types": {
+					"Monitron": "Monitron",
+					"ShuttleHealth": "Shuttle Health",
+					"DivertHealth": "Divert Health",
+					"OperationalAwareness": "Operational Awareness"
+				}
+			},
+			"Enable": {
+				"Label": "Moet de link naar de 'Cases' in het menu getoond worden?"
+			},
+			"ErrorMessage": "Schakel ten minste één werkorderpromotieregel in"
+		},
+		"SettingsSaveSuccessMsg": "Instellingen zijn opgeslagen.",
+		"SiteStatus": "Sitestatus",
+		"Status": "Status:",
+		"NotPublished": "Niet gepubliceerd",
+		"NotPublishedDesc": "Klantgebruikers kunnen hier nog geen toegang toe krijgen of gegevens zien.",
+		"PublishBtn": "Publiceren",
+		"Published": "Gepubliceerd",
+		"PublishedDesc": "Klanten hebben toegang tot alle informatie over deze site.",
+		"DeleteSite": "Site verwijderen",
+		"DeleteSiteDesc": "Alle gegevens worden verwijderd en kunnen niet worden hersteld. Gebruikers hebben er geen toegang toe.",
+		"DeleteBtn": "Verwijderen"
+	},
+	"SiteAdminPublishSite": {
+		"DoYouWant": "Wilt u {{Site name}} publiceren?",
+		"DoYouWantDesc": "De gekoppelde gebruikers zullen de site en alle details ervan zien.",
+		"PublishBtn": "Publiceren",
+		"CancelBtn": "Annuleren",
+		"PublishedToaster": "{{Site name}} is gepubliceerd."
+	},
+	"AddUserModal": {
+		"AddUserBtn": "Gebruiker toevoegen",
+		"ModalTitle": "Gebruiker toevoegen",
+		"InputLabel": "Zoek op basis van het vanderlande-cloud.com account",
+		"InputPlaceholder": "Voer het account in",
+		"InputErrorText": "Voer een geldig account in.",
+		"InfoText": "Het vanderlande-cloud.com account is is ook bekend als UPN (User Principal Name).",
+		"SearchBtn": "Zoeken",
+		"SearchNoResults": "Er zijn geen gebruikers die aan uw zoekcriteria voldoen.",
+		"AddUserMsg1": "Deze gebruiker is gevonden en kan toegevoegd worden aan Mijn Vanderlande. Vergeet niet de portalen en site(s) toe te kennen.",
+		"OpenProfileBtn": "Profiel openen",
+		"AddUserMsg2": "Deze gebruiker heeft nog geen Vanderlande-account. Gebruik het Azure account dat eindigt op \"@vanderlande-cloud.com\".",
+		"RequestAccountBtn": "Account aanvragen",
+		"AddUserSuccessMsg": "{{name}} is toegevoegd aan Mijn Vanderlande",
+		"CancelBtn": "Annuleren",
+		"DisabledUserError": "Deze gebruiker kan niet toegevoegd worden omdat zijn/haar account inactief is in Azure AD. U kunt het account laten activeren via een TopDesk ticket."
+	},
+	"BusinessUnits": {
+		"Airport": "Luchthavens",
+		"Parcel": "Pakketten",
+		"Warehouse": "Magazijnen"
+	},
+	"Contracts": {
+		"MyContracts": "Mijn contracten",
+		"Contract": "Contract",
+		"NoContracts": "Er zijn geen contractdetails beschikbaar. ",
+		"ExistingContracts": "Lopende contracten",
+		"AgreementLabel": "Contractnummer",
+		"StartDateLabel": "Begindatum",
+		"EndDateLabel": "Einddatum",
+		"ContractsOverview": "Contractenoverzicht",
+		"WholeSystem": "Gehele systeem",
+		"NoContractLines": "Er zijn geen contractdetails beschikbaar."
+	},
+	"WarrantyClaims": {
+		"MyWarranty": "Garantieaanspraak",
+		"NewWarranty": "Nieuwe garantieaanspraak",
+		"SelectItemModal": {
+			"Title": "Garantieartikel selecteren",
+			"SearchInputPlaceholder": "Zoek op artikelnummer, omschrijving, uitgifte eenheidsclassificatie of categorie"
+		},
+		"CustomerSiteContact": {
+			"Title": "Klant site contactpersoon",
+			"Placeholder": "Selecteer contactpersoon",
+			"LeftAssertiveText": "Selecteer site contactpersoon"
+		},
+		"TicketReference": {
+			"Title": "Uw ticketreferentie",
+			"LeftAssertiveText": "Ticketnummer in je interne ticketsysteem"
+		},
+		"Summary": {
+			"Title": "Korte beschrijving",
+			"LeftAssertiveText": "Geef een korte beschrijving van uw garantieclaim zodat u de claim gemakkelijk kunt herkennen."
+		},
+		"CreateWarrantyClaim": "Garantieclaim aanmaken",
+		"SelectedItem": {
+			"Title": "artikel informatie",
+			"Placeholder": "Selecteer het artikel en de hoeveelheid van het artikel dat kapot is gegaan"
+		},
+		"SelectItemButton": "Selecteer artikel",
+		"ChangeItemButton": "Pas artikel aan",
+		"WarrantyParts": "Artikel deel",
+		"AddWarrantyItem": "Toevoegen aan artikel",
+		"SerialNumber": "Serienummer",
+		"WarrantyReasonLabel": "Gedetailleerde storingsbeschrijving",
+		"WarrantyReasonInfoText": "Geef een foutbeschrijving waarin de reden voor uw claim wordt uitgelegd",
+		"WarrantyInfo": "Garantie info",
+		"BreakdownDate": "Defect datum",
+		"AddToWarranty": "Toevoegen aan artikel"
+	},
+	"Tickets": {
+		"MyTickets": "Mijn tickets",
+		"AllTickets": "Alle tickets",
+		"OpenTickets": "Open tickets",
+		"NoOpenTickets": "Er zijn geen open tickets. ",
+		"TicketNumber": "Ticket {{ number }}",
+		"TicketPriority": "Prioriteit {{ priority }}",
+		"ViewAllTickets": "Alle tickets bekijken",
+		"CreateTicket": "Ticket aanmaken",
+		"NewTicket": "Nieuwe ticket",
+		"Details": "Details",
+		"TicketType": "",
+		"IssueType": {
+			"Title": "Waar gaat dit ticket over?",
+			"Incident": {
+				"Label": "Incident",
+				"Description": "Ongeplande onderbreking van een dienst of een vermindering van de kwaliteit van de dagelijkse werking van het Vanderlande-systeem"
+			},
+			"Servicerequest": {
+				"Label": "Serviceverzoek",
+				"Description": "Een formeel verzoek aan Vanderlande om een dienst te leveren. Bijvoorbeeld een verzoek om informatie, gegevens of advies"
+			},
+			"Problem": {
+				"Label": "Probleem",
+				"Description": "De (potentiële) oorzaak van één of meerdere Incidenten die door Vanderlande moeten worden onderzocht"
+			},
+			"Change": {
+				"Label": "Wijzig item",
+				"Description": "Het toevoegen, wijzigen of verwijderen van iets dat een effect zou kunnen hebben op het Vanderlande-systeem of de dienstverlening"
+			},
+			"Changerequest": {
+				"Label": "Wijzigingsverzoek",
+				"Description": "Het toevoegen, wijzigen of verwijderen van iets dat een effect zou kunnen hebben op het Vanderlande-systeem of de dienstverlening"
+			},
+			"Problemreport": {
+				"Label": "Probleemrapport",
+				"Description": "De (potentiële) oorzaak van één of meerdere Incidenten die door Vanderlande moeten worden onderzocht"
+			}
+		},
+		"Priority": {
+			"Placeholder": "Kies prioriteit",
+			"AssistiveText": "Voor de tickets met de hoogste prioriteit verzoeken we u om de Service Desk te bellen. Dit zorgt ervoor dat het tijdig opgelost wordt."
+		},
+		"InternalReferenceNumber": {
+			"Label": "Intern referentienummer",
+			"AssistiveText": "Ticketnummer in uw interne ticketsysteem indien u dit gebruikt."
+		},
+		"Situation": "Situatie",
+		"ShortSummary": {
+			"Label": "Korte samenvatting",
+			"AssistiveText": "Dit wordt gebruikt als de titel van het ticket."
+		},
+		"Description": {
+			"Incident": "Symptoom: (Beschrijving van het incident)\nFout: (Geeft het systeem nog een foutmelding? Indien ja: foutbericht)\nGebied/zone: (Welke sectie/zone wordt er geraakt door dit incident)\nBusiness impact voor de klant: (welk effect heeft dit op de business van de klant?)\nProbleemoplossing beller: (wat is al gedaan om het probleem op te lossen?)\nTerugkerend probleem?: (Ja/Nee)\nWat is er gebeurd voordat het probleem zich voordeed: (Was er onlangs of in de afgelopen 48 uur een bijzondere gebeurtenis die in verband staat met het probleem?)\n\n\nIs de contactpersoon ter plaatse: (Ja / Nee)\nDe dienst van de contactpersoon eindigt om:\nDatum en tijdstip bij benadering waarop het probleem werd opgemerkt: ",
+			"Servicerequest": "Beschrijving van de (aan)vraag:\nRedenen voor de (aan)vraag:",
+			"Changerequest": "Beschrijving van de (aan)vraag:\nRedenen voor de (aan)vraag:",
+			"Problemreport": "Probleembeschrijving:"
+		},
+		"Links": {
+			"Title": "Links"
+		},
+		"OnSiteContact": {
+			"Title": "Contactpersoon ter plaatse",
+			"Label": "Naam, achternaam",
+			"Placeholder": "Kies contactpersoon",
+			"AssistiveText": "Als u een nieuwe contactpersoon aan dit lijstje wilt toevoegen, neemt u contact op met uw Vanderlande contactpersoon."
+		},
+		"Information": "Ticketinformatie",
+		"ViewTicket": "Bekijk ticket",
+		"ReportedOn": {
+			"Label": "Aangemaakt"
+		},
+		"ReferenceNumber": {
+			"Title": "Intern referentienummer"
+		},
+		"SendTicketButton": "Ticket aanmaken",
+		"TicketLog": {
+			"Label": "Ticketlog"
+		},
+		"NoMessagesAvailable": "Er zijn nog geen berichten. Verstuur het eerste bericht om het gesprek te beginnen.",
+		"TicketCreated": "Ticket aangemaakt.",
+		"CustomerSatisfaction": {
+			"Subtitle": "Uw mening telt",
+			"Info": "We willen graag weten hoe goed Vanderlande heeft gepresteerd tijdens het oplossen van dit incident. Klik op het smiley-icoon hieronder dat het beste overeenkomt met uw ervaring.",
+			"Satisfied": "Tevreden",
+			"Neutral": "Neutraal",
+			"Dissatisfied": "Ontevreden"
+		}
+	},
+	"Asset": {
+		"AffectedAsset": "Betreffende asset",
+		"AssetInfo": "Assetinformatie",
+		"SelectAssetBtn": "Selecteer asset",
+		"ChangeAssetBtn": "Pas asset aan",
+		"AddAsset": "Asset toevoegen",
+		"SelectAssetModalTitle": "Selecteer de betreffende asset",
+		"SelectAssetModal": {
+			"SearchInputPlaceholder": "Zoek op de assetnaam, markcode of marknummer"
+		},
+		"SelectAssetTable": {
+			"AddToTicketBtn": "Toevoegen aan ticket"
+		},
+		"Description": "Beschrijving",
+		"MarkCode": "Markcode",
+		"MarkNumber": "Marknummer",
+		"Asset": "Asset",
+		"AssetDescription": "Asset beschrijving",
+		"MarkCodeAndNumber": "Mark Code & Nr."
+	},
+	"Assets": {
+		"SelectAssetTable": {
+			"NoAssets": "Er zijn geen assets die overeenkomen met uw zoekopdracht."
+		}
+	},
+	"Attachments": {
+		"Title": "Bijlagen",
+		"AddBtn": "Bijlage toevoegen",
+		"Information": "Kies 1 bijlage van max 10 MB. U kunt meer bijlagen toevoegen nadat deze ticket aangemaakt is.",
+		"FileSizeError": "Één of meer bestanden die u hebt geselecteerd zijn te groot. Kies bestanden van 10 MB of kleiner.",
+		"UploadWarning": "Na het uploaden van dit bestand kunt u het niet meer verwijderen.",
+		"DescriptionPlaceholder": "Notities over de inhoud en doel van deze bijlage",
+		"FileUploadMessage": "Bijlage aan het toevoegen"
+	},
+	"ContextualCollaboration": {
+		"MyCases": "Mijn cases",
+		"NoCases": "Er zijn geen cases.",
+		"CaseStatusOpen": "Openstaand",
+		"CaseStatusInProgress": "In behandeling",
+		"CaseStatusClosed": "Afgehandeld",
+		"ViewCase": "Bekijk case",
+		"CaseInfo": "Informatie over de case",
+		"EventDetails": "Event details",
+		"CaseStatusChangedSuccessMsg": "De status is aangepast naar \"{{ caseStatus }}\"",
+		"CaseOverview": {
+			"PageHeader": {
+				"Title": "Cases",
+				"NewCase": "Nieuwe case",
+				"Breadcrumbs": {
+					"Cases": "Cases",
+					"Site": "Site"
+				}
+			},
+			"CaseTable": {
+				"Headers": {
+					"EventSource": "Bron van gebeurtenis",
+					"Summary": "Samenvatting",
+					"CaseNumber": "Casenummer",
+					"LastUpdated": "Laatst bijgewerkt",
+					"Status": "Status:",
+					"WorkorderID": "Workorder ID"
+				}
+			},
+			"Status": {
+				"Open": "Open",
+				"InProgress": "Bezig",
+				"Closed": "Gesloten",
+				"Rejected": "Afgewezen"
+			},
+			"LastUpdated": "{ updatedOn, date, long } op { updatedOn, time, short }",
+			"EventSource": {
+				"Monitron": "Monitron",
+				"ShuttleHealth": "Shuttle Health",
+				"DivertHealth": "Divert Health",
+				"OperationalAwareness": "Operational Awareness"
+			}
+		},
+		"Breadcrumbs": {
+			"Cases": "Cases",
+			"NewCase": "Nieuwe case",
+			"CaseDetails": "Case details"
+		},
+		"NewCase": {
+			"CreateCase": "Casus maken",
+			"Title": "Nieuwe Casus",
+			"WhatIsThisCaseAbout": "Waar gaat deze case over?",
+			"TitleField": {
+				"Eyebrow": "Casetitel - vereist"
+			},
+			"AssetSelector": {
+				"Eyebrow": "Betrokken item"
+			},
+			"DescriptionField": {
+				"Eyebrow": "Beschrijving - vereist"
+			},
+			"Attachments": {
+				"AddAttachment": "Voeg bijlage toe",
+				"Emptystate": {
+					"Title": "Geen bestanden toegevoegd",
+					"Explanation": "Voeg uw bestand(en) over het betreffende item toe."
+				},
+				"Eyebrow": "Bijlage toevoegen aan casus"
+			},
+			"OnSiteContact": {
+				"Placeholder": "Contactpersoon selecteren",
+				"AssistiveText": "Neem contact op met uw Vanderlande-contactpersoon om deze lijst uit te breiden",
+				"Eyebrow": "Contactpersoon ter plaatse"
+			},
+			"EventSource": {
+				"Eyebrow": "Gebeurtenisbron - vereist",
+				"Placeholder": "Selecteer gebeurtenisbron"
+			}
+		},
+		"CaseDetails": {
+			"CaseMessaging": "Berichten",
+			"CaseInformation": "Casusinformatie",
+			"Description": "Beschrijving",
+			"Details": "Details",
+			"Attachments": "Bijlagen ({{ count }})",
+			"AddAttachments": "Bijlagen toevoegen",
+			"Dismiss": "Afwijzen",
+			"Promote": "Promoten",
+			"Case": "{{ caseId }} - Case",
+			"Status": "Status:",
+			"StatusOpen": "Open",
+			"StatusInProgress": "In behandeling",
+			"StatusClosed": "Afgesloted",
+			"StatusUnknown": "Onbekend",
+			"ReportedOn": "Gerapporteerd over",
+			"ReportedBy": "Gerapporteerd door",
+			"AffectedAsset": "Betrokken item",
+			"OnSiteContact": "Contactpersoon ter plaatse",
+			"FileUploadedOn": "Bestand geüpload op { uploadedOn, date, long }",
+			"EventSource": "",
+			"WorkOrderId": "",
+			"Header": {
+				"Title": "",
+				"Breadcrumbs": {
+					"Cases": "",
+					"CaseDetails": ""
+				},
+				"Status": {
+					"Open": "",
+					"InProgress": "",
+					"Closed": "",
+					"Rejected": ""
+				},
+				"Action": {
+					"WorkOrder": "",
+					"Close": "",
+					"Reject": "",
+					"InProgress": ""
+				}
+			},
+			"ReportedOnDate": "",
+			"ConfirmationModal": {
+				"CreateWorkOrder": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"CloseCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"RejectCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"InProgressCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				}
+			},
+			"Error": {
+				"CreateWorkOrder": ""
+			}
+		}
+	},
+	"AttachmentComponent": {
+		"AddAttachment": "Voeg bijlage toe",
+		"EmptyStateTitle": "Geen bestanden toegevoegd",
+		"EmptyStateExplanation": "Voeg uw bestand(en) toe",
+		"Eyebrow": "Bijlage(n) toevoegen"
+	},
+	"AddFileDescriptionDialog": {
+		"Title": "Voeg bijlage toe",
+		"Submit": "Opslaan",
+		"Cancel": "Annuleer",
+		"Form": {
+			"Title": "Bestanden",
+			"Explanation": "U kunt bestanden niet verwijderen nadat u ze hebt geüpload"
+		},
+		"Item": {
+			"Eyebrow": "Beschrijving voor {{ item }} - vereist",
+			"Placeholder": "Beschrijving voor {{ item }} - vereist"
+		}
+	},
+	"AddDescriptionDialog": {
+		"Title": "Beschrijving toevoegen",
+		"Submit": "Opslaan",
+		"Cancel": "Annuleer",
+		"Form": {
+			"Title": "Artikelen",
+			"Explanation": "Geef een beschrijving van elk artikel"
+		},
+		"Item": {
+			"Eyebrow": "Beschrijving voor {{ item }} - vereist",
+			"Placeholder": "Opmerkingen over de inhoud en het doel van dit artIkel"
+		}
+	},
+	"ContactSelector": {
+		"Placeholder": "Selecteer Contactpersoon"
+	},
+	"AssetSelector": {
+		"Eyebrow": "Betrokken item",
+		"SelectAsset": "Selecteer item",
+		"ChangeAsset": "Wijzig item",
+		"EmptyState": {
+			"Title": "Geen item geselecteerd",
+			"Explanation": "Selecteer uw item"
+		}
+	},
+	"Messaging": {
+		"NewMessage": "Nieuw bericht",
+		"SendMessage": "Bericht versturen",
+		"NewMessagePlaceholder": "Vul hier uw bericht in",
+		"MessageHeader": "{{ naam }} - { messagedOn, datum, lang } / { messagedOn, tijd }"
+	},
+	"GlobalHeader": {
+		"NoPortals": "",
+		"NoSites": "",
+		"SelectPortals": "",
+		"SelectSites": "",
+		"SelectApplication": "",
+		"Portal": "",
+		"Site": "",
+		"Application": "",
+		"Home": "",
+		"User": "",
+		"LogOut": "",
+		"Profile": "",
+		"Showing": "",
+		"NoResult": "",
+		"Applications": {
+			"Cases": "",
+			"ProcessInsights": "",
+			"Tickets": "",
+			"Contacts": "",
+			"Settings": "",
+			"Training": "",
+			"Contracts": "",
+			"Documentation": "",
+			"SpareParts": "",
+			"VIDI": "",
+			"DivertHealth": "",
+			"ShuttleHealth": "",
+			"PaceInsights": "",
+			"VIAInsights": "",
+			"WSInsights": "",
+			"WarrantyClaims": "",
+			"System": "",
+			"Home": ""
+		}
+	}
+}

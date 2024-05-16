@@ -1,0 +1,39 @@
+@use 'sass:map';
+@use '../../../../styles/variables/breakpoints' as breakpoints;
+
+.bg-grey {
+  background-color: var(--grav-color-base-grey-100);
+}
+
+.min-h-6-25rem {
+  min-height: calc(100vh - var(--myvi-space-6-25rem));
+}
+
+.default-template-container {
+  grid-template-rows: auto 1fr;
+  min-height: calc(100vh - (var(--grav-space-4-xl) + var(--grav-space-s)));
+}
+
+@media #{map-get(breakpoints.$media_queries, '\\<md')} {
+  .main-inner {
+    height: calc(100% + var(--grav-space-l));
+    margin-top: calc(var(--grav-space-l) * -1);
+  }
+}
+
+.has-banner {
+  padding-bottom: calc(var(--grav-space-xl) + var(--grav-space-m));
+  padding-top: var(--grav-space-l);
+}
+
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+  .has-banner {
+    padding-top: var(--grav-space-2-xl);
+    padding-bottom: calc(var(--grav-space-5-xl) + var(--grav-space-m));
+  }
+
+  .main-inner {
+    margin-top: calc(var(--grav-space-2-xl) * -1);
+    height: calc(100% + var(--grav-space-3-xl));
+  }
+}

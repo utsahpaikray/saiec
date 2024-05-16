@@ -1,0 +1,26 @@
+@if (dialogData; as VM) {
+  <grav-card *transloco="let t">
+    <grav-card-header>
+      <span card-title>{{ t(VM.titleKey, { mfeName: VM.titleValue }) }}</span>
+
+      <button
+        (click)="dialogRef.close(false)"
+        card-suffix-button
+        ghost
+        secondary
+      >
+        <grav-svg-icon key="close" size="xl"></grav-svg-icon>
+      </button>
+    </grav-card-header>
+
+    <grav-card-content>
+      <ng-template loadRemoteComponent [config]="VM.mfe || null"></ng-template>
+    </grav-card-content>
+
+    <grav-card-footer>
+      <button id="close-button" ghost (click)="dialogRef.close(false)">
+        {{ t(VM.buttonKey, { footerButton: 'Close' }) }}
+      </button>
+    </grav-card-footer>
+  </grav-card>
+}

@@ -1,0 +1,6 @@
+query siteMaximoAccess($siteId: UUID!) {
+  maximoAccess(siteId: $siteId) {
+    canReadTickets
+    canWriteTickets
+  }
+}

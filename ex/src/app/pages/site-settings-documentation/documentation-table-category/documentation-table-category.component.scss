@@ -1,0 +1,32 @@
+@use '../../../../styles/variables/breakpoints' as breakpoints;
+
+
+@media #{map-get(breakpoints.$media_queries, '\\<md')} {
+  .table-category-name {
+    width: calc(100% - var(--grav-space-l) - var(--grav-space-s));
+  }
+
+}
+
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+  .table-file-name {
+    width: calc(50% - var(--grav-space-3-xl) + var(--grav-space-s) * 2);
+  }
+}
+
+.table-file-icon {
+  &::before {
+    content: '';
+    display: block;
+    height: 0.75rem; //needed to use for fixing line height
+    width: var(--grav-space-l);
+    margin-top: var(--grav-space-xs);
+    border-bottom: var(--grav-border-size-s) solid
+      var(--grav-color-base-blue-500);
+    border-left: var(--grav-border-size-s) solid var(--grav-color-base-blue-500);
+  }
+}
+
+app-expansion-panel > .category-header-inner:first-child {
+  border-top: none;
+}

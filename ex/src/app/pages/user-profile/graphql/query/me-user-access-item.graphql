@@ -1,0 +1,9 @@
+query meUserAccessItem($portalId: UUID) {
+  me {
+    relatedPortalData {
+      portals(where: { id: { eq: $portalId } }) {
+        ...UserAccessItemPortal
+      }
+    }
+  }
+}

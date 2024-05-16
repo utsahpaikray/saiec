@@ -1,0 +1,40 @@
+# allPortals will be removed once the portal service will be removed
+query allPortals {
+  portals {
+    id
+    name
+  }
+}
+
+query accessiblePortals {
+  me {
+    relatedPortalData {
+      AccessiblePortals(where: { sites: { any: true } }) {
+        id
+        name
+      }
+    }
+  }
+}
+
+query portalByPortalId($id: UUID!) {
+  me {
+    relatedPortalData {
+      AccessiblePortals(where: { id: { eq: $id } }) {
+        id
+        name
+      }
+    }
+  }
+}
+
+query allocatedPortals($id: UUID!) {
+  user(userId: $id) {
+    relatedPortalData {
+      AllocatedPortals {
+        id
+        name
+      }
+    }
+  }
+}

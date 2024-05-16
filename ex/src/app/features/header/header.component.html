@@ -1,0 +1,121 @@
+<grav-global-header *transloco="let t">
+  @if (vm$ | async; as vm) {
+    @for (item of vm.items; track item.id) {
+      @switch (item.type) {
+        @case (HeaderItemType.Menu) {
+          <button
+            [attr.for]="item.id"
+            [attr.slot]="item.slot || null"
+            [attr.grav-global-header-optional-text]="
+              item.labelHiddenOnFull || null
+            "
+            [attr.grav-global-header-compact-optional-text]="
+              item.labelHiddenOnCompact || null
+            "
+            [attr.grav-global-header-selected-button]="item.selected || null"
+          >
+            <grav-svg-icon [key]="item.icon" size="l"></grav-svg-icon>
+            @if (item.searchable) {
+              <input
+                class="search"
+                [size]="t(item.label, item).length"
+                [placeholder]="t(item.label, item)"
+                (keyup)="filterChanged(item.id, $event)"
+                (blur)="filterBlur(item.id, $event)"
+              />
+            } @else {
+              {{ t(item.label, item) }}
+            }
+          </button>
+          <grav-global-header-container
+            [attr.name]="item.id"
+            [attr.slot]="item.slot || null"
+          >
+            @for (option of item.items; track option.id) {
+              @switch (option.type) {
+                @case (HeaderItemType.Internal) {
+                  <grav-global-header-item
+                    [attr.grav-global-header-selected-item]="
+                      option.selected || null
+                    "
+                    [routerLink]="option.routerLink"
+                  >
+                    {{ t(option.label, option) }}
+                  </grav-global-header-item>
+                }
+                @case (HeaderItemType.External) {
+                  <grav-global-header-item
+                    (click)="openLink(option.href, option.target)"
+                  >
+                    <span class="flex-grow">{{ t(option.label, option) }}</span>
+                    <grav-svg-icon key="open-in-new" size="s"></grav-svg-icon>
+                  </grav-global-header-item>
+                }
+              }
+            }
+            @if (item.searchable) {
+              <grav-global-header-item class="justify-flex-end">
+                <span
+                  class="grav-text-caption"
+                  [ngStyle]="{ color: 'var(--global-color-content-moderate)' }"
+                >
+                  @if (item.items.length) {
+                    {{ t('GlobalHeader.Showing', item) }}
+                  } @else {
+                    {{ t('GlobalHeader.NoResult', item) }}
+                  }
+                </span>
+              </grav-global-header-item>
+            }
+          </grav-global-header-container>
+        }
+        @case (HeaderItemType.Internal) {
+          <button
+            [attr.slot]="item.slot || null"
+            [attr.grav-global-header-optional-text]="
+              item.labelHiddenOnFull || null
+            "
+            [attr.grav-global-header-compact-optional-text]="
+              item.labelHiddenOnCompact || null
+            "
+            [attr.grav-global-header-selected-button]="item.selected || null"
+            [routerLink]="item.routerLink"
+          >
+            <grav-svg-icon [key]="item.icon" size="l"></grav-svg-icon>
+            {{ t(item.label, item) }}
+          </button>
+        }
+        @case (HeaderItemType.External) {
+          <button
+            [attr.slot]="item.slot || null"
+            [attr.grav-global-header-optional-text]="
+              item.labelHiddenOnFull || null
+            "
+            [attr.grav-global-header-compact-optional-text]="
+              item.labelHiddenOnCompact || null
+            "
+            (click)="openLink(item.href, item.target)"
+          >
+            <grav-svg-icon [key]="item.icon" size="l"></grav-svg-icon>
+            {{ t(item.label, item) }}
+          </button>
+        }
+        @case (HeaderItemType.Static) {
+          <button
+            disabled
+            [attr.slot]="item.slot || null"
+            [attr.grav-global-header-optional-text]="
+              item.labelHiddenOnFull || null
+            "
+            [attr.grav-global-header-compact-optional-text]="
+              item.labelHiddenOnCompact || null
+            "
+          >
+            <grav-svg-icon [key]="item.icon" size="l"></grav-svg-icon>
+            {{ t(item.label, item) }}
+          </button>
+        }
+      }
+    }
+  }
+</grav-global-header>

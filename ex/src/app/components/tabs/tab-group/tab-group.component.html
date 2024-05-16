@@ -1,0 +1,37 @@
+<div class="relative mb-s">
+  <ul
+    *ngIf="tabs && tabs.length > 1"
+    class="d-flex gap-x-xl"
+    data-testid="tabs"
+  >
+    <li
+      *ngFor="let tab of tabs; let i = index"
+      [ngClass]="{
+        'tab-list:w-full': !tab.isActive && !tab.isDisabled
+      }"
+      class="tab-list relative d-flex justify-items-center before:transition-[width]"
+      #tab
+    >
+      <button
+        [attr.active]="tab.isActive ? true : null"
+        [attr.data-testid]="'tab-' + i"
+        [disabled]="tab.isDisabled ? 'true' : null"
+        (click)="selectTab(i, tab)"
+        ghost
+        secondary
+      >
+        {{ tab.label }}
+      </button>
+    </li>
+  </ul>
+
+  <div
+    *ngIf="tabs && tabs.length > 1"
+    class="underline-tracker relative -mt-[0.125rem] h-[0.125rem]"
+    #tracker
+  >
+    <span [ngStyle]="indicatorStyles" class="absolute h-full"></span>
+  </div>
+</div>
+
+<ng-content></ng-content>

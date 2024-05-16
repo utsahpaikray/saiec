@@ -1,0 +1,13 @@
+mutation addAttachmentToCase(
+    $caseId: UUID!
+    $attachmentName: String!
+    $attachmentDescription: String!
+    $attachmentPayloadBase64: String!
+) {
+	addAttachmentToCase(
+		caseId: $caseId
+		attachmentName: $attachmentName
+		attachmentDescription: $attachmentDescription
+        attachmentPayloadBase64: $attachmentPayloadBase64
+	)
+}

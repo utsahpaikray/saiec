@@ -1,0 +1,70 @@
+<app-link
+  *ngIf="backLink"
+  [linkText]="backLink.title"
+  [linkUrl]="backLink.url"
+  class="mt-l d-inline-block"
+  data-testid="back-button"
+  iconName="chevron-left"
+  iconPosition="left"
+  size="lg"
+>
+</app-link>
+
+<ng-container *ngIf="training !== undefined; else loading">
+  <h2
+    *ngIf="training?.title"
+    class="mt-l grav-text-header-2-medium text-grey-900 md:mt-xl md:grav-text-header-medium"
+    data-testid="training-detail-title"
+  >
+    {{ training?.title }}
+  </h2>
+
+  <div class="mt-sw-full lg:d-grid lg:grid-cols-3 lg:gap-x-xl lg:gap-y-2-xl">
+    <div class="col-span-2">
+      <p
+        *ngIf="training?.introduction"
+        class="grav-text-header-3 text-grey-900"
+        data-testid="training-detail-introduction"
+      >
+        {{ training?.introduction }}
+      </p>
+    </div>
+
+    <div class="col-span-1">
+      <div class="d-flex justify-flex-end <lg:mt-l">
+        <button
+          (click)="goToRequestPage()"
+          data-testid="training-detail-request-button"
+        >
+          {{ 'General.Request' | transloco }}
+        </button>
+      </div>
+    </div>
+
+    <div class="col-span-2 <lg:mt-l">
+      <app-rich-text
+        *ngIf="training?.learningObjectives?.json"
+        [richText]="training?.learningObjectives?.json"
+        class="mb-l d-block"
+      ></app-rich-text>
+
+      <app-training-detail-modules
+        [modules]="modules"
+      ></app-training-detail-modules>
+    </div>
+
+    <app-training-details
+      [image]="image"
+      [training]="training"
+      class="col-span-1 d-block <lg:mt-s"
+    ></app-training-details>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

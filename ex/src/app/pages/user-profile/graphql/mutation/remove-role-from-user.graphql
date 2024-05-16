@@ -1,0 +1,3 @@
+mutation removeRoleFromUser($userId: UUID!, $roleId: UUID!) {
+  removeRoleFromUser(userId: $userId, roleId: $roleId)
+}

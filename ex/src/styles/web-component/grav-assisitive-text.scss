@@ -1,0 +1,5 @@
+grav-assistive-text {
+  &[error] {
+    color: var(--grav-color-feedback-error-text-default);
+  }
+}

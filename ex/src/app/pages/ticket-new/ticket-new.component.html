@@ -1,0 +1,344 @@
+<app-link
+  [linkText]="'Tickets.OpenTickets' | transloco"
+  class="mt-l d-inline-block"
+  data-testid="back-button"
+  iconName="chevron-left"
+  iconPosition="left"
+  linkUrl="../"
+  size="lg"
+>
+</app-link>
+
+<h2
+  class="mt-l grav-text-header-3-bold !text-grey-900 md:mt-xl grav-text-header-bold"
+  data-testid="tickets-new-title"
+>
+  {{ 'Tickets.NewTicket' | transloco }}
+</h2>
+
+<ng-container *ngIf="!loading; else loader">
+  <ng-container *transloco="let t; lang: serviceDeskLangCode">
+    <app-form
+      *ngIf="form"
+      [formGroup]="form"
+      [submitText]="'Tickets.SendTicketButton' | transloco"
+      (submitEvent)="onSubmit()"
+      data-testid="ticket-new-form"
+    >
+      <!-- Issue type selector -->
+      <h3
+        class="mt-2-xl grav-text-header-3 text-grey-900 md:grav-text-header-2"
+      >
+        {{ t('Tickets.IssueType.Title') }}
+      </h3>
+      <div
+        class="mt-s b-m border-solid border-white p-m lg:mt-m lg:py-m lg:px-l"
+      >
+        <fieldset>
+          <div class="lg:d-grid issuetypes bg-white lg:w-half">
+            <div
+              *ngFor="let issueType of issueTypes"
+              class="d-flex p-m w-full flex-col"
+            >
+              <input
+                [id]="
+                  'issue-type-radio-' + issueType.codeName.toLocaleLowerCase()
+                "
+                [value]="issueType.codeName"
+                name="issueType"
+                type="radio"
+                formControlName="issueType"
+              />
+              <label
+                [attr.data-testid]="
+                  'issue-type-radio-' + issueType.codeName.toLocaleLowerCase()
+                "
+                [for]="
+                  'issue-type-radio-' + issueType.codeName.toLocaleLowerCase()
+                "
+                >{{ t(issueType.label) }}
+              </label>
+              <grav-assistive-text data-testid="radio-button-description">
+                {{ t(issueType.description) }}
+              </grav-assistive-text>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Details section-->
+      <h3
+        class="mt-2-xl grav-text-header-3 text-grey-900 md:grav-text-header-2"
+      >
+        {{ t('Tickets.Details') }}
+      </h3>
+      <div
+        class="mt-s b-m border-solid border-white p-m lg:mt-m lg:py-m lg:px-l"
+      >
+        <div class="lg:w-half">
+          <!-- Affected asset -->
+          <label
+            [ngClass]="{
+              'd-flex items-end justify-space-between': !(
+                form.get('systemComponentId')!.validator! | controlRequired
+              )
+            }"
+            class="mb-s d-block grav-text-body-small-medium text-grey-700"
+            data-testid="affected-asset-label"
+          >
+            {{ t('Asset.AffectedAsset') }}
+
+            <span
+              *ngIf="
+                !(form.get('systemComponentId')!.validator! | controlRequired)
+              "
+              class="text-grey-600 font-normal"
+              data-testid="affected-asset-required-label"
+              >{{ t('General.Optional') }}</span
+            >
+          </label>
+
+          <!-- Selected affected asset -->
+          <div class="my-m">
+            <div
+              *ngIf="selectAssetDialog$ | async as selectedAsset"
+              class="mb-m b-s border-grey-200 bg-white p-s text-grey-700 shadow-sm"
+            >
+              <p class="font-bold" data-testid="selected-asset-description">
+                {{ selectedAsset.description }}
+              </p>
+              <p data-testid="selected-asset-mark-number">
+                {{ selectedAsset.markNumber }}
+              </p>
+            </div>
+
+            <button
+              data-testid="ticket-new-select-item"
+              type="button"
+              #selectAssetButton
+              outline
+            >
+              {{
+                (selectAssetDialog$ | async)
+                  ? t('Asset.ChangeAssetBtn')
+                  : t('Asset.SelectAssetBtn')
+              }}
+            </button>
+
+            <div
+              *ngIf="
+                systemComponentId.errors?.required && systemComponentId.touched
+              "
+              class="mt-s grav-text-body-small text-red-500"
+              data-testid="affected-asset-required-error"
+            >
+              {{ t('General.MandatoryField') }}
+            </div>
+          </div>
+
+          <!-- Priority -->
+          <div *ngIf="priorityItems.length" class="mb-m">
+            <app-dropdown
+              [isSelect]="true"
+              [items]="priorityItems"
+              name="customerPriority"
+              data-testid="create-ticket-customer-priority"
+              formControlName="customerPriority"
+              infoText="{{ t('Tickets.Priority.AssistiveText') }}"
+              label="{{ t('General.Priority') }}"
+              message="{{ t('General.Optional') }}"
+              placeholder="{{ t('Tickets.Priority.Placeholder') }}"
+            >
+            </app-dropdown>
+          </div>
+
+          <!-- Internal reference number -->
+          <grav-field data-testid="create-ticket-customer-reference">
+            <grav-field-eyebrow>
+              {{ t('Tickets.InternalReferenceNumber.Label') }} -
+              {{ t('General.Optional') }}
+            </grav-field-eyebrow>
+            <input
+              [maxlength]="customerReferenceMaxCount"
+              [placeholder]="t('Tickets.InternalReferenceNumber.AssistiveText')"
+              name="customerReference"
+              #customerReference
+              formControlName="customerReference"
+              grav-input
+            />
+            <grav-assistive-text right>
+              {{ customerReference.value.length }} /
+              {{ customerReferenceMaxCount }}
+            </grav-assistive-text>
+          </grav-field>
+        </div>
+      </div>
+
+      <!-- Situation section-->
+      <h3 class="mt-xl grav-text-header-3 text-grey-900 md:grav-text-header-2">
+        {{ t('Tickets.Situation') }}
+      </h3>
+      <div
+        class="mt-s b-m border-solid border-white p-m lg:mt-m lg:py-m lg:px-l"
+      >
+        <div class="lg:w-half">
+          <!-- Short summary -->
+          <grav-field data-testid="create-ticket-title">
+            <grav-field-eyebrow>
+              {{ t('Tickets.ShortSummary.Label') }}
+            </grav-field-eyebrow>
+            <input
+              [attr.error]="isInvalid(title) ? '' : null"
+              [maxlength]="titleReferenceMaxCount"
+              [placeholder]="t('Tickets.ShortSummary.AssistiveText')"
+              name="title"
+              #titleReference
+              formControlName="title"
+              grav-input
+            />
+            <ng-container *ngIf="isInvalid(title)">
+              <grav-svg-icon
+                grav-input-prefix
+                key="exclamation-circle"
+                size="l"
+              ></grav-svg-icon>
+              <grav-assistive-text
+                class="grav-text-body-small"
+                data-testid="title-required-error"
+                error
+                left
+              >
+                {{ 'General.MandatoryField' | transloco }}
+              </grav-assistive-text>
+            </ng-container>
+            <grav-assistive-text right>
+              {{ titleReference.value.length }} /
+              {{ titleReferenceMaxCount }}
+            </grav-assistive-text>
+          </grav-field>
+
+          <!-- Description -->
+          <div class="mt-l">
+            <app-text-area
+              [maxLength]="descriptionReferenceMaxCount"
+              name="description"
+              data-testid="create-ticket-description"
+              formControlName="description"
+              label="{{ t('General.Description') }}"
+            >
+              <div
+                *ngIf="description.errors?.required"
+                data-testid="description-required-error"
+              >
+                {{ t('General.MandatoryField') }}
+              </div>
+            </app-text-area>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attachments -->
+      <h3 class="mt-xl grav-text-header-3 text-grey-900 md:grav-text-header-2">
+        {{ t('Attachments.Title') }}
+      </h3>
+      <div
+        class="mt-s b-m border-solid border-white p-m lg:mt-m lg:py-m lg:px-l"
+      >
+        <div class="lg:w-half">
+          <p class="mb-m font-bold text-grey-700">
+            {{ t('Attachments.Information') }}
+          </p>
+          <app-add-attachment-modal
+            *ngIf="!document"
+            [openModalButtonText]="t('Attachments.AddBtn')"
+            [submitButtonText]="
+              'Asset.SelectAssetTable.AddToTicketBtn' | transloco
+            "
+            (addDocumentEvent)="addDocumentToTicket($event)"
+            data-testid="create-ticket-add-attachment-modal"
+          ></app-add-attachment-modal>
+          <!-- TODO: turn this into attachment list with grav-list-item -->
+          <div
+            *ngIf="document"
+            class="bg-white p-s b-s border-grey-200 shadow-sm w-full d-flex justify-space-between"
+            data-testid="attachment-details"
+          >
+            <div class="text-grey-900 break-words">
+              <p class="font-bold" data-testid="attachment-name">
+                {{ document.documentName }}
+              </p>
+              <p class="mt-xs" data-testid="attachment-description">
+                {{ document.description }}
+              </p>
+            </div>
+            <button
+              (click)="removeAttachment()"
+              data-testid="attachment-delete-button"
+              ghost
+            >
+              <grav-svg-icon key="trash" size="l"></grav-svg-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- On-site contact section-->
+      <h3 class="mt-xl grav-text-header-3 text-grey-900 md:grav-text-header-2">
+        {{ t('Tickets.OnSiteContact.Title') }}
+      </h3>
+      <div
+        class="mt-s b-m border-solid border-white p-m lg:mt-m lg:py-m lg:px-l"
+      >
+        <div class="lg:w-half">
+          <!-- CustomerSiteContactId -->
+          <app-datalist
+            [attr.data-testid]="'create-ticket-customer-site-contact'"
+            [items]="contactsItems"
+            (changeEvent)="onDatalistChange($event)"
+            name="customer-site-contact"
+            formControlName="customerSiteContactId"
+            infoText="{{ t('Tickets.OnSiteContact.AssistiveText') }}"
+            label="{{ t('Tickets.OnSiteContact.Label') }}"
+            placeholder="{{ t('Tickets.OnSiteContact.Placeholder') }}"
+          >
+            <span data-testid="customer-site-contact-required-error">{{
+              t('General.MandatoryField')
+            }}</span>
+          </app-datalist>
+
+          <ng-container *ngIf="selectedSiteContact">
+            <div
+              class="my-xl text-grey-900 <lg:d-flex <lg:flex-col <lg:space-y-3 lg:d-grid lg:grid-cols-3 lg:gap-y-3"
+              data-testid="selected-site-contact-info"
+            >
+              <div class="font-bold lg:mr-xl">{{ t('General.Email') }}</div>
+              <div
+                class="lg:col-span-2"
+                data-testid="selected-site-contact-email"
+              >
+                {{ selectedSiteContact.email || '-' }}
+              </div>
+              <div class="font-bold lg:mr-xl">
+                {{ t('General.PhoneNumber') }}
+              </div>
+              <div
+                class="lg:col-span-2"
+                data-testid="selected-site-contact-phone"
+              >
+                {{ selectedSiteContact.phone || '-' }}
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </app-form>
+  </ng-container>
+</ng-container>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

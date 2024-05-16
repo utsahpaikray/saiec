@@ -1,0 +1,11 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+nav {
+  grid-template-columns: repeat(auto-fill, var(--grav-space-5-xl));
+}
+
+@media #{map-get(breakpoints.$media_queries, 'lg')} {
+  nav {
+    grid-template-columns: repeat(auto-fill, 18rem);
+  }
+}

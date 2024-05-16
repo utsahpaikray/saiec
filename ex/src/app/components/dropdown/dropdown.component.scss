@@ -1,0 +1,28 @@
+:host.ng-invalid.ng-touched .dropdown-button {
+  border: var(--grav-border-size-s) solid var(--grav-color-feedback-error-border-darker);
+}
+
+:host.ng-invalid.ng-touched:hover .dropdown-button {
+  border: var(--grav-border-size-s) solid var(--grav-color-feedback-error-border-darker);
+}
+
+:host.ng-invalid.ng-touched .dropdown-button:focus {
+  border: var(--grav-border-size-s) solid var(--grav-color-feedback-error-border-darker);
+}
+
+:host.ng-invalid.ng-touched .error-message {
+  display: block;
+}
+
+.dropdown-list {
+  min-width: calc(var(--grav-space-5-xl) * 2);
+  max-height: calc(var(--grav-space-3-xl) * 5);
+  overflow-y: auto;
+  border-style: solid;
+  box-shadow: var(--grav-elevation-m), var(--grav-elevation-s);
+
+  :focus {
+    outline: var(--myvi-space-0-125rem) solid transparent;
+    outline-offset: var(--myvi-space-0-125rem);
+  }
+}

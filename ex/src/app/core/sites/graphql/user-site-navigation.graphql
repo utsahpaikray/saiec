@@ -1,0 +1,12 @@
+query userSiteNavigation($siteId: UUID!) {
+  me {
+    relatedPortalData {
+      sites(where: { id: { eq: $siteId } }) {
+        ...SiteSpareParts
+        ...SiteVidi
+        ...SiteProjectsSegment
+        contractVisible
+      }
+    }
+  }
+}

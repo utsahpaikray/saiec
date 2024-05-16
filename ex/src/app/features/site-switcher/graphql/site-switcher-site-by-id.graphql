@@ -1,0 +1,16 @@
+fragment SiteSwitcherSite on Site {
+  portal {
+    name
+    id
+    sites {
+      id
+      name
+    }
+  }
+}
+
+query siteSwitcherSiteById($siteId: UUID) {
+  sites(where: { id: { eq: $siteId } }) {
+    ...SiteSwitcherSite
+  }
+}

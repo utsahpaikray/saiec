@@ -1,0 +1,9 @@
+mutation addMessageToCase(
+    $caseId: UUID!
+    $content: String!
+) {
+	addMessageToCase(
+		caseId: $caseId
+		content: $content
+	)
+}

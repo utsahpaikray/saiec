@@ -1,0 +1,3 @@
+mutation addDocumentToTicket($ticketId: String!, $document: DocumentInput!) {
+  addDocumentToTicket(ticketId: $ticketId, document: $document)
+}

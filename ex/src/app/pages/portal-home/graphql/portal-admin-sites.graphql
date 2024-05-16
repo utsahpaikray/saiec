@@ -1,0 +1,14 @@
+query portalAdminSites {
+  me {
+    relatedPortalData {
+      portals {
+        id
+        name
+        sites {
+          name
+          id
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,989 @@
+{
+	"General": {
+		"Dashboard": "Strona główna",
+		"Calendar": "Kalendarz",
+		"Documentation": "Dokumentacja",
+		"Contacts": "Kontakty",
+		"SpareParts": "Części zamienne",
+		"ViaInsights": "VIA Insights",
+		"Pace": "Pace",
+		"Vidi": "VIDI",
+		"Performance": "Wydajność",
+		"Contracts": "Umowy",
+		"Training": "Szkolenie",
+		"TrainingOverview": "Przegląd szkoleń",
+		"NewsInsights": "Wiadomości i analizy",
+		"Maintenance": "Konserwacja",
+		"Requests": "Zapytania",
+		"SiteSettings": "Ustawienia strony",
+		"AllSiteSettings": "Wszystkie ustawienia strony",
+		"Portals": "Portale",
+		"Users": "Użytkownicy",
+		"Close": "Zamknij",
+		"AllPortals": "Wszystkie portale",
+		"View": "Widok",
+		"Login": "Zaloguj",
+		"Sites": "Strony",
+		"User": "Użytkownik",
+		"LogOut": "Wyloguj",
+		"Email": "E-mail",
+		"PhoneNumber": "Numer telefonu",
+		"Address": "Adres",
+		"Optional": "Opcjonalnie",
+		"Required": "Wymagane",
+		"Request": "Zapytanie",
+		"SuccessMessage": "Zapytanie zostało wysłane.",
+		"ApiError": "Wystąpił błąd. Spróbuj ponownie później.",
+		"GoToHome": "Przejdź do strony głównej",
+		"MandatoryField": "To pole jest obowiązkowe.",
+		"ValidEmail": "Wprowadź prawidłowy adres e-mail.",
+		"SpecialCharacter": "Nie należy wprowadzać znaków specjalnych &lt; oraz &gt;.",
+		"GoToSite": "Przejdź do strony",
+		"MaxCharacter": "Tekst powinien być krótszy niż {{ total }} znaków.",
+		"FileTypeWarning": "Następujące typy plików są niedozwolone:",
+		"MyProfile": "Mój profil",
+		"AddPortalButton": "Dodaj portal",
+		"Save": "Zapisz",
+		"Confirm": "Potwierdź",
+		"Cancel": "Anuluj",
+		"Keep": "Zachowaj",
+		"Delete": "Usuń",
+		"ReadMore": "Dowiedz się więcej",
+		"Loading": "Ładowanie",
+		"Showing": "Pokazywanie {{amount}} z {{ total }}",
+		"ShowMore": "Pokaż więcej",
+		"ShowResult": "Pokazywanie {{ number }} z {{ total }}",
+		"NoSitesOrPortals": "Nie masz dostępu do żadnych portali i/lub stron.",
+		"NoPortalsFound": "Brak portali spełniających kryteria wyszukiwania.",
+		"NoPortals": "Brak dostępnych portali.",
+		"Back": "Wstecz",
+		"ViewDetails": "Zobacz szczegóły",
+		"Uploaded": "Przesłane",
+		"Processing": "Przetwarzanie",
+		"Canceled": "Anulowano",
+		"Uploading": "Przesyłanie",
+		"Yes": "Tak",
+		"No": "Nie",
+		"MarkcodeOrSystem": "Oznaczenie kodowe lub system",
+		"Availability": "Dostępność",
+		"Parts": "Części",
+		"Labour": "Praca",
+		"ByPhone": "Czas reakcji telefonicznej (godziny)",
+		"OnSite": "Na miejscu (godziny)",
+		"Visits": "Wizyty",
+		"ManpowerDaysPerVisit": "Dni pracy na wizytę",
+		"StartAndEndDate": "Data rozpoczęcia i zakończenia",
+		"NoStartDate": "Brak daty rozpoczęcia",
+		"NoEndDate": "Brak daty zakończenia",
+		"Title": "Tytuł",
+		"NewMessage": "Nowa wiadomość",
+		"Message": "Wiadomość",
+		"SendMessage": "Wyślij wiadomość",
+		"AddingMessage": "Dodawanie wiadomości",
+		"DateCreated": "Data utworzenia",
+		"Created": "Utworzono",
+		"Status": "Status",
+		"Priority": "Priorytet",
+		"Type": "Typ",
+		"Number": "Numer",
+		"LoadMore": "Załaduj więcej",
+		"Search": "Wyszukaj",
+		"ReportOn": "Zgłoszono:",
+		"MaximoAccessError": "Niektóre funkcje (Moje umowy, Moje zgłoszenia) nie są obecnie dostępne. Aby uzyskać dostęp do strony, spróbuj odświeżyć ją w późniejszym czasie.",
+		"Description": "Opis",
+		"ItemNumber": "Numer pozycji",
+		"ItemDescription": "Opis pozycji",
+		"AddItem": "Dodaj pozycję",
+		"NoItems": "Brak pozycji spełniających kryteria",
+		"Edit": "Edytuj",
+		"Remove": "Usuń",
+		"Quantity": "Ilość",
+		"Classification": "Klasyfikacja",
+		"Category": "Kategoria",
+		"PleaseAddFile": "W tym miejscu aktualnie nie ma żadnych plików. Dodaj plik dotyczący danej pozycji.",
+		"Name": "Nazwa"
+	},
+	"None": "Brak",
+	"Category": "Kategoria",
+	"Dashboard": {
+		"WelcomeMessage": "Witamy w My Vanderlande,",
+		"WelcomeTag": "Witamy",
+		"WelcomeTitle": "Witamy w pilotażowej wersji portalu dla klientów My Vanderlande!",
+		"WelcomeDesc": "Za jego pośrednictwem możesz uzyskać dostęp do dokumentacji swojego obiektu, zamawiać części zamienne, przeglądać i zamawiać szkolenia i certyfikaty oraz sprawdzać dane osób do kontaktu Vanderlande.",
+		"FeedbackTag": "Informacje zwrotne",
+		"FeedbackTitle": "Co sądzisz o portalu?",
+		"FeedbackDesc": "Przekaż nam swoją opinię, aby pomóc nam ulepszyć portal – prześlij wskazówki i sugestie, jak uczynić go bardziej użytecznym. Skorzystaj z pola informacji zwrotnych na tej i innych stronach, lub wyślij swoją opinię na adres myvanderlande@vanderlande.com",
+		"NewsInsightsTag": "Wiadomości i analizy",
+		"ReadMore": "Więcej wiadomości i analiz",
+		"AirportTitle": "Vanderlande to develop innovative checkpoint concept for US Department of Homeland Security",
+		"AirportDesc": "Vanderlande’s concept for a self-screening passenger security checkpoint solution for airports has been selected by the US Department of Homeland Security (DHS) for further design, development and operational testing.",
+		"ParcelTitle": "Vanderlande cooperates with PostNord on new parcel sites in Finland",
+		"ParcelDesc": "Vanderlande has been chosen to supply two state-of-the-art sortation systems to the PostNord Group – one of the leading parcel distribution companies in Scandinavia.",
+		"WarehouseTitle": "Speed is of the essence",
+		"WarehouseDesc": "The delivery windows for home delivery of groceries are getting shorter and shorter. The latest trend is to deliver groceries directly to your home within ten minutes.",
+		"SitePerformance": {
+			"Title": "Parametry strony",
+			"Button": "WYŚWIETL W {{ appName }}",
+			"Filters": {
+				"OneDay": "1D",
+				"SevenDays": "7D",
+				"ThirtyDays": "30D",
+				"OneYear": "1Y",
+				"ALL": "WSZYSTKO"
+			},
+			"Charts": {
+				"Availability": {
+					"Title": "Dostępność",
+					"Value": "{{value}}%",
+					"Explanation": "{{value}}% poniżej celu"
+				},
+				"Performance": {
+					"Title": "Wydajność",
+					"Value": "{{value}}%",
+					"Explanation": "{{value}}% poniżej celu"
+				},
+				"Throughput": {
+					"Title": "Przepustowość",
+					"Value": "{{value}}%",
+					"Explanation": "{{value}}% poniżej celu"
+				}
+			}
+		}
+	},
+	"Documentation": {
+		"Size": "Rozmiar",
+		"Language": "Język",
+		"Location": "Lokalizacja",
+		"MyDocumentation": "Moja dokumentacja",
+		"OverviewMessage": "Wszystkie dokumenty związane z systemem w zasięgu ręki. Jeśli masz pytania, skontaktuj się ze swoim kierownikiem ds. umów.",
+		"NoDocuments": "Brak dostępnych dokumentów.",
+		"NotFoundMessage": "Brak wyników odpowiadających zapytaniu. Spróbuj innego hasła wyszukiwania.",
+		"SearchResultsFor": "Wyniki wyszukiwania dla „{{searchText}}”",
+		"DownloadOmManual": "Pobierz pełną DTR",
+		"FailedToDownloadOmManual": "Wystąpił błąd. Spróbuj ponownie później.",
+		"View": "Widok",
+		"Certifications": "Certyfikaty",
+		"CertificationsDesc": "Raporty i certyfikaty dotyczące maszyn.",
+		"Contracts": "Umowy",
+		"ContractsDesc": "Projekty i umowy serwisowe.",
+		"HealthSafetyEnvironment": "BHP i ochrona środowiska",
+		"HealthSafetyEnvironmentDesc": "Informacje techniczne i uwagi dotyczące bezpieczeństwa.",
+		"LifeCycleDocumentation": "Dokumentacja cyklu eksploatacji",
+		"LifeCycleDocumentationDesc": "Dokumenty dotyczące konserwacji instalacji, zarządzania logistyką i usprawnień biznesowych.",
+		"OmManual": "Dokumentacja techniczno-ruchowa",
+		"OmManualDesc": "Kompletna dokumentacja instalacji.",
+		"OtItDocumentation": "Dokumentacja informatyczna i operacyjna",
+		"OtItDocumentationDesc": "Dokumentacja obsługi i techniczna oprogramowania.",
+		"Projects": "Projekty",
+		"ProjectsDesc": "Sprawozdania z projektów, specyfikacje systemów, dokumentacja odbiorowa.",
+		"ReportsAndOthers": "Sprawozdania i inne",
+		"ReportsAndOthersDesc": "Różne pliki i sprawozdania."
+	},
+	"Landing": {
+		"WelcomeMessage": "Witamy w My Vanderlande",
+		"LadingUnloggedMessage": "Aby móc korzystać z My Vanderlande, musisz się zalogować.",
+		"NotRegistered": "Nie jesteś jeszcze zarejestrowany?",
+		"ContactManager": "Skontaktuj się ze swoim opiekunem klienta.",
+		"LandingTextTitle": "My Vanderlande stanowi cyfrowy punkt kontaktu w sprawach dotyczących:",
+		"LandingTextLine1": "Dokumentacji technicznej i obsługowej",
+		"LandingTextLine2": "Sprawnej komunikacji z Vanderlande",
+		"LandingTextLine3": "Wydajności i sprawności posiadanego systemu",
+		"LandingTextLine4": "Naszej pełnej oferty usług i szkoleń",
+		"LandingTextLine5": "Dostępu do wszystkich aplikacji cyfrowych",
+		"ContactLink": "Kontakt",
+		"CopyrightText": "Prawa autorskie {{year}} Vanderlande Industries B.V. Wszelkie prawa zastrzeżone.",
+		"PrivacyLink": "Oświadczenie o ochronie prywatności",
+		"CookiePolicy": "Polityka dotycząca plików cookies",
+		"CookiePreferences": "Preferencje dotyczące plików cookies",
+		"LogInTitle": "Logowanie",
+		"LogInButton": "Logowanie"
+	},
+	"NotFound": {
+		"Message": "Link jest uszkodzony lub strona została przeniesiona."
+	},
+	"ErrorStatePIModule": {
+		"Message": "Nie można otworzyć informacji o procesie.",
+		"Reason": "Aby uzyskać dostęp do modułu lotnisk z informacjami o procesie, musisz być podłączony do VPN."
+	},
+	"AccessDenied": {
+		"Message": "Strona, którą próbujesz otworzyć, ma ograniczenia dostępu. \nSkontaktuj się z osobą do kontaktu w Vanderlande, aby uzyskać dostęp."
+	},
+	"Portal": {
+		"Overview": "Przegląd portalu"
+	},
+	"Training": {
+		"MyTraining": "Moje szkolenia",
+		"Description": "Zapewnij swoim pracownikom możliwość efektywnej obsługi i konserwacji instalacji. Szkolenia są dostosowane do posiadanej instalacji i zaprojektowane z myślą o konkretnych potrzebach zespołu.",
+		"Certifications": "Certyfikaty",
+		"CertificationPath": "Ścieżka certyfikacji",
+		"CertificationAndTraining": "Skorzystaj ze szkolenia i uzyskaj certyfikację w zakresie",
+		"CardLinkText": "Dowiedz się więcej",
+		"Suggested": "Proponowane",
+		"TrainingColumn": "Szkolenie",
+		"ForColumn": "Dla",
+		"DurationColumn": "Czas trwania",
+		"NoTrainings": "Brak szkoleń.",
+		"TrainingBackBtn": "Przegląd szkoleń",
+		"RequestBtn": "Zapytanie",
+		"Modules": "Moduły",
+		"ElectiveModules": "Moduły do wyboru",
+		"MetaTargetGroup": "Grupa docelowa",
+		"MetaPrerequisites": "Warunki wstępne",
+		"MetaDuration": "Czas trwania",
+		"MetaMaxTrainees": "Maksymalna liczba uczestników",
+		"MetaSystemAvailability": "Dostępność systemu",
+		"Required": "Wymagane",
+		"SendBtn": "Wyślij",
+		"RequestSuccessMsg": "Twoje zapytanie o szkolenie zostało wysłane.",
+		"OperationsTitle": "Operacje",
+		"OperationsDesc": "Zasady obsługi systemu – efektywne wykorzystanie stanowisk pracy operatora.",
+		"LogisticsTitle": "Logistyka",
+		"LogisticsDesc": "Jak skutecznie zabezpieczyć ogólne działanie MHS. Zapoznanie się z systemem w celu optymalizacji wydajności.",
+		"MaintenanceTitle": "Konserwacja i IT",
+		"MaintenanceDesc": "Konserwacja systemu – skuteczne utrzymanie wszystkich komponentów (mechanicznych, elektrycznych, sterowania niskiego i wysokiego poziomu)."
+	},
+	"UserProfile": {
+		"Title": "Profil użytkownika",
+		"Access": "Dostęp",
+		"AddPortal": "Dodaj portal",
+		"Privacy": "Prywatność",
+		"PrivacyLink": "Oświadczenie o ochronie prywatności",
+		"CookiePolicy": "Polityka dotycząca plików cookies",
+		"TermsAndConditions": "Warunki",
+		"CookiePreferences": "Preferencje dotyczące plików cookies",
+		"Preferences": "Preferencje",
+		"PreferredLanguage": "Preferowany język",
+		"LanguageUpdated": "Preferowany język został zaktualizowany.",
+		"ProfileTab": "Profil i preferencje",
+		"AuthorizationTab": "Uprawnienia i dostęp"
+	},
+	"UserAccess": {
+		"SelectPortal": "Wybierz portal",
+		"RevokeAccess": "Wycofaj dostęp",
+		"AccessAdded": "Dodano dostęp do {{name}}.",
+		"AccessRevoked": "Wycofano dostęp do {{name}} i jego stron.",
+		"SiteAccessRevoked": "Wycofano dostęp do {{name}}.",
+		"Title": "Dostęp",
+		"DeallocateContractManagerError": "Kierownik umowy nie może zostać usunięty ze swoich lokalizacji.",
+		"SitesSubtitle": "Strony"
+	},
+	"UserAuthorization": {
+		"Title": "Uprawnienia",
+		"Message": "Role użytkowników mają zastosowanie do wszystkich połączonych portali i witryn.",
+		"VanderlandeUserMessage": "Może czytać wszystkie informacje o stronach i portalach, do których ma dostęp.",
+		"CustomerMessage": "Konto użytkownika klienta. Może uzyskać dostęp i przeglądać stronę(-y) tylko jednego portalu.",
+		"SuperUserMessage": "Może edytować dowolne informacje w dowolnym portalu lub na dowolnej stronie. ",
+		"PortalAdminMessage": "Może edytować portale i strony jako administrator, przesyłać i usuwać dokumenty, kontakty itp.",
+		"RoleAssigned": "Rola użytkownika jest przypisana: {{role}}."
+	},
+	"TrainingRequest": {
+		"PreviousPage": "Poprzednia strona",
+		"Title": "Nowe zapytanie",
+		"Required": "Wymagane",
+		"YourRequest": "Your request",
+		"RequestType": {
+			"Label": "What would you like to request?",
+			"ErrorText": "Please select what you would like to request.",
+			"Training": "Training",
+			"Certification": "Certification"
+		},
+		"Remarks": {
+			"Label": "Remarks",
+			"Placeholder": "Third-party equipment, other requests and specifications."
+		},
+		"Topics": {
+			"Label": "Topics",
+			"Placeholder": "Select certification path",
+			"ErrorText": "Please select a certification path."
+		},
+		"Trainings": {
+			"ErrorText": "Please select at least one training."
+		},
+		"PreviousTraining": {
+			"Label": "Previous training",
+			"Placeholder": "Have the trainees received relevant training before?"
+		},
+		"WhenAndWhere": "When and where",
+		"PreferredDatesOrPeriod": {
+			"Label": "Preferred date(s) or period",
+			"Placeholder": "Specific date or Q1, next spring, before Christmas or as soon as possible.",
+			"Note": "A cancellation less than 7 days before the start date results in a cancellation fee similar to the preparation and training hours of the training"
+		},
+		"PreferredTrainingLocation": {
+			"Label": "Preferred training location",
+			"NoteVeghel": "Customer Centre is responsible for all travel arrangements and accommodation requirements. This includes travel arrangements from hotel to Vanderlande and back. Please send a copy of the travel arrangements to the Trainer.",
+			"NoteAnotherLocation": "We will charge travel and accommodation costs for the trainer."
+		},
+		"PreferredLocation": {
+			"Label": "Preferred location",
+			"Placeholder": "Location where you would like to receive the training."
+		},
+		"Participants": {
+			"Label": "Participants",
+			"Note": "The minimum amount of participants is 2. Large groups may have to be broken up into smaller ones.",
+			"Name": {
+				"Label": "Name",
+				"Placeholder": "Name"
+			},
+			"Email": {
+				"Label": "E-mail",
+				"Placeholder": "E-mail address",
+				"ErrorText": "Please enter a valid e-mail address."
+			},
+			"AddParticipants": "Add participants"
+		},
+		"Location": {
+			"Label": "Location",
+			"Placeholder": "Site where the participants are working."
+		},
+		"RequestDetails": "Request details",
+		"Contact": {
+			"Label": "Contact",
+			"Placeholder": "Project / Account / Maintenance Manager or Customer Centre"
+		},
+		"Requester": {
+			"Label": "Requester"
+		},
+		"RequesterName": {
+			"Label": "Requester name",
+			"Placeholder": "Name",
+			"RequiredError": "This field is mandatory."
+		},
+		"RequesterRole": {
+			"Label": "Requester role",
+			"Placeholder": "Role or Job title"
+		},
+		"RequesterEmail": {
+			"Label": "Requester e-mail",
+			"Placeholder": "E-mail address",
+			"RequiredError": "Please enter an e-mail address.",
+			"ValidError": "Please enter a valid e-mail address.",
+			"Note": "You will receive the confirmation of this request on this e-mail address."
+		},
+		"Send": "Wyślij",
+		"DiscardTitle": "Odrzucić zmiany?",
+		"DiscardText": "Wprowadzono informacje, które zostaną utracone, jeśli będziesz kontynuować. Czy chcesz kontynuować?",
+		"KeepEditing": "Kontynuuj edycję",
+		"NoSiteContracManager": {
+			"ErrorText": "Zamawianie szkoleń online jest tymczasowo niedostępne. Skontaktuj się z osobą do kontaktu z Vanderlande, aby zamówić szkolenie."
+		}
+	},
+	"Contacts": {
+		"MyContacts": "Moje kontakty",
+		"AccountManagerContact": "Opiekun klienta",
+		"ContractManagerContact": "Kierownik ds. umów",
+		"ItManagerContact": "Kierownik ds. IT",
+		"SparePartsContact": "Kontakt w sprawie części zamiennych",
+		"ServiceDeskContact": "Biuro obsługi klienta",
+		"VisitingOfficeContact": "Dostępność biura",
+		"DownloadAsVCard": "Pobierz jako vCard",
+		"OutsideWorkingHours": "poza godzinami pracy",
+		"NoContacts": "Brak dostępnych kontaktów."
+	},
+	"AddPortal": {
+		"NewPortal": "Nowy portal",
+		"PortalTitle": "Tytuł portalu",
+		"PortalTitleDesc": "To zobaczą klienci. Ustal z klientem, jak ma być nazwany. Sprawdź w danych głównych, czy tytuł jest prawidłowy i odpowiedni.",
+		"PortalTitleErr1": "Portal o tej nazwie już istnieje. Użyj innej nazwy.",
+		"PortalTitleErr2": "To pole jest obowiązkowe. Podaj tytuł portalu.",
+		"PortalTitleErr3": "Ten tytuł jest za długi, nie powinien być dłuższy niż 50 znaków.",
+		"PortalTitleErr4": "Można użyć tylko liter i cyfr.",
+		"Customer": "Klient",
+		"CustomerDesc": "Nazwa firmy klienta. Potrzebne dla wewnętrznej administracji.",
+		"CustomerErr1": "To pole jest obowiązkowe. Wprowadź klienta.",
+		"CustomerErr2": "Nie znaleźliśmy żadnych klientów o nazwie {{name}}.",
+		"CustomerErr2Button": "Dodaj jako nowego klienta",
+		"AddPortal": "Dodaj portal",
+		"Cancel": "Anuluj"
+	},
+	"PortalAdmin": {
+		"Administration": "Administracja",
+		"PortalSettings": "Ustawienia portalu",
+		"Users": "Użytkownicy",
+		"NoUsersFound": "Brak użytkowników spełniających kryteria wyszukiwania.",
+		"NoUsers": "Brak użytkowników.",
+		"Sites": "Strony",
+		"AddSite": "Dodaj stronę",
+		"SitesEmpty": "Nie ma jeszcze żadnych stron dodanych do tego portalu.",
+		"NewSite": "Nowa strona",
+		"SiteName": "Nazwa strony",
+		"SitenameDesc": "Ten tytuł zobaczą klienci. Użyj nazwy opisowej.",
+		"SiteID": "ID strony",
+		"SiteIdDesc": "Użyj niepowtarzalnego identyfikatora strony z danych głównych – numer instalacji z Enovia.",
+		"Cancel": "Anuluj",
+		"SiteTitleErr1": "Strona o tym identyfikatorze istnieje już w zakładce Moje Vanderlande. Użyj innego identyfikatora.",
+		"SiteTitleErr2": "To pole jest obowiązkowe.",
+		"SiteTitleErr3": "Ten tytuł jest zbyt długi.",
+		"NotPublishedLabel": "Nie opublikowano"
+	},
+	"PortalGeneralSettings": {
+		"GeneralSettings": "Ustawienia ogólne",
+		"Training": "Szkolenie",
+		"TrainingDesc": "Jaki asortyment szkoleń powinien być wyświetlany dla stron w tym portalu?",
+		"TrainingErrorText": "Wybierz co najmniej jeden asortyment szkoleń.",
+		"TrainingErrorToast": "Nie można zapisać asortymentu szkoleń. Spróbuj ponownie.",
+		"SettingsSaveSuccessMsg": "Ustawienia zostały zapisane.",
+		"DeletePortal": "Usuń portal",
+		"DeletePortalDesc": "Wszystkie dane zostaną usunięte i nie będzie można ich przywrócić. Użytkownicy nie będą mieli dostępu do portalu ani jego stron."
+	},
+	"SiteAdmin": {
+		"PublishNotification": "Ta strona nie została jeszcze opublikowana i dlatego nie jest widoczna dla klientów.",
+		"PublishButton": "Opublikuj",
+		"Users": "Użytkownicy",
+		"GeneralSettings": "Ogólne ustawienia strony",
+		"Documentation": "Dokumentacja",
+		"Contacts": "Kontakty"
+	},
+	"SiteAdminDocumentation": {
+		"Subtitle": "Zarządzaj dokumentami obiektu",
+		"AmountOfDocuments": "# dokumenty",
+		"AmountOfDocumentsZero": "{{number}} dokumentów",
+		"AmountOfDocumentsOne": "{{number}} dokument",
+		"AmountOfDocumentsPlural": "{{number}} dokumenty",
+		"MessageZeroDocs": "Ten folder nie będzie widoczny dla użytkowników",
+		"AddDocuments": "Dodaj dokumenty",
+		"SelectedDocuments": "Wybrane dokumenty",
+		"DocumentCategory": "Kategoria dokumentów",
+		"DocumentCategoryError": "Wybierz kategorię dokumentów",
+		"DocumentLanguage": "Język dokumentów",
+		"DocumentLanguageError": "Wybierz język dokumentu.",
+		"SelectFiles": "Wybierz plik.",
+		"SelectFolder": "Wybierz folder.",
+		"AllowedFileTypes": "Jeden lub więcej typów plików, które zostały wybrane, nie są dozwolone.",
+		"CancelButton": "Anuluj",
+		"UploadButton": "Prześlij",
+		"Download7Zip": "Pobierz program 7zip",
+		"ZipFileSelected": "Upewnij się, że plik .zip został utworzony za pomocą programu 7zip. Aby zapewnić prawidłowe wyświetlanie wszystkich znaków, podczas tworzenia archiwum wpisz „cu” w polu „Parametry”.",
+		"UploadError": "Nie udało się przesłać {{fileName}}.",
+		"CancelUploadSuccess": "Przesyłanie anulowane.",
+		"DeleteFileSuccess": "Plik został usunięty.",
+		"TableDocumentTitle": "Tytuł dokumentu",
+		"TableDateUploaded": "Data przesłania",
+		"TableUploadedBy": "Przesłane przez",
+		"OAndMMessage": "Jeśli DTR nie istnieje, zawiera błędy lub czegoś brakuje, skontaktuj się z: {{email}}",
+		"OAndMLink": "Wyślij wiadomość e-mail",
+		"DragNDropLink": "Zaznacz plik(i)",
+		"DragNDropText": "lub przeciągnij i upuść tutaj",
+		"Pop-upUploadDoc": "Prześlij dokument",
+		"UploadErr1": "Wystąpił błąd. Spróbuj przesłać dokument ponownie.",
+		"CancelUploadsModalTitle": "Anulować przesyłanie wszystkich plików?",
+		"CancelUploadsModalText": "Twoje przesyłanie nie jest zakończone. Czy chcesz anulować trwające przesyłanie?",
+		"CancelUploadsModalText2": "Nie można już anulować przesyłania niektórych z dodanych przez ciebie plików. Jeśli chcesz cofnąć przesyłanie tych plików, poczekaj na zakończenie przetwarzania plików, a następnie usuń je.",
+		"CancelUploadsModalConfirmText": "Anuluj przesyłanie",
+		"CancelUploadsModalConfirmText2": "",
+		"CancelUploadsModalCancelText": "Kontynuuj przesyłanie",
+		"BottomSheetTitle": "Postęp przesyłania",
+		"ConfirmationModalTitle": "Czy usunąć dokument?",
+		"ConfirmationModalMessage": "Czy na pewno chcesz usunąć ten dokument? Plik nie będzie już dostępny dla klienta."
+	},
+	"SiteAdminContacts": {
+		"AccountManager": "Opiekun klienta",
+		"ContractManager": "Kierownik ds. umów",
+		"ITManager": "Kierownik ds. IT",
+		"SparePartsContact": "Kontakt w sprawie części zamiennych",
+		"VisitingOffice": "Dostępność biura",
+		"ServiceDesk": "Biuro obsługi klienta",
+		"PreferredServiceDesk": "Preferowane biuro obsługi klienta",
+		"CustomTitle": "Tytuł niestandardowy",
+		"CustomTitleDesc": "Wypełnij, jeśli chcesz zastąpić '{{Account manager}}' innym tytułem",
+		"ShowThisContactChkbx": "Pokaż ten kontakt klientom",
+		"ShowThisContactChkbxDisabled": "Ta osoba do kontaktu nie może być ukryta",
+		"NameAndLastName": "Imię i nazwisko",
+		"NameOfOffice": "Nazwa biura",
+		"EMail": "E-mail",
+		"PhoneNumberOutsideWorkingHours": "Numer telefonu poza godzinami pracy",
+		"ContactDetails": "Dane kontaktowe",
+		"FieldErr1": "To pole nie może być puste."
+	},
+	"SiteAdminGeneralSettings": {
+		"SiteDetails": "Szczegóły strony",
+		"SpareParts": "Sklep z częściami zamiennymi",
+		"SparePartsQ1": "Czy ta strona ma konto sklepu z częściami zamiennymi?",
+		"Vidi": "VIDI",
+		"VidiQ1": "Czy klienci powinni widzieć w menu link do VIDI?",
+		"MyContracts": "Moje umowy",
+		"MyContractsQ1": "Czy klienci powinni widzieć link do strony „Moje umowy”?",
+		"ProcessInsights": "Process Insights",
+		"ProcessInsightsLabel": "Czy klienci powinni widzieć w menu link do informacji o procesie?",
+		"DivertHealth": "Divert Health",
+		"DivertHealthLabel": "Czy klienci powinni widzieć w menu link do stanu przełączników (Divert Health)?",
+		"DivertHealthRequiredErrorLabel": "Podaj adres URL do swojego środowiska stanu przełączników (Divert Health).",
+		"DivertHealthInvalidErrorLabel": "Podaj prawidłowy adres URL do swojego środowiska stanu przełączników (Divert Health).",
+		"DivertHealthInputLabel": "Jaki jest adres URL dla stanu przełączników (Divert Health)?",
+		"ShuttleHealth": "Stan wózków (Shuttle Health)",
+		"ShuttleHealthLabel": "Czy klienci powinni widzieć w menu link do stanu wózków (Shuttle Health)?",
+		"ShuttleHealthRequiredErrorLabel": "Podaj adres URL do swojego środowiska stanu wózków (Shuttle Health).",
+		"ShuttleHealthInvalidErrorLabel": "Podaj prawidłowy adres URL do swojego środowiska stanu wózków (Shuttle Health).",
+		"ShuttleHealthInputLabel": "Jaki jest adres URL dla stanu wózków (Shuttle Health)?",
+		"Cases": {
+			"Title": "Zdarzenia",
+			"EventSources": {
+				"Label": "Reguły zmiany statusu ze zdarzenia na zlecenie",
+				"Rules": {
+					"Disabled": "Wyłączone",
+					"Manual": "Ręczne",
+					"Automatic": "Automatyczne"
+				},
+				"Types": {
+					"Monitron": "Monitron",
+					"ShuttleHealth": "Stan wózków (Shuttle Health)",
+					"DivertHealth": "Stan przełączników (Divert Health)",
+					"OperationalAwareness": "Świadomość operacyjna"
+				}
+			},
+			"Enable": {
+				"Label": "Czy link do „zdarzeń” powinien być widoczny w menu?"
+			},
+			"ErrorMessage": "Aktywuj co najmniej jedną regułę zmiany statusu dla zlecenia"
+		},
+		"SettingsSaveSuccessMsg": "Ustawienia zostały zapisane.",
+		"SiteStatus": "Status strony",
+		"Status": "Status:",
+		"NotPublished": "Nie opublikowano",
+		"NotPublishedDesc": "Użytkownicy klienta nie mają jeszcze dostępu do strony ani nie widzą żadnych danych.",
+		"PublishBtn": "Opublikuj",
+		"Published": "Opublikowano",
+		"PublishedDesc": "Klienci mogą uzyskać dostęp do wszystkich informacji o tej stronie.",
+		"DeleteSite": "Usuń stronę",
+		"DeleteSiteDesc": "Wszystkie dane zostaną usunięte i nie będzie można ich przywrócić. Użytkownicy nie będą mieli do nich dostępu.",
+		"DeleteBtn": "Usuń"
+	},
+	"SiteAdminPublishSite": {
+		"DoYouWant": "Czy chcesz opublikować {{Site name}}?",
+		"DoYouWantDesc": "Połączeni użytkownicy będą mogli zobaczyć tę stronę i jej szczegóły.",
+		"PublishBtn": "Opublikuj",
+		"CancelBtn": "Anuluj",
+		"PublishedToaster": "Strona {{Site name}} została opublikowana."
+	},
+	"AddUserModal": {
+		"AddUserBtn": "Dodaj użytkownika",
+		"ModalTitle": "Dodaj użytkownika",
+		"InputLabel": "Wyszukiwanie według konta vanderlande-cloud.com",
+		"InputPlaceholder": "Wprowadź konto",
+		"InputErrorText": "Wprowadź prawidłowe konto.",
+		"InfoText": "Konto vanderlande-cloud.com jest również znane jako UPN (nazwa główna użytkownika).",
+		"SearchBtn": "Wyszukaj",
+		"SearchNoResults": "Brak użytkowników spełniających kryteria wyszukiwania.",
+		"AddUserMsg1": "Ten użytkownik został znaleziony i może zostać dodany do My Vanderlande. Upewnij się, że przypisano portale i strony.",
+		"OpenProfileBtn": "Otwórz profil",
+		"AddUserMsg2": "Ten użytkownik nie ma jeszcze konta Vanderlande. Upewnij się, że wyszukujesz użytkownika za pomocą konta Azure, które kończy się na „@vanderlande-cloud.com”.",
+		"RequestAccountBtn": "Poproś o utworzenie konta",
+		"AddUserSuccessMsg": "Użytkownik {{name}} został dodany do My Vanderlande",
+		"CancelBtn": "Anuluj",
+		"DisabledUserError": "Ten użytkownik nie może zostać dodany, ponieważ jego konto Azure AD jest nieaktywne. Możesz aktywować poprzez żądanie TopDesk."
+	},
+	"BusinessUnits": {
+		"Airport": "Lotnisko",
+		"Parcel": "Paczka",
+		"Warehouse": "Magazyn"
+	},
+	"Contracts": {
+		"MyContracts": "Moje umowy",
+		"Contract": "Umowa",
+		"NoContracts": "Brak dostępnych szczegółów umowy.",
+		"ExistingContracts": "Istniejące umowy",
+		"AgreementLabel": "Numer umowy",
+		"StartDateLabel": "Data rozpoczęcia",
+		"EndDateLabel": "Data zakończenia",
+		"ContractsOverview": "Przegląd umów",
+		"WholeSystem": "Cały system",
+		"NoContractLines": "Brak dostępnych szczegółów umowy."
+	},
+	"WarrantyClaims": {
+		"MyWarranty": "Zgłoszenia gwarancyjne",
+		"NewWarranty": "Nowe zgłoszenie gwarancyjne",
+		"SelectItemModal": {
+			"Title": "Wybierz pozycję objętą gwarancją",
+			"SearchInputPlaceholder": "Wyszukaj według numeru pozycji, opisu, klasyfikacji jednostki wydania lub kategorii"
+		},
+		"CustomerSiteContact": {
+			"Title": "Osoba na miejscu do kontaktu z klientem",
+			"Placeholder": "Wybierz osobę do kontaktu",
+			"LeftAssertiveText": "Wybierz osobę do kontaktu na miejscu"
+		},
+		"TicketReference": {
+			"Title": "Numer referencyjny zgłoszenia",
+			"LeftAssertiveText": "Numer zgłoszenia w twoim wewnętrznym systemie zgłoszeń"
+		},
+		"Summary": {
+			"Title": "Podsumowanie",
+			"LeftAssertiveText": "Podaj krótką nazwę zgłoszenia gwarancyjnego, aby można je było łatwo rozpoznać."
+		},
+		"CreateWarrantyClaim": "Utwórz zgłoszenie gwarancyjne",
+		"SelectedItem": {
+			"Title": "Informacja o pozycji",
+			"Placeholder": "Wybierz pozycję i ilość pozycji, które uległy awarii"
+		},
+		"SelectItemButton": "Wybierz pozycję",
+		"ChangeItemButton": "Zmień pozycję",
+		"WarrantyParts": "Część objęta gwarancją",
+		"AddWarrantyItem": "Dodaj pozycję objętą gwarancją",
+		"SerialNumber": "Numer seryjny",
+		"WarrantyReasonLabel": "Szczegółowy opis usterki",
+		"WarrantyReasonInfoText": "Podaj opis usterki stanowiący podstawę zgłoszenia",
+		"WarrantyInfo": "Informacje o gwarancji",
+		"BreakdownDate": "Data awarii",
+		"AddToWarranty": "Dodaj do gwarancji"
+	},
+	"Tickets": {
+		"MyTickets": "Moje zgłoszenia",
+		"AllTickets": "Wszystkie zgłoszenia",
+		"OpenTickets": "Otwarte zgłoszenia",
+		"NoOpenTickets": "Brak otwartych zgłoszeń.",
+		"TicketNumber": "Zgłoszenie {{ number }}",
+		"TicketPriority": "Priorytet {{ priority }}",
+		"ViewAllTickets": " Wyświetl wszystkie zgłoszenia",
+		"CreateTicket": "Utwórz zgłoszenie",
+		"NewTicket": "Nowe zgłoszenie",
+		"Details": "Szczegóły",
+		"TicketType": "",
+		"IssueType": {
+			"Title": "Czego dotyczy to zgłoszenie?",
+			"Incident": {
+				"Label": "Zdarzenie",
+				"Description": "Nieplanowane przerwanie świadczenia usługi lub obniżenie jakości codziennej pracy systemu Vanderlande"
+			},
+			"Servicerequest": {
+				"Label": "Zgłoszenie serwisowe",
+				"Description": ""
+			},
+			"Problem": {
+				"Label": "",
+				"Description": ""
+			},
+			"Change": {
+				"Label": "",
+				"Description": ""
+			},
+			"Changerequest": {
+				"Label": "Prośba o zmianę",
+				"Description": "Dodawanie, modyfikowanie lub usuwanie wszystkich elementów, które mogą mieć wpływ na system Vanderlande lub świadczenie usług"
+			},
+			"Problemreport": {
+				"Label": "Raport dotyczący problemu",
+				"Description": "Rzeczywista lub możliwa przyczyna jednego lub więcej incydentów do zbadania przez Vanderlande"
+			}
+		},
+		"Priority": {
+			"Placeholder": "Wybierz priorytet",
+			"AssistiveText": "W przypadku zgłoszeń o najwyższym priorytecie należy skontaktować się z biurem obsługi klienta. Zapewni to szybką reakcję."
+		},
+		"InternalReferenceNumber": {
+			"Label": "Wewnętrzny numer referencyjny",
+			"AssistiveText": "Numer zgłoszenia w Twoim wewnętrznym systemie zgłoszeń, jeśli z niego korzystasz."
+		},
+		"Situation": "Sytuacja",
+		"ShortSummary": {
+			"Label": "Krótkie podsumowanie",
+			"AssistiveText": "Zostanie użyte jako tytuł zgłoszenia."
+		},
+		"Description": {
+			"Incident": "Objaw:\nBłąd:\nObszar/strefa:\nKonsekwencje biznesowe dla klienta:\n\nKroki rozwiązywania problemów – dzwoniący:\nPowtarzające się zdarzenie:\nCo się działo przed wystąpieniem zdarzenia:\nCzy ostatnio lub w ciągu ostatnich 48 godzin w systemie zaszły jakieś zmiany:\n\nCzy osoba do kontaktu jest obecna na miejscu:\nOsoba do kontaktu na miejscu jest dostępna do:\nData i przybliżony czas wykrycia zdarzenia: ",
+			"Servicerequest": "Opis żądania:\nPowody tego żądania:",
+			"Changerequest": "",
+			"Problemreport": ""
+		},
+		"Links": {
+			"Title": "Łącza"
+		},
+		"OnSiteContact": {
+			"Title": "Osoba do kontaktu na miejscu",
+			"Label": "Imię i nazwisko",
+			"Placeholder": "Wybierz osobę do kontaktu",
+			"AssistiveText": "Aby dodać nowy kontakt do listy możliwych osób do kontaktu, skontaktuj się z osobą do kontaktu z Vanderlande."
+		},
+		"Information": "Informacje o zgłoszeniu",
+		"ViewTicket": "Wyświetl zgłoszenie",
+		"ReportedOn": {
+			"Label": "Zgłoszono:"
+		},
+		"ReferenceNumber": {
+			"Title": "Wewnętrzny numer referencyjny"
+		},
+		"SendTicketButton": "Wyślij zgłoszenie",
+		"TicketLog": {
+			"Label": "Dziennik zgłoszeń"
+		},
+		"NoMessagesAvailable": "Nie ma żadnych wiadomości na temat tego zgłoszenia.",
+		"TicketCreated": "Zgłoszenie zostało utworzone.",
+		"CustomerSatisfaction": {
+			"Subtitle": "Twoja opinia ma znaczenie",
+			"Info": "Chcielibyśmy dowiedzieć się, jak Vanderlande poradziło sobie przy rozwiązywaniu tego zdarzenia. Kliknij emotikonę, która najlepiej pasuje do twoich doświadczeń.",
+			"Satisfied": "Zadowolony",
+			"Neutral": "Średnio zadowolony",
+			"Dissatisfied": "Niezadowolony"
+		}
+	},
+	"Asset": {
+		"AffectedAsset": "Zasób, którego dotyczy zgłoszenie",
+		"AssetInfo": "Informacje o zasobach",
+		"SelectAssetBtn": "Wybierz zasób",
+		"ChangeAssetBtn": "Zmień zasób",
+		"AddAsset": "",
+		"SelectAssetModalTitle": "Wybierz zasób, którego dotyczy zgłoszenie",
+		"SelectAssetModal": {
+			"SearchInputPlaceholder": "Wyszukiwanie według nazwy, oznaczenia kodowego, numeru oznaczenia, opisu"
+		},
+		"SelectAssetTable": {
+			"AddToTicketBtn": "Dodaj do zgłoszenia"
+		},
+		"Description": "Opis",
+		"MarkCode": "Oznaczenie kodowe",
+		"MarkNumber": "Numer oznaczenia",
+		"Asset": "Zasób",
+		"AssetDescription": "Opis zasobów",
+		"MarkCodeAndNumber": "Kod i numer oznaczenia"
+	},
+	"Assets": {
+		"SelectAssetTable": {
+			"NoAssets": "Brak zasobów spełniających kryteria wyszukiwania."
+		}
+	},
+	"Attachments": {
+		"Title": "Załączniki",
+		"AddBtn": "Dodaj załącznik",
+		"Information": "Maksymalny rozmiar załącznika to 10 MB.",
+		"FileSizeError": "Jeden lub więcej plików, które zostały wybrane, są zbyt duże. Prześlij pliki o wielkości 10 MB lub mniejsze.",
+		"UploadWarning": "Nie można usunąć tego pliku po jego przesłaniu.",
+		"DescriptionPlaceholder": "Uwagi dotyczące treści i celu pliku",
+		"FileUploadMessage": "Dodawanie pliku do zgłoszenia"
+	},
+	"ContextualCollaboration": {
+		"MyCases": "Moje sprawy",
+		"NoCases": "Nie ma żadnych spraw.",
+		"CaseStatusOpen": "Otwarte",
+		"CaseStatusInProgress": "W toku",
+		"CaseStatusClosed": "Zamknięte",
+		"ViewCase": "Wyświetl zdarzenie",
+		"CaseInfo": "Informacje na temat zdarzenia",
+		"EventDetails": "Szczegóły wydarzenia",
+		"CaseStatusChangedSuccessMsg": "Status został zmieniony na &quot;{{ caseStatus }}&quot;",
+		"CaseOverview": {
+			"PageHeader": {
+				"Title": "Zdarzenia",
+				"NewCase": "Nowe zdarzenie",
+				"Breadcrumbs": {
+					"Cases": "Zdarzenia",
+					"Site": "Lokalizacja"
+				}
+			},
+			"CaseTable": {
+				"Headers": {
+					"EventSource": "Źródło wydarzenia",
+					"Summary": "Podsumowanie",
+					"CaseNumber": "Numer zdarzenia",
+					"LastUpdated": "Ostatnia aktualizacja",
+					"Status": "Status",
+					"WorkorderID": "Numer zlecenia"
+				}
+			},
+			"Status": {
+				"Open": "Otwarte",
+				"InProgress": "W toku",
+				"Closed": "Zamknięte",
+				"Rejected": "Odrzucone"
+			},
+			"LastUpdated": "",
+			"EventSource": {
+				"Monitron": "Monitron",
+				"ShuttleHealth": "Shuttle Health",
+				"DivertHealth": "Divert Health",
+				"OperationalAwareness": "Operational Awareness"
+			}
+		},
+		"Breadcrumbs": {
+			"Cases": "Zdarzenia",
+			"NewCase": "Nowe zdarzenie",
+			"CaseDetails": "Szczegóły zdarzenia"
+		},
+		"NewCase": {
+			"CreateCase": "Utwórz zdarzenie",
+			"Title": "Nowe zdarzenie",
+			"WhatIsThisCaseAbout": "Czego dotyczy to zdarzenie?",
+			"TitleField": {
+				"Eyebrow": "Nazwa zdarzenia – wymagana"
+			},
+			"AssetSelector": {
+				"Eyebrow": "Zasób, którego dotyczy zgłoszenie"
+			},
+			"DescriptionField": {
+				"Eyebrow": "Opis – wymagany"
+			},
+			"Attachments": {
+				"AddAttachment": "Dodaj załącznik",
+				"Emptystate": {
+					"Title": "Nie dodano żadnych plików",
+					"Explanation": "Dodaj plik lub pliki dotyczące danej pozycji."
+				},
+				"Eyebrow": "Dodaj załącznik do zdarzenia"
+			},
+			"OnSiteContact": {
+				"Placeholder": "Wybierz osobę do kontaktu na miejscu",
+				"AssistiveText": "Aby dodać kolejny element do listy, skontaktuj się z osobą do kontaktu w Vanderlande.",
+				"Eyebrow": "Osoba do kontaktu na miejscu – wymagana"
+			},
+			"EventSource": {
+				"Eyebrow": "Źródło wydarzenia – wymagane",
+				"Placeholder": "Wybierz źródło wydarzenia"
+			}
+		},
+		"CaseDetails": {
+			"CaseMessaging": "Wiadomości",
+			"CaseInformation": "Informacje o zdarzeniu",
+			"Description": "Opis",
+			"Details": "Szczegóły",
+			"Attachments": "Załączniki ({{ count }})",
+			"AddAttachments": "Dodaj załączniki",
+			"Dismiss": "Odrzuć",
+			"Promote": "Zmień status",
+			"Case": "{{ caseId }} – Zdarzenie",
+			"Status": "Status",
+			"StatusOpen": "Otwarte",
+			"StatusInProgress": "W toku",
+			"StatusClosed": "Zamknięte",
+			"StatusUnknown": "Nieznany",
+			"ReportedOn": "Zgłoszono:",
+			"ReportedBy": "Zgłosił:",
+			"AffectedAsset": "Zasób, którego dotyczy zgłoszenie",
+			"OnSiteContact": "Osoba do kontaktu na miejscu",
+			"FileUploadedOn": "Plik przesłany w dniu { uploadedOn, date, long }",
+			"EventSource": "",
+			"WorkOrderId": "",
+			"Header": {
+				"Title": "",
+				"Breadcrumbs": {
+					"Cases": "",
+					"CaseDetails": ""
+				},
+				"Status": {
+					"Open": "",
+					"InProgress": "",
+					"Closed": "",
+					"Rejected": ""
+				},
+				"Action": {
+					"WorkOrder": "",
+					"Close": "",
+					"Reject": "",
+					"InProgress": ""
+				}
+			},
+			"ReportedOnDate": "",
+			"ConfirmationModal": {
+				"CreateWorkOrder": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"CloseCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"RejectCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"InProgressCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				}
+			},
+			"Error": {
+				"CreateWorkOrder": ""
+			}
+		}
+	},
+	"AttachmentComponent": {
+		"AddAttachment": "Dodaj załącznik",
+		"EmptyStateTitle": "Nie dodano żadnych plików",
+		"EmptyStateExplanation": "Dodaj swój plik lub pliki",
+		"Eyebrow": "Dodaj załącznik lub załączniki"
+	},
+	"AddFileDescriptionDialog": {
+		"Title": "Dodaj załącznik",
+		"Submit": "Zapisz",
+		"Cancel": "Anuluj",
+		"Form": {
+			"Title": "Pliki",
+			"Explanation": "Nie można usunąć plików po ich przesłaniu"
+		},
+		"Item": {
+			"Eyebrow": "Opis dla {{ item }} – wymagany",
+			"Placeholder": "Uwagi dotyczące treści i celu pliku"
+		}
+	},
+	"AddDescriptionDialog": {
+		"Title": "Dodaj opis",
+		"Submit": "Zapisz",
+		"Cancel": "Anuluj",
+		"Form": {
+			"Title": "Pozycje",
+			"Explanation": "Podaj opis dla każdej pozycji"
+		},
+		"Item": {
+			"Eyebrow": "Opis dla {{ item }} – wymagany",
+			"Placeholder": "Uwagi dotyczące treści i celu pozycji"
+		}
+	},
+	"ContactSelector": {
+		"Placeholder": "Wybierz osobę do kontaktu"
+	},
+	"AssetSelector": {
+		"Eyebrow": "Zasób, którego dotyczy zgłoszenie",
+		"SelectAsset": "Wybierz zasób",
+		"ChangeAsset": "Zmień zasób",
+		"EmptyState": {
+			"Title": "Nie wybrano zasobu",
+			"Explanation": "Wybierz swój zasób"
+		}
+	},
+	"Messaging": {
+		"NewMessage": "Nowa wiadomość",
+		"SendMessage": "Wyślij wiadomość",
+		"NewMessagePlaceholder": "Wprowadź swoją wiadomość tutaj",
+		"MessageHeader": "{{ name }} - { messagedOn, date, long } / { messagedOn, time }"
+	},
+	"GlobalHeader": {
+		"NoPortals": "",
+		"NoSites": "",
+		"SelectPortals": "",
+		"SelectSites": "",
+		"SelectApplication": "",
+		"Portal": "",
+		"Site": "",
+		"Application": "",
+		"Home": "",
+		"User": "",
+		"LogOut": "",
+		"Profile": "",
+		"Showing": "",
+		"NoResult": "",
+		"Applications": {
+			"Cases": "",
+			"ProcessInsights": "",
+			"Tickets": "",
+			"Contacts": "",
+			"Settings": "",
+			"Training": "",
+			"Contracts": "",
+			"Documentation": "",
+			"SpareParts": "",
+			"VIDI": "",
+			"DivertHealth": "",
+			"ShuttleHealth": "",
+			"PaceInsights": "",
+			"VIAInsights": "",
+			"WSInsights": "",
+			"WarrantyClaims": "",
+			"System": "",
+			"Home": ""
+		}
+	}
+}

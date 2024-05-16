@@ -1,0 +1,195 @@
+<button class="mt-l" data-testid="back-button" ghost routerLink="../">
+  <grav-svg-icon key="chevron-left"></grav-svg-icon>
+  {{ 'General.Back' | transloco }}
+</button>
+
+<h2 class="mt-xl grav-text-header-2-bold mb-s" data-testid="new-warranty-title">
+  {{ 'WarrantyClaims.NewWarranty' | transloco }}
+</h2>
+
+<app-form
+  *ngIf="form"
+  [buttonDisabled]="form.invalid"
+  [formGroup]="form"
+  [submitText]="'WarrantyClaims.CreateWarrantyClaim' | transloco"
+  (submitEvent)="onSubmit()"
+  class="mb-2-xl"
+  data-testid="warranty-new-form"
+>
+  <!-- Summary section -->
+  <div class="bg-white mt-l py-l px-m">
+    <h2 class="mb-m grav-text-body-bold">
+      {{ 'WarrantyClaims.Summary.Title' | transloco }}
+    </h2>
+
+    <!-- Customer site contact -->
+    <div class="lg:d-grid lg:grid-cols-2 xl:grids-cols-3 gap-2-xl">
+      <div>
+        <!-- TODO: remove gap-0 once MYVI-5114 bug is fixed in Gravity -->
+        <grav-field class="grid-cols-1 gap-0">
+          <grav-field-eyebrow class="grav-text-body-small-medium pb-xs">
+            {{ 'WarrantyClaims.CustomerSiteContact.Title' | transloco }}
+          </grav-field-eyebrow>
+
+          <grav-dropdown (selectedElement)="onSelect($event)">
+            <input
+              [attr.error]="isInvalid(customerSiteContactId) ? '' : null"
+              formControlName="customerSiteContactId"
+              grav-input
+              placeholder="{{
+                'WarrantyClaims.CustomerSiteContact.Placeholder' | transloco
+              }}"
+            />
+            <template>
+              <grav-list-item
+                *ngFor="let contact of siteTicketContacts$ | async"
+                [attr.value]="contact.id"
+              >
+                {{ contact.name }}
+              </grav-list-item>
+            </template>
+          </grav-dropdown>
+
+          <grav-assistive-text class="pt-xs" left>
+            {{
+              'WarrantyClaims.CustomerSiteContact.LeftAssertiveText' | transloco
+            }}
+          </grav-assistive-text>
+
+          <grav-svg-icon
+            class="col-custom"
+            align-center
+            grav-input-suffix
+            key="chevron-down"
+            size="l"
+          ></grav-svg-icon>
+
+          <ng-container *ngIf="isInvalid(customerSiteContactId)">
+            <grav-svg-icon
+              align-center
+              grav-input-prefix
+              key="exclamation-circle"
+              size="l"
+            ></grav-svg-icon>
+            <grav-assistive-text
+              class="grav-text-body-small"
+              data-testid="customer-site-contact-required-error"
+              error
+              left
+            >
+              {{ 'General.MandatoryField' | transloco }}
+            </grav-assistive-text>
+          </ng-container>
+        </grav-field>
+
+        <ng-container
+          *ngIf="selectedSiteContact$ | async as selectedSiteContact"
+        >
+          <div class="d-block w-full lg:w-half xl:w-third">
+            <div
+              class="my-m grav-text-body-small-medium <lg:d-flex <lg:flex-col lg:d-grid lg:grid-cols-3 lg:gap-y-s"
+              data-testid="warranty-selected-site-contact"
+            >
+              <div class="lg:mr-m grav-text-body-small-bold">
+                {{ 'General.Email' | transloco }}
+              </div>
+              <div
+                class="lg:col-span-2 grav-text-body-small"
+                data-testid="warranty-selected-site-contact-email"
+              >
+                {{ selectedSiteContact.email || '-' }}
+              </div>
+              <div class="lg:mr-m">
+                {{ 'General.PhoneNumber' | transloco }}
+              </div>
+              <div
+                class="lg:col-span-2 grav-text-body-small"
+                data-testid="warranty-selected-site-contact-phone"
+              >
+                {{ selectedSiteContact.phone || '-' }}
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- Ticket reference -->
+        <grav-field class="mt-m">
+          <grav-field-eyebrow class="grav-text-body-small-medium">
+            {{ 'WarrantyClaims.TicketReference.Title' | transloco }}
+          </grav-field-eyebrow>
+          <input formControlName="ticketReference" grav-input />
+          <grav-assistive-text left>
+            {{ 'WarrantyClaims.TicketReference.LeftAssertiveText' | transloco }}
+          </grav-assistive-text>
+        </grav-field>
+
+        <!-- Summary -->
+        <grav-field class="mt-m">
+          <grav-field-eyebrow class="grav-text-body-small-medium">
+            {{ 'WarrantyClaims.Summary.Title' | transloco }}
+          </grav-field-eyebrow>
+          <input
+            [attr.error]="isInvalid(summary) ? '' : null"
+            formControlName="summary"
+            grav-input
+          />
+          <grav-assistive-text left>
+            {{ 'WarrantyClaims.Summary.LeftAssertiveText' | transloco }}
+          </grav-assistive-text>
+
+          <ng-container *ngIf="isInvalid(summary)">
+            <grav-svg-icon
+              grav-input-prefix
+              key="exclamation-circle"
+              size="l"
+            ></grav-svg-icon>
+            <grav-assistive-text
+              class="grav-text-body-small"
+              data-testid="summary-required-error"
+              error
+              left
+            >
+              {{ 'General.MandatoryField' | transloco }}
+            </grav-assistive-text>
+          </ng-container>
+        </grav-field>
+      </div>
+    </div>
+  </div>
+
+  <!-- Warranty items -->
+  <ng-container formArrayName="warrantyItems">
+    <div
+      *ngFor="let control of warrantyItems.controls; let i = index"
+      class="bg-white my-l py-l px-m"
+    >
+      <app-warranty-item
+        [formControlName]="i"
+        [index]="i"
+        [isAnyWarrantyItemsOnEdit]="isAnyWarrantyItemsOnEdit()"
+        (editEvent)="updateWarrantyItemsEditStatus($event)"
+        (remove)="removeWarrantyItem($event)"
+        data-testid="warranty-item"
+      ></app-warranty-item>
+    </div>
+  </ng-container>
+
+  <button
+    *ngIf="warrantyItems.valid"
+    [disabled]="isAnyWarrantyItemsOnEdit()"
+    (click)="addWarrantyItem()"
+    data-testid="add-warranty-item"
+    type="button"
+    outline
+  >
+    {{ 'WarrantyClaims.AddWarrantyItem' | transloco }}
+  </button>
+</app-form>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner data-testid="loading-spinner">
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

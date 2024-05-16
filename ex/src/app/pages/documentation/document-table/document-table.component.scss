@@ -1,0 +1,5 @@
+@use '../../../../styles/variables/sizing-parts' as sizing;
+
+.w-custom {
+    width: calc(#{map-get(sizing.$sizing-parts, 'half')} - #{map-get(sizing.$sizing-parts, 'third')});
+}

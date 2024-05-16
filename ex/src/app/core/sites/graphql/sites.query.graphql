@@ -1,0 +1,21 @@
+query accessibleSites {
+  me {
+    relatedPortalData {
+      AccessibleSites {
+        id
+        name
+      }
+    }
+  }
+}
+
+query allocatedSites($id: UUID!) {
+  user(userId: $id) {
+    relatedPortalData {
+      AllocatedSites {
+        id
+        name
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+:host {
+  display: inline-block;
+  min-height: var(--global-sizing-m);
+}
+
+grav-global-header {
+  inset: 0;
+  position: fixed;
+  z-index: 10;
+}
+
+.search {
+  border: none;
+  height: 100%;
+  background-color: transparent;
+  font: inherit;
+  color: var(--global-color-content-minimal);
+}
+.search:focus {
+  outline: none;
+}
+.search::placeholder {
+  color: var(--global-color-subtle);
+}

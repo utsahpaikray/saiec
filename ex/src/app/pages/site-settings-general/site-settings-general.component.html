@@ -1,0 +1,38 @@
+@if (control$ | async; as control) {
+  <app-form-page>
+    <app-page-header>
+      <app-crumbtrail>
+        <a [routerLink]="['../']" class="grav-text-body-medium">
+          {{
+            'SiteAdminGeneralSettings.GeneralSettingOverview.PageHeader.Breadcrumbs.SiteSetting'
+              | transloco
+          }}
+        </a>
+        <p class="grav-text-body-medium">
+          {{
+            'SiteAdminGeneralSettings.GeneralSettingOverview.PageHeader.Breadcrumbs.SiteGeneral'
+              | transloco
+          }}
+        </p>
+      </app-crumbtrail>
+      <h1>
+        {{
+          'SiteAdminGeneralSettings.GeneralSettingOverview.PageHeader.Title'
+            | transloco
+        }}
+      </h1>
+      <button
+        [disabled]="!control.touched || control.invalid"
+        (click)="onSubmit(control.value)"
+        type="button"
+        primary
+      >
+        Save
+      </button>
+    </app-page-header>
+
+    <main class="d-grid gap-m <lg:mt-s">
+      <app-site-setting-form [formControl]="control"></app-site-setting-form>
+    </main>
+  </app-form-page>
+}

@@ -1,0 +1,27 @@
+fragment CertificationItem on CertificationPath {
+  sys {
+    id
+  }
+  title
+  certificationInfo {
+    json
+  }
+  certificationImageCollection {
+    items {
+      ...CertificationImage
+    }
+  }
+}
+
+fragment CertificationImage on Asset {
+  title
+  url
+}
+
+query certifications {
+  certificationPathCollection {
+    items {
+      ...CertificationItem
+    }
+  }
+}

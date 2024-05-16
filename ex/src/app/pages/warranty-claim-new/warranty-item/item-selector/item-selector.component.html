@@ -1,0 +1,29 @@
+<label class="mb-s grav-text-body-small">
+  {{ 'WarrantyClaims.SelectedItem.Placeholder' | transloco }}
+</label>
+
+<div
+  *ngIf="value$ | async as selectedItem"
+  class="mb-m b-s border-solid border-grey-200 bg-white p-s"
+>
+  <p class="grav-text-body-bold" data-testid="selected-item-number">
+    {{ selectedItem.itemNumber }}
+  </p>
+  <p class="grav-text-body" data-testid="selected-item-description">
+    {{ selectedItem.description }}
+  </p>
+</div>
+
+<button
+  *ngIf="[value$ | async]"
+  data-testid="select-item-button"
+  type="button"
+  #selectItemButton
+  outline
+>
+  {{
+    (value$ | async)
+      ? ('WarrantyClaims.ChangeItemButton' | transloco)
+      : ('WarrantyClaims.SelectItemButton' | transloco)
+  }}
+</button>

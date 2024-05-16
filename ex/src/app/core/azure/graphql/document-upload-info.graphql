@@ -1,0 +1,23 @@
+fragment DocumentUploadInfo on BlobUploadInfo {
+  sasToken
+  serviceUrl
+  containerName
+  blobName
+  fullBlobUri
+}
+
+query documentUploadInfo(
+  $documentName: String!
+  $siteId: UUID!
+  $categoryCodeName: String!
+  $culture: String!
+) {
+  documentUploadInfo(
+    documentName: $documentName
+    siteId: $siteId
+    categoryCodeName: $categoryCodeName
+    culture: $culture
+  ) {
+    ...DocumentUploadInfo
+  }
+}

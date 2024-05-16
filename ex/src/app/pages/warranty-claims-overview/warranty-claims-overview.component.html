@@ -1,0 +1,20 @@
+<h2
+  class="mt-3-xl grav-text-header-2-bold lg:mt-2-xl"
+  data-testid="warranty-claims-title"
+>
+  {{ 'WarrantyClaims.MyWarranty' | transloco }}
+</h2>
+
+<div
+  *ngIf="hasWriteAccess$ | async"
+  class="mt-l d-flex justify-flex-end lg:mt-xl"
+>
+  <button data-testid="create-warranty-claims-button" routerLink="./new">
+    <grav-svg-icon
+      class="d-flex <lg:d-none"
+      key="plus"
+      slot="prefix"
+    ></grav-svg-icon>
+    {{ 'WarrantyClaims.NewWarranty' | transloco }}
+  </button>
+</div>

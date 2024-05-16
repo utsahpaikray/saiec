@@ -1,0 +1,36 @@
+<ng-container *ngIf="allTickets$ | async as allTickets; else loader">
+  <app-tickets-table
+    *ngIf="allTickets && allTickets.nodes"
+    [tickets]="allTickets.nodes"
+    data-testid="all-tickets-table"
+    noTicketTexts="{{ 'Tickets.NoOpenTickets' | transloco }}"
+  ></app-tickets-table>
+
+  <ng-container
+    *ngIf="{
+      hasMoreTickets: hasMoreTickets$ | async,
+      endCursor: endCursor$ | async,
+      loading: loading$ | async
+    } as showLoadMore"
+  >
+    <app-load-more
+      *ngIf="
+        showLoadMore.endCursor &&
+        showLoadMore.hasMoreTickets &&
+        showLoadMore.loading !== null
+      "
+      [hasMore]="showLoadMore.hasMoreTickets"
+      [loading]="showLoadMore.loading"
+      (loadMore)="loadMore(showLoadMore.endCursor)"
+      data-testid="all-tickets-load-more"
+    ></app-load-more>
+  </ng-container>
+</ng-container>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner data-testid="loading-spinner">
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

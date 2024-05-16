@@ -1,0 +1,20 @@
+fragment siteTicketAsset on Asset {
+  description
+  siteId
+  markCode
+  markNumber
+  customerNumber
+  systemComponentId
+}
+
+query siteTicketAssetBySystemComponentId(
+  $siteId: UUID!
+  $systemComponentId: String!
+) {
+  assetBySystemComponentId(
+    siteId: $siteId
+    systemComponentId: $systemComponentId
+  ) {
+    ...siteTicketAsset
+  }
+}

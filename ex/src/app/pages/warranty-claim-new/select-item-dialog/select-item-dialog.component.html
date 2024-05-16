@@ -1,0 +1,276 @@
+<div (mousewheel)="stopBodyScroll($event)">
+  <grav-card class="w-screen max-h-screen" data-testid="select-item-dialog">
+    <grav-card-header>
+      <span data-testid="item-dialog-title" card-title>
+        {{ 'WarrantyClaims.SelectItemModal.Title' | transloco }}
+      </span>
+      <button
+        (click)="dialogRef.close(null)"
+        card-suffix-button
+        ghost
+        secondary
+      >
+        <grav-svg-icon key="cross" size="l"></grav-svg-icon>
+      </button>
+    </grav-card-header>
+
+    <grav-card-content>
+      <div class="item-dialog-content">
+        <grav-field class="lg:w-half xl:w-third my-m">
+          <input
+            [formControl]="searchText"
+            [placeholder]="
+              'WarrantyClaims.SelectItemModal.SearchInputPlaceholder'
+                | transloco
+            "
+            class="truncate"
+            grav-input
+            small
+          />
+          <grav-svg-icon
+            grav-input-prefix
+            key="search"
+            size="s"
+          ></grav-svg-icon>
+          <button
+            *ngIf="searchText.value"
+            (click)="clearSearchText()"
+            class="clear-search-text"
+            card-suffix-button
+            ghost
+            secondary
+          >
+            <grav-svg-icon key="cross" size="s"></grav-svg-icon>
+          </button>
+        </grav-field>
+
+        <ng-container *ngIf="itemSearch$ | async as itemSearch; else loader">
+          <ng-container *ngIf="itemSearch.hasItems">
+            <app-load-more-paginator
+              [number]="itemSearch.items?.length || 0"
+              [total]="itemSearch.totalCounts || 0"
+              data-testid="item-load-more-paginator"
+            ></app-load-more-paginator>
+          </ng-container>
+
+          <div class="warranty-items-table-container vertical-scrollbar">
+            <ng-template
+              [ngIf]="!itemSearch.initialLoading"
+              [ngIfElse]="loader"
+            >
+              <ng-template
+                [ngIf]="
+                  itemSearch.items &&
+                  itemSearch.items.length > 0 &&
+                  !itemSearch.initialLoading
+                "
+                [ngIfElse]="noItems"
+              >
+                <table class="w-full" data-testid="warranty-items-table">
+                  <thead class="<lg:d-none">
+                    <tr>
+                      <th
+                        *ngFor="let header of tableHeaders"
+                        class="text-left"
+                        data-testid="item-table-header"
+                        scope="col"
+                      >
+                        <div>
+                          {{ 'General.' + header | transloco }}
+                        </div>
+                      </th>
+                      <th
+                        class="text-left"
+                        data-testid="item-table-header"
+                        scope="col"
+                      ></th>
+                    </tr>
+                  </thead>
+
+                  <tbody *ngIf="itemSearch.hasItems">
+                    <ng-container
+                      *ngTemplateOutlet="
+                        (breakpoint$ | async) !== viewports.Desktop
+                          ? container
+                          : table;
+                        context: { items: itemSearch.items }
+                      "
+                    >
+                    </ng-container>
+                  </tbody>
+                </table>
+              </ng-template>
+            </ng-template>
+          </div>
+
+          <app-load-more
+            *ngIf="itemSearch.hasItems"
+            [hasMore]="itemSearch.hasMoreItems || false"
+            [loading]="itemSearch.loadMoreLoading || false"
+            (loadMore)="loadMore(itemSearch.items || [])"
+            data-testid="item-list-load-more"
+          ></app-load-more>
+        </ng-container>
+      </div>
+    </grav-card-content>
+  </grav-card>
+
+  <ng-template #container let-items="items">
+    <ng-container *ngFor="let item of items">
+      <tr>
+        <td>
+          <grav-container
+            class="<lg:d-flex <lg:flex-col <lg:gap-y-s"
+            data-testid="warranty-item-container"
+          >
+            <p *ngIf="item.itemNumber" class="grav-text-body-bold">
+              {{ item.itemNumber }}
+            </p>
+            <p *ngIf="item.description">
+              {{ item.description }}
+            </p>
+            <ul
+              *ngIf="
+                item.classificationLevel1 ||
+                item.classificationLevel2 ||
+                item.classificationLeve3 ||
+                item.classificationLevel4 ||
+                item.classificationLevel5
+              "
+              class="classification-list"
+            >
+              <li
+                *ngIf="item.classificationLevel1"
+                class="classification-list-item"
+              >
+                {{ item.classificationLevel1 }}
+              </li>
+              <li
+                *ngIf="item.classificationLevel2"
+                class="classification-list-item"
+              >
+                {{ item.classificationLevel2 }}
+              </li>
+              <li
+                *ngIf="item.classificationLevel3"
+                class="classification-list-item"
+              >
+                {{ item.classificationLevel3 }}
+              </li>
+              <li
+                *ngIf="item.classificationLevel4"
+                class="classification-list-item"
+              >
+                {{ item.classificationLevel4 }}
+              </li>
+              <li
+                *ngIf="item.classificationLevel5"
+                class="classification-list-item"
+              >
+                {{ item.classificationLevel5 }}
+              </li>
+            </ul>
+            <p *ngIf="item.sparePartCategory">
+              {{ item.sparePartCategory }}
+            </p>
+
+            <button
+              (click)="dialogRef.close(item)"
+              class="<lg:self-end"
+              data-testid="select-item-button"
+              ghost
+            >
+              {{ 'General.AddItem' | transloco }}
+            </button>
+          </grav-container>
+        </td>
+      </tr>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #table let-items="items">
+    <ng-container *ngFor="let item of items">
+      <tr data-testid="warranty-items-table-row">
+        <td class="<md:font-bold text-base" scope="col">
+          {{ item.itemNumber }}
+        </td>
+        <td scope="col">
+          {{ item.description }}
+        </td>
+        <td scope="col">
+          <ul
+            *ngIf="
+              item.classificationLevel1 ||
+              item.classificationLevel2 ||
+              item.classificationLeve3 ||
+              item.classificationLevel4 ||
+              item.classificationLevel5
+            "
+            class="classification-list"
+          >
+            <li
+              *ngIf="item.classificationLevel1"
+              class="classification-list-item"
+            >
+              {{ item.classificationLevel1 }}
+            </li>
+            <li
+              *ngIf="item.classificationLevel2"
+              class="classification-list-item"
+            >
+              {{ item.classificationLevel2 }}
+            </li>
+            <li
+              *ngIf="item.classificationLevel3"
+              class="classification-list-item"
+            >
+              {{ item.classificationLevel3 }}
+            </li>
+            <li
+              *ngIf="item.classificationLevel4"
+              class="classification-list-item"
+            >
+              {{ item.classificationLevel4 }}
+            </li>
+            <li
+              *ngIf="item.classificationLevel5"
+              class="classification-list-item"
+            >
+              {{ item.classificationLevel5 }}
+            </li>
+          </ul>
+        </td>
+        <td scope="col">
+          {{ item.sparePartCategory }}
+        </td>
+        <td class="w-custom-9 pr-s" scope="col">
+          <button
+            (click)="dialogRef.close(item)"
+            class="ml-auto"
+            data-testid="select-item-button"
+            ghost
+          >
+            {{ 'General.AddItem' | transloco }}
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #loader>
+    <div
+      class="d-flex w-full items-center justify-center py-xl loader-spinner"
+      data-testid="loader"
+    >
+      <app-progress-spinner>
+        {{ 'General.Loading' | transloco }}
+      </app-progress-spinner>
+    </div>
+  </ng-template>
+
+  <ng-template #noItems>
+    <div class="text-center py-xl" data-testid="no-items-text">
+      {{ 'General.NoItems' | transloco }}
+    </div>
+  </ng-template>
+</div>

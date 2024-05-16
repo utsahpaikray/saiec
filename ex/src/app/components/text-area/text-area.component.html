@@ -1,0 +1,43 @@
+<label
+  *ngIf="label"
+  [attr.for]="name"
+  class="mb-xs d-flex w-full items-end justify-space-between grav-text-body-small-medium leading-5 text-grey-700"
+  data-testid="text-area-label"
+>
+  {{ label }}
+  <span *ngIf="message" class="text-grey-600 font-normal">
+    {{ message }}
+  </span>
+</label>
+
+<textarea
+  [attr.disabled]="isDisabled ? 'true' : null"
+  [attr.maxLength]="maxLength ? maxLength : null"
+  [cols]="cols"
+  [id]="name"
+  [name]="name"
+  [placeholder]="placeholder"
+  [rows]="rows"
+  (blur)="onTouched()"
+  (input)="valueChange(model)"
+  [(ngModel)]="model"
+  class="w-full rounded-m b-s border-solid py-s px-s border-grey-400 bg-white align-top grav-text-body-small text-grey-900 shadow-sm hover:border-grey-300 focus:border-grey-500 focus:ring-0 disabled:cursor-not-allowed disabled:bg-grey-100 disabled:text-grey-800 disabled:hover:border-grey-200 grav-text-body"
+  data-testid="text-area"
+  type="text"
+  autocomplete="off"
+></textarea>
+
+<div
+  class="mt-s grav-text-body-small text-red-500 hidden"
+  data-testid="text-area-error"
+>
+  <ng-content></ng-content>
+</div>
+
+<app-assertive-text
+  *ngIf="infoText || showCharacterCount()"
+  [leftText]="infoText"
+  [rightText]="showCharacterCount()"
+  class="d-block mt-s"
+  data-testid="text-area-assertive-text"
+></app-assertive-text>

@@ -1,0 +1,8 @@
+query siteDetailGuard {
+  sites {
+    id
+    portal {
+      id
+    }
+  }
+}

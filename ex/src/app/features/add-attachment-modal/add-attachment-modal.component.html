@@ -1,0 +1,117 @@
+<button
+  (click)="addAttachment()"
+  data-testid="add-attachment-button"
+  type="button"
+  outline
+>
+  <grav-svg-icon key="attachment"></grav-svg-icon>
+  {{ openModalButtonText }}
+</button>
+<ng-container *ngIf="breakpoint$ | async as breakpoint">
+  <app-modal
+    [id]="modalId"
+    [size]="breakpoint === this.viewports.Mobile ? 'small' : 'large'"
+    (closeEvent)="closeModal(true)"
+    data-testid="add-attachment"
+    title="{{ 'Attachments.AddBtn' | transloco }}"
+  >
+    <p class="grav-text-body-small text-grey-900">
+      {{ 'Attachments.UploadWarning' | transloco }}
+    </p>
+
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      data-testid="add-attachment-form"
+    >
+      <input
+        [accept]="acceptedFilesType"
+        [multiple]="false"
+        (change)="uploadFile($event)"
+        class="d-none"
+        id="upload"
+        name="upload"
+        data-testid="file-upload-input-attachment"
+        type="file"
+        #uploadAttachment
+        hidden
+      />
+      <app-card class="mt-m d-block">
+        <header
+          *ngIf="fileToUpload"
+          class="grav-text-body text-grey-900"
+          data-testid="add-attachment-file-name"
+        >
+          {{ fileToUpload.name }}
+        </header>
+
+        <grav-field data-testid="add-attachment-text-input">
+          <grav-field-eyebrow>
+            {{ 'General.Description' | transloco }} -
+            {{ 'General.Required' | transloco }}
+          </grav-field-eyebrow>
+          <input
+            [attr.error]="isInvalid(description) ? '' : null"
+            [maxlength]="descriptionMaxCount"
+            [placeholder]="'Attachments.DescriptionPlaceholder' | transloco"
+            name="description"
+            formControlName="description"
+            grav-input
+          />
+          <ng-container *ngIf="isInvalid(description)">
+            <grav-svg-icon
+              grav-input-prefix
+              key="exclamation-circle"
+              size="l"
+            ></grav-svg-icon>
+            <grav-assistive-text
+              class="grav-text-body-small"
+              data-testid="add-attachment-description-error"
+              error
+              left
+            >
+              {{ 'General.MandatoryField' | transloco }}
+            </grav-assistive-text>
+          </ng-container>
+          <grav-assistive-text right>
+            {{ description.value.length }} /
+            {{ descriptionMaxCount }}
+          </grav-assistive-text>
+        </grav-field>
+      </app-card>
+
+      <div class="mt-m d-flex flex-wrap items-center justify-flex-end gap-m">
+        <button
+          [disabled]="uploadingAttachment"
+          (click)="closeModal()"
+          data-testid="add-attachment-cancel-button"
+          type="button"
+          ghost
+          secondary
+        >
+          {{ 'General.Cancel' | transloco }}
+        </button>
+        <button
+          [disabled]="uploadingAttachment"
+          data-testid="add-attachment-confirmation-button"
+        >
+          {{ submitButtonText }}
+        </button>
+        <span
+          *ngIf="uploadingAttachment"
+          class="d-flex items-center gap-s md:order-first"
+          data-testid="uploading-attachment-wrapper"
+        >
+          <app-progress-spinner
+            class="d-inline-flex"
+            data-testid="uploading-attachment-progress-spinner"
+            size="m"
+          ></app-progress-spinner>
+          <p class="grav-text-body-small-medium text-grey-500">
+            {{ 'Attachments.FileUploadMessage' | transloco }}
+          </p>
+        </span>
+      </div>
+    </form>
+  </app-modal>
+</ng-container>

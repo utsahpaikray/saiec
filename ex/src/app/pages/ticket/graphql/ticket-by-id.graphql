@@ -1,0 +1,120 @@
+fragment ticketComment on Comment {
+  maximoCommentID
+  description
+  timeStamp
+  author
+}
+
+fragment ticketComments on Ticket {
+  comments(
+    first: $commentsFirst
+    order: [{ timeStamp: DESC }]
+    after: $commentsCursor
+  ) {
+    nodes {
+      ...ticketComment
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
+
+fragment comments on Ticket {
+  comments(
+    first: $commentsFirst
+    order: [{ timeStamp: DESC }]
+    after: $commentsCursor
+  ) {
+    nodes {
+      ...ticketComment
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
+
+fragment ticketFile on File {
+  description
+  url
+  name
+  key {
+    number
+  }
+}
+
+fragment ticketFiles on Ticket {
+  files(
+    first: $filesFirst
+    order: [{ releaseDate: DESC }]
+    after: $filesCursor
+  ) {
+    nodes {
+      ...ticketFile
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    totalCount
+  }
+}
+
+fragment ticketWebLink on WebLink {
+  description
+  url
+  name
+  key {
+    number
+  }
+}
+
+fragment ticketWebLinks on Ticket {
+  webLinks(
+    first: $webLinksFirst
+    order: [{ releaseDate: DESC }]
+    after: $webLinksCursor
+  ) {
+    nodes {
+      ...ticketWebLink
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    totalCount
+  }
+}
+
+query ticketById(
+  $id: String!
+  $commentsFirst: Int = 4
+  $commentsCursor: String
+  $filesFirst: Int = 5
+  $filesCursor: String
+  $webLinksFirst: Int = 5
+  $webLinksCursor: String
+) {
+  ticket(id: $id) {
+    id
+    title
+    sourceState
+    priority
+    customerPriority
+    issueType
+    state
+    description
+    customerReference
+    reportDate
+    systemComponentId
+    symptom
+    analysis
+    solution
+    ...ticketFiles
+    ...ticketWebLinks
+    ...ticketComments
+  }
+}

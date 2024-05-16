@@ -1,0 +1,35 @@
+<div
+  [ngClass]="{
+    'min-h-6-25rem': (isAuthenticated$ | async) && siteId
+  }"
+  class="d-grid default-template-container"
+>
+  <div
+    [ngClass]="{
+      'px-m py-2-xl has-banner md:px-4-xl': !hasBanner
+    }"
+    data-testid="default-template-head-section"
+  >
+    <div
+      [ngClass]="{
+        'mx-auto max-w-screen-2xl': !hasBanner
+      }"
+      data-testid="default-template-head-section-inner"
+    >
+      <ng-content select="[head]"></ng-content>
+    </div>
+  </div>
+
+  <main
+    [ngClass]="{
+      'bg-grey': isAuthenticated$ | async,
+      '<lg:pb-[6.5rem]': isMenuButtonVisible,
+      '<lg:pb-l': !isMenuButtonVisible
+    }"
+    class="px-m text-grey-700 md:px-4-xl lg:pb-5-xl md:pb-m"
+  >
+    <div class="mx-auto max-w-screen-2xl main-inner">
+      <ng-content select="[body]"></ng-content>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,3 @@
+mutation deallocateUserFromSite($siteId: UUID!, $userId: UUID!) {
+  deallocateUserFromSite(siteId: $siteId, userId: $userId)
+}

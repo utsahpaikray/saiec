@@ -1,0 +1,27 @@
+{
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ],
+  "singleQuote": true,
+  "arrowParens": "always",
+  "printWidth": 80,
+  "endOfLine": "auto",
+  "semi": false,
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "attributeGroups": [
+    "$ANGULAR_STRUCTURAL_DIRECTIVE",
+    "$ANGULAR_INPUT",
+    "$ANGULAR_OUTPUT",
+    "$ANGULAR_TWO_WAY_BINDING",
+    "$CODE_GUIDE"
+  ],
+  "attributeSort": "ASC",
+  "attributeIgnoreCase": false,
+  "pluginSearchDirs": ["."]
+}

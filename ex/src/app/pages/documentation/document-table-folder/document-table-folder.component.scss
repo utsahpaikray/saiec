@@ -1,0 +1,21 @@
+@use '../../../../styles/variables/breakpoints' as breakpoints;
+
+.table-folder-icon {
+  &::before {
+    content: '';
+    display: block;
+    height: 0.75rem;
+    width: var(--grav-space-l);
+    margin-top: var(--grav-space-xs);
+    border-bottom: var(--grav-border-size-s) solid
+      var(--grav-color-base-blue-500);
+    border-left: var(--grav-border-size-s) solid var(--grav-color-base-blue-500);
+  }
+}
+
+
+@media #{map-get(breakpoints.$media_queries, '\\<md')} {
+    .w-custom {
+      width: calc(100% - var(--grav-space-l) - var(--grav-space-s));
+    }
+  }

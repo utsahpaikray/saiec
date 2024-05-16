@@ -1,0 +1,6 @@
+@use 'sass:map';
+@use '../../../../styles/variables/breakpoints' as breakpoints;
+
+:host {
+  max-width: map.get(breakpoints.$breakpoints_min, '\\2xl') + px;
+}

@@ -1,0 +1,3 @@
+mutation rejectCase($caseId: UUID!) {
+  rejectCase(caseId: $caseId)
+}

@@ -1,0 +1,19 @@
+<grav-card *ngIf="dialogData as VM">
+  <grav-card-header>
+    <span card-title>{{ VM.title | transloco }}</span>
+    <button (click)="dialogRef.close(false)" card-suffix-button ghost secondary>
+      <grav-svg-icon key="close" size="xl"></grav-svg-icon>
+    </button>
+  </grav-card-header>
+  <grav-card-content>
+    <p class="pb-m">{{ VM.message | transloco }}</p>
+  </grav-card-content>
+  <grav-card-footer *transloco="let t">
+    <button (click)="dialogRef.close(false)" id="cancel-button" ghost>
+      {{ t(VM.cancel) }}
+    </button>
+    <button (click)="dialogRef.close(true)" id="confirm-button">
+      {{ t(VM.confirm) }}
+    </button>
+  </grav-card-footer>
+</grav-card>

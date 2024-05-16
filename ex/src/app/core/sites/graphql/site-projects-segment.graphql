@@ -1,0 +1,5 @@
+query siteProjectsSegment($id: UUID) {
+  sites(where: { id: { eq: $id } }) {
+    ...SiteProjectsSegment
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "breakpoint": {
+    "xs": {
+      "max": {
+        "value": "639.9px"
+      }
+    },
+    "sm": {
+      "min": {
+        "value": "640px"
+      },
+      "max": {
+        "value": "767.9px"
+      }
+    },
+    "md": {
+      "min": {
+        "value": "768px"
+      },
+      "max": {
+        "value": "1023.9px"
+      }
+    },
+    "lg": {
+      "min": {
+        "value": "1024px"
+      },
+      "max": {
+        "value": "1279.9px"
+      }
+    },
+    "xl": {
+      "min": {
+        "value": "1280px"
+      },
+      "max": {
+        "value": "1535.9px"
+      }
+    },
+    "2xl": {
+      "min": {
+        "value": "1536px"
+      }
+    }
+  }
+}

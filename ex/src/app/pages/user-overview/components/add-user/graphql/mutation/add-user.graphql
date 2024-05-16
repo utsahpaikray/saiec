@@ -1,0 +1,3 @@
+mutation addUser($upn: String!) {
+  addUser(upn: $upn)
+}

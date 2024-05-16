@@ -1,0 +1,60 @@
+<div
+  [ngClass]="{
+    'opened <lg:fixed <lg:left-none <lg:top-none <lg:h-full <lg:w-full <lg:bg-grey-900 <lg:opacity-20 lg:d-none':
+      isOpen || isExpanded,
+    closed: !isOpen || !isExpanded
+  }"
+  class="<lg:transition-all <lg:duration-300 <lg:ease-in-out bottom-sheet-overlay"
+></div>
+
+<div
+  [ngClass]="{
+    'translate-y-0': isOpen,
+    'translate-y-full <lg:bottom-none d-none': !isOpen,
+    '<lg:left-none <lg:right-none': isExpanded,
+    'isNotExpanded <md:right-m right-4-xl <lg:bottom-m': !isExpanded,
+    '<lg:bottom-none <lg:d-none': !isOpen && !isExpanded
+  }"
+  class="bottom-sheet-container fixed bottom-none z-50 d-flex max-h-screen flex-col transition-all duration-300 ease-in-out lg:right-2-xl"
+>
+  <header
+    *ngIf="title"
+    [ngClass]="{
+      'bg-grey-100': isExpanded,
+      'bg-grey-200 <lg:rounded': !isExpanded
+    }"
+    class="d-flex items-center gap-m p-m transition-colors duration-300 ease-in-out md:px-l lg:gap-2-xl lg:rounded-t lg:py-l"
+    data-testid="bottom-sheet-header"
+  >
+    <h6
+      class="flex-grow truncate grav-text-header-2-medium"
+      data-testid="bottom-sheet-title"
+    >
+      {{ title }}
+    </h6>
+    <button
+      [ngClass]="{ 'rotate-180': !isExpanded }"
+      (click)="toggleExpended()"
+      class="transition-transform bottom-sheet-expand"
+      data-testid="bottom-sheet-expand"
+      ghost
+      secondary
+    >
+      <grav-svg-icon key="chevron-down" size="l"></grav-svg-icon>
+    </button>
+    <button
+      (click)="closeEvent.emit()"
+      data-testid="bottom-sheet-close"
+      ghost
+      secondary
+    >
+      <grav-svg-icon key="cross" size="l"></grav-svg-icon>
+    </button>
+  </header>
+  <app-expansion-panel
+    [isOpen]="isExpanded"
+    class="scrollbar d-block max-h-96 overflow-y-auto bg-white"
+  >
+    <ng-content></ng-content>
+  </app-expansion-panel>
+</div>

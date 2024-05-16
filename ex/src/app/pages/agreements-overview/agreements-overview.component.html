@@ -1,0 +1,107 @@
+<ng-container *ngIf="!loading; else loader">
+  <div class="d-grid h-full grid-rows-custom">
+    <h2
+      class="mt-xl mb-l grav-text-header-2-medium text-grey-900 lg:my-2-xl lg:grav-text-header-medium"
+    >
+      {{ 'Contracts.ExistingContracts' | transloco }}
+    </h2>
+
+    <app-section-aside-right *ngIf="agreements?.length; else noAgreements">
+      <!-- services -->
+      <ng-container *ngIf="services?.length; else noAgreements">
+        <div
+          *ngFor="let service of services"
+          [attr.data-testid]="'service-' + service.serviceType"
+          class="mt-m first:mt-0 lg:mt-2-xl first:lg:mt-0"
+        >
+          <h3
+            class="grav-text-header-3-medium text-grey-900 lg:grav-text-header-medium"
+            data-testid="service-type-title"
+          >
+            {{ service.serviceType }}
+          </h3>
+
+          <div
+            *ngFor="let buildingBlock of service.buildingBlocks"
+            [attr.data-testid]="
+              'building-block-' + buildingBlock.buildingBlockTitle
+            "
+          >
+            <h4
+              class="my-s grav-text-header-3 text-grey-900 lg:my-m lg:grav-text-header-2"
+              data-testid="block-title"
+            >
+              {{ buildingBlock.buildingBlockTitle }}
+            </h4>
+            <div class="lg:d-flex lg:flex-row lg:flex-wrap gap-xs">
+              <grav-card
+                *ngFor="let buildingBlock of buildingBlock.servicePackages"
+                [attr.data-testid]="'block-item-' + buildingBlock.packageTitle"
+                class="lg:flex-1 lg:basis-1/2 mt-s"
+              >
+                <grav-card-header>
+                  <span data-testid="building-block-card-title" card-title>{{
+                    buildingBlock.packageTitle
+                  }}</span>
+                </grav-card-header>
+                <!-- TODO: remove mt-auto from footer if <gravity-card-content> is used in the future -->
+                <grav-card-footer class="mt-auto">
+                  <button
+                    [routerLink]="
+                      buildingBlock?.slug
+                        ? './' + buildingBlock?.slug
+                        : undefined
+                    "
+                    data-testid="building-block-card-button"
+                    ghost
+                  >
+                    {{ 'General.ViewDetails' | transloco }}
+                  </button>
+                </grav-card-footer>
+              </grav-card>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- agreement side bar -->
+      <ng-container data-testid="agreements-sidebar" aside>
+        <h3
+          class="mb-s mt-l grav-text-header-3-medium text-grey-900 lg:mt-0 lg:grav-text-header"
+          class="text-grey-900 grav-text-header-3-medium mb-s lg:grav-text-header"
+          data-testid="contract-sidebar-title"
+        >
+          {{ 'Contracts.Contract' | transloco }}
+        </h3>
+        <app-active-site-agreement
+          *ngIf="agreements[0]"
+          [agreement]="agreements[0]"
+        ></app-active-site-agreement>
+      </ng-container>
+    </app-section-aside-right>
+  </div>
+</ng-container>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner data-testid="agreements-loading-spinner">
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noAgreements>
+  <div
+    [ngClass]="{
+      'h-full': agreements && agreements.length
+    }"
+    class="d-flex h-full items-center justify-center"
+  >
+    <h2
+      class="grav-text-header-2-bold lg:grav-text-header-bold"
+      data-testid="no-agreements"
+    >
+      {{ 'Contracts.NoContracts' | transloco }}
+    </h2>
+  </div>
+</ng-template>

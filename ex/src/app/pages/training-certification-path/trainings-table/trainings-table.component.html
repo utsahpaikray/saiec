@@ -1,0 +1,95 @@
+<ng-container *ngIf="trainings?.length; else noTrainings">
+  <ng-container *ngIf="isTable$ | async; then table; else columns">
+  </ng-container>
+</ng-container>
+
+<ng-template #table>
+  <table *ngIf="trainings" class="w-full" data-testid="table-trainings">
+    <thead>
+      <!-- TODO: remove this class after gravity bug MYVI-5446 is fixed -->
+      <tr class="bg-white">
+        <th data-testid="training-table-header" scope="col">
+          {{ 'Training.TrainingColumn' | transloco }}
+        </th>
+        <th data-testid="training-table-header" scope="col">
+          {{ 'Training.ForColumn' | transloco }}
+        </th>
+        <th data-testid="training-table-header" scope="col">
+          {{ 'Training.DurationColumn' | transloco }}
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-container *ngFor="let training of trainings">
+        <tr
+          *ngIf="training"
+          [routerLink]="training.sys.id"
+          class="cursor-pointer"
+          data-testid="table-training-row"
+        >
+          <td data-testid="table-training-title">
+            {{ training.title }}
+          </td>
+          <td data-testid="table-training-target-group">
+            {{ training.targetGroup }}
+          </td>
+          <td data-testid="table-training-duration">
+            {{ training.duration }}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #columns>
+  <ng-container *ngFor="let training of trainings">
+    <div
+      *ngIf="training"
+      [routerLink]="training.sys.id"
+      class="bg-white cursor-pointer p-m b-none bb-s border-solid border-grey-200"
+      data-testid="trainings-card-list"
+    >
+      <div class="mb-m" data-testid="training-card-title">
+        {{ training.title }}
+      </div>
+
+      <div class="d-flex flex-row <sm:gap-xl gap-3-xl">
+        <div>
+          <div
+            class="grav-text-body-small-medium mb-s"
+            data-testid="card-list-header"
+          >
+            {{ 'Training.ForColumn' | transloco }}
+          </div>
+          <div
+            class="grav-text-body-small-medium mb-s"
+            data-testid="card-list-header"
+          >
+            {{ 'Training.DurationColumn' | transloco }}
+          </div>
+        </div>
+
+        <div class="break-words grav-text-body-small">
+          <div class="mb-s" data-testid="training-card-target-group">
+            {{ training.targetGroup }}
+          </div>
+
+          <div data-testid="training-card-duration">
+            {{ training.duration }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #noTrainings>
+  <div
+    class="d-flex w-full items-center justify-center py-2-xl"
+    data-testid="no-training-text"
+  >
+    {{ 'Training.NoTrainings' | transloco }}
+  </div>
+</ng-template>

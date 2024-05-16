@@ -1,0 +1,10 @@
+query attachmentPreview($caseId: UUID!, $attachmentId: UUID!) {
+  case(caseId: $caseId) {
+    attachments(where: { id: { eq: $attachmentId } }) {
+      id
+      name
+      contentType
+      UrlWithToken
+    }
+  }
+}

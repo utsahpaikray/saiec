@@ -1,0 +1,6 @@
+mutation requestTraining(
+  $siteId: UUID!
+  $trainingRequest: TrainingRequestInput!
+) {
+  requestTraining(siteId: $siteId, trainingRequest: $trainingRequest)
+}

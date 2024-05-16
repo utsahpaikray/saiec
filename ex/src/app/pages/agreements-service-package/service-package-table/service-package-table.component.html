@@ -1,0 +1,234 @@
+<ng-container *ngIf="contractLines?.length; else noContractLines">
+  <ng-container *ngIf="isTable$ | async; then table; else columns">
+  </ng-container>
+</ng-container>
+
+<ng-template #table>
+  <table class="w-full" data-testid="service-package-table">
+    <thead>
+      <!-- TODO: remove this class after gravity bug MYVI-5446 is fixed -->
+      <tr class="bg-white">
+        <ng-container *ngFor="let header of headers">
+          <th data-testid="table-header" scope="col">
+            {{ 'General.' + header | transloco }}
+          </th>
+        </ng-container>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr
+        *ngFor="let contractLine of contractLines"
+        data-testid="table-contract-line"
+      >
+        <!-- Markcode or system -->
+        <td data-testid="table-mark-code-system">
+          {{ setContractLineTitle(contractLine) }}
+        </td>
+
+        <!-- Start & end date -->
+        <td data-testid="table-start-end-date">
+          <ng-template [ngIf]="contractLine.startDate" [ngIfElse]="noStartDate">
+            {{
+              contractLine.startDate | translocoDate : { dateStyle: 'medium' }
+            }}
+          </ng-template>
+          <ng-template #noStartDate>
+            {{ 'General.NoStartDate' | transloco }}
+          </ng-template>
+          -
+          <ng-template [ngIf]="contractLine.endDate" [ngIfElse]="noEndDate">
+            {{ contractLine.endDate | translocoDate : { dateStyle: 'medium' } }}
+          </ng-template>
+          <ng-template #noEndDate>
+            {{ 'General.NoEndDate' | transloco }}
+          </ng-template>
+        </td>
+
+        <!-- Availability -->
+        <td data-testid="table-availability">
+          {{ contractLine.hours || '-' }}/{{ contractLine.days || '-' }}
+        </td>
+
+        <!-- Parts -->
+        <td data-testid="table-parts">
+          {{
+            contractLine.partsIncluded
+              ? ('General.Yes' | transloco)
+              : ('General.No' | transloco)
+          }}
+        </td>
+
+        <!-- Labour -->
+        <td data-testid="table-labor">
+          {{
+            contractLine.laborIncluded
+              ? ('General.Yes' | transloco)
+              : ('General.No' | transloco)
+          }}
+        </td>
+
+        <!-- Calendar -->
+        <td data-testid="table-calendar">
+          {{ contractLine.calendarDescription || '-' }}
+        </td>
+
+        <!-- By phone -->
+        <td data-testid="table-phone">
+          {{
+            contractLine.byphone
+              ? roundValueToTwoDecimals(contractLine.byphone)
+              : '-'
+          }}
+        </td>
+
+        <!-- On site -->
+        <td data-testid="table-on-site">
+          {{
+            contractLine.onsite
+              ? roundValueToTwoDecimals(contractLine.onsite)
+              : '-'
+          }}
+        </td>
+
+        <!-- Visits -->
+        <td data-testid="table-visits">
+          {{
+            contractLine.yearvisits
+              ? roundValueToTwoDecimals(contractLine.yearvisits)
+              : '-'
+          }}
+        </td>
+
+        <!-- Manpower -->
+        <td data-testid="table-manpower">
+          {{
+            roundValueToTwoDecimals(
+              (contractLine.vidays ?? 0) + (contractLine.subcdays ?? 0)
+            )
+          }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #columns>
+  <ng-container *ngFor="let contractLine of contractLines">
+    <div
+      class="d-flex flex-row gap-s bg-white cursor-pointer p-m break-words b-none bb-s border-solid border-grey-200"
+      data-testid="service-package-card-list"
+    >
+      <div>
+        <ng-container *ngFor="let header of headers">
+          <div
+            class="grav-text-body-bold mb-s"
+            data-testid="card-list-header"
+            scope="col"
+          >
+            {{ 'General.' + header | transloco }}
+          </div>
+        </ng-container>
+      </div>
+
+      <div>
+        <!-- Markcode or system -->
+        <div class="mb-s" data-testid="card-mark-code-system">
+          {{ setContractLineTitle(contractLine) }}
+        </div>
+
+        <!-- Start & end date -->
+        <div class="mb-s" data-testid="card-start-end-date">
+          <ng-template [ngIf]="contractLine.startDate" [ngIfElse]="noStartDate">
+            {{
+              contractLine.startDate | translocoDate : { dateStyle: 'medium' }
+            }}
+          </ng-template>
+          <ng-template #noStartDate>
+            {{ 'General.NoStartDate' | transloco }}
+          </ng-template>
+          -
+          <ng-template [ngIf]="contractLine.endDate" [ngIfElse]="noEndDate">
+            {{ contractLine.endDate | translocoDate : { dateStyle: 'medium' } }}
+          </ng-template>
+          <ng-template #noEndDate>
+            {{ 'General.NoEndDate' | transloco }}
+          </ng-template>
+        </div>
+
+        <!-- Availability -->
+        <div class="mb-s" data-testid="card-availability">
+          {{ contractLine.hours || '-' }}/{{ contractLine.days || '-' }}
+        </div>
+
+        <!-- Parts -->
+        <div class="mb-s" data-testid="card-parts">
+          {{
+            contractLine.partsIncluded
+              ? ('General.Yes' | transloco)
+              : ('General.No' | transloco)
+          }}
+        </div>
+
+        <!-- Labour -->
+        <div class="mb-s" data-testid="card-labor">
+          {{
+            contractLine.laborIncluded
+              ? ('General.Yes' | transloco)
+              : ('General.No' | transloco)
+          }}
+        </div>
+
+        <!-- Calendar -->
+        <div class="mb-s" data-testid="card-calendar">
+          {{ contractLine.calendarDescription || '-' }}
+        </div>
+
+        <!-- By phone -->
+        <div class="mb-s" data-testid="card-phone">
+          {{
+            contractLine.byphone
+              ? roundValueToTwoDecimals(contractLine.byphone)
+              : '-'
+          }}
+        </div>
+
+        <!-- On site -->
+        <div class="mb-s" data-testid="card-on-site">
+          {{
+            contractLine.onsite
+              ? roundValueToTwoDecimals(contractLine.onsite)
+              : '-'
+          }}
+        </div>
+
+        <!-- Visits -->
+        <div class="mb-s" data-testid="card-visits">
+          {{
+            contractLine.yearvisits
+              ? roundValueToTwoDecimals(contractLine.yearvisits)
+              : '-'
+          }}
+        </div>
+
+        <!-- Manpower -->
+        <div class=" " data-testid="card-manpower">
+          {{
+            roundValueToTwoDecimals(
+              (contractLine.vidays ?? 0) + (contractLine.subcdays ?? 0)
+            )
+          }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #noContractLines>
+  <div
+    class="d-flex w-full items-center justify-center py-2-xl"
+    data-testid="service-table-message"
+  >
+    {{ 'Contracts.NoContractLines' | transloco }}
+  </div>
+</ng-template>

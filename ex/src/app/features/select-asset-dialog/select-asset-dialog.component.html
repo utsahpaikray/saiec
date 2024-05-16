@@ -1,0 +1,207 @@
+<div (mousewheel)="stopBodyScroll($event)">
+  <grav-card class="w-screen max-h-screen" data-testid="select-asset-dialog">
+    <grav-card-header>
+      <span data-testid="asset-dialog-title" card-title
+        >{{ 'Asset.SelectAssetModalTitle' | transloco }}
+      </span>
+      <button
+        (click)="dialogRef.close(null)"
+        data-testid="asset-dialog-close-button"
+        card-suffix-button
+        ghost
+        secondary
+      >
+        <grav-svg-icon key="cross" size="l"></grav-svg-icon>
+      </button>
+    </grav-card-header>
+
+    <grav-card-content>
+      <div class="asset-dialog-content">
+        <grav-field class="lg:w-half xl:w-third my-m">
+          <input
+            [formControl]="searchText"
+            [placeholder]="
+              'Asset.SelectAssetModal.SearchInputPlaceholder' | transloco
+            "
+            class="truncate"
+            grav-input
+            small
+          />
+          <grav-svg-icon
+            grav-input-prefix
+            key="search"
+            size="s"
+          ></grav-svg-icon>
+          <button
+            *ngIf="searchText.value"
+            (click)="clearSearchText()"
+            class="clear-search-text"
+            card-suffix-button
+            ghost
+            secondary
+          >
+            <grav-svg-icon key="cross" size="s"></grav-svg-icon>
+          </button>
+        </grav-field>
+
+        <ng-container *ngIf="assetSearch$ | async as assetSearch; else loader">
+          <ng-container *ngIf="assetSearch.hasAssets">
+            <app-load-more-paginator
+              [number]="assetSearch.assets?.length || 0"
+              [total]="assetSearch.totalCounts || 0"
+              data-testid="asset-load-more-paginator"
+            ></app-load-more-paginator>
+          </ng-container>
+
+          <div class="asset-table-container vertical-scrollbar">
+            <ng-template
+              [ngIf]="!assetSearch.initialLoading"
+              [ngIfElse]="loader"
+            >
+              <ng-template
+                [ngIf]="
+                  assetSearch.assets &&
+                  assetSearch.assets.length > 0 &&
+                  !assetSearch.initialLoading
+                "
+                [ngIfElse]="noAssets"
+              >
+                <table class="w-full" data-testid="asset-table">
+                  <thead class="<lg:d-none">
+                    <tr>
+                      <th
+                        *ngFor="let header of headers$ | async"
+                        [attr.data-testid]="
+                          'table-header-' + header.toLowerCase()
+                        "
+                        scope="col"
+                      >
+                        <div>
+                          {{ 'Asset.' + header | transloco }}
+                        </div>
+                      </th>
+                      <th
+                        class="text-left"
+                        data-testid="asset-table-header"
+                        scope="col"
+                      ></th>
+                    </tr>
+                  </thead>
+
+                  <tbody *ngIf="assetSearch.hasAssets">
+                    <ng-container
+                      *ngTemplateOutlet="
+                        (breakpoint$ | async) !== viewports.Desktop
+                          ? container
+                          : table;
+                        context: { assets: assetSearch.assets }
+                      "
+                    >
+                    </ng-container>
+                  </tbody>
+                </table>
+              </ng-template>
+            </ng-template>
+          </div>
+
+          <app-load-more
+            *ngIf="assetSearch.hasAssets"
+            [hasMore]="assetSearch.hasMoreAssets || false"
+            [loading]="assetSearch.loadMoreLoading || false"
+            (loadMore)="loadMore(assetSearch.assets || [])"
+            data-testid="asset-list-load-more"
+          ></app-load-more>
+        </ng-container>
+      </div>
+    </grav-card-content>
+  </grav-card>
+
+  <ng-template #container let-assets="assets">
+    <ng-container *ngFor="let asset of assets; let i = index">
+      <tr data-testid="assets-table-row">
+        <td>
+          <grav-container
+            class="<lg:d-flex <lg:flex-col <lg:gap-y-s"
+            data-testid="asset-container"
+          >
+            <div
+              *ngIf="asset.description"
+              class="grav-text-body-bold"
+              data-testid="table-description"
+            >
+              {{ asset.description }}
+            </div>
+            <div data-testid="table-mark-code">
+              {{ asset.markCode }}
+            </div>
+            <div data-testid="table-mark-number">
+              {{ asset.markNumber }}
+            </div>
+
+            <div
+              *ngIf="hasCustomerNumber$ | async"
+              class="<lg:w-full lg:w-2/12"
+              data-testid="table-customer-number"
+            >
+              {{ asset.customerNumber }}
+            </div>
+            <button
+              [attr.data-testid]="'add-item-button-' + i"
+              (click)="dialogRef.close(asset)"
+              class="<lg:self-end"
+              ghost
+            >
+              {{ 'Asset.AddAsset' | transloco }}
+            </button>
+          </grav-container>
+        </td>
+      </tr>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #table let-assets="assets">
+    <ng-container *ngFor="let asset of assets; let i = index">
+      <tr>
+        <td scope="col">
+          {{ asset.description }}
+        </td>
+        <td scope="col">
+          {{ asset.markCode }}
+        </td>
+        <td scope="col">
+          {{ asset.markNumber }}
+        </td>
+        <td *ngIf="hasCustomerNumber$ | async" scope="col">
+          {{ asset.customerNumber }}
+        </td>
+        <td class="w-custom-9 pr-s" scope="col">
+          <button
+            [attr.data-testid]="'add-item-button-' + i"
+            (click)="dialogRef.close(asset)"
+            class="ml-auto"
+            ghost
+          >
+            {{ 'Asset.AddAsset' | transloco }}
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #loader>
+    <div
+      class="d-flex w-full items-center justify-center py-xl loader-spinner"
+      data-testid="loader"
+    >
+      <app-progress-spinner>
+        {{ 'General.Loading' | transloco }}
+      </app-progress-spinner>
+    </div>
+  </ng-template>
+
+  <ng-template #noAssets>
+    <div class="text-center py-xl" data-testid="no-assets-text">
+      {{ 'Assets.SelectAssetTable.NoAssets' | transloco }}
+    </div>
+  </ng-template>
+</div>

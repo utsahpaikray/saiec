@@ -1,0 +1,19 @@
+:host.ng-invalid.ng-touched textarea {
+  border: var(--grav-border-size-s) solid var(--grav-color-feedback-error-border-darker);
+}
+
+:host.ng-invalid.ng-touched:hover textarea {
+  border: var(--grav-border-size-s) solid var(--grav-color-feedback-error-border-darker);
+}
+
+:host.ng-invalid.ng-touched textarea:focus {
+  border: var(--grav-border-size-s) solid var(--grav-color-feedback-error-border-darker);
+}
+
+:host.ng-invalid.ng-touched div.hidden {
+  display: block;
+}
+
+textarea::placeholder {
+  color: var(--grav-color-base-grey-400);
+}

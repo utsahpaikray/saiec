@@ -1,0 +1,215 @@
+<h2
+  class="mt-l grav-text-header-3-medium text-grey-900 md:mt-5-xl md:grav-text-header-medium"
+>
+  {{ 'Training.MyTraining' | transloco }}
+</h2>
+
+<p
+  class="mt-s grav-text-header-3 text-grey-900"
+  data-testid="training-overview-subtitle"
+>
+  {{ 'Training.Description' | transloco }}
+</p>
+
+<h3
+  class="mt-2-xl grav-text-header-3 text-grey-900 md:grav-text-header-2"
+  data-testid="certification-path-subtitle"
+>
+  {{ 'Training.CertificationAndTraining' | transloco }}
+</h3>
+
+<ng-container *ngIf="siteProjectsSegment$ | async; else noTrainings">
+  <ng-container
+    *ngIf="certificationPaths$ | async as certificationPaths; else loading"
+  >
+    <ng-container *ngIf="certificationPaths.length > 0; else noTrainings">
+      <div
+        class="mt-s d-grid items-stretch md:gap-x-xl <lg:gap-y-3 lg:mt-l lg:grid-cols-3"
+      >
+        <ng-container
+          *ngFor="let certificationPath of certificationPaths; let i = index"
+        >
+          <grav-card data-testid="certification-path-card">
+            <grav-card-header>
+              <grav-svg-icon
+                card-prefix-icon
+                key="training"
+                size="2xl"
+              ></grav-svg-icon>
+              <span data-testid="certification-path-card-title" card-title>
+                {{ certificationPath.title || '' }}
+              </span>
+            </grav-card-header>
+            <grav-card-content>
+              <p
+                class="grav-text-body-medium"
+                data-testid="certification-path-card-description"
+              >
+                {{ certificationPath.description || '' }}
+              </p>
+            </grav-card-content>
+            <grav-card-footer>
+              <button
+                [routerLink]="
+                  certificationPath.sys.id
+                    ? './' + certificationPath.sys.id
+                    : undefined
+                "
+                data-testid="certification-path-card-button"
+                ghost
+              >
+                {{ 'General.ReadMore' | transloco }}
+              </button>
+            </grav-card-footer>
+          </grav-card>
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <div class="mt-l md:mt-5-xl">
+    <h3
+      class="mb-s grav-text-header-3-medium text-grey-900 md:mb-l md:grav-text-header-medium"
+    >
+      {{ 'Training.Suggested' | transloco }}
+    </h3>
+
+    <ng-container
+      *ngIf="recommendedList$ | async as recommendedList; else loading"
+    >
+      <div class="d-grid gap-s lg:grid-cols-3 lg:gap-xl">
+        <grav-card
+          *ngIf="recommendedList.genericCertifications"
+          data-testid="certifications-promo-card"
+        >
+          <grav-card-header>
+            <div data-testid="card-title" card-title>
+              {{ recommendedList.genericCertifications.title || '' }}
+            </div>
+          </grav-card-header>
+          <grav-card-content>
+            <p class="mb-auto grav-text-body-medium" data-testid="card-text">
+              {{ recommendedList.genericCertifications.cardDescription || '' }}
+            </p>
+            <grav-svg-icon
+              class="d-flex items-center flex-grow justify-center"
+              key="shield-check-outline"
+              size="4xl"
+            ></grav-svg-icon>
+          </grav-card-content>
+          <grav-card-footer>
+            <div
+              class="d-flex items-center w-full justify-flex-end b-none bt-s border-solid border-t-white pt-m"
+              data-testid="promo-card-link-wrapper"
+            >
+              <button
+                [routerLink]="
+                  recommendedList.genericCertifications.slug
+                    ? './' + recommendedList.genericCertifications.slug
+                    : undefined
+                "
+                data-testid="promo-card-button"
+                ghost
+              >
+                {{ 'General.ReadMore' | transloco }}
+              </button>
+            </div>
+          </grav-card-footer>
+        </grav-card>
+
+        <grav-card
+          *ngFor="
+            let training of recommendedList.recommendedAssortedTrainings;
+            let i = index
+          "
+          data-testid="recommended-card"
+        >
+          <grav-card-header>
+            <div data-testid="recommended-card-title" card-title>
+              {{ training.title || '' }}
+            </div>
+            <p
+              *ngIf="training.targetGroup"
+              data-testid="recommended-card-tags"
+              card-subtitle
+            >
+              <!-- TODO: add for to translation file -->
+              For:
+              <span
+                *ngFor="
+                  let targetGroup of training.targetGroup.split(',');
+                  let last = last
+                "
+              >
+                {{ targetGroup || '' }}{{ !last ? ', ' : '' }}
+              </span>
+            </p>
+          </grav-card-header>
+          <grav-card-content>
+            <p
+              class="mb-auto my-4 grav-text-body-medium"
+              data-testid="recommended-card-description"
+            >
+              {{ training.description || '' }}
+            </p>
+            <img
+              *ngIf="training.cardImageCollection"
+              [alt]="'recommended-card-image-' + training.title"
+              [src]="
+                training.cardImageCollection.items[0]?.url ||
+                trainingCardImagePlaceholder
+              "
+              class="h-64 object-cover object-center"
+              data-testid="recommended-card-image"
+              card-bleeding-content
+            />
+          </grav-card-content>
+          <grav-card-footer>
+            <div class="d-flex justify-space-between items-center w-full">
+              <p
+                *ngIf="training.duration"
+                class="font-medium text-gray-400 <md:text-sm"
+                data-testid="recommended-card-meta"
+              >
+                {{ training.duration }}
+              </p>
+              <button
+                *ngIf="
+                  training.linkedFrom &&
+                  training.linkedFrom.certificationPathCollection
+                "
+                [routerLink]="
+                  training.linkedFrom.certificationPathCollection.items[0]?.sys
+                    ?.id +
+                    '/' +
+                    training.sys.id || null
+                "
+                data-testid="recommended-card-button"
+                ghost
+              >
+                {{ 'General.ReadMore' | transloco }}
+              </button>
+            </div>
+          </grav-card-footer>
+        </grav-card>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noTrainings>
+  <p
+    class="mt-s grav-text-header-3 text-grey-900"
+    data-testid="no-trainings-text"
+  >
+    {{ 'Training.NoTrainings' | transloco }}
+  </p>
+</ng-template>

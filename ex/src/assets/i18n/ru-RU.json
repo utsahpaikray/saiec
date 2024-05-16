@@ -1,0 +1,989 @@
+{
+	"General": {
+		"Dashboard": "Главная страница",
+		"Calendar": "Календарь",
+		"Documentation": "Документация",
+		"Contacts": "Контакты",
+		"SpareParts": "Запасные части",
+		"ViaInsights": "VIA Insights",
+		"Pace": "Pace",
+		"Vidi": "VIDI",
+		"Performance": "Производительность",
+		"Contracts": "Контракты",
+		"Training": "Обучение",
+		"TrainingOverview": "Обзор обучения",
+		"NewsInsights": "Новости и идеи",
+		"Maintenance": "Техническое обслуживание",
+		"Requests": "Запросы",
+		"SiteSettings": "Настройки объекта",
+		"AllSiteSettings": "Все настройки сайта",
+		"Portals": "Порталы",
+		"Users": "Пользователи",
+		"Close": "Закрытие",
+		"AllPortals": "Все порталы",
+		"View": "Просмотр",
+		"Login": "Вход",
+		"Sites": "Объекты ",
+		"User": "Пользователь",
+		"LogOut": "Выход",
+		"Email": "Электронная почта",
+		"PhoneNumber": "Номер телефона",
+		"Address": "Адрес",
+		"Optional": "Дополнительно",
+		"Required": "Обязательно",
+		"Request": "Запрос",
+		"SuccessMessage": "Запрос отправлен.",
+		"ApiError": "Что-то пошло не так. Повторите попытку позднее.",
+		"GoToHome": "Перейти на главную страницу",
+		"MandatoryField": "Это обязательное поле.",
+		"ValidEmail": "Введите действительный адрес электронной почты.",
+		"SpecialCharacter": "Не вводите специальные символы &apos;&lt;&apos; и &apos;&gt;&apos;.",
+		"GoToSite": "Перейти к объекту",
+		"MaxCharacter": "Длина этого текста должна быть менее {{ total }} символов.",
+		"FileTypeWarning": "Недопустим следующий тип файлов:",
+		"MyProfile": "Мой профиль",
+		"AddPortalButton": "Добавить портал",
+		"Save": "Сохранить",
+		"Confirm": "Подтвердить",
+		"Cancel": "Отмена",
+		"Keep": "Сохранить",
+		"Delete": "Удалить",
+		"ReadMore": "Читать далее",
+		"Loading": "Загрузка",
+		"Showing": "Показано {{amount}} из {{ total }}",
+		"ShowMore": "Показать больше",
+		"ShowResult": "Показано {{ number }} из {{ total }}",
+		"NoSitesOrPortals": "У вас нет доступа к каким-либо порталам и (или) сайтам.",
+		"NoPortalsFound": "Соответствующие критериям поиска порталы не найдены.",
+		"NoPortals": "Доступные порталы не найдены.",
+		"Back": "Назад",
+		"ViewDetails": "Просмотр подробных сведений",
+		"Uploaded": "Загружено",
+		"Processing": "Обработка",
+		"Canceled": "Отменено",
+		"Uploading": "Загрузка",
+		"Yes": "Да",
+		"No": "Нет",
+		"MarkcodeOrSystem": "Код маркировки или система",
+		"Availability": "Доступность",
+		"Parts": "Запасные части",
+		"Labour": "Работа",
+		"ByPhone": "Время ответа по телефону (часов)",
+		"OnSite": "На площадке (часов)",
+		"Visits": "Посещения",
+		"ManpowerDaysPerVisit": "Количество человеко-дней на один визит",
+		"StartAndEndDate": "Дата начала и дата окончания",
+		"NoStartDate": "Нет даты начала",
+		"NoEndDate": "Нет даты окончания",
+		"Title": "Название",
+		"NewMessage": "Новое сообщение",
+		"Message": "Сообщение",
+		"SendMessage": "Отправить сообщение",
+		"AddingMessage": "Добавление сообщения",
+		"DateCreated": "Дата создания",
+		"Created": "Создано",
+		"Status": "Статус",
+		"Priority": "Приоритет",
+		"Type": "Тип",
+		"Number": "Номер",
+		"LoadMore": "Загрузить еще",
+		"Search": "Поиск",
+		"ReportOn": "Сообщение отправлено",
+		"MaximoAccessError": "Некоторые функции («Мои контракты», «Мои запросы») в настоящее время недоступны. Чтобы получить к ним доступ, обновите страницу позднее.",
+		"Description": "Описание",
+		"ItemNumber": "Номер элемента",
+		"ItemDescription": "Описание товара",
+		"AddItem": "Добавить элемент",
+		"NoItems": "Соответствующие критериям элементы не найдены",
+		"Edit": "Редактирование",
+		"Remove": "Удалить",
+		"Quantity": "Количество",
+		"Classification": "Классификация",
+		"Category": "Категория",
+		"PleaseAddFile": "Сейчас здесь нет файлов. Добавьте файл по данному элементу.",
+		"Name": "Наименование"
+	},
+	"None": "Нет",
+	"Category": "Категория",
+	"Dashboard": {
+		"WelcomeMessage": "Добро пожаловать в My Vanderlande,",
+		"WelcomeTag": "Добро пожаловать",
+		"WelcomeTitle": "Добро пожаловать в пилотную версию клиентского портала My Vanderlande!",
+		"WelcomeDesc": "Здесь можно получить доступ к документации по объекту, заказать запасные части, просмотреть и запросить варианты обучения и сертификации, а также ознакомиться с профилем контактных лиц в Vanderlande.",
+		"FeedbackTag": "Обратная связь",
+		"FeedbackTitle": "Как вы оцениваете портал?",
+		"FeedbackDesc": "Участвуйте в улучшении портала: сообщите нам свое мнение, дайте советы и предложения, как сделать его еще более полезным. Воспользуйтесь формой обратной связи на этой и других страницах, или отправьте его по адресу myvanderlande@vanderlande.com",
+		"NewsInsightsTag": "Новости и идеи",
+		"ReadMore": "Другие новости и идеи",
+		"AirportTitle": "Vanderlande to develop innovative checkpoint concept for US Department of Homeland Security",
+		"AirportDesc": "Vanderlande’s concept for a self-screening passenger security checkpoint solution for airports has been selected by the US Department of Homeland Security (DHS) for further design, development and operational testing.",
+		"ParcelTitle": "Vanderlande cooperates with PostNord on new parcel sites in Finland",
+		"ParcelDesc": "Vanderlande has been chosen to supply two state-of-the-art sortation systems to the PostNord Group – one of the leading parcel distribution companies in Scandinavia.",
+		"WarehouseTitle": "Speed is of the essence",
+		"WarehouseDesc": "The delivery windows for home delivery of groceries are getting shorter and shorter. The latest trend is to deliver groceries directly to your home within ten minutes.",
+		"SitePerformance": {
+			"Title": "Производительность объекта",
+			"Button": "ПРОСМОТРЕТЬ В {{ appName }}",
+			"Filters": {
+				"OneDay": "1D",
+				"SevenDays": "7D",
+				"ThirtyDays": "30D",
+				"OneYear": "1Y",
+				"ALL": "ВСЕ"
+			},
+			"Charts": {
+				"Availability": {
+					"Title": "Доступность",
+					"Value": "{{value}}%",
+					"Explanation": "{{value}}% ниже целевого значения"
+				},
+				"Performance": {
+					"Title": "Производительность",
+					"Value": "{{value}}%",
+					"Explanation": "{{value}}% ниже целевого значения"
+				},
+				"Throughput": {
+					"Title": "Пропускная способность",
+					"Value": "{{value}}%",
+					"Explanation": "{{value}}% ниже целевого значения"
+				}
+			}
+		}
+	},
+	"Documentation": {
+		"Size": "Размер",
+		"Language": "Язык",
+		"Location": "Расположение",
+		"MyDocumentation": "Моя документация",
+		"OverviewMessage": "Все документы по вашей системе — на кончиках пальцев. При наличии вопросов свяжитесь с менеджером по вашему договору.",
+		"NoDocuments": "Доступные документы не найдены.",
+		"NotFoundMessage": "Результаты по поисковому запросу отсутствуют. Попробуйте поискать другой термин.",
+		"SearchResultsFor": "Результаты поиска по запросу «{{searchText}}»",
+		"DownloadOmManual": "Скачать полное Руководство",
+		"FailedToDownloadOmManual": "Что-то пошло не так. Повторите попытку позднее.",
+		"View": "Просмотр",
+		"Certifications": "Сертификаты",
+		"CertificationsDesc": "Отчеты и сертификаты по оборудованию.",
+		"Contracts": "Контракты",
+		"ContractsDesc": "Проектные и сервисные контракты.",
+		"HealthSafetyEnvironment": "Охрана труда, промышленная безопасность и охрана окружающей среды ",
+		"HealthSafetyEnvironmentDesc": "Письма с технической информацией и указания по безопасности.",
+		"LifeCycleDocumentation": "Документация по жизненному циклу оборудования",
+		"LifeCycleDocumentationDesc": "Документы по обслуживанию системы, управлению логистикой и улучшению бизнеса.",
+		"OmManual": "Руководство по эксплуатации и обслуживанию",
+		"OmManualDesc": "Полный комплект документов по установленной базе.",
+		"OtItDocumentation": "Документация по OT&IT",
+		"OtItDocumentationDesc": "Эксплуатационная и техническая документация по программному обеспечению.",
+		"Projects": "Проекты",
+		"ProjectsDesc": "Отчеты по проектам, системные спецификации, передаваемая документация.",
+		"ReportsAndOthers": "Отчеты и другое",
+		"ReportsAndOthersDesc": "Прочие файлы и отчеты."
+	},
+	"Landing": {
+		"WelcomeMessage": "Добро пожаловать в My Vanderlande",
+		"LadingUnloggedMessage": "Для использования My Vanderlande необходимо войти в систему.",
+		"NotRegistered": "Еще не зарегистрированы?",
+		"ContactManager": "Свяжитесь с менеджером по работе с клиентами.",
+		"LandingTextTitle": "My Vanderlande — цифровая платформа для:",
+		"LandingTextLine1": "Технической и рабочей документации",
+		"LandingTextLine2": "Бесперебойной коммуникации с Vanderlande",
+		"LandingTextLine3": "Оценки производительности и состояния вашей системы",
+		"LandingTextLine4": "Ознакомления с полным ассортиментом наших услуг и учебных курсов",
+		"LandingTextLine5": "Доступа ко всем цифровым приложениям",
+		"ContactLink": "Контакты",
+		"CopyrightText": "Copyright {{year}} Vanderlande Industries B.V. Все права защищены.",
+		"PrivacyLink": "Заявление о конфиденциальности",
+		"CookiePolicy": "Политика в отношении файлов cookie",
+		"CookiePreferences": "Пользовательские настройки файлов cookie",
+		"LogInTitle": "Вход",
+		"LogInButton": "Вход"
+	},
+	"NotFound": {
+		"Message": "Битая ссылка, или страница удалена."
+	},
+	"ErrorStatePIModule": {
+		"Message": "Не удалось открыть идеи процесса.",
+		"Reason": "Чтобы получить доступ к модулю идей процессов в аэропортах, необходимо подключиться к VPN."
+	},
+	"AccessDenied": {
+		"Message": "Страница, которую вы пытаетесь открыть, имеет ограниченный доступ. \nДля получения доступа свяжитесь со своим контактным лицом из Vanderlande."
+	},
+	"Portal": {
+		"Overview": "Обзор портала"
+	},
+	"Training": {
+		"MyTraining": "Мое обучение",
+		"Description": "Мотивируйте сотрудников на эффективную работу и обслуживание системы. Учебные курсы составлены исходя из установленной базы и разработаны согласно конкретным потребностям вашей команды.",
+		"Certifications": "Сертификаты",
+		"CertificationPath": "Порядок сертификации",
+		"CertificationAndTraining": "Пройдите обучение и получите сертификат по",
+		"CardLinkText": "Читать далее",
+		"Suggested": "Предложено",
+		"TrainingColumn": "Обучение",
+		"ForColumn": "Для",
+		"DurationColumn": "Продолжительность",
+		"NoTrainings": "Тренинги не найдены.",
+		"TrainingBackBtn": "Обзор обучения",
+		"RequestBtn": "Запросить",
+		"Modules": "Модули",
+		"ElectiveModules": "Факультативные модули",
+		"MetaTargetGroup": "Целевая группа",
+		"MetaPrerequisites": "Предварительные условия",
+		"MetaDuration": "Продолжительность",
+		"MetaMaxTrainees": "Макс. число обучающихся",
+		"MetaSystemAvailability": "Доступность системы",
+		"Required": "Обязательно",
+		"SendBtn": "Отправить",
+		"RequestSuccessMsg": "Запрос на обучение отправлен.",
+		"OperationsTitle": "Операции",
+		"OperationsDesc": "Как эксплуатировать систему. Эффективное использование операторских рабочих станций.",
+		"LogisticsTitle": "Логистика",
+		"LogisticsDesc": "Как обеспечить эффективную и надежную работу системы транспортировки материалов. Понимание системы для оптимизации производительности.",
+		"MaintenanceTitle": "Техническое обслуживание и информационные технологии",
+		"MaintenanceDesc": "Как обслуживать систему. Эффективное поддержание работоспособности всех компонентов (механики, электрики, а также систем управления низкого и высокого уровней)."
+	},
+	"UserProfile": {
+		"Title": "Профиль пользователя",
+		"Access": "Доступ",
+		"AddPortal": "Добавить портал",
+		"Privacy": "Конфиденциальность",
+		"PrivacyLink": "Заявление о конфиденциальности",
+		"CookiePolicy": "Политика в отношении файлов cookie",
+		"TermsAndConditions": "Положения и условия",
+		"CookiePreferences": "Пользовательские настройки файлов cookie",
+		"Preferences": "Параметры",
+		"PreferredLanguage": "Предпочтительный язык",
+		"LanguageUpdated": "Предпочтительный язык обновлен.",
+		"ProfileTab": "Профиль и пользовательские настройки",
+		"AuthorizationTab": "Авторизация и доступ"
+	},
+	"UserAccess": {
+		"SelectPortal": "Выбрать портал",
+		"RevokeAccess": "Отозвать доступ",
+		"AccessAdded": "Добавлен доступ к {{name}}.",
+		"AccessRevoked": "Отозван доступ к {{name}} и соответствующим объектам.",
+		"SiteAccessRevoked": "Отозван доступ к: {{name}}.",
+		"Title": "Доступ",
+		"DeallocateContractManagerError": "Менеджера по договорам нельзя освободить от его объектов.",
+		"SitesSubtitle": "Объекты"
+	},
+	"UserAuthorization": {
+		"Title": "Авторизация",
+		"Message": "Пользовательские роли относятся ко всем подключенным порталам и объектам.",
+		"VanderlandeUserMessage": "Могут читать всю информацию о сайтах и порталах, к которым они имеют доступ.",
+		"CustomerMessage": "Учетная запись для пользователя заказчика. Может заходить и просматривать только объект(ы) одного портала.",
+		"SuperUserMessage": "Могут изменять любую информацию на любом портале или сайте. ",
+		"PortalAdminMessage": "Могут вносить изменения в порталы и сайты в качестве администраторов, загружать и удалять документы, контакты и т.п.",
+		"RoleAssigned": "Назначена пользовательская роль: {{role}}."
+	},
+	"TrainingRequest": {
+		"PreviousPage": "Предыдущая страница",
+		"Title": "Новый запрос",
+		"Required": "Обязательно",
+		"YourRequest": "Your request",
+		"RequestType": {
+			"Label": "What would you like to request?",
+			"ErrorText": "Please select what you would like to request.",
+			"Training": "Training",
+			"Certification": "Certification"
+		},
+		"Remarks": {
+			"Label": "Remarks",
+			"Placeholder": "Third-party equipment, other requests and specifications."
+		},
+		"Topics": {
+			"Label": "Topics",
+			"Placeholder": "Select certification path",
+			"ErrorText": "Please select a certification path."
+		},
+		"Trainings": {
+			"ErrorText": "Please select at least one training."
+		},
+		"PreviousTraining": {
+			"Label": "Previous training",
+			"Placeholder": "Have the trainees received relevant training before?"
+		},
+		"WhenAndWhere": "When and where",
+		"PreferredDatesOrPeriod": {
+			"Label": "Preferred date(s) or period",
+			"Placeholder": "Specific date or Q1, next spring, before Christmas or as soon as possible.",
+			"Note": "A cancellation less than 7 days before the start date results in a cancellation fee similar to the preparation and training hours of the training"
+		},
+		"PreferredTrainingLocation": {
+			"Label": "Preferred training location",
+			"NoteVeghel": "Customer Centre is responsible for all travel arrangements and accommodation requirements. This includes travel arrangements from hotel to Vanderlande and back. Please send a copy of the travel arrangements to the Trainer.",
+			"NoteAnotherLocation": "We will charge travel and accommodation costs for the trainer."
+		},
+		"PreferredLocation": {
+			"Label": "Preferred location",
+			"Placeholder": "Location where you would like to receive the training."
+		},
+		"Participants": {
+			"Label": "Participants",
+			"Note": "The minimum amount of participants is 2. Large groups may have to be broken up into smaller ones.",
+			"Name": {
+				"Label": "Name",
+				"Placeholder": "Name"
+			},
+			"Email": {
+				"Label": "E-mail",
+				"Placeholder": "E-mail address",
+				"ErrorText": "Please enter a valid e-mail address."
+			},
+			"AddParticipants": "Add participants"
+		},
+		"Location": {
+			"Label": "Location",
+			"Placeholder": "Site where the participants are working."
+		},
+		"RequestDetails": "Request details",
+		"Contact": {
+			"Label": "Contact",
+			"Placeholder": "Project / Account / Maintenance Manager or Customer Centre"
+		},
+		"Requester": {
+			"Label": "Requester"
+		},
+		"RequesterName": {
+			"Label": "Requester name",
+			"Placeholder": "Name",
+			"RequiredError": "This field is mandatory."
+		},
+		"RequesterRole": {
+			"Label": "Requester role",
+			"Placeholder": "Role or Job title"
+		},
+		"RequesterEmail": {
+			"Label": "Requester e-mail",
+			"Placeholder": "E-mail address",
+			"RequiredError": "Please enter an e-mail address.",
+			"ValidError": "Please enter a valid e-mail address.",
+			"Note": "You will receive the confirmation of this request on this e-mail address."
+		},
+		"Send": "Отправить",
+		"DiscardTitle": "Отменить изменения?",
+		"DiscardText": "Если вы продолжите, введенная вами информация будет утеряна. Продолжить?",
+		"KeepEditing": "Продолжить редактирование",
+		"NoSiteContracManager": {
+			"ErrorText": "Онлайн-запрос тренинга временно недоступен. Для запроса тренинга свяжитесь со своим контактным лицом из Vanderlande."
+		}
+	},
+	"Contacts": {
+		"MyContacts": "Мои контакты",
+		"AccountManagerContact": "Менеджер учетных записей",
+		"ContractManagerContact": "Менеджер по договорам",
+		"ItManagerContact": "IT-менеджер",
+		"SparePartsContact": "Контактное лицо по запасным частям",
+		"ServiceDeskContact": "Служба технической поддержки",
+		"VisitingOfficeContact": "Посещение офиса",
+		"DownloadAsVCard": "Скачать как vCard",
+		"OutsideWorkingHours": "продолжительность рабочего времени на выезде (ч)",
+		"NoContacts": "Доступные контакты не найдены."
+	},
+	"AddPortal": {
+		"NewPortal": "Новый портал",
+		"PortalTitle": "Название портала",
+		"PortalTitleDesc": "Будет отображаться заказчикам. Обсудите с заказчиком желаемое название. Проверьте основные данные для правильного и релевантного названия.",
+		"PortalTitleErr1": "Портал с таким названием уже существует. Используйте другое название.",
+		"PortalTitleErr2": "Это обязательное поле. Введите название портала.",
+		"PortalTitleErr3": "Название слишком длинное; убедитесь, что оно не превышает 50 символов.",
+		"PortalTitleErr4": "Используйте только буквы и цифры.",
+		"Customer": "Заказчик",
+		"CustomerDesc": "Наименование компании заказчика. Требуется для внутреннего администрирования.",
+		"CustomerErr1": "Это обязательное поле. Введите заказчика.",
+		"CustomerErr2": "Мы не нашли заказчиков с названием {{name}}.",
+		"CustomerErr2Button": "Добавить нового заказчика",
+		"AddPortal": "Добавить портал",
+		"Cancel": "Отмена"
+	},
+	"PortalAdmin": {
+		"Administration": "Администрирование",
+		"PortalSettings": "Настройки портала",
+		"Users": "Пользователи",
+		"NoUsersFound": "Соответствующие критериям поиска пользователи не найдены.",
+		"NoUsers": "Пользователи не найдены.",
+		"Sites": "Объекты",
+		"AddSite": "Добавить объект",
+		"SitesEmpty": "На этот портал еще не добавлены объекты.",
+		"NewSite": "Новый объект",
+		"SiteName": "Название объекта",
+		"SitenameDesc": "Название будет отображаться заказчикам. Используйте описательное название.",
+		"SiteID": "ID объекта",
+		"SiteIdDesc": "Используйте уникальный идентификатор объекта из основных данных: номер установленной базы от Enovia.",
+		"Cancel": "Отмена",
+		"SiteTitleErr1": "Объект с этим ID уже существует в My Vanderlande. Используйте другой ID.",
+		"SiteTitleErr2": "Это обязательное поле.",
+		"SiteTitleErr3": "Слишком длинное название.",
+		"NotPublishedLabel": "Не опубликован"
+	},
+	"PortalGeneralSettings": {
+		"GeneralSettings": "Общие настройки",
+		"Training": "Обучение",
+		"TrainingDesc": "Какие учебные курсы должны отображаться для объектов на этом портале?",
+		"TrainingErrorText": "Выберите как минимум один учебный ассортимент.",
+		"TrainingErrorToast": "Не удалось сохранить учебный(ые) ассортимент(ы). Повторите попытку.",
+		"SettingsSaveSuccessMsg": "Настройки сохранены.",
+		"DeletePortal": "Удалить портал",
+		"DeletePortalDesc": "Все данные будут удалены без возможности восстановления. У пользователей не будет доступа к порталу или его объектам."
+	},
+	"SiteAdmin": {
+		"PublishNotification": "Этот объект еще не опубликован, а потому не показывается заказчикам.",
+		"PublishButton": "Опубликовать",
+		"Users": "Пользователи",
+		"GeneralSettings": "Общие настройки сайта",
+		"Documentation": "Документация",
+		"Contacts": "Контакты"
+	},
+	"SiteAdminDocumentation": {
+		"Subtitle": "Управление документами сайта",
+		"AmountOfDocuments": "# документа",
+		"AmountOfDocumentsZero": "{{number}} документов",
+		"AmountOfDocumentsOne": "{{number}} документ",
+		"AmountOfDocumentsPlural": "{{number}} документа",
+		"MessageZeroDocs": "Эта папка не показывается пользователям",
+		"AddDocuments": "Добавить документы",
+		"SelectedDocuments": "Выбранные документы",
+		"DocumentCategory": "Категория документа",
+		"DocumentCategoryError": "Выберите категорию документа",
+		"DocumentLanguage": "Язык документа (документов)",
+		"DocumentLanguageError": "Выберите язык документа.",
+		"SelectFiles": "Выберите файл.",
+		"SelectFolder": "Выберите папку.",
+		"AllowedFileTypes": "Один или несколько типов файлов, которые вы выбрали, являются недопустимыми.",
+		"CancelButton": "Отмена",
+		"UploadButton": "Загрузить",
+		"Download7Zip": "Скачать 7zip",
+		"ZipFileSelected": "Убедитесь, что файл .zip создан с помощью программы 7zip. Чтобы все символы отображались корректно, при создании архива введите «cu» в поле «Параметры».",
+		"UploadError": "Не удалось загрузить {{fileName}}.",
+		"CancelUploadSuccess": "Загрузка отменена.",
+		"DeleteFileSuccess": "Файл удален.",
+		"TableDocumentTitle": "Название документа",
+		"TableDateUploaded": "Дата загрузки",
+		"TableUploadedBy": "Загрузил",
+		"OAndMMessage": "В случае отсутствия руководства по эксплуатации и обслуживанию, некорректных или недостаточных данных обратитесь по адресу {{email}}",
+		"OAndMLink": "Отправить сообщение электронной почты",
+		"DragNDropLink": "Выбрать файл(ы)",
+		"DragNDropText": "или перетащить сюда",
+		"Pop-upUploadDoc": "Загрузить документ",
+		"UploadErr1": "Что-то пошло не так. Повторите загрузку.",
+		"CancelUploadsModalTitle": "Отменить все загрузки?",
+		"CancelUploadsModalText": "Ваши загрузки не завершены. Отменить выполняемые загрузки?",
+		"CancelUploadsModalText2": "Загрузку некоторых добавляемых вами файлов больше нельзя отменить. Если вы хотите отменить загрузку, подождите, пока завершится обработка файлов, а затем удалите их.",
+		"CancelUploadsModalConfirmText": "Отменить загрузки",
+		"CancelUploadsModalConfirmText2": "",
+		"CancelUploadsModalCancelText": "Продолжить загрузки",
+		"BottomSheetTitle": "Ход выполнения загрузки",
+		"ConfirmationModalTitle": "Удалить документ?",
+		"ConfirmationModalMessage": "Вы уверены, что хотите удалить? Этот файл больше не будет доступен клиенту."
+	},
+	"SiteAdminContacts": {
+		"AccountManager": "Менеджер учетных записей",
+		"ContractManager": "Менеджер по договорам",
+		"ITManager": "IT-менеджер",
+		"SparePartsContact": "Контактное лицо по запасным частям",
+		"VisitingOffice": "Посещение офиса",
+		"ServiceDesk": "Служба технической поддержки",
+		"PreferredServiceDesk": "Предпочтительная служба технической поддержки",
+		"CustomTitle": "Другая должность",
+		"CustomTitleDesc": "Заполните поле для замены '{{Account manager}}' другим названием",
+		"ShowThisContactChkbx": "Показывать контактное лицо заказчикам",
+		"ShowThisContactChkbxDisabled": "Это контактное лицо невозможно скрыть",
+		"NameAndLastName": "Имя и фамилия",
+		"NameOfOffice": "Название офиса",
+		"EMail": "Эл. почта",
+		"PhoneNumberOutsideWorkingHours": "Номер телефона для связи в нерабочее время",
+		"ContactDetails": "Контактные данные",
+		"FieldErr1": "Поле не может быть пустым."
+	},
+	"SiteAdminGeneralSettings": {
+		"SiteDetails": "Данные объекта",
+		"SpareParts": "Магазин запасных частей",
+		"SparePartsQ1": "Имеется ли для этого объекта учетная запись магазина запасных частей?",
+		"Vidi": "VIDI",
+		"VidiQ1": "Показывать клиентам ссылку на VIDI в меню?",
+		"MyContracts": "Мои контракты",
+		"MyContractsQ1": "Показывать клиентам ссылку на страницу «Мои контракты»?",
+		"ProcessInsights": "Process Insights",
+		"ProcessInsightsLabel": "Показывать клиентам ссылку на идеи процессов в меню?",
+		"DivertHealth": "Divert Health",
+		"DivertHealthLabel": "Показывать клиентам ссылку на Divert Health в меню?",
+		"DivertHealthRequiredErrorLabel": "Укажите URL-адрес вашей среды Divert Health.",
+		"DivertHealthInvalidErrorLabel": "Укажите действительный URL-адрес вашей среды Divert Health.",
+		"DivertHealthInputLabel": "Какой URL-адрес для Divert Health?",
+		"ShuttleHealth": "Shuttle Health",
+		"ShuttleHealthLabel": "Показывать клиентам ссылку на Shuttle Health в меню?",
+		"ShuttleHealthRequiredErrorLabel": "Укажите URL-адрес вашей среды Shuttle Health.",
+		"ShuttleHealthInvalidErrorLabel": "Укажите действительный URL-адрес вашей среды Shuttle Health.",
+		"ShuttleHealthInputLabel": "Какой URL-адрес для Shuttle Health?",
+		"Cases": {
+			"Title": "Обращения",
+			"EventSources": {
+				"Label": "Обращения к правилам продвижения заказов на работу",
+				"Rules": {
+					"Disabled": "Отключение",
+					"Manual": "Ручной",
+					"Automatic": "Автоматический"
+				},
+				"Types": {
+					"Monitron": "Monitron",
+					"ShuttleHealth": "Shuttle Health",
+					"DivertHealth": "Divert Health",
+					"OperationalAwareness": "Оперативная осведомленность"
+				}
+			},
+			"Enable": {
+				"Label": "Нужно ли показывать ссылку на «Обращения» в меню?"
+			},
+			"ErrorMessage": "Включите минимум одно правило продвижения заказов на работу"
+		},
+		"SettingsSaveSuccessMsg": "Настройки сохранены.",
+		"SiteStatus": "Статус объекта",
+		"Status": "Статус:",
+		"NotPublished": "Не опубликован",
+		"NotPublishedDesc": "Пользователи заказчика еще не имеют к нему доступа или не видят данных.",
+		"PublishBtn": "Опубликовать",
+		"Published": "Опубликован",
+		"PublishedDesc": "Пользователи могут просматривать всю информацию об этом объекте.",
+		"DeleteSite": "Удалить объект",
+		"DeleteSiteDesc": "Все данные будут удалены без возможности восстановления. Пользователи не смогут их просматривать.",
+		"DeleteBtn": "Удалить"
+	},
+	"SiteAdminPublishSite": {
+		"DoYouWant": "Хотите опубликовать {{Site name}}?",
+		"DoYouWantDesc": "Связанные пользователи смогут просматривать объект и его данные.",
+		"PublishBtn": "Опубликовать",
+		"CancelBtn": "Отмена",
+		"PublishedToaster": "{{Site name}} опубликован."
+	},
+	"AddUserModal": {
+		"AddUserBtn": "Добавить пользователя",
+		"ModalTitle": "Добавить пользователя",
+		"InputLabel": "Поиск по учетной записи vanderlande-cloud.com",
+		"InputPlaceholder": "Введите учетную запись",
+		"InputErrorText": "Введите действительную учетную запись.",
+		"InfoText": "Учетная запись vanderlande-cloud.com также известна как UPN (главное имя пользователя).",
+		"SearchBtn": "Поиск",
+		"SearchNoResults": "Соответствующие критериям поиска пользователи не найдены.",
+		"AddUserMsg1": "Этот пользователь уже найден и может быть добавлен в раздел My Vanderlande. Не забудьте назначить порталы и сайты.",
+		"OpenProfileBtn": "Открыть профиль",
+		"AddUserMsg2": "У этого пользователя еще нет учетной записи Vanderlande. Используйте учетную запись Azure, оканчивающуюся на «@vanderlande-cloud.com».",
+		"RequestAccountBtn": "Запросить учетную запись",
+		"AddUserSuccessMsg": "Пользователь {{name}} добавлен в My Vanderlande",
+		"CancelBtn": "Отмена",
+		"DisabledUserError": "Невозможно добавить этого пользователя, так как его учетная запись Azure AD неактивна. Вы можете активировать учетную запись посредством запроса TopDesk."
+	},
+	"BusinessUnits": {
+		"Airport": "Аэропорт",
+		"Parcel": "Экспресс-почта",
+		"Warehouse": "Склад"
+	},
+	"Contracts": {
+		"MyContracts": "Мои контракты",
+		"Contract": "Контракт",
+		"NoContracts": "Сведения о контрактах недоступны.",
+		"ExistingContracts": "Существующие контракты",
+		"AgreementLabel": "Номер контракта",
+		"StartDateLabel": "Дата начала",
+		"EndDateLabel": "Дата окончания",
+		"ContractsOverview": "Обзор контрактов",
+		"WholeSystem": "Вся система",
+		"NoContractLines": "Сведения о контрактах недоступны."
+	},
+	"WarrantyClaims": {
+		"MyWarranty": "Претензии по гарантии",
+		"NewWarranty": "Новые претензии по гарантии",
+		"SelectItemModal": {
+			"Title": "Выберите гарантийный товар",
+			"SearchInputPlaceholder": "Поиск по номеру товара, описанию, классификации или категории выпускаемого товара"
+		},
+		"CustomerSiteContact": {
+			"Title": "Контактное лицо на объекте клиента",
+			"Placeholder": "Выбрать контактное лицо",
+			"LeftAssertiveText": "Выберите контактное лицо на месте"
+		},
+		"TicketReference": {
+			"Title": "Идентификатор вашего запроса",
+			"LeftAssertiveText": "Номер запроса в вашей внутренней системе запросов"
+		},
+		"Summary": {
+			"Title": "Итоги",
+			"LeftAssertiveText": "Дайте краткое название своей претензии по гарантии, чтобы вы могли легко ее распознать."
+		},
+		"CreateWarrantyClaim": "Создать претензию по гарантии",
+		"SelectedItem": {
+			"Title": "Информация о товаре",
+			"Placeholder": "Выберите товар и количество неисправного товара"
+		},
+		"SelectItemButton": "Выберите товар",
+		"ChangeItemButton": "Изменить товар",
+		"WarrantyParts": "Гарантийная часть",
+		"AddWarrantyItem": "Добавить гарантийный товар",
+		"SerialNumber": "Серийный номер",
+		"WarrantyReasonLabel": "Подробное описание неисправности",
+		"WarrantyReasonInfoText": "Укажите описание неисправности, объясняющее причину вашей претензии",
+		"WarrantyInfo": "Гарантийная информация",
+		"BreakdownDate": "Дата возникновения неисправности",
+		"AddToWarranty": "Добавить к гарантии"
+	},
+	"Tickets": {
+		"MyTickets": "Мои запросы",
+		"AllTickets": "Все запросы",
+		"OpenTickets": "Открытые запросы",
+		"NoOpenTickets": "Открытые запросы не найдены.",
+		"TicketNumber": "Запрос {{ number }}",
+		"TicketPriority": "Приоритет {{ priority }}",
+		"ViewAllTickets": " Показать все запросы",
+		"CreateTicket": "Создать запрос",
+		"NewTicket": "Новый запрос",
+		"Details": "Данные",
+		"TicketType": "",
+		"IssueType": {
+			"Title": "Каково содержание запроса?",
+			"Incident": {
+				"Label": "Инцидент",
+				"Description": "Незапланированное прерывание оказания Услуги или снижение Качества повседневной работы системы Vanderlande"
+			},
+			"Servicerequest": {
+				"Label": "Запрос на обслуживание",
+				"Description": ""
+			},
+			"Problem": {
+				"Label": "",
+				"Description": ""
+			},
+			"Change": {
+				"Label": "",
+				"Description": ""
+			},
+			"Changerequest": {
+				"Label": "Изменить запрос",
+				"Description": "Кроме того, добавление, изменение или удаление всего, что может повлиять на систему или предоставление услуг Vanderlande"
+			},
+			"Problemreport": {
+				"Label": "Сообщение о проблеме",
+				"Description": "Причина или потенциальная причина одного или нескольких Инцидентов, которые должны быть расследованы Vanderlande"
+			}
+		},
+		"Priority": {
+			"Placeholder": "Выбрать приоритет",
+			"AssistiveText": "По поводу запросов с высоким приоритетом следует обращаться в Службу поддержки. Это обеспечит своевременное реагирование."
+		},
+		"InternalReferenceNumber": {
+			"Label": "Внутренний регистрационный номер",
+			"AssistiveText": "Номер запроса в вашей внутренней системе учета запросов, если используется."
+		},
+		"Situation": "Ситуация",
+		"ShortSummary": {
+			"Label": "Краткое описание",
+			"AssistiveText": "Оно будет использоваться в качестве заголовка запроса."
+		},
+		"Description": {
+			"Incident": "Признак:\nОшибка:\nОбласть/зона:\nПоследствия для бизнеса клиента:\n\nОтвет с описанием этапов устранения неполадок:\nПовторяющийся инцидент:\nОписание ситуации, предшествующей инциденту:\nПроизошли ли какие-либо изменения в системе недавно или за последние 48 часов:\n\nНаходится ли контактное лицо на месте:\nКонтактное лицо на месте работает до:\nДата и примерное время обнаружения инцидента: ",
+			"Servicerequest": "Описание обращения:\nПричина данного обращения:",
+			"Changerequest": "",
+			"Problemreport": ""
+		},
+		"Links": {
+			"Title": "Ссылки"
+		},
+		"OnSiteContact": {
+			"Title": "Контактное лицо на месте",
+			"Label": "Имя, фамилия",
+			"Placeholder": "Выбрать контактное лицо",
+			"AssistiveText": "Чтобы добавить новый контакт в список возможных контактных лиц свяжитесь со своим контактным лицом из Vanderlande."
+		},
+		"Information": "Информация о запросе",
+		"ViewTicket": "Просмотр запроса",
+		"ReportedOn": {
+			"Label": "Сообщение отправлено"
+		},
+		"ReferenceNumber": {
+			"Title": "Внутренний регистрационный номер"
+		},
+		"SendTicketButton": "Отправить запрос",
+		"TicketLog": {
+			"Label": "Журнал запросов"
+		},
+		"NoMessagesAvailable": "Отсутствуют сообщения об этом запросе.",
+		"TicketCreated": "Запрос создан.",
+		"CustomerSatisfaction": {
+			"Subtitle": "Ваше мнение очень важно",
+			"Info": "Мы хотим узнать, насколько хорошо специалисты Vanderlande справились с решением этого инцидента. Нажмите на значок смайлика ниже, который лучше всего соответствует вашему опыту.",
+			"Satisfied": "Удовлетворительно",
+			"Neutral": "Нейтрально",
+			"Dissatisfied": "Неудовлетворительно"
+		}
+	},
+	"Asset": {
+		"AffectedAsset": "Затронутый актив",
+		"AssetInfo": "Информация об активе",
+		"SelectAssetBtn": "Выбрать актив",
+		"ChangeAssetBtn": "Изменить актив",
+		"AddAsset": "",
+		"SelectAssetModalTitle": "Выберите затронутый актив",
+		"SelectAssetModal": {
+			"SearchInputPlaceholder": "Поиск по имени, коду маркировки, номеру маркировки, описанию"
+		},
+		"SelectAssetTable": {
+			"AddToTicketBtn": "Добавить к запросу"
+		},
+		"Description": "Описание",
+		"MarkCode": "Код маркировки",
+		"MarkNumber": "Номер маркировки",
+		"Asset": "Актив",
+		"AssetDescription": "Описание актива",
+		"MarkCodeAndNumber": "Код и номер маркировки"
+	},
+	"Assets": {
+		"SelectAssetTable": {
+			"NoAssets": "Соответствующие критериям поиска активы не найдены."
+		}
+	},
+	"Attachments": {
+		"Title": "Вложения",
+		"AddBtn": "Добавить вложение",
+		"Information": "Максимальный размер вложения - 10 Мб.",
+		"FileSizeError": "Один или несколько выбранных файлов имеют слишком большой размер. Допустимый размер загружаемых файлов не должен превышать 10 Мб.",
+		"UploadWarning": "После загрузки файла его нельзя удалить.",
+		"DescriptionPlaceholder": "Замечания по содержанию и цели данного файла",
+		"FileUploadMessage": "Добавление файла к запросу"
+	},
+	"ContextualCollaboration": {
+		"MyCases": "Мои обращения",
+		"NoCases": "Нет обращений.",
+		"CaseStatusOpen": "Открытые",
+		"CaseStatusInProgress": "Выполнение",
+		"CaseStatusClosed": "Закрытые",
+		"ViewCase": "Просмотр обращения",
+		"CaseInfo": "Информация об обращении",
+		"EventDetails": "Данные о событии",
+		"CaseStatusChangedSuccessMsg": "Статус изменен на &quot;{{ caseStatus }}&quot;",
+		"CaseOverview": {
+			"PageHeader": {
+				"Title": "Обращения",
+				"NewCase": "Новое обращение",
+				"Breadcrumbs": {
+					"Cases": "Обращения",
+					"Site": "Объект"
+				}
+			},
+			"CaseTable": {
+				"Headers": {
+					"EventSource": "Источник события",
+					"Summary": "Итоги",
+					"CaseNumber": "Номер обращения",
+					"LastUpdated": "Последнее обновление",
+					"Status": "Статус",
+					"WorkorderID": "Идентификатор заказа на работу"
+				}
+			},
+			"Status": {
+				"Open": "Открытие",
+				"InProgress": "Выполнение",
+				"Closed": "Закрытые",
+				"Rejected": "Отклоненные"
+			},
+			"LastUpdated": "",
+			"EventSource": {
+				"Monitron": "Monitron",
+				"ShuttleHealth": "Shuttle Health",
+				"DivertHealth": "Divert Health",
+				"OperationalAwareness": "Operational Awareness"
+			}
+		},
+		"Breadcrumbs": {
+			"Cases": "Обращения",
+			"NewCase": "Новое обращение",
+			"CaseDetails": "Данные об обращении"
+		},
+		"NewCase": {
+			"CreateCase": "Создать обращение",
+			"Title": "Новое обращение",
+			"WhatIsThisCaseAbout": "Каково содержание обращения?",
+			"TitleField": {
+				"Eyebrow": "Название обращения – обязательно"
+			},
+			"AssetSelector": {
+				"Eyebrow": "Затронутый актив"
+			},
+			"DescriptionField": {
+				"Eyebrow": "Описание – обязательно"
+			},
+			"Attachments": {
+				"AddAttachment": "Добавить вложение",
+				"Emptystate": {
+					"Title": "Нет добавленных файлов",
+					"Explanation": "Добавьте ваш файл (ваши файлы) по данному элементу."
+				},
+				"Eyebrow": "Добавить вложение к обращению"
+			},
+			"OnSiteContact": {
+				"Placeholder": "Выберите контактное лицо на месте",
+				"AssistiveText": "Чтобы развернуть этот список, свяжитесь со своим контактным лицом из Vanderlande.",
+				"Eyebrow": "Контактное лицо на месте – обязательно"
+			},
+			"EventSource": {
+				"Eyebrow": "Источник события – обязательно",
+				"Placeholder": "Выберите источник события"
+			}
+		},
+		"CaseDetails": {
+			"CaseMessaging": "Сообщения",
+			"CaseInformation": "Информация об обращении",
+			"Description": "Описание",
+			"Details": "Данные",
+			"Attachments": "Вложения: ({{ count }})",
+			"AddAttachments": "Добавить вложения",
+			"Dismiss": "Отклонить",
+			"Promote": "Продвинуть",
+			"Case": "{{ caseId }} – обращение",
+			"Status": "Статус",
+			"StatusOpen": "Открытие",
+			"StatusInProgress": "Выполнение",
+			"StatusClosed": "Закрытые",
+			"StatusUnknown": "Неизвестно",
+			"ReportedOn": "Сообщение отправлено",
+			"ReportedBy": "Автор сообщения",
+			"AffectedAsset": "Затронутый актив",
+			"OnSiteContact": "Контактное лицо на месте",
+			"FileUploadedOn": "Файлы загружены { uploadedOn, date, long }",
+			"EventSource": "",
+			"WorkOrderId": "",
+			"Header": {
+				"Title": "",
+				"Breadcrumbs": {
+					"Cases": "",
+					"CaseDetails": ""
+				},
+				"Status": {
+					"Open": "",
+					"InProgress": "",
+					"Closed": "",
+					"Rejected": ""
+				},
+				"Action": {
+					"WorkOrder": "",
+					"Close": "",
+					"Reject": "",
+					"InProgress": ""
+				}
+			},
+			"ReportedOnDate": "",
+			"ConfirmationModal": {
+				"CreateWorkOrder": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"CloseCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"RejectCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				},
+				"InProgressCase": {
+					"Title": "",
+					"Message": "",
+					"Confirm": "",
+					"Cancel": ""
+				}
+			},
+			"Error": {
+				"CreateWorkOrder": ""
+			}
+		}
+	},
+	"AttachmentComponent": {
+		"AddAttachment": "Добавить вложение",
+		"EmptyStateTitle": "Нет добавленных файлов",
+		"EmptyStateExplanation": "Добавьте файл (файлы)",
+		"Eyebrow": "Добавить вложение (вложения)"
+	},
+	"AddFileDescriptionDialog": {
+		"Title": "Добавить вложение",
+		"Submit": "Сохранить",
+		"Cancel": "Отмена",
+		"Form": {
+			"Title": "Файлы",
+			"Explanation": "После загрузки файлов их нельзя удалить"
+		},
+		"Item": {
+			"Eyebrow": "Описание для {{ item }} – обязательно",
+			"Placeholder": "Замечания по содержанию и цели данного файла"
+		}
+	},
+	"AddDescriptionDialog": {
+		"Title": "Добавить описание",
+		"Submit": "Сохранить",
+		"Cancel": "Отмена",
+		"Form": {
+			"Title": "Объекты",
+			"Explanation": "Введите описание для каждого объекта"
+		},
+		"Item": {
+			"Eyebrow": "Описание для {{ item }} – обязательно",
+			"Placeholder": "Замечания по содержанию и цели данного объекта"
+		}
+	},
+	"ContactSelector": {
+		"Placeholder": "Выбрать контактное лицо"
+	},
+	"AssetSelector": {
+		"Eyebrow": "Затронутый актив",
+		"SelectAsset": "Выбрать актив",
+		"ChangeAsset": "Изменить актив",
+		"EmptyState": {
+			"Title": "Активы не выбраны",
+			"Explanation": "Выберите актив"
+		}
+	},
+	"Messaging": {
+		"NewMessage": "Новое сообщение",
+		"SendMessage": "Отправить сообщение",
+		"NewMessagePlaceholder": "Введите свое сообщение тут",
+		"MessageHeader": "{{ name }} – { messagedOn, date, long } / { messagedOn, time }"
+	},
+	"GlobalHeader": {
+		"NoPortals": "",
+		"NoSites": "",
+		"SelectPortals": "",
+		"SelectSites": "",
+		"SelectApplication": "",
+		"Portal": "",
+		"Site": "",
+		"Application": "",
+		"Home": "",
+		"User": "",
+		"LogOut": "",
+		"Profile": "",
+		"Showing": "",
+		"NoResult": "",
+		"Applications": {
+			"Cases": "",
+			"ProcessInsights": "",
+			"Tickets": "",
+			"Contacts": "",
+			"Settings": "",
+			"Training": "",
+			"Contracts": "",
+			"Documentation": "",
+			"SpareParts": "",
+			"VIDI": "",
+			"DivertHealth": "",
+			"ShuttleHealth": "",
+			"PaceInsights": "",
+			"VIAInsights": "",
+			"WSInsights": "",
+			"WarrantyClaims": "",
+			"System": "",
+			"Home": ""
+		}
+	}
+}

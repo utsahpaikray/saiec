@@ -1,0 +1,3 @@
+mutation createWorkOrder($caseId: UUID!) {
+  promoteToWorkOrder(caseId: $caseId)
+}

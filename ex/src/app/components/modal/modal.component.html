@@ -1,0 +1,37 @@
+<div
+  [ngClass]="{
+    '!visible !opacity-100': isOpen
+  }"
+  (click)="onCloseOverlay($event)"
+  class="overlay-custom invisible fixed top-none bottom-none left-none right-none z-50 overflow-y-auto bg-grey-900 bg-opacity-20 px-m opacity-0 transition-all duration-300 ease-in-out"
+  data-testid="overlay"
+>
+  <div
+    [ngClass]="{
+      small: size === 'small',
+      large: size === 'large',
+      'scale-1': isOpen,
+      'scale-110': !isOpen
+    }"
+    class="modal-custom top-half relative left-half rounded-m bg-grey-100 px-m pt-m pb-l shadow-xl transition-transform duration-300 ease-in-out md:p-l md:pt-l md:pb-xl"
+    data-testid="modal"
+    #modal
+  >
+    <!-- close button -->
+    <div class="d-flex items-start justify-space-between">
+      <h2
+        class="pb-l grav-text-header-2-medium text-grey-900"
+        data-testid="modal-title"
+      >
+        {{ title }}
+      </h2>
+
+      <button (click)="close()" data-testid="close-button" ghost secondary>
+        <grav-svg-icon key="cross" size="l"></grav-svg-icon>
+      </button>
+    </div>
+
+    <!-- modal body -->
+    <ng-content></ng-content>
+  </div>
+</div>

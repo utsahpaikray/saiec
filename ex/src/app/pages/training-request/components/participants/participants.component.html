@@ -1,0 +1,87 @@
+<div [formGroup]="formGroup">
+  <div
+    *ngFor="let participants of participants.controls; let i = index"
+    class="mb-s last:mb-0"
+    formArrayName="participants"
+  >
+    <div [formGroupName]="i" class="d-flex items-center justify-space-between">
+      <div class="w-full md:d-flex gap-s">
+        <grav-field
+          [attr.data-testid]="'participant-name-' + i"
+          class="flex-grow"
+        >
+          <input
+            [placeholder]="
+              'TrainingRequest.Participants.Name.Placeholder' | transloco
+            "
+            name="name"
+            formControlName="name"
+            grav-input
+          />
+        </grav-field>
+
+        <grav-field
+          [attr.data-testid]="'participant-email-' + i"
+          class="flex-grow"
+        >
+          <input
+            [attr.error]="isInvalid(participants.get('email')) ? '' : null"
+            [placeholder]="
+              'TrainingRequest.Participants.Email.Placeholder' | transloco
+            "
+            name="email"
+            formControlName="email"
+            grav-input
+          />
+          <ng-container *ngIf="isInvalid(participants.get('email'))">
+            <grav-svg-icon
+              grav-input-prefix
+              key="exclamation-circle"
+              size="l"
+            ></grav-svg-icon>
+            <grav-assistive-text
+              class="grav-text-body-small"
+              data-testid="participant-email-error"
+              error
+              left
+            >
+              {{ 'TrainingRequest.Participants.Email.ErrorText' | transloco }}
+            </grav-assistive-text>
+          </ng-container>
+        </grav-field>
+      </div>
+
+      <button
+        [attr.data-testid]="'remove-participant-' + i"
+        (click)="removeParticipant(i)"
+        ghost
+        type="button"
+      >
+        <grav-svg-icon key="trash" svgClass="text-sm"></grav-svg-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-m">
+    <button
+      (click)="addParticipant()"
+      data-testid="add-participant"
+      outline
+      type="button"
+    >
+      <grav-svg-icon key="plus-outline" size="m"></grav-svg-icon>
+      {{ 'TrainingRequest.Participants.AddParticipants' | transloco }}
+    </button>
+  </div>
+
+  <div class="mt-l lg:mt-2-xl lg:w-half">
+    <app-text-area
+      name="participantLocation"
+      data-testid="training-request-participant-location"
+      formControlName="participantLocation"
+      label="{{ 'TrainingRequest.Location.Label' | transloco }}"
+      placeholder="{{ 'TrainingRequest.Location.Placeholder' | transloco }}"
+    >
+    </app-text-area>
+  </div>
+</div>

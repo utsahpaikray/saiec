@@ -1,0 +1,32 @@
+.vertical-scrollbar {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--grav-color-base-grey-300) var(--grav-color-base-white);
+}
+
+@supports selector(::-webkit-scrollbar) {
+  .vertical-scrollbar::-webkit-scrollbar {
+    width: 21px;
+    height: 21px;
+
+    &-track,
+    &-thumb {
+      background-clip: padding-box;
+    }
+
+    &-thumb {
+      border-radius: 10px;
+      background-color: var(--grav-color-base-grey-300);
+      border: solid 7px transparent;
+      transition: 0.3s;
+    }
+
+    &-thumb:hover {
+      background-color: var(--grav-color-base-grey-600);
+    }
+
+    &-track {
+      border: solid 3px transparent;
+    }
+  }
+}

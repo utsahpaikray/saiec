@@ -1,0 +1,15 @@
+<ng-content select="app-crumbtrail"></ng-content>
+<div class="title d-flex flex-col">
+  <div class="d-flex <md:flex-col md:align-center md:gap-m">
+    <div class="grav-text-header-bold">
+      <ng-content select="h1"></ng-content>
+    </div>
+    <ng-content select="[tag]"></ng-content>
+  </div>
+  <div class="grav-text-body-small">
+    <ng-content select=".subtitle"></ng-content>
+  </div>
+</div>
+<div class="buttons d-flex gap-m <md:w-full <md:flex-col">
+  <ng-content select="button"></ng-content>
+</div>

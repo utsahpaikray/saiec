@@ -1,0 +1,8 @@
+query trainingRequestBackLink($id: String!) {
+  training(id: $id) {
+    sys {
+      id
+    }
+    title
+  }
+}

@@ -1,0 +1,28 @@
+<app-form-page
+  *transloco="let t"
+  titleLabel="ContextualCollaboration.NewCase.Title"
+>
+  <app-page-header>
+    <app-crumbtrail>
+      <a [routerLink]="['../']" class="grav-text-body-medium" ghost>
+        {{ 'ContextualCollaboration.Breadcrumbs.Cases' | transloco }}
+      </a>
+      <p class="grav-text-body-medium">
+        {{ 'ContextualCollaboration.Breadcrumbs.NewCase' | transloco }}
+      </p>
+    </app-crumbtrail>
+    <h1>{{ 'ContextualCollaboration.NewCase.Title' | transloco }}</h1>
+    <button
+      [disabled]="control.invalid"
+      (click)="onSubmit(control.value)"
+      type="button"
+    >
+      {{ t('ContextualCollaboration.NewCase.CreateCase') }}
+    </button>
+  </app-page-header>
+
+  <app-new-case-form
+    [formControl]="control"
+    [vm]="newCaseFormVM$ | async"
+  ></app-new-case-form>
+</app-form-page>

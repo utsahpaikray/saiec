@@ -1,0 +1,5 @@
+query siteTicketLanguageCode($siteId: UUID!) {
+  ticketingSiteInfo(siteId: $siteId) {
+    languageCode
+  }
+}

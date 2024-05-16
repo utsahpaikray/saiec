@@ -1,0 +1,45 @@
+<div
+  *ngIf="userAccessItem"
+  class="b-m border-solid border-solid border-white px-l py-l"
+>
+  <div class="md:d-grid md:grid-cols-3 md:gap-s xl:grid-cols-4">
+    <app-datalist
+      [attr.data-testid]="'datalist'"
+      [isDisabled]="hasAccessToSelectedPortal"
+      [items]="portals"
+      [text]="userAccessItem.selectedPortalName"
+      (changeEvent)="onDatalistChange($event)"
+      placeholder="{{ 'UserAccess.SelectPortal' | transloco }}"
+    ></app-datalist>
+    <button
+      (click)="removeUserAccess()"
+      class="<md:mt-m <md:justify-flex-end"
+      data-testid="remove-access-button"
+      outline
+    >
+      <span>{{ 'UserAccess.RevokeAccess' | transloco }}</span>
+    </button>
+  </div>
+
+  <div>
+    <h2
+      *ngIf="selectedPortalId && sites"
+      class="mt-m pb-m grav-text-header-3 text-grey-900"
+    >
+      {{ 'General.Sites' | transloco }}
+    </h2>
+    <fieldset>
+      <ng-container *ngFor="let site of sites; let i = index">
+        <input
+          [attr.data-testid]="'site-checkbox-' + i + index"
+          [id]="'site-checkbox-' + i + index"
+          [ngModel]="initializeCheckboxValue(site)"
+          (change)="onCheckboxChange($event.target, site)"
+          name="training"
+          type="checkbox"
+        />
+        <label [for]="'site-checkbox-' + i + index">{{ site.name }}</label>
+      </ng-container>
+    </fieldset>
+  </div>
+</div>

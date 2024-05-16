@@ -1,0 +1,131 @@
+@use 'sass:map';
+@use './variables/breakpoints' as breakpoints;
+@import 'typography';
+@import 'utilities/spacing';
+@import 'utilities/flex';
+@import 'utilities/border-radius';
+@import 'utilities/border';
+@import 'utilities/display';
+@import 'utilities/gap';
+@import 'utilities/inset';
+@import 'utilities/sizing';
+@import 'utilities/grid';
+@import 'utilities/color';
+@import 'utilities/transition';
+@import 'utilities/opacity';
+@import 'utilities/shadow';
+@import 'utilities/position';
+
+// TODO remove below import after _z-index.scss in been include into gravity utility css
+@import '@vanderlande-gravity/core/src/style/utilities/z-index';
+
+app-root + div {
+  display: none;
+}
+
+.ellipse {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// TODO remove below css in future gravity update
+button.bg-transparent[ghost] {
+  &:hover {
+    background-color: var(--grav-color-base-clear);
+  }
+}
+
+// TODO remove the 'max-w-screen-2xl' and 'font-bold' once the _sizing.scss
+// and _typography.scss update available in gravity
+.max-w-screen-2xl {
+  max-width: map.get(breakpoints.$breakpoints_min, '\\2xl') + px;
+}
+
+.max-h-screen {
+  max-height: 100vh;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+[type='radio']:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.break-words {
+  overflow-wrap: normal;
+  word-break: break-word;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.h-64 {
+  height: 16rem;
+}
+
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+// TODO remove below css once MYVI-5673 is done
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+// TODO remove below css once MYVI-5954 is done
+grav-collapsible[expanded] * grav-svg-icon[key='chevron-down'] {
+  transform: rotate(180deg);
+}
+
+// TODO remove below css once MYVI-6008 is done
+grav-field {
+  &:has(input[type='checkbox']) {
+    label {
+      &::before,
+      &::after {
+        min-width: var(--gravity-checkbox-outer-circle-size);
+      }
+    }
+  }
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// TODO remove once Gravity fixes it
+grav-tag {
+  text-wrap: nowrap;
+}
+
+// TODO: remove once Gravity fixes it
+grav-key-value {
+  --gravity-container-border-size: var(--global-spacing-s);
+}

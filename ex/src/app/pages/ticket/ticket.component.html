@@ -1,0 +1,266 @@
+<app-link
+  [linkText]="'Tickets.OpenTickets' | transloco"
+  class="mt-l d-inline-block"
+  data-testid="back-button"
+  iconName="chevron-left"
+  iconPosition="left"
+  linkUrl="../"
+  size="lg"
+>
+</app-link>
+
+<ng-container *ngIf="!loading; else loader">
+  <ng-container *transloco="let t; lang: serviceDeskLangCode">
+    <ng-container *ngIf="ticket">
+      <!-- header -->
+      <h2
+        class="mt-l grav-text-header-3-bold text-grey-900 md:mt-xl md:grav-text-header-2-bold"
+        data-testid="ticket-title"
+      >
+        {{ ticket.title }}
+      </h2>
+      <p
+        class="mt-s grav-text-body-small text-grey-700"
+        data-testid="ticket-subtitle"
+      >
+        <span>{{ t('Tickets.TicketNumber', { number: ticketId }) }} </span>
+        <span *ngIf="ticket.issueType">
+          -
+          {{
+            t('Tickets.IssueType.' + (ticket.issueType | titlecase) + '.Label')
+          }}
+        </span>
+        <span *ngIf="ticket.priority || ticket.customerPriority">
+          -
+          {{
+            t('Tickets.TicketPriority', {
+              priority: ticket.priority || ticket.customerPriority
+            })
+          }}
+        </span>
+      </p>
+      <div
+        *ngIf="ticket.sourceState"
+        class="mt-s grav-text-body-small text-grey-700 mb-xl"
+        data-testid="ticket-status"
+      >
+        <span class="font-bold"> {{ t('General.Status') }}: </span>
+        {{ ticket.sourceState }}
+      </div>
+
+      <!-- Customer satisfaction for resolved ticket -->
+      <ng-container *ngIf="resolvedState && showCustomerSatisfaction">
+        <app-card data-testid="customer-satisfaction-card">
+          <p
+            class="grav-text-header-3-bold"
+            data-testid="customer-satisfaction-subtitle"
+          >
+            {{ t('Tickets.CustomerSatisfaction.Subtitle') }}
+          </p>
+          <p data-testid="customer-satisfaction-info">
+            {{ t('Tickets.CustomerSatisfaction.Info') }}
+          </p>
+          <app-customer-satisfaction
+            [languageCode]="serviceDeskLangCode"
+            (clickEvent)="goToSatisfactionSurvey($event.iconKey)"
+            data-testid="customer-satisfaction"
+          ></app-customer-satisfaction>
+        </app-card>
+      </ng-container>
+
+      <app-section-aside-right class="mt-xl d-block">
+        <h3 class="grav-text-header-3-bold text-grey-900">
+          {{ t('Tickets.TicketLog.Label') }}
+        </h3>
+        <app-alert
+          *ngIf="ticketResolutionAlert"
+          [alert]="ticketResolutionAlert"
+          class="mt-m d-block"
+          data-testid="ticket-resolution-data-alert"
+        >
+        </app-alert>
+
+        <!-- Ticket Comment Form -->
+        <app-card
+          *ngIf="hasWritePermissionsAndIsNotClosed()"
+          class="mt-m d-block"
+          data-testid="ticket-comment-card"
+        >
+          <app-ticket-comment-form
+            [reset]="resetForm"
+            [savingComment]="savingComment"
+            [serviceDeskLangCode]="serviceDeskLangCode"
+            (submitEvent)="addCommentToTicket($event)"
+          ></app-ticket-comment-form>
+        </app-card>
+
+        <!-- Ticket commment list -->
+        <div
+          *ngIf="ticketComments?.length; else noCommunicationLog"
+          data-testid="communication-log-list"
+        >
+          <app-card *ngFor="let comment of ticketComments" class="mt-m d-block">
+            <header data-testid="communication-log-header">
+              <span *ngIf="comment.author">{{ comment.author + ' - ' }} </span>
+
+              <span
+                >{{
+                  comment.timeStamp
+                    | translocoDate
+                      : { dateStyle: 'long', timeStyle: 'short' }
+                      : serviceDeskLangCode
+                }}
+              </span>
+            </header>
+            <p
+              class="mt-s whitespace-pre-line break-words text-grey-900"
+              data-testid="communication-log-description"
+            >
+              {{ comment.description }}
+            </p>
+          </app-card>
+        </div>
+        <div class="mt-m d-flex justify-center">
+          <button
+            *ngIf="loadingMoreComments || hasMoreComments"
+            [disabled]="loadingMoreComments"
+            (click)="loadMoreComments()"
+            data-testid="load-more-comments"
+            ghost
+          >
+            <grav-svg-icon key="chevron-down"></grav-svg-icon>
+            {{ t('General.ShowMore') }}
+          </button>
+        </div>
+
+        <!-- Information about the ticket -->
+        <ng-container aside>
+          <h3
+            class="grav-text-header-3-bold text-grey-900 <md:mt-xl"
+            class="text-grey-900 grav-text-header-3-bold"
+            data-testid="ticket-sidebar-title"
+          >
+            {{ t('Tickets.Information') }}
+          </h3>
+          <app-expansion-panel
+            *ngFor="let info of ticketInfoPanels; let i = index"
+            [iconStyle]="'grav-text-header-3 text-grey-500'"
+            [isOpen]="info.isOpen"
+            (toggleEvent)="onToggle($event, i)"
+            class="mt-m d-block"
+            data-testid="ticket-expansion-panel"
+          >
+            <ng-container header>
+              <div
+                class="d-flex cursor-pointer items-center justify-space-between gap-s bg-white p-m transition-colors duration-300 ease-in-out"
+              >
+                <div
+                  [attr.data-testid]="
+                    'expansion-panel-label-' + info.type.toLowerCase()
+                  "
+                  class="font-bold text-grey-800"
+                >
+                  {{ t(info.label) }} {{ info.total }}
+                </div>
+                <grav-svg-icon
+                  [attr.data-testid]="'expansion-panel-chevron-' + i"
+                  [attr.key]="info.isOpen ? 'chevron-up' : 'chevron-down'"
+                  size="l"
+                ></grav-svg-icon>
+              </div>
+            </ng-container>
+
+            <ng-container [ngSwitch]="info.type">
+              <ng-container *ngSwitchCase="ticketInfo.Description">
+                <div class="whitespace-pre-line bg-white px-m pb-m">
+                  {{ formattedDescription() }}
+                </div>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="ticketInfo.Details">
+                <div
+                  *ngFor="let detail of ticketDetails"
+                  [attr.data-testid]="'ticket-detail-' + detail.label"
+                  class="bg-white px-m"
+                >
+                  <label class="font-bold">{{ t(detail.label) }}</label>
+                  <p
+                    *ngIf="
+                      detail.information === ticket.reportDate;
+                      else detailInfo
+                    "
+                    class="pb-m"
+                  >
+                    {{
+                      detail.information
+                        | translocoDate
+                          : { dateStyle: 'long' }
+                          : serviceDeskLangCode
+                    }}
+                  </p>
+                  <ng-template #detailInfo>
+                    <p class="pb-m">
+                      {{ detail.information }}
+                    </p>
+                  </ng-template>
+                </div>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="ticketInfo.Files">
+                <div class="bg-white">
+                  <app-add-attachment-modal
+                    *ngIf="hasWritePermissionsAndIsNotClosed()"
+                    [openModalButtonText]="t('Attachments.AddBtn')"
+                    [submitButtonText]="
+                      'Asset.SelectAssetTable.AddToTicketBtn' | transloco
+                    "
+                    [uploadingAttachment]="uploadingFile"
+                    (addDocumentEvent)="addDocumentToTicket($event)"
+                    class="d-block px-m pb-m"
+                    data-testid="add-attachment-modal"
+                  ></app-add-attachment-modal>
+
+                  <app-document-list
+                    [documents]="ticketFiles"
+                    [hasMoreDocuments]="hasMoreFiles"
+                    [isLoadingMore]="loadingMoreFiles"
+                    (showMoreEvent)="loadMoreFiles()"
+                  ></app-document-list>
+                </div>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="ticketInfo.Weblinks">
+                <div class="bg-white">
+                  <app-document-list
+                    [documents]="ticketWebLinks"
+                    [hasMoreDocuments]="hasMoreWebLinks"
+                    [isLoadingMore]="loadingMoreWebLinks"
+                    (showMoreEvent)="loadMoreWebLinks()"
+                  ></app-document-list>
+                </div>
+              </ng-container>
+            </ng-container>
+          </app-expansion-panel>
+        </ng-container>
+      </app-section-aside-right>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #noCommunicationLog>
+  <ng-container *transloco="let t; lang: this.serviceDeskLangCode">
+    <div class="mt-2-xl d-flex flex-col items-center justify-center">
+      <h2 class="text-grey-700" data-testid="no-communication-log">
+        {{ t('Tickets.NoMessagesAvailable') }}
+      </h2>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

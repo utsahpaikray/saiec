@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Load the Husky pre-commit hook script (assuming husky.sh is located in a known path)
+. "$(dirname "$0")/_/husky.sh"
+
+# Change to the 'src/portal-ng' directory
+cd src/portal-ng
+
+# Run the 'check-branch-name' script (assuming it exists and is a valid check)
+npm run check-branch-name
+
+# Run 'pretty-quick' on staged files to format them (assuming 'pretty-quick' is installed)
+npx pretty-quick --staged
+
+# Run the 'pre-commit' script (assuming it exists and is a valid pre-commit action)
+npm run pre-commit

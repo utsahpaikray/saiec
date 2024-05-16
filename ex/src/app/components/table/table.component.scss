@@ -1,0 +1,9 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+.h-custom {
+    height: calc(100% - var(--grav-space-xl))
+}
+
+.head-custom {
+    box-shadow: var(--grav-elevation-s);
+}

@@ -1,0 +1,64 @@
+<label
+  *ngIf="label"
+  class="mb-xs d-flex w-full justify-space-between grav-text-body-small-medium leading-5 text-grey-700"
+  data-testid="text-label"
+>
+  {{ label }}
+</label>
+
+<ul
+  *ngIf="files.length > 0"
+  class="mb-m b-s border-grey-200 bg-white pt-s pl-s shadow-sm"
+  data-testid="file-upload-list"
+>
+  <li
+    *ngFor="let file of files; let i = index"
+    [attr.data-testid]="'file-upload-file-' + i"
+    class="d-flex items-center w-full justify-space-between break-words pb-s grav-text-caption text-grey-900 md:grav-text-body-small"
+  >
+    {{ file.name }}
+    <button
+      [attr.data-testid]="'file-delete-button-' + i"
+      (click)="removeFile($event, i)"
+      ghost
+    >
+      <svg-icon name="trash" svgClass="grav-text-body-small"></svg-icon>
+    </button>
+  </li>
+</ul>
+
+<app-alert
+  *ngIf="alert && showAlert && alertMessage"
+  [alert]="alert"
+  class="mb-l d-block"
+  data-testid="file-upload-alert"
+></app-alert>
+
+<div
+  [ngClass]="
+    buttonPosition === 'left' ? 'justify-flex-start' : 'justify-flex-end'
+  "
+  class="d-flex"
+>
+  <input
+    [attr.accept]="accept"
+    [attr.multiple]="multiple ? 'true' : null"
+    id="upload"
+    name="upload"
+    data-testid="file-upload-input"
+    type="file"
+    #upload
+    hidden
+  />
+  <button
+    [disabled]="!multiple && files.length > 0"
+    (click)="uploadFile($event)"
+    data-testid="file-upload-button"
+    outline
+  >
+    <grav-svg-icon key="plus-outline"></grav-svg-icon>
+    <span>
+      {{ buttonLabel }}
+    </span>
+  </button>
+</div>

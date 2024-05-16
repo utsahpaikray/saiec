@@ -1,0 +1,11 @@
+query documentationSettingsDocumentsPerCategory(
+  $categoryCodeName: String!
+  $siteId: UUID!
+) {
+  documentsBySite(siteId: $siteId, categoryCodeName: $categoryCodeName) {
+    name
+    contentLength
+    categoryCodeName
+    culture
+  }
+}

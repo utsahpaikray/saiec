@@ -1,0 +1,46 @@
+<div
+  *ngIf="alert"
+  [class]="variantClass"
+  class="d-flex transform items-center place-items-start gap-s rounded-m px-m py-m ring-1 ring-black ring-opacity-5 transition duration-300 ease-in-out focus:outline-none"
+  data-testid="alert"
+>
+  <div class="d-flex flex-grow flex-wrap" data-testid="alert-content">
+    <div class="d-flex gap-s items-start items-center">
+      <grav-svg-icon
+        [key]="icon"
+        [ngClass]="iconClass"
+        data-testid="alert-icon"
+        size="l"
+      ></grav-svg-icon>
+      <div
+        [innerHTML]="alert.message"
+        class="text-grey-900 whitespace-pre-line"
+        data-testid="alert-message"
+      ></div>
+    </div>
+
+    <app-dynamic-link
+      *ngIf="alert.url && alert.link"
+      [url]="setUrl(alert.url)"
+      class="ml-auto text-grey-900 underline hover:text-grey-500 <lg:mt-s"
+      data-testid="alert-link"
+    >
+      {{ alert.link }}
+    </app-dynamic-link>
+  </div>
+  <button
+    *ngIf="isDismissible"
+    (click)="remove.emit()"
+    class="bg-transparent"
+    data-testid="alert-button"
+    ghost
+    secondary
+  >
+    <grav-svg-icon
+      class="text-grey-900"
+      data-testid="alert-button-icon"
+      key="cross"
+      size="l"
+    ></grav-svg-icon>
+  </button>
+</div>

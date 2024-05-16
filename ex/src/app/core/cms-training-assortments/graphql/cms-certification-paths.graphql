@@ -1,0 +1,18 @@
+fragment TrainingRequestCertificationPathItem on CertificationPath {
+  sys {
+    id
+  }
+  title
+}
+
+fragment TrainingRequestCertificationPathCollection on CertificationPathCollection {
+  items {
+    ...TrainingRequestCertificationPathItem
+  }
+}
+
+query certificationPaths {
+  certificationPathCollection {
+    ...TrainingRequestCertificationPathCollection
+  }
+}

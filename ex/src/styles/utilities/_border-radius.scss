@@ -1,0 +1,42 @@
+@use '../variables/breakpoints' as breakpoints;
+@use '@vanderlande-gravity/core/src/style/utilities/border-radius'
+  as border-radius;
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media (#{$breakpoint-value}) {
+    @each $key in map-keys(border-radius.$radiusMap) {
+      $value: map-get(border-radius.$radiusMap, $key);
+      .#{$breakpoint-name}\:rounded-#{$key} {
+        border-radius: #{$value};
+      }
+      .#{$breakpoint-name}\:rounded-t-#{$key} {
+        border-top-left-radius: #{$value};
+        border-top-right-radius: #{$value};
+      }
+      .#{$breakpoint-name}\:rounded-b-#{$key} {
+        border-bottom-left-radius: #{$value};
+        border-bottom-right-radius: #{$value};
+      }
+      .#{$breakpoint-name}\:rounded-l-#{$key} {
+        border-bottom-left-radius: #{$value};
+        border-top-left-radius: #{$value};
+      }
+      .#{$breakpoint-name}\:rounded-r-#{$key} {
+        border-bottom-right-radius: #{$value};
+        border-top-right-radius: #{$value};
+      }
+      .#{$breakpoint-name}\:rounded-tl-#{$key} {
+        border-top-left-radius: #{$value};
+      }
+      .#{$breakpoint-name}\:rounded-tr-#{$key} {
+        border-top-right-radius: #{$value};
+      }
+      .#{$breakpoint-name}\:rounded-bl-#{$key} {
+        border-bottom-left-radius: #{$value};
+      }
+      .#{$breakpoint-name}\:rounded-br-#{$key} {
+        border-bottom-right-radius: #{$value};
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+.case-messaging {
+  flex: 2;
+}
+
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+  .case-information {
+    flex: 1;
+    max-width: 30%;
+  }
+}
+

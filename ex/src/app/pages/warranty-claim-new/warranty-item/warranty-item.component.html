@@ -1,0 +1,232 @@
+<grav-collapsible
+  class="w-full"
+  data-testid="warranty-item-collapsible"
+  expanded
+>
+  <div
+    class="d-inline-flex justify-space-between items-center mb-m"
+    grav-collapsible-header
+  >
+    <h2 class="grav-text-header-3-medium" data-testid="warranty-part-title">
+      {{ 'WarrantyClaims.WarrantyParts' | transloco }} {{ index + 1 }}
+    </h2>
+
+    <div class="d-inline-flex items-center">
+      <button
+        *ngIf="!form.invalid && index !== 0"
+        (click)="removeWarrantyItem(index)"
+        class="mr-l"
+        data-testid="remove-item-button"
+        type="button"
+        ghost
+      >
+        {{ 'General.Remove' | transloco }}
+      </button>
+      <button
+        *ngIf="form.valid"
+        [disabled]="isAnyWarrantyItemsOnEdit"
+        (click)="editItem($event)"
+        class="mr-m"
+        data-testid="edit-item-button"
+        type="button"
+        ghost
+      >
+        {{ 'General.Edit' | transloco }}
+      </button>
+      <grav-svg-icon class="chevron-icon" key="chevron-down"></grav-svg-icon>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ng-container *ngIf="form.invalid || isEdit; else submitted">
+      <div
+        class="lg:d-grid lg:grid-cols-2 gap-2-xl"
+        data-testid="warranty-item-form"
+      >
+        <div>
+          <!-- Affected asset -->
+          <h3 class="mb-m grav-text-body-bold">
+            {{ 'Asset.AssetInfo' | transloco }}
+          </h3>
+          <app-asset-selector formControlName="asset"></app-asset-selector>
+
+          <!-- TODO: update typography color once MYVI-5095 is fixed -->
+          <div
+            *ngIf="isInvalid(form.get('asset'))"
+            class="mt-s grav-text-body-small text-red-500"
+            data-testid="affected-asset-required-error"
+          >
+            {{ 'General.MandatoryField' | transloco }}
+          </div>
+
+          <!-- Breakdown date -->
+          <grav-field class="mt-m" data-testid="breakdown-date">
+            <grav-field-eyebrow>
+              {{ 'WarrantyClaims.BreakdownDate' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              [attr.error]="isInvalid(form.get('breakdownDate')) ? '' : null"
+              name="breakdownDate"
+              type="date"
+              formControlName="breakdownDate"
+              grav-input
+            />
+            <ng-container *ngIf="isInvalid(form.get('breakdownDate'))">
+              <grav-svg-icon
+                grav-input-prefix
+                key="exclamation-circle"
+                size="l"
+              ></grav-svg-icon>
+              <grav-assistive-text
+                class="grav-text-body-small"
+                data-testid="breakdown-date-required-error"
+                error
+                left
+              >
+                {{ 'General.MandatoryField' | transloco }}
+              </grav-assistive-text>
+            </ng-container>
+          </grav-field>
+
+          <!-- Item info -->
+          <h3 class="my-m grav-text-body-bold">
+            {{ 'WarrantyClaims.SelectedItem.Title' | transloco }}
+          </h3>
+          <app-item-selector formControlName="item"></app-item-selector>
+
+          <div
+            *ngIf="isInvalid(form.get('item'))"
+            class="mt-s grav-text-body-small text-red-500"
+            data-testid="selected-item-required-error"
+          >
+            {{ 'General.MandatoryField' | transloco }}
+          </div>
+
+          <!-- Item quantity -->
+          <grav-field class="mt-m" data-testid="item-quantity">
+            <grav-field-eyebrow>
+              {{ 'General.Quantity' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              [attr.error]="isInvalid(form.get('itemQuantity')) ? '' : null"
+              [maxlength]="itemQuantityMaxCount"
+              name="itemQuantity"
+              #itemQuantity
+              appNumericDecimalOnly
+              formControlName="itemQuantity"
+              grav-input
+            />
+            <ng-container *ngIf="isInvalid(form.get('itemQuantity'))">
+              <grav-svg-icon
+                grav-input-prefix
+                key="exclamation-circle"
+                size="l"
+              ></grav-svg-icon>
+              <grav-assistive-text
+                class="grav-text-body-small"
+                data-testid="item-quantity-required-error"
+                error
+                left
+              >
+                {{ 'General.MandatoryField' | transloco }}
+              </grav-assistive-text>
+            </ng-container>
+            <grav-assistive-text right>
+              {{ itemQuantity.value.length }} /
+              {{ itemQuantityMaxCount }}
+            </grav-assistive-text>
+          </grav-field>
+
+          <!-- Serial number -->
+          <grav-field class="mt-m" data-testid="serial-number">
+            <grav-field-eyebrow>
+              {{ 'WarrantyClaims.SerialNumber' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              [maxlength]="serialNumberMaxCount"
+              name="serialNumber"
+              #serialNumber
+              formControlName="serialNumber"
+              grav-input
+            />
+            <grav-assistive-text right>
+              {{ serialNumber.value.length }} /
+              {{ serialNumberMaxCount }}
+            </grav-assistive-text>
+          </grav-field>
+
+          <!-- Warranty reason -->
+          <app-text-area
+            [infoText]="'WarrantyClaims.WarrantyReasonInfoText' | transloco"
+            [label]="'WarrantyClaims.WarrantyReasonLabel' | transloco"
+            [maxLength]="warrantyReasonMaxCount"
+            name="warrantyReason"
+            data-testid="warranty-reason"
+            formControlName="warrantyReason"
+          >
+            <div
+              *ngIf="isInvalid(form.get('warrantyReason'))"
+              data-testid="warranty-reason-required-error"
+            >
+              {{ 'General.MandatoryField' | transloco }}
+            </div>
+          </app-text-area>
+
+          <!-- Warranty info -->
+          <grav-field class="my-m" data-testid="warranty-info">
+            <grav-field-eyebrow>
+              {{ 'WarrantyClaims.WarrantyInfo' | transloco }}
+            </grav-field-eyebrow>
+            <input
+              name="warrantyInfo"
+              formControlName="warrantyInfo"
+              grav-input
+            />
+          </grav-field>
+        </div>
+
+        <!-- Attachments -->
+        <div>
+          <h3 class="mb-m grav-text-body-bold">
+            {{ 'Attachments.Title' | transloco }}
+          </h3>
+
+          <app-add-attachment-modal
+            [openModalButtonText]="'Attachments.AddBtn' | transloco"
+            [submitButtonText]="'WarrantyClaims.AddToWarranty' | transloco"
+            (addDocumentEvent)="addAttachmentToWarranty($event)"
+            data-testid="warranty-item-add-attachment"
+          ></app-add-attachment-modal>
+
+          <app-attachment-list
+            [attachments]="attachments.value"
+            (remove)="removeAttachment($event)"
+            data-testid="warranty-item-attachment-list"
+          ></app-attachment-list>
+        </div>
+      </div>
+
+      <div class="d-flex justify-flex-end gap-m">
+        <button
+          *ngIf="index !== 0"
+          (click)="removeWarrantyItem(index)"
+          data-testid="cancel-item-button"
+          type="button"
+          outline
+        >
+          {{ 'General.Cancel' | transloco }}
+        </button>
+        <button data-testid="warranty-item-form-submit" type="submit">
+          {{ 'WarrantyClaims.AddWarrantyItem' | transloco }}
+        </button>
+      </div>
+    </ng-container>
+  </form>
+</grav-collapsible>
+
+<ng-template #submitted>
+  <app-warranty-item-table
+    [itemDetails]="form.value"
+    data-testid="warranty-item-table"
+  ></app-warranty-item-table>
+</ng-template>

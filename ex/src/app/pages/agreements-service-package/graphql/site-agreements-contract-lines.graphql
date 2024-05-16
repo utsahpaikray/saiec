@@ -1,0 +1,38 @@
+fragment ContractLineInfo on ContractLine {
+  startDate
+  endDate
+  partsIncluded
+  laborIncluded
+  hours
+  days
+  packageCode
+  byphone
+  onsite
+  yearvisits
+  vidays
+  subcdays
+  calendarDescription
+  systemComponent {
+    system
+    markCode
+    markCodeDescription
+    assetType
+    assetMarkNumber
+    assetTypeDescription
+  }
+}
+
+query siteAgreementsContractLines(
+  $siteId: UUID!
+  $currentDate: DateTime
+  $packageCodes: [String]
+) {
+  agreements(
+    siteId: $siteId
+    where: { startDate: { lte: $currentDate }, endDate: { gte: $currentDate } }
+  ) {
+    contractLines(where: { packageCode: { in: $packageCodes } }) {
+      ...ContractLineInfo
+    }
+  }
+}

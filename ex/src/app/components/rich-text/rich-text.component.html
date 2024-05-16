@@ -1,0 +1,4 @@
+<div
+  [innerHTML]="convertToHTMLFromRichText(richText) | safeHtml"
+  (click)="processLinks($event)"
+></div>

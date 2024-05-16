@@ -1,0 +1,11 @@
+query externalUserAccount($upn: String!) {
+  externalUserAccount(upn: $upn) {
+    id
+    username
+    firstName
+    lastName
+    email
+    accountEnabled
+    customerEmail
+  }
+}

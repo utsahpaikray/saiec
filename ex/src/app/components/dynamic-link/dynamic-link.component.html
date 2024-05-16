@@ -1,0 +1,9 @@
+<a
+  [ngClass]="linkClass"
+  [routerLink]="url"
+  [routerLinkActiveOptions]="{ exact: isExact }"
+  data-testid="anchor"
+  routerLinkActive
+>
+  <ng-content></ng-content>
+</a>

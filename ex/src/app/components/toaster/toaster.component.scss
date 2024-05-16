@@ -1,0 +1,14 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+@media #{map-get(breakpoints.$media_queries, '\\<md')} {
+  .bottom-24 {
+    bottom: calc(var(--grav-space-3-xl) * 2) /* 96px */;
+  }
+  .toaster-inner {
+    transform: translateX(-50%)
+  }
+}
+
+.toaster-inner {
+  max-width: calc(var(--grav-space-5-xl) * 9)
+}

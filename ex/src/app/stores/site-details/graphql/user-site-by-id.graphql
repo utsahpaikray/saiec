@@ -1,0 +1,144 @@
+fragment AccountManagerContactFragment on AccountManagerContact {
+	alternativeContactTitle
+	emailAddress
+	name
+	phoneNumber
+	show
+	userId
+}
+
+fragment CasesConfigFragment on CasesConfig {
+	divertHealthWorkOrderPromotionRule
+	enabled
+	monitronWorkOrderPromotionRule
+	shuttleHealthWorkOrderPromotionRule
+	vidiWorkOrderPromotionRule
+}
+
+fragment ContractManagerContactFragment on ContractManagerContact {
+	alternativeContactTitle
+	emailAddress
+	name
+	phoneNumber
+	userId
+}
+
+fragment ItManagerContactFragment on ItManagerContact {
+	alternativeContactTitle
+	emailAddress
+	name
+	phoneNumber
+	show
+	userId
+}
+
+fragment DivertHealthConfigFragment on DivertHealthConfig {
+	enabled
+	url
+}
+
+fragment ProcessInsightsConfigFragment on ProcessInsightsConfig {
+	enabled
+}
+
+fragment ServiceDeskContactFragment on ServiceDeskContact {
+	alternativeContactTitle
+	emailAddress
+	name
+	phoneNumber
+	phoneNumberOutsideWorkingHours
+	show
+}
+
+fragment ShuttleHealthConfigFragment on ShuttleHealthConfig {
+	enabled
+	url
+}
+
+fragment SparePartsContactFragment on SparePartsContact {
+	alternativeContactTitle
+	emailAddress
+	show
+}
+
+fragment SparePartsShopConfigFragment on SparePartsShopConfig {
+	enabled
+}
+
+fragment VidiConfigFragment on VidiConfig {
+	enabled
+	vidiAppName
+}
+
+fragment VisitingOfficeContactFragment on VisitingOfficeContact {
+	address
+	alternativeContactTitle
+	email
+	name
+	phoneNumber
+	show
+}
+
+fragment ProjectFragment on Project {
+		id
+		name
+		projectNumber
+		segment
+}
+
+fragment SiteDetailsFragment on Site {
+    	accountManagerContact {
+		...AccountManagerContactFragment
+	}
+	casesConfig {
+		...CasesConfigFragment
+	}
+	contractManagerContact {
+		...ContractManagerContactFragment
+	}
+	contractVisible
+	divertHealthConfig {
+		...DivertHealthConfigFragment
+	}
+	id
+	itManagerContact {
+		...ItManagerContactFragment
+	}
+	name
+	processInsightsConfig {
+		...ProcessInsightsConfigFragment
+	}
+	projects {
+		...ProjectFragment
+	}
+	published
+	serviceDeskContact {
+		...ServiceDeskContactFragment
+	}
+	shuttleHealthConfig {
+		...ShuttleHealthConfigFragment
+	}
+	sourceId
+	sparePartsContact {
+		...SparePartsContactFragment
+	}
+	sparePartsShopConfig {
+		...SparePartsShopConfigFragment
+	}
+	vidiConfig {
+		...VidiConfigFragment
+	}
+	visitingOfficeContact {
+		...VisitingOfficeContactFragment
+	}
+}
+
+query userSiteDetails($siteId: UUID!) {
+    me {
+        relatedPortalData {
+            AccessibleSites(where: { id: { eq: $siteId } }) {
+                ...SiteDetailsFragment
+            }
+        }
+    }
+}

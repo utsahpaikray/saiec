@@ -1,0 +1,6 @@
+query siteById($id: UUID) {
+  sites(where: { id: { eq: $id } }) {
+    name
+    ...SitePortal
+  }
+}

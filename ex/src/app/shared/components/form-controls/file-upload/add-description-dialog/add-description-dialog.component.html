@@ -1,0 +1,35 @@
+<!-- @TODO: Add validation stuff -->
+<grav-card *transloco="let t">
+  <grav-card-header>
+    <span card-title>{{ t(labels.TITLE) }}</span>
+    <button (click)="dialogRef.close(false)" card-suffix-button ghost primary>
+      <grav-svg-icon key="close" size="xl"></grav-svg-icon>
+    </button>
+  </grav-card-header>
+  <grav-card-content>
+    <form [formGroup]="form">
+      <h3 section-title>{{ t(labels.FORM_TITLE) }}</h3>
+      <p section-explanation>{{ t(labels.FORM_EXPLANATION) }}</p>
+      <grav-field *ngFor="let formGroup of formGroups">
+        <grav-field-eyebrow>
+          {{ t(labels.ITEM_EYEBROW, { item: formGroup.controls.name.value }) }}
+        </grav-field-eyebrow>
+        <input
+          [formControl]="formGroup.controls.description"
+          [placeholder]="t(labels.ITEM_PLACEHOLDER)"
+          name="description"
+          type="text"
+          grav-input
+        />
+      </grav-field>
+    </form>
+  </grav-card-content>
+  <grav-card-footer>
+    <button (click)="dialogRef.close(false)" ghost>
+      {{ t(labels.CANCEL) }}
+    </button>
+    <button [disabled]="form.invalid" (click)="submit()" primary>
+      {{ t(labels.SUBMIT) }}
+    </button>
+  </grav-card-footer>
+</grav-card>

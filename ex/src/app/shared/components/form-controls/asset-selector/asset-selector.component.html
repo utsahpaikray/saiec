@@ -1,0 +1,43 @@
+<ng-container *transloco="let t">
+  <div *ngIf="labels$ | async as labels" class="d-flex flex-col gap-m">
+    <div
+      *ngIf="vm$ | async as VM"
+      (blur)="onBlur()"
+      (click)="openDialog$.next()"
+      class="d-flex gap-m"
+      tabindex="-1"
+    >
+      <input
+        [attr.error]="error || null"
+        [disabled]="VM.disabled"
+        class="flex-1"
+        type="text"
+        grav-input
+        readonly
+      />
+      <button
+        [disabled]="VM.disabled"
+        data-testid="ticket-new-add-attachment"
+        type="button"
+        outline
+      >
+        {{ t((value$ | async) ? labels.CHANGE_ASSET : labels.SELECT_ASSET) }}
+      </button>
+    </div>
+    <grav-list-item *ngIf="value$ | async as value; else noValue">
+      <div class="d-flex flex-col gap-xs">
+        <span class="grav-text-body">{{ value.name }}</span>
+        <span class="grav-text-caption">{{ value.markNumber }}</span>
+      </div>
+    </grav-list-item>
+
+    <ng-template #noValue>
+      <div grav-empty-state="small">
+        <span grav-empty-state-title>{{ t(labels.EMPTY_STATE_TITLE) }}</span>
+        <span grav-empty-state-explanation>{{
+          t(labels.EMPTY_STATE_EXPLANATION)
+        }}</span>
+      </div>
+    </ng-template>
+  </div>
+</ng-container>

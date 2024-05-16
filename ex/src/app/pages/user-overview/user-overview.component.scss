@@ -1,0 +1,7 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+  app-search-input {
+    width: calc(var(--grav-space-5-xl) * 6);
+  }
+}

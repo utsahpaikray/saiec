@@ -1,0 +1,35 @@
+<h1 class="pb-m grav-text-header-2 text-grey-900">
+  {{ 'UserProfile.Access' | transloco }}
+</h1>
+
+<app-user-access-item
+  *ngFor="let item of userAccessItems; let i = index"
+  [attr.data-testid]="
+    item?.selectedPortalName
+      ? 'user-access-' + item.selectedPortalName
+      : 'user-access-' + i
+  "
+  [index]="i"
+  [portals]="availablePortals"
+  [userAccessItem]="item"
+  [userId$]="userId$"
+  (allocatedToPortal)="removeFromAvailablePortals($event)"
+  (deallocatedFromPortal)="addToAvailablePortals($event)"
+  (removeUserAccessItem)="removeAccess($event)"
+  (selectPortalName)="updateUserAccessItem($event, i)"
+  class="d-block pb-m"
+></app-user-access-item>
+
+<button
+  *ngIf="user && availablePortals.length > 0 && canAddPortalAccess"
+  [disabled]="
+    !!userAccessItems.length &&
+    !userAccessItems[userAccessItems.length - 1].selectedPortalName
+  "
+  (click)="addPortal()"
+  data-testid="add-portal-button"
+  outline
+>
+  <grav-svg-icon key="plus" size="m"></grav-svg-icon>
+  {{ 'UserProfile.AddPortal' | transloco }}
+</button>

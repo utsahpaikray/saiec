@@ -1,0 +1,79 @@
+<app-link
+  [linkText]="searchText ? categoryName : ('General.Documentation' | transloco)"
+  [linkUrl]="searchText ? '../' + categoryName : '../'"
+  (click)="clearSearchText()"
+  class="mt-l d-inline-block cursor-pointer"
+  iconName="chevron-left"
+  iconPosition="left"
+  size="lg"
+>
+</app-link>
+
+<h2
+  *ngIf="categoryName && !searchText"
+  class="mt-l grav-text-header-2-medium text-grey-900"
+  data-testid="documentation-category-title"
+>
+  {{ categoryName }}
+</h2>
+
+<h2
+  *ngIf="searchText"
+  class="mt-l grav-text-header-2 text-grey-900"
+  data-testid="documentation-category-search-title"
+>
+  {{
+    'Documentation.SearchResultsFor' | transloco : { searchText: searchText }
+  }}
+</h2>
+
+<div class="mt-l lg:d-flex lg:items-center lg:justify-space-between">
+  <app-document-search-bar
+    [searchText]="searchText"
+    (searchEvent)="search($event)"
+    class="d-block <lg:w-full lg:w-third"
+  ></app-document-search-bar>
+  <div
+    class="d-flex items-center <lg:mt-s <lg:w-full <lg:flex-row-reverse <lg:justify-space-between"
+  >
+    <app-documentation-category-language-selector
+      *ngIf="availableCultures && availableCultures.length > 1"
+      [availableCultures]="availableCultures"
+      [isDisabled]="searchText !== undefined && searchText.length > 0"
+      [selectedCulture]="selectedCulture"
+      (cultureChange)="onCultureChange($event)"
+      class="ml-m"
+    >
+    </app-documentation-category-language-selector>
+
+    <button
+      *ngIf="fullOmManuals && fullOmManuals.length > 0"
+      [disabled]="searchText !== undefined && searchText.length > 0"
+      (click)="downloadOmManual()"
+      class="lg:ml-xl"
+      data-testid="full-om-download"
+      outline
+    >
+      <grav-svg-icon key="download" size="m"></grav-svg-icon>
+      {{ 'Documentation.DownloadOmManual' | transloco }}
+    </button>
+  </div>
+</div>
+
+<div class="mt-l md:mt-2-xl">
+  <app-document-table
+    *ngIf="!searchText; else documentSearch"
+    [documents]="documents"
+    [loading]="loading"
+    [siteId]="siteId"
+  ></app-document-table>
+
+  <ng-template #documentSearch>
+    <app-document-search
+      [categoryCodeName]="category?.codeName"
+      [searchText]="searchText"
+      [siteId]="siteId"
+      data-testid="document-search"
+    ></app-document-search>
+  </ng-template>
+</div>

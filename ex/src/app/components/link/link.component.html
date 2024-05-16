@@ -1,0 +1,27 @@
+<app-dynamic-link
+  [hasTargetBlank]="hasLinkTargetBlank"
+  [isExact]="false"
+  [url]="linkUrl"
+  class="cursor-pointer"
+>
+  <div
+    [ngClass]="classes"
+    class="d-flex items-center gap-xs"
+    data-testid="link"
+  >
+    <grav-svg-icon
+      *ngIf="iconPosition === 'left'"
+      [key]="iconName"
+      [ngClass]="iconClasses"
+      data-testid="link-icon-left"
+      size="m"
+    ></grav-svg-icon>
+    {{ linkText }}
+    <grav-svg-icon
+      *ngIf="iconPosition === 'right'"
+      [name]="iconName"
+      [ngClass]="iconClasses"
+      data-testid="link-icon-right"
+    ></grav-svg-icon>
+  </div>
+</app-dynamic-link>

@@ -1,0 +1,57 @@
+:host .datalist-input::placeholder {
+  color: var(--grav-color-base-grey-500);
+}
+
+:host.ng-invalid.ng-touched .datalist-input {
+  background-color: var(--grav-color-base-red-100);
+}
+
+:host.ng-invalid.ng-touched .datalist-input::placeholder {
+  color: var(--grav-color-base-red-500);
+}
+
+:host.ng-invalid.ng-touched .datalist-arrow,
+:host.ng-invalid.ng-touched .datalist-search-icon,
+:host.ng-invalid.ng-touched .datalist-input {
+  color: var(--grav-color-base-red-500);
+}
+
+:host.ng-invalid.ng-touched:hover .datalist-input {
+  border-color: var(--grav-color-base-red-500);
+}
+
+:host.ng-invalid.ng-touched .datalist-input:focus {
+  border-color: var(--grav-color-base-red-500);
+}
+
+:host.ng-invalid.ng-touched .error-message {
+  display: block;
+}
+
+.datalist-input {
+  &:focus {
+    border: var(--grav-border-size-s) solid var(--grav-color-base-grey-500);
+  }
+  &:disabled {
+    color: var(--grav-color-base-grey-200);
+  }
+}
+
+.datalist-search-icon {
+  transform: translateY(-50%);
+}
+
+ul[data-testid='datalist-list'] {
+  max-height: calc(var(--grav-space-5-xl) * 6);
+
+  li:hover {
+    background-color: var(--grav-color-base-grey-100);
+  }
+}
+
+// TODO remove it after the gravity upgrade to 0.12.2
+button.datalist-clear-button {
+  &:hover {
+    background: transparent;
+  }
+}

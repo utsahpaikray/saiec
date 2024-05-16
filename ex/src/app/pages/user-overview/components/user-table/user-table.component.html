@@ -1,0 +1,101 @@
+<ng-container *ngIf="users; else loading">
+  <ng-container *ngIf="users.length; else noUsers">
+    <ng-container *ngIf="isTable$ | async; then table; else columns">
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #table>
+  <table class="w-full">
+    <thead class="bg-white">
+      <tr>
+        <th
+          *ngFor="let header of headers"
+          data-testid="user-table-header"
+          scope="col"
+        >
+          {{ header | transloco }}
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr
+        *ngFor="let user of users"
+        (click)="clickOnUserEvent(user)"
+        class="cursor-pointer"
+        data-testid="user-table-row"
+      >
+        <td data-testid="user-table-name">
+          <span [innerHTML]="user.firstName" class="mr-xs"></span>
+          <span [innerHTML]="user.prefix" class="mr-xs"></span>
+          <span [innerHTML]="user.lastName"></span>
+        </td>
+        <td
+          [innerHTML]="user.customerEmail || user.email"
+          data-testid="user-table-email"
+        ></td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #columns>
+  <ng-container *ngFor="let user of users">
+    <div
+      (click)="clickOnUserEvent(user)"
+      class="d-flex flex-row <sm:gap-xl gap-3-xl bg-white cursor-pointer p-m b-none bb-s border-solid border-grey-200"
+      data-testid="user-card-list"
+    >
+      <div>
+        <ng-container *ngFor="let header of headers">
+          <div
+            [attr.data-testid]="'card-header-' + header"
+            class="grav-text-body-small-medium mb-s"
+          >
+            {{ header | transloco }}
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="break-words">
+        <div class="grav-text-body-small mb-s" data-testid="card-name">
+          <span
+            *ngIf="user.firstName"
+            [innerHTML]="user.firstName"
+            class="mr-xs"
+          ></span>
+          <span
+            *ngIf="user.prefix"
+            [innerHTML]="user.prefix"
+            class="mr-xs"
+          ></span>
+          <span *ngIf="user.lastName" [innerHTML]="user.lastName"></span>
+        </div>
+
+        <div
+          [innerHTML]="user.customerEmail || user.email"
+          class="grav-text-body-small"
+          data-testid="card-email"
+        ></div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #loading>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner data-testid="user-loading-spinner">
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noUsers>
+  <div
+    class="d-flex w-full items-center justify-center py-2-xl"
+    data-testid="no-data-texts"
+  >
+    {{ noDataText ? noDataText : ('PortalAdmin.NoUsers' | transloco) }}
+  </div>
+</ng-template>

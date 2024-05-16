@@ -1,0 +1,106 @@
+@use 'sass:map';
+@use '../variables/breakpoints' as breakpoints;
+
+$box-alignments: (
+  'center',
+  'space-between',
+  'space-around',
+  'space-evenly',
+  'flex-start',
+  'flex-end'
+);
+
+// for desktop
+@each $boxAlignment in $box-alignments {
+  .align-#{$boxAlignment} {
+    align-items: #{$boxAlignment};
+  }
+  .align-content-#{$boxAlignment} {
+    align-content: #{$boxAlignment};
+  }
+  .align-self-#{$boxAlignment} {
+    align-self: #{$boxAlignment};
+  }
+}
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media (#{$breakpoint-value}) {
+    @each $boxAlignment in $box-alignments {
+      .#{$breakpoint-name}\:justify-#{$boxAlignment} {
+        justify-content: #{$boxAlignment};
+      }
+      .#{$breakpoint-name}\:items-#{$boxAlignment} {
+        align-items: #{$boxAlignment};
+      }
+      .#{$breakpoint-name}\:justify-items-#{$boxAlignment} {
+        justify-items: #{$boxAlignment};
+      }
+      .#{$breakpoint-name}\:content-#{$boxAlignment} {
+        align-content: #{$boxAlignment};
+      }
+      .#{$breakpoint-name}\:align-#{$boxAlignment} {
+        align-items: #{$boxAlignment};
+      }
+      .#{$breakpoint-name}\:align-content-#{$boxAlignment} {
+        align-content: #{$boxAlignment};
+      }
+      .#{$breakpoint-name}\:align-self-#{$boxAlignment} {
+        align-self: #{$boxAlignment};
+      }
+    }
+    .#{$breakpoint-name}\:flex-row {
+      flex-direction: row;
+    }
+    .#{$breakpoint-name}\:flex-row-reverse {
+      flex-direction: row-reverse;
+    }
+    .#{$breakpoint-name}\:flex-col {
+      flex-direction: column;
+    }
+    .#{$breakpoint-name}\:flex-col-reverse {
+      flex-direction: column-reverse;
+    }
+    .#{$breakpoint-name}\:flex-1 {
+      flex: 1;
+    }
+    .#{$breakpoint-name}\:flex-auto {
+      flex: 1 1 auto;
+    }
+    .#{$breakpoint-name}\:flex-initial {
+      flex: 0 1 auto;
+    }
+    .#{$breakpoint-name}\:flex-none {
+      flex: none;
+    }
+    .#{$breakpoint-name}\:flex-grow {
+      flex-grow: 1;
+    }
+    .#{$breakpoint-name}\:flex-shrink {
+      flex-shrink: 1;
+    }
+    .#{$breakpoint-name}\:flex-wrap {
+      flex-wrap: wrap;
+    }
+    .#{$breakpoint-name}\:flex-wrap-reverse {
+      flex-wrap: wrap-reverse;
+    }
+    .#{$breakpoint-name}\:flex-nowrap {
+      flex-wrap: nowrap;
+    }
+
+    @each $order in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
+      .#{$breakpoint-name}\:order-#{$order} {
+        order: #{$order};
+      }
+    }
+    .#{$breakpoint-name}\:order-none {
+      order: 0;
+    }
+    .#{$breakpoint-name}\:order-first {
+      order: -9999;
+    }
+    .#{$breakpoint-name}\:order-last {
+      order: 9999;
+    }
+  }
+}

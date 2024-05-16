@@ -1,0 +1,9 @@
+<app-dropdown
+  *ngIf="siteDropdownItems"
+  [hasMaxTwoTextLines]="true"
+  [isLarge]="true"
+  [items]="siteDropdownItems"
+  (ngModelChange)="onSiteSelect($event)"
+  [(ngModel)]="siteId"
+  icon="location-marker"
+></app-dropdown>

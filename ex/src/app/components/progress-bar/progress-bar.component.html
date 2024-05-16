@@ -1,0 +1,45 @@
+<ng-container *ngIf="progress < 100; else completed">
+  <div class="d-flex items-start bg-white" data-testid="progress-bar-wrapper">
+    <div class="w-full pr-l <md:d-inline-flex <md:items-center">
+      <label
+        class="text-grey-600 d-block grav-text-caption leading-4 <md:pr-s md:pb-m lg:grav-text-body-small lg:leading-none"
+        data-testid="progress-bar-label"
+      >
+        <span
+          *ngIf="currentWindowWidth >= breakpointMd"
+          data-testid="progress-bar-text"
+          ><ng-content></ng-content
+        ></span>
+        {{ progress }}%
+      </label>
+
+      <div class="h-s w-full bg-grey-100">
+        <div
+          [ngClass]="{ 'transition-all duration-300 ease-in-out': progress }"
+          [ngStyle]="{ width: progress + '%' }"
+          class="h-s bg-green-500"
+          data-testid="progress-bar"
+        ></div>
+      </div>
+    </div>
+
+    <button
+      (click)="cancel.emit($event)"
+      class="ml-auto"
+      data-testid="cancel-button"
+      ghost
+      secondary
+    >
+      <grav-svg-icon key="cross" size="l"></grav-svg-icon>
+    </button>
+  </div>
+</ng-container>
+
+<ng-template #completed>
+  <div
+    class="text-grey-600 d-inline-flex items-center gap-m grav-text-body-small md:gap-l"
+    data-testid="progress-bar-completed"
+  >
+    <ng-content select="[complete]"></ng-content>
+  </div>
+</ng-template>

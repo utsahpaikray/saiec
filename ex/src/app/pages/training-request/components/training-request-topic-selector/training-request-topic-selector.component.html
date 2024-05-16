@@ -1,0 +1,87 @@
+<div [formGroup]="formGroup">
+  <ng-container
+    *ngIf="
+      certificationPathsDropdownItems$
+        | async as certificationPathsDropdownItems
+    "
+  >
+    <div class="mt-l md:mt-2-xl">
+      <app-dropdown
+        [isSelect]="true"
+        [items]="certificationPathsDropdownItems"
+        name="topics"
+        data-testid="training-request-topics"
+        formControlName="topics"
+        label="{{ 'TrainingRequest.Topics.Label' | transloco }}"
+        message="{{ 'TrainingRequest.Required' | transloco }}"
+        placeholder="{{ 'TrainingRequest.Topics.Placeholder' | transloco }}"
+      >
+        <span data-testid="topics-error">
+          {{ 'TrainingRequest.Topics.ErrorText' | transloco }}
+        </span>
+      </app-dropdown>
+    </div>
+  </ng-container>
+
+  <ng-container
+    *ngIf="selectedCertificationPath$ | async as selectedCertificationPath"
+  >
+    <div class="mt-s md:mt-m">
+      <grav-field
+        *ngIf="selectedCertificationPath.trainingsCollection"
+        [error]="
+          formGroup &&
+          formGroup.invalid &&
+          formGroup.touched &&
+          trainingForm.touched
+        "
+        formGroupName="trainings"
+      >
+        <fieldset>
+          <div
+            *ngFor="
+              let training of selectedCertificationPath.trainingsCollection
+                .items;
+              let i = index
+            "
+            [attr.data-testid]="'training-checkbox-' + i"
+          >
+            <ng-container *ngIf="training">
+              <input
+                [attr.data-testid]="'training-checkbox-' + i"
+                [formControlName]="training.sys.id"
+                [id]="'training-checkbox-' + i"
+                [name]="training.sys.id"
+                type="checkbox"
+              />
+              <label [for]="'training-checkbox-' + i">{{
+                training.title
+              }}</label>
+            </ng-container>
+          </div>
+          <ng-container
+            *ngIf="
+              formGroup &&
+              formGroup.invalid &&
+              formGroup.touched &&
+              topics.value &&
+              trainingForm.touched
+            "
+          >
+            <grav-svg-icon
+              data-testid="checkbox-error-icon"
+              grav-input-suffix
+              key="exclamation-circle"
+              size="l"
+            ></grav-svg-icon>
+            <grav-assistive-text error left>
+              <span data-testid="trainings-error">
+                {{ 'TrainingRequest.Trainings.ErrorText' | transloco }}
+              </span>
+            </grav-assistive-text>
+          </ng-container>
+        </fieldset>
+      </grav-field>
+    </div>
+  </ng-container>
+</div>

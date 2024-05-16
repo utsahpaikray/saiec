@@ -1,0 +1,11 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+.grid-rows-auto {
+  grid-template-rows: auto auto 1fr;
+}
+
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+  app-search-input {
+    width: calc(var(--grav-space-5-xl) * 6);
+  }
+}

@@ -1,0 +1,22 @@
+query documentSearch(
+  $searchString: String!
+  $siteId: UUID!
+  $userCulture: String!
+  $filters: [DocumentSearchFilterInput!]!
+) {
+  documentSearch(
+    searchString: $searchString
+    siteId: $siteId
+    userCulture: $userCulture
+    filters: $filters
+  ) {
+    result {
+      location
+      contentHighlights
+      metadata_storage_name
+      metadata_storage_size
+      storage_path
+      culture
+    }
+  }
+}

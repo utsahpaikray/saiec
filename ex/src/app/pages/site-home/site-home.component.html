@@ -1,0 +1,12 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <app-title
+    role="title"
+    text="{{ 'Dashboard.WelcomeMessage' | transloco: { name: vm.name } }}"
+  ></app-title>
+  <app-site-performance
+    *ngIf="vm.sitePerformanceVM"
+    [vm]="vm.sitePerformanceVM"
+    role="performance"
+  ></app-site-performance>
+  <app-site-news [vm]="vm.siteNewsVM" role="news"></app-site-news>
+</ng-container>

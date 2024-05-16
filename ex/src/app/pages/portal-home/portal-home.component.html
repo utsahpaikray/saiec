@@ -1,0 +1,74 @@
+<app-default-template>
+  <ng-container body>
+    <app-title
+      *ngIf="currentPortal$ | async as portal"
+      [text]="portal.name"
+      class="mb-s d-block"
+    ></app-title>
+
+    <div *ngIf="isSuperUserOrPortalAdmin$ | async" class="mt-5-xl">
+      <h3
+        class="grav-text-header-3-medium leading-10 text-grey-900 md:grav-text-header-medium"
+      >
+        {{ 'PortalAdmin.Administration' | transloco }}
+      </h3>
+
+      <div class="mt-2-xl">
+        <app-navigation
+          [isCompact]="true"
+          [items]="navigationItems"
+          data-testid="portal-admin-navigation"
+        ></app-navigation>
+      </div>
+    </div>
+
+    <div class="mt-2-xl">
+      <h3
+        class="grav-text-header-3-medium leading-10 text-black md:grav-text-header-medium"
+      >
+        {{ 'PortalAdmin.Sites' | transloco }}
+      </h3>
+
+      <div
+        *ngIf="sites$ | async as sites; else loading"
+        class="mt-2-xl d-grid gap-s lg:grid-cols-2"
+      >
+        <grav-card
+          *ngFor="let site of sites; let i = index"
+          [attr.data-testid]="'site-card-' + i"
+        >
+          <grav-card-header>
+            <grav-svg-icon
+              card-prefix-icon
+              key="location-marker"
+              size="xl"
+            ></grav-svg-icon>
+            <span card-title>{{ site.name }}</span>
+          </grav-card-header>
+
+          <!-- TODO: remove mt-auto from footer if <gravity-card-content> is used in the future -->
+          <grav-card-footer class="mt-auto">
+            <button
+              [routerLink]="['../', PortalRouteSegments.Sites, site.id]"
+              data-testid="site-card-button"
+              ghost
+            >
+              {{ 'General.View' | transloco }}
+            </button>
+          </grav-card-footer>
+        </grav-card>
+      </div>
+    </div>
+  </ng-container>
+</app-default-template>
+
+<ng-template #loading>
+  <div
+    class="d-flex w-full items-center justify-center py-2-xl"
+    data-testid="portal-home-loader"
+  >
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

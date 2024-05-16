@@ -1,0 +1,42 @@
+@use 'sass:map';
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+.bottom-sheet-container {
+  &.isNotExpanded {
+    left: calc(var(--grav-space-3-xl) * 3);
+  }
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+@media #{map-get(breakpoints.$media_queries, 'md')} and #{map-get(breakpoints.$media_queries, '\\<lg')} {
+  .left-4-xl {
+    left: var(--grav-space-4-xl);
+  }
+}
+
+@media #{map-get(breakpoints.$media_queries, 'lg')} {
+  .bottom-sheet-container {
+    width: #{map-get(breakpoints.$breakpoints_min, 'md')}px /* 768px */;
+    max-width: calc(100% - var(--grav-space-2-xl) * 2);
+    box-shadow: var(--grav-elevation-m), var(--gprav-elevation-m);
+  }
+}
+
+
+@media #{map-get(breakpoints.$media_queries, '\\<lg')} {
+  .bottom-sheet-overlay {
+    // background-color: fade-out(#{--grav-color-base-grey-900}, 0)
+    visibility: hidden;
+
+    &.opened {
+      visibility: visible;
+    }
+
+    &.closed {
+      visibility: hidden;
+    }
+  }
+}

@@ -1,0 +1,142 @@
+<div
+  *ngIf="tickets && tickets.length; else noTickets"
+  class="mt-m"
+  data-testid="tickets-table"
+>
+  <table class="w-full">
+    <thead class="bg-white">
+      <tr>
+        <th
+          *ngFor="let header of headers"
+          class="text-left"
+          data-testid="tickets-table-header"
+          scope="col"
+        >
+          {{ 'General.' + header | transloco }}
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-container
+        *ngIf="
+          (breakpoint$ | async) !== viewports.Mobile;
+          then table;
+          else collapsible
+        "
+      >
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #collapsible>
+  <ng-container *ngFor="let ticket of tickets">
+    <tr>
+      <td class="p-m">
+        <grav-collapsible class="w-full" data-testid="tickets-collapsible">
+          <div grav-collapsible-header>
+            <div class="d-flex items-center justify-space-between">
+              {{ ticket.title }}
+              <grav-svg-icon key="chevron-down"></grav-svg-icon>
+            </div>
+            <span
+              *ngIf="ticket.sourceState"
+              class="grav-text-body-small-medium"
+            >
+              {{ ticket.sourceState }}
+            </span>
+          </div>
+
+          <label
+            *ngIf="ticket.priority || ticket.customerPriority"
+            class="grav-text-caption-bold-caps mt-s"
+          >
+            {{ 'General.Priority' | transloco }}
+          </label>
+          <span class="grav-text-body">
+            {{ ticket.priority || ticket.customerPriority }}
+          </span>
+
+          <label *ngIf="ticket.id" class="grav-text-caption-bold-caps mt-s">
+            {{ 'General.Number' | transloco }}
+          </label>
+          <span class="grav-text-body">{{ ticket.id }}</span>
+
+          <label
+            *ngIf="ticket.issueType"
+            class="grav-text-caption-bold-caps mt-s"
+          >
+            {{ 'General.Type' | transloco }}
+          </label>
+          <span class="grav-text-body">
+            {{
+              'Tickets.IssueType.' + (ticket.issueType | titlecase) + '.Label'
+                | transloco
+            }}
+          </span>
+
+          <label class="grav-text-caption-bold-caps mt-s">
+            {{ 'General.ReportOn' | transloco }}
+          </label>
+          <span class="grav-text-body mb-s">{{
+            ticket.reportDate | translocoDate : { dateStyle: 'medium' }
+          }}</span>
+
+          <button
+            [routerLink]="ticket.id"
+            data-testid="view-ticket-button"
+            outline
+          >
+            {{ 'Tickets.ViewTicket' | transloco }}
+          </button>
+        </grav-collapsible>
+      </td>
+    </tr>
+  </ng-container>
+</ng-template>
+
+<ng-template #table>
+  <ng-container *ngFor="let ticket of tickets">
+    <tr
+      [routerLink]="ticket.id"
+      class="cursor-pointer"
+      data-testid="tickets-table-row"
+    >
+      <td
+        class="grav-text-body-bold w-third"
+        data-testid="tickets-table-title"
+        scope="col"
+      >
+        {{ ticket.title }}
+      </td>
+      <td data-testid="tickets-table-priority" scope="col">
+        {{ ticket.priority || ticket.customerPriority }}
+      </td>
+      <td data-testid="tickets-table-id" scope="col">{{ ticket.id }}</td>
+      <td data-testid="tickets-table-type" scope="col">
+        {{
+          'Tickets.IssueType.' + (ticket.issueType | titlecase) + '.Label'
+            | transloco
+        }}
+      </td>
+      <td data-testid="tickets-table-reportedon" scope="col">
+        {{ ticket.reportDate | translocoDate : { dateStyle: 'medium' } }}
+      </td>
+      <td data-testid="tickets-table-status" scope="col">
+        <span *ngIf="ticket.sourceState" class="grav-text-body-small-medium">
+          {{ ticket.sourceState }}
+        </span>
+      </td>
+    </tr>
+  </ng-container>
+</ng-template>
+
+<ng-template #noTickets>
+  <p
+    class="mt-s grav-text-header-3 text-grey-900"
+    data-testid="no-tickets-text"
+  >
+    {{ noTicketTexts }}
+  </p>
+</ng-template>

@@ -1,0 +1,42 @@
+<label class="grav-text-body-small-bold">
+  {{ 'Asset.AffectedAsset' | transloco }}
+</label>
+
+<div
+  *ngIf="value$ | async as selectedAsset"
+  class="mb-m b-s border-solid border-grey-200 bg-white p-s"
+>
+  <p class="grav-text-body-bold" data-testid="selected-asset-description">
+    {{ selectedAsset.description }}
+  </p>
+  <p class="grav-text-body" data-testid="selected-asset-mark-number">
+    {{ selectedAsset.markNumber }}
+  </p>
+</div>
+
+<button
+  data-testid="select-asset-button"
+  type="button"
+  #selectAssetButton
+  outline
+>
+  {{
+    (value$ | async)
+      ? ('Asset.ChangeAssetBtn' | transloco)
+      : ('Asset.SelectAssetBtn' | transloco)
+  }}
+</button>
+
+<ng-container *ngIf="value$ | async as selectedAsset">
+  <div
+    class="my-m <lg:d-flex <lg:flex-col lg:d-grid lg:grid-cols-3 lg:gap-y-s"
+    data-testid="selected-asset-mark-code-and-number"
+  >
+    <div class="lg:mr-m grav-text-body-small-bold">
+      {{ 'Asset.MarkCodeAndNumber' | transloco }}
+    </div>
+    <div class="lg:col-span-2 grav-text-body-small">
+      {{ selectedAsset.markCode }} {{ selectedAsset.markNumber }}
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,26 @@
+query userSiteContact($siteId: UUID!) {
+  me {
+    relatedPortalData {
+      sites(where: { id: { eq: $siteId } }) {
+        accountManagerContact {
+          ...AccountManagerContact
+        }
+        contractManagerContact {
+          ...ContractManagerContact
+        }
+        itManagerContact {
+          ...ItManagerContact
+        }
+        serviceDeskContact {
+          ...ServiceDeskContact
+        }
+        sparePartsContact {
+          ...SparePartsContact
+        }
+        visitingOfficeContact {
+          ...VisitingOfficeContact
+        }
+      }
+    }
+  }
+}

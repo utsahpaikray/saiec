@@ -1,0 +1,77 @@
+@if (dialogData; as VM) {
+  @if (asset$ | async; as asset) {
+    <grav-card *transloco="let t">
+      <grav-card-header>
+        <span card-title>{{ t(VM.titleKey) }}</span>
+        <span card-subtitle>{{
+          t(VM.subTitleValue, { assetId: asset.id })
+        }}</span>
+        <button
+          (click)="dialogRef.close(false)"
+          card-suffix-button
+          ghost
+          secondary
+        >
+          <grav-svg-icon key="close" size="xl"></grav-svg-icon>
+        </button>
+      </grav-card-header>
+      <grav-card-content>
+        <!-- asset ID -->
+        <div class="d-flex items-flex-start">
+          <grav-key-value>
+            <span grav-key>{{ t(VM.assetIdKey) }}</span>
+            <span grav-value>{{
+              t(VM.assetIdValue, { assetId: VM.assetIdValue })
+            }}</span>
+          </grav-key-value>
+          <button
+            [appCopyToClipboard]="
+              t(VM.assetIdValue, { assetId: VM.assetIdValue })
+            "
+            ghost
+            secondary
+          >
+            <grav-svg-icon key="copy"></grav-svg-icon>
+          </button>
+        </div>
+        <!-- mark code -->
+        <div class="d-flex items-flex-start">
+          <grav-key-value data-testid="markcode">
+            <span grav-key>{{ t(VM.markCodeKey) }}</span>
+            <span grav-value>{{ asset.markCode }}</span>
+          </grav-key-value>
+          <button [appCopyToClipboard]="asset.markCode || ''" ghost secondary>
+            <grav-svg-icon key="copy"></grav-svg-icon>
+          </button>
+        </div>
+
+        <!-- mark number -->
+        <div class="d-flex items-flex-start">
+          <grav-key-value data-testid="mark-number">
+            <span grav-key>{{ t(VM.markNumberKey) }}</span>
+            <span grav-value>{{ asset.markNumber }}</span>
+          </grav-key-value>
+          <button [appCopyToClipboard]="asset.markNumber || ''" ghost secondary>
+            <grav-svg-icon key="copy"></grav-svg-icon>
+          </button>
+        </div>
+
+        <!-- description -->
+        <div class="d-flex items-flex-start">
+          <grav-key-value data-testid="description">
+            <span grav-key>{{ t(VM.descriptionKey) }}</span>
+            <span grav-value>{{ asset.description }}</span>
+          </grav-key-value>
+          <button
+            [appCopyToClipboard]="asset.description || ''"
+            ghost
+            secondary
+          >
+            <grav-svg-icon key="copy"></grav-svg-icon>
+          </button>
+        </div>
+      </grav-card-content>
+      <app-toast></app-toast>
+    </grav-card>
+  }
+}

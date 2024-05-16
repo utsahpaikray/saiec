@@ -1,0 +1,30 @@
+<ng-container *ngIf="vm">
+  <grav-card *ngFor="let card of vm.cards" class="flex-grow" role="article">
+    <grav-card-header>
+      <span *ngIf="card.labels.tag" role="news-tag" card-eyebrow>
+        {{ card.labels.tag | transloco }}
+      </span>
+      <span role="news-title" card-title>
+        {{ card.labels.title | transloco }}
+      </span>
+    </grav-card-header>
+    <grav-card-content>
+      <p class="flex-grow" role="news-content">
+        {{ card.labels.content | transloco }}
+      </p>
+      <img
+        *ngIf="card.image"
+        [alt]="card.image.alt"
+        [src]="card.image.src"
+        class="h-64 object-cover object-center"
+        role="news-image"
+        card-bleeding-content
+      />
+    </grav-card-content>
+    <grav-card-footer *ngIf="card.action as action">
+      <button (click)="openExternalLink(action.link)" role="news-action" ghost>
+        {{ action.label | transloco }}
+      </button>
+    </grav-card-footer>
+  </grav-card>
+</ng-container>

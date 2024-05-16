@@ -1,0 +1,32 @@
+@switch (vmWithDefaults().variant) {
+  @case (AttachmentVariant.Thumbnail) {
+    <div style="max-width: 192px; max-height: 192px" class="overflow-hidden">
+      <ng-content select="img"></ng-content>
+    </div>
+  }
+  @case (AttachmentVariant.Document) {
+    <div
+      style="padding: calc(var(--global-spacing-2-xl) * 2)"
+      class="bg-grey-300"
+    >
+      <grav-svg-icon key="document" size="2xl"></grav-svg-icon>
+    </div>
+  }
+  @case (AttachmentVariant.Mfe) {
+    <div
+      style="padding: calc(var(--global-spacing-2-xl) * 2)"
+      class="bg-grey-300"
+    >
+      <grav-svg-icon key="bar-chart" size="2xl"></grav-svg-icon>
+    </div>
+  }
+}
+<div class="d-flex gap-s items-center">
+  @if (vmWithDefaults().prefixIconKey; as key) {
+    <grav-svg-icon [key]="key" size="l"></grav-svg-icon>
+  }
+  <span class="flex-grow ellipsis">
+    <ng-content></ng-content>
+  </span>
+  <ng-content select="button"></ng-content>
+</div>

@@ -1,0 +1,62 @@
+@if (vm) {
+  @if (vm.messageType === MessageType.Status) {
+    <ng-content *ngTemplateOutlet="statusMessage; context: vm"></ng-content>
+  } @else {
+    <ng-content *ngTemplateOutlet="message; context: vm"></ng-content>
+  }
+}
+
+<ng-template
+  #message
+  let-created="created"
+  let-author="author"
+  let-content="content"
+  let-isCurrentUser="authorIsCurrentUser"
+>
+  <grav-card
+    *transloco="let t"
+    [elevated]="false"
+    [ngClass]="isCurrentUser ? 'current-user' : null"
+  >
+    <grav-card-content class="align-flex-start">
+      <h4 class="grav-text-body opacity-80">
+        {{
+          t('Messaging.MessageHeader', {
+            messagedOn: vm.created,
+            name: isCurrentUser ? t('Messaging.CurrentUser') : author
+          })
+        }}
+      </h4>
+      @if (MessageType.Attachment) {
+        <ng-content></ng-content>
+      }
+      <div class="grav-text-body">
+        {{ vm.content }}
+      </div>
+    </grav-card-content>
+  </grav-card>
+</ng-template>
+
+<ng-template
+  #statusMessage
+  let-created="created"
+  let-author="author"
+  let-isCurrentUser="authorIsCurrentUser"
+  let-status="status"
+>
+  <h4 *transloco="let t" class="my-m grav-text-body opacity-80">
+    {{
+      isCurrentUser
+        ? t('Messaging.StatusMessage', {
+            messagedOn: created,
+            status,
+            name: t('Messaging.CurrentUser')
+          })
+        : t('Messaging.StatusMessage', {
+            messagedOn: created,
+            status,
+            name: author
+          })
+    }}
+  </h4>
+</ng-template>

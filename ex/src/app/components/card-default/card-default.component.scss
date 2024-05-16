@@ -1,0 +1,19 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+.card-gap-height {
+  min-height: calc(var(--grav-space-3-xl) * 3);
+}
+
+.float-right {
+  float: right;
+}
+
+@media #{map-get(breakpoints.$media_queries, 'lg')} {
+  .card-gap-height {
+      min-height: calc(var(--grav-space-xl) * 5);
+  }
+}
+
+.h-custom-16 {
+  height: calc(var(--grav-space-5-xl) * 4)
+}

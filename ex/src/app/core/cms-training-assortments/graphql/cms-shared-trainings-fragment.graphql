@@ -1,0 +1,20 @@
+fragment AssortmentItem on Assortment {
+  title
+  sys {
+    id
+  }
+  segment
+}
+
+fragment CertificationPathItem on CertificationPath {
+  title
+  description
+  sys {
+    id
+  }
+}
+
+fragment TrainingImage on Asset {
+  title
+  url
+}

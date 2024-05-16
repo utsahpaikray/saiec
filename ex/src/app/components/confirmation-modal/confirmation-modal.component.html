@@ -1,0 +1,30 @@
+<app-modal
+  [attr.data-testid]="id"
+  [id]="id"
+  [title]="title"
+  (closeEvent)="cancel()"
+>
+  <ng-content></ng-content>
+
+  <div class="mt-s d-flex justify-flex-end gap-m md:mt-l">
+    <button
+      *ngIf="showCancelButton"
+      (click)="cancel(true)"
+      class="col-span-2 col-end-5"
+      data-testid="confirmation-modal-cancel-button"
+      ghost
+      outline
+      secondary
+    >
+      {{ cancelText }}
+    </button>
+
+    <button
+      (click)="confirm()"
+      class="col-span-2 col-end-7"
+      data-testid="confirmation-modal-confirm-button"
+    >
+      {{ confirmText }}
+    </button>
+  </div>
+</app-modal>

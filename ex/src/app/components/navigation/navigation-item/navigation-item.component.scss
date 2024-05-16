@@ -1,0 +1,15 @@
+@use '../../../../styles/variables/breakpoints' as breakpoints;
+
+@media #{map-get(breakpoints.$media_queries, 'lg')} {
+  .min-h-custom-5 {
+    min-height: 5rem /* 80px */;
+  }
+}
+
+.icon-custom {
+  transform: translate(-50%, -50%);
+}
+
+.dynamic-link-icon, .dynamic-link-text {
+  color: inherit
+}

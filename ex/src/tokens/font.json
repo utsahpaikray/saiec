@@ -1,0 +1,33 @@
+{
+  "font": {
+    "family": {
+      "base": {
+        "value": "{assets.font.roboto.name.value}"
+      },
+      "fallback": {
+        "value": "{assets.font.noto.name.value}, sans-serif"
+      }
+    },
+
+    "weight": {
+      "thin": {
+        "value": 100
+      },
+      "light": {
+        "value": 300
+      },
+      "normal": {
+        "value": 400
+      },
+      "medium": {
+        "value": 500
+      },
+      "bold": {
+        "value": 700
+      },
+      "black": {
+        "value": 900
+      }
+    }
+  }
+}

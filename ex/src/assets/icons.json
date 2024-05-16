@@ -1,0 +1,221 @@
+{
+  "iconImageFiles": [
+    {
+      "iconName": "menu",
+      "iconPath": "/assets/icons/custom/menu.svg"
+    },
+    {
+      "iconName": "calendar",
+      "iconPath": "/assets/icons/custom/calendar.svg"
+    },
+    {
+      "iconName": "configuration",
+      "iconPath": "/assets/icons/custom/configuration.svg"
+    },
+    {
+      "iconName": "contacts",
+      "iconPath": "/assets/icons/custom/contacts.svg"
+    },
+    {
+      "iconName": "customers",
+      "iconPath": "/assets/icons/custom/customers.svg"
+    },
+    {
+      "iconName": "documents",
+      "iconPath": "/assets/icons/custom/documents.svg"
+    },
+    {
+      "iconName": "document-text-outline",
+      "iconPath": "/assets/icons/heroicons-outline/document-text.svg"
+    },
+    {
+      "iconName": "home",
+      "iconPath": "/assets/icons/custom/home.svg"
+    },
+    {
+      "iconName": "maintenance",
+      "iconPath": "/assets/icons/custom/maintenance.svg"
+    },
+    {
+      "iconName": "news",
+      "iconPath": "/assets/icons/custom/news.svg"
+    },
+    {
+      "iconName": "parts",
+      "iconPath": "/assets/icons/custom/parts.svg"
+    },
+    {
+      "iconName": "vidi",
+      "iconPath": "/assets/icons/custom/vidi.svg"
+    },
+    {
+      "iconName": "performance",
+      "iconPath": "/assets/icons/custom/performance.svg"
+    },
+    {
+      "iconName": "portal",
+      "iconPath": "/assets/icons/custom/portal.svg"
+    },
+    {
+      "iconName": "contracts",
+      "iconPath": "/assets/icons/custom/contracts.svg"
+    },
+    {
+      "iconName": "training",
+      "iconPath": "/assets/icons/custom/training.svg"
+    },
+    {
+      "iconName": "users",
+      "iconPath": "/assets/icons/custom/users.svg"
+    },
+    {
+      "iconName": "tickets",
+      "iconPath": "/assets/icons/custom/tickets.svg"
+    },
+    {
+      "iconName": "chevron-up-solid",
+      "iconPath": "/assets/icons/heroicons-solid/chevron-up.svg"
+    },
+    {
+      "iconName": "chevron-up-outline",
+      "iconPath": "/assets/icons/heroicons-outline/chevron-up.svg"
+    },
+    {
+      "iconName": "chevron-down-solid",
+      "iconPath": "/assets/icons/heroicons-solid/chevron-down.svg"
+    },
+    {
+      "iconName": "chevron-right",
+      "iconPath": "/assets/icons/heroicons-outline/chevron-right.svg"
+    },
+    {
+      "iconName": "chevron-left-outline",
+      "iconPath": "/assets/icons/heroicons-outline/chevron-left.svg"
+    },
+    {
+      "iconName": "chevron-down-outline",
+      "iconPath": "/assets/icons/heroicons-outline/chevron-down.svg"
+    },
+    {
+      "iconName": "question-mark-circle",
+      "iconPath": "/assets/icons/heroicons-solid/question-mark-circle.svg"
+    },
+    {
+      "iconName": "phone-outgoing",
+      "iconPath": "/assets/icons/heroicons-solid/phone-outgoing.svg"
+    },
+    {
+      "iconName": "plus-outline",
+      "iconPath": "/assets/icons/heroicons-outline/plus.svg"
+    },
+    {
+      "iconName": "mail",
+      "iconPath": "/assets/icons/heroicons-outline/mail.svg"
+    },
+    {
+      "iconName": "folder-outline",
+      "iconPath": "/assets/icons/heroicons-outline/folder.svg"
+    },
+    {
+      "iconName": "academic-cap-outline",
+      "iconPath": "/assets/icons/heroicons-outline/academic-cap.svg"
+    },
+    {
+      "iconName": "shield-check-outline",
+      "iconPath": "/assets/icons/heroicons-outline/shield-check.svg"
+    },
+    {
+      "iconName": "location-marker",
+      "iconPath": "/assets/icons/heroicons-solid/location-marker.svg"
+    },
+    {
+      "iconName": "user",
+      "iconPath": "/assets/icons/heroicons-solid/user.svg"
+    },
+    {
+      "iconName": "user-outline",
+      "iconPath": "/assets/icons/heroicons-outline/user.svg"
+    },
+    {
+      "iconName": "search",
+      "iconPath": "/assets/icons/heroicons-solid/search.svg"
+    },
+    {
+      "iconName": "search-outline",
+      "iconPath": "/assets/icons/heroicons-outline/search.svg"
+    },
+    {
+      "iconName": "download",
+      "iconPath": "/assets/icons/heroicons-solid/download.svg"
+    },
+    {
+      "iconName": "download-outline",
+      "iconPath": "/assets/icons/heroicons-outline/download.svg"
+    },
+    {
+      "iconName": "link-external",
+      "iconPath": "/assets/icons/heroicons-outline/link-external.svg"
+    },
+    {
+      "iconName": "information-circle",
+      "iconPath": "/assets/icons/heroicons-solid/information-circle.svg"
+    },
+    {
+      "iconName": "x-circle",
+      "iconPath": "/assets/icons/heroicons-solid/x-circle.svg"
+    },
+    {
+      "iconName": "check-circle",
+      "iconPath": "/assets/icons/heroicons-solid/check-circle.svg"
+    },
+    {
+      "iconName": "check",
+      "iconPath": "/assets/icons/heroicons-solid/check.svg"
+    },
+    {
+      "iconName": "exclamation",
+      "iconPath": "/assets/icons/heroicons-solid/exclamation.svg"
+    },
+    {
+      "iconName": "exclamation-circle",
+      "iconPath": "/assets/icons/heroicons-solid/exclamation-circle.svg"
+    },
+    {
+      "iconName": "x-outline",
+      "iconPath": "/assets/icons/heroicons-outline/x.svg"
+    },
+    {
+      "iconName": "trash",
+      "iconPath": "/assets/icons/heroicons-outline/trash.svg"
+    },
+    {
+      "iconName": "logo-twitter",
+      "iconPath": "/assets/icons/carbon/logo-twitter.svg"
+    },
+    {
+      "iconName": "logo-facebook",
+      "iconPath": "/assets/icons/carbon/logo-facebook.svg"
+    },
+    {
+      "iconName": "logo-linkedin",
+      "iconPath": "/assets/icons/carbon/logo-linkedin.svg"
+    },
+    {
+      "iconName": "logo-youtube",
+      "iconPath": "/assets/icons/carbon/logo-youtube.svg"
+    },
+    {
+      "iconName": "logo-instagram",
+      "iconPath": "/assets/icons/carbon/logo-instagram.svg"
+    },
+    {
+      "iconName": "logo-wechat",
+      "iconPath": "/assets/icons/carbon/logo-wechat.svg"
+    },
+    {
+      "iconName": "logo-xing",
+      "iconPath": "/assets/icons/carbon/logo-xing.svg"
+    }
+  ],
+  "customIcons": []
+}

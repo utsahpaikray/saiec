@@ -1,0 +1,59 @@
+<app-expansion-panel (toggleEvent)="onToggle($event)">
+  <ng-container header>
+    <div
+      class="d-flex cursor-pointer items-center gap-s p-s transition-colors duration-300 ease-in-out hover:bg-grey-100 md:p-m"
+    >
+      <div
+        [ngClass]="{
+          'table-folder-icon d-flex items-start gap-xs before:mt-xs before:block before:h-3 before:w-m before:border-l before:border-b before:border-blue-500':
+            document.depth > 0
+        }"
+        [style.margin-left.rem]="identationLeft * document.depth"
+        data-testid="table-folder-icon"
+      >
+        <svg-icon
+          name="folder-outline"
+          svgClass="grav-text-header-2 text-steelblue-500"
+        ></svg-icon>
+      </div>
+      <div
+        *ngIf="document.name"
+        class="leading-5 text-grey-900 w-custom <md:grav-text-body-small-medium md:flex-grow"
+        data-testid="table-folder-name"
+      >
+        {{ document.name }}
+      </div>
+      <div class="text-grey-600">
+        <svg-icon
+          [name]="isOpen ? 'chevron-up-outline' : 'chevron-down-outline'"
+          data-testid="table-folder-chevron"
+          svgClass="grav-text-header-3 text-orange-500"
+        ></svg-icon>
+      </div>
+    </div>
+  </ng-container>
+  <div
+    *ngFor="
+      let document of document.children
+        | sortBy : { alphabet: 'name', property: 'children' } : selectedCulture
+    "
+    class="b-none bt-s border-solid border-grey-200"
+  >
+    <ng-container *ngIf="isParentOpen">
+      <app-document-table-folder
+        *ngIf="document.children; else file"
+        [document]="document"
+        [isParentOpen]="isOpen"
+        [selectedCulture]="selectedCulture"
+        [siteId]="siteId"
+      ></app-document-table-folder>
+      <ng-template #file>
+        <app-document-table-file
+          [attr.data-testid]="'document-table-file-depth-' + document.depth"
+          [document]="document"
+          [siteId]="siteId"
+        ></app-document-table-file>
+      </ng-template>
+    </ng-container>
+  </div>
+</app-expansion-panel>

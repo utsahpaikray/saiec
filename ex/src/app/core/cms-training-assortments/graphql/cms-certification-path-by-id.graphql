@@ -1,0 +1,42 @@
+fragment TrainingCertificationPathItem on CertificationPath {
+  sys {
+    id
+  }
+  title
+  description
+  trainingsCollection {
+    items {
+      ...TrainingItemWithLinkedAssortment
+    }
+  }
+}
+
+fragment TrainingItemWithLinkedAssortment on Training {
+  title
+  targetGroup
+  duration
+  sys {
+    id
+  }
+  linkedFrom {
+    assortmentCollection {
+      items {
+        ...LinkedAssortmentItem
+      }
+    }
+  }
+}
+
+fragment LinkedAssortmentItem on Assortment {
+  title
+  sys {
+    id
+  }
+  segment
+}
+
+query certificationPathById($id: String!) {
+  certificationPath(id: $id) {
+    ...TrainingCertificationPathItem
+  }
+}

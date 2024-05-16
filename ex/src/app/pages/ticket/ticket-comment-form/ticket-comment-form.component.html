@@ -1,0 +1,79 @@
+<ng-container *transloco="let t; lang: serviceDeskLangCode">
+  <h6 class="font-bold" data-testid="ticket-comment-heading">
+    {{ t('General.NewMessage') }}
+  </h6>
+
+  <form
+    *ngIf="form"
+    [formGroup]="form"
+    (submit)="onSubmit()"
+    class="mt-m"
+    data-testid="ticket-comment-form"
+  >
+    <grav-field data-testid="ticket-comment-title">
+      <grav-field-eyebrow>
+        {{ t('General.Title') }} - {{ t('General.Required') }}
+      </grav-field-eyebrow>
+      <input
+        [attr.error]="isInvalid('title') ? '' : null"
+        [maxlength]="titleReferenceMaxCount"
+        name="title"
+        #title
+        formControlName="title"
+        grav-input
+      />
+      <ng-container *ngIf="isInvalid('title')">
+        <grav-svg-icon
+          grav-input-prefix
+          key="exclamation-circle"
+          size="l"
+        ></grav-svg-icon>
+        <grav-assistive-text
+          class="grav-text-body-small"
+          data-testid="ticket-comment-title-error"
+          error
+          left
+        >
+          {{ t('General.MandatoryField') }}
+        </grav-assistive-text>
+      </ng-container>
+      <grav-assistive-text right>
+        {{ title.value.length }} /
+        {{ titleReferenceMaxCount }}
+      </grav-assistive-text>
+    </grav-field>
+
+    <app-text-area
+      [isDisabled]="savingComment"
+      [maxLength]="32000"
+      class="mt-m d-block"
+      name="message"
+      data-testid="ticket-comment-message"
+      formControlName="message"
+      label="{{ t('General.Message') }}"
+    >
+    </app-text-area>
+
+    <div
+      class="mt-m d-flex gap-m <sm:flex-col <sm:items-end sm:items-center sm:justify-flex-end"
+    >
+      <button
+        [disabled]="savingComment"
+        data-testid="ticket-comment-submit-button"
+      >
+        {{ t('General.SendMessage') }}
+      </button>
+      <span
+        *ngIf="savingComment"
+        class="d-inline-flex items-center gap-s transition-opacity duration-300 sm:order-first"
+        data-testid="ticket-comment-saving-spinner"
+      >
+        <app-progress-spinner
+          class="d-inline-flex"
+          size="l"
+        ></app-progress-spinner>
+        {{ t('General.AddingMessage') }}
+      </span>
+    </div>
+  </form>
+</ng-container>

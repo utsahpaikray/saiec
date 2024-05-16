@@ -1,0 +1,32 @@
+<div class="relative">
+  <svg-icon
+    name="search-outline"
+    svgClass="absolute text-grey-500 grav-text-body-small grav-text-body m-s top-xs left-xs"
+  ></svg-icon>
+  <input
+    [placeholder]="placeholder"
+    [(ngModel)]="searchText"
+    class="w-full rounded-m b-none b-s border-solid border-grey-300 bg-white py-s px-m pl-xl pr-l grav-text-body-small text-grey-900 shadow-sm hover:border-grey-300 focus:border-grey-500 focus:ring-0 grav-text-body"
+    name="search"
+    data-testid="search-input"
+    type="search"
+    #input
+    autocomplete="off"
+  />
+  <button
+    *ngIf="focussed && searchText && searchText.length > 0"
+    (click)="clearSearch()"
+    class="bg-transparent absolute top-none right-none"
+    data-testid="search-clear-button"
+    ghost
+    secondary
+  >
+    <grav-svg-icon key="cross" size="m"></grav-svg-icon>
+  </button>
+</div>
+<app-assertive-text
+  *ngIf="infoText"
+  [leftText]="infoText"
+  class="d-block mt-s"
+  data-testid="info-text"
+></app-assertive-text>

@@ -1,0 +1,36 @@
+<app-title text="{{ 'Contacts.MyContacts' | transloco }}"></app-title>
+
+<ng-container *ngIf="contacts; else loader">
+  <div
+    *ngIf="contacts.length; else noContacts"
+    class="d-flex flex-col mt-2-xl <sm:gap-l sm:mt-5-xl sm:gap-2-xl w-custom-66_6"
+  >
+    <app-contacts-group [contacts]="contacts.slice(0, 2)"></app-contacts-group>
+    <ng-container *ngIf="contacts.length > 2">
+      <app-contacts-group
+        [contacts]="contacts.slice(2, 4)"
+      ></app-contacts-group>
+    </ng-container>
+    <ng-container *ngIf="contacts.length > 4">
+      <app-contacts-group
+        [contacts]="contacts.slice(4, 6)"
+      ></app-contacts-group>
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #loader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noContacts>
+  <div class="-mt-5-xl d-flex h-full flex-col items-center justify-center">
+    <h2 class="grav-text-header-2-bold lg:grav-text-header-bold">
+      {{ 'Contacts.NoContacts' | transloco }}
+    </h2>
+  </div>
+</ng-template>

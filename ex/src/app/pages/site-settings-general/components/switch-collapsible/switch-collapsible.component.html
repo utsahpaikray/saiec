@@ -1,0 +1,13 @@
+<grav-collapsible [expanded]="value$ | async" (expanded)="onToggle($event)">
+  <grav-list-item grav-collapsible-header class="grav-text-body-bold">
+    {{ title() }}
+    <input
+      (change)="onToggle($event)"
+      [checked]="value$ | async"
+      type="checkbox"
+      grav-toggle-switch
+    />
+    <label class="justify-flex-end"></label>
+  </grav-list-item>
+  <ng-content></ng-content>
+</grav-collapsible>

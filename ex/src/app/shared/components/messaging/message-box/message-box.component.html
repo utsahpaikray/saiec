@@ -1,0 +1,28 @@
+@if (!vm.disabled) {
+  <!-- TODO What is the desired disabled state? Not showing the messagebox or showing it but greyed out? -->
+  <grav-card *transloco="let t" [elevated]="false">
+    <grav-card-content>
+      <grav-field-eyebrow>
+        {{ t('Messaging.NewMessage') }}
+      </grav-field-eyebrow>
+      <!-- @TODO: Remove class="h-auto" when Gravity issue fixed -->
+      <textarea
+        [formControl]="control"
+        [placeholder]="t('Messaging.NewMessagePlaceholder')"
+        [rows]="vm.rows ?? 8"
+        class="h-auto"
+        #messageContent
+        grav-input
+      ></textarea>
+    </grav-card-content>
+    <grav-card-footer>
+      <button
+        [disabled]="control.invalid"
+        (click)="sendMessageHandler(messageContent)"
+        primary
+      >
+        {{ t('Messaging.SendMessage') }}
+      </button>
+    </grav-card-footer>
+  </grav-card>
+}

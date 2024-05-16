@@ -1,0 +1,3 @@
+mutation closeCase($caseId: UUID!) {
+  closeCase(caseId: $caseId)
+}

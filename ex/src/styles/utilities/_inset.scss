@@ -1,0 +1,60 @@
+@use 'sass:map';
+@use '@vanderlande-gravity/core/src/style/utilities/inset'
+  as inset;
+@use '../variables/breakpoints' as breakpoints;
+
+$insetExtended: (
+  'xs': var(--grav-space-xs),
+  's': var(--grav-space-s),
+  'm': var(--grav-space-m),
+  'l': var(--grav-space-l),
+  'xl': var(--grav-space-xl),
+  '2-xl': var(--grav-space-2-xl),
+  '3-xl': var(--grav-space-3-xl),
+  '4-xl': var(--grav-space-4-xl),
+  '5-xl': var(--grav-space-5-xl)
+);
+
+@each $key in map-keys($insetExtended) {
+  $value: map-get($insetExtended, $key);
+  .inset-#{$key} {
+    inset: #{$value};
+  }
+  .top-#{$key} {
+    top: #{$value};
+  }
+  .right-#{$key} {
+    right: #{$value};
+  }
+  .bottom-#{$key} {
+    bottom: #{$value};
+  }
+  .left-#{$key} {
+    left: #{$value};
+  }
+}
+
+$inset: map-merge(inset.$insetMap, $insetExtended);
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media (#{$breakpoint-value}) {
+    @each $key in map-keys($inset) {
+      $value: map-get($inset, $key);
+      .#{$breakpoint-name}\:inset-#{$key} {
+        inset: #{$value};
+      }
+      .#{$breakpoint-name}\:top-#{$key} {
+        top: #{$value};
+      }
+      .#{$breakpoint-name}\:right-#{$key} {
+        right: #{$value};
+      }
+      .#{$breakpoint-name}\:bottom-#{$key} {
+        bottom: #{$value};
+      }
+      .#{$breakpoint-name}\:left-#{$key} {
+        left: #{$value};
+      }
+    }
+  }
+}

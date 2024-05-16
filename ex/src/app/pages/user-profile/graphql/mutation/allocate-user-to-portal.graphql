@@ -1,0 +1,3 @@
+mutation allocateUserToPortal($portalId: UUID!, $userId: UUID!) {
+  allocateUserToPortal(portalId: $portalId, userId: $userId)
+}

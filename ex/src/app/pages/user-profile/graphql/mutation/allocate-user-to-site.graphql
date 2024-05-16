@@ -1,0 +1,3 @@
+mutation allocateUserToSite($siteId: UUID!, $userId: UUID!) {
+  allocateUserToSite(siteId: $siteId, userId: $userId)
+}

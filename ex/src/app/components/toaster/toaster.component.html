@@ -1,0 +1,9 @@
+<div
+  class="toaster-inner fixed right-none w-full max-w-xl <md:left-half <md:d-flex <md:flex-col-reverse <md:px-m md:top-5-xl md:pr-4-xl"
+>
+  <app-toast
+    *ngFor="let toast of toasterService.toasts$ | async; index as i"
+    [index]="i"
+    [toast]="toast"
+  ></app-toast>
+</div>

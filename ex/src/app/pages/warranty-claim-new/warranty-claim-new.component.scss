@@ -1,0 +1,17 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+@media #{map-get(breakpoints.$media_queries, 'lg')} {
+    .lg\:col-span-2 {
+        grid-column: span 2 / span 2;
+    }
+}
+
+.col-custom {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    top: calc(var(--grav-space-xl) + var(--myvi-space-0_25rem)) !important;
+}
+
+.gap-0 {
+    gap: 0;
+}

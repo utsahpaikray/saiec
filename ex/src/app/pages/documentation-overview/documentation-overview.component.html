@@ -1,0 +1,101 @@
+<app-link
+  *ngIf="searchText"
+  [linkText]="'General.Documentation' | transloco"
+  (click)="clearSearchText()"
+  class="mt-l d-inline-block cursor-pointer"
+  iconName="chevron-left"
+  iconPosition="left"
+  size="lg"
+>
+</app-link>
+
+<ng-container *ngIf="!searchText">
+  <h2
+    class="mt-l grav-text-header-3-medium text-grey-900 md:mt-5-xl md:grav-text-header-medium md:leading-9"
+    data-testid="documentation-category-title"
+  >
+    {{ 'General.Documentation' | transloco }}
+  </h2>
+
+  <p class="mt-s text-grey-900">
+    {{ 'Documentation.OverviewMessage' | transloco }}
+  </p>
+</ng-container>
+
+<h2
+  *ngIf="searchText"
+  class="mt-l grav-text-header-2 text-grey-900"
+  data-testid="documentation-category-search-title"
+>
+  {{
+    'Documentation.SearchResultsFor' | transloco : { searchText: searchText }
+  }}
+</h2>
+
+<app-document-search-bar
+  [searchText]="searchText"
+  (searchEvent)="search($event)"
+  class="mt-s mb-l d-block md:mt-l md:mb-2-xl md:w-third"
+></app-document-search-bar>
+
+<ng-container *ngIf="!searchText; else documentSearch">
+  <ng-container *ngIf="!loading; else showLoader">
+    <section
+      *ngIf="categories && categories.length > 0; else noCategories"
+      class="mt-l d-grid gap-y-s lg:mt-2-xl lg:grid-cols-3 lg:gap-x-xl lg:gap-y-m"
+      data-testid="category-card-list"
+    >
+      <grav-card
+        *ngFor="let category of categories; let i = index"
+        [attr.data-testid]="'category-card-' + i"
+      >
+        <grav-card-header>
+          <grav-svg-icon
+            card-prefix-icon
+            key="documents"
+            size="2xl"
+          ></grav-svg-icon>
+          <span data-testid="card-title" card-title>{{
+            category.categoryCultures[0].name
+          }}</span>
+        </grav-card-header>
+        <grav-card-content>
+          <p class="grav-text-body-medium">
+            {{ category.categoryCultures[0].description }}
+          </p>
+        </grav-card-content>
+        <grav-card-footer>
+          <button
+            data-testid="category-card-button"
+            ghost
+            routerLink="./{{ category.codeName }}"
+          >
+            {{ 'General.View' | transloco }}
+          </button>
+        </grav-card-footer>
+      </grav-card>
+    </section>
+  </ng-container>
+</ng-container>
+
+<ng-template #documentSearch>
+  <app-document-search
+    [searchText]="searchText"
+    [siteId]="siteId"
+    data-testid="document-search"
+  ></app-document-search>
+</ng-template>
+
+<ng-template #showLoader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner data-testid="documentation-overview-spinner">
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noCategories>
+  <p data-testid="document-table-not-found">
+    {{ 'Documentation.NoDocuments' | transloco }}
+  </p>
+</ng-template>

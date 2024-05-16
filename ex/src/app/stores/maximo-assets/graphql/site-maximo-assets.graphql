@@ -1,0 +1,25 @@
+query siteMaximoAssets(
+  $siteId: UUID!
+  $searchText: String!
+  $skip: Int!
+  $take: Int!
+) {
+  assetSearch(
+    siteId: $siteId
+    searchText: $searchText
+    skip: $skip
+    take: $take
+  ) {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    items {
+      systemComponentId
+      description
+      markCode
+      markNumber
+    }
+    totalCount
+  }
+}

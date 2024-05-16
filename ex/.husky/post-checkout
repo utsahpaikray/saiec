@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Load the Husky pre-commit hook script (assuming husky.sh is located in a known path)
+. "$(dirname "$0")/_/husky.sh"
+
+# Change to the 'src/portal-ng' directory
+cd src/portal-ng
+
+npm run husky

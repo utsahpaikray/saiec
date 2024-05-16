@@ -1,0 +1,20 @@
+fragment UserRole on Role {
+  id
+  name
+}
+
+fragment User on IdentityUser {
+  id
+}
+
+query userAuthorization($userId: UUID!) {
+  user(userId: $userId) {
+    ...User
+    roles {
+      ...UserRole
+    }
+    assignableRoles {
+      ...UserRole
+    }
+  }
+}

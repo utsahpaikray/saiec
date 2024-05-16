@@ -1,0 +1,12 @@
+import { GravIcon } from '@vanderlande-gravity/components/types/svg-icon/icon.model'
+
+const menuIcon: GravIcon = {
+  data: `
+  <svg width="1em" height="1em" viewBox="0 0 20 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+	  <path d="M0 12H8V20H0V12ZM0 0H8V8H0V0ZM0 24H8V32H0V24ZM12 12H20V20H12V12ZM12 0H20V8H12V0ZM12 24H20V32H12V24Z" fill="currentColor"/>
+  </svg>
+  `,
+  name: 'menu'
+}
+
+export default menuIcon

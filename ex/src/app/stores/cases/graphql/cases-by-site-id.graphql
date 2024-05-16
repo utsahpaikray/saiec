@@ -1,0 +1,41 @@
+fragment Cases on Case {
+  id
+  status
+  type
+  title
+  source
+  dateTimeCreated
+  statusUpdates {
+    dateTimeCreated
+  }
+  description
+  workOrders {
+    orderNumber
+  }
+  messages {
+    dateTimeCreated
+  }
+  attachments {
+    dateTimeCreated
+  }
+  references {
+    dateTimeCreated
+  }
+}
+
+query casesBySiteId($siteId: UUID!, $endCursor: String) {
+  cases(
+    siteId: $siteId
+    order: [{ dateTimeCreated: DESC }]
+    first: 15
+    after: $endCursor
+  ) {
+    nodes {
+      ...Cases
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

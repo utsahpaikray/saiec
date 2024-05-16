@@ -1,0 +1,14 @@
+fragment UserAccessItemPortal on Portal {
+  name
+  id
+  sites {
+    id
+    name
+  }
+}
+
+query userAccessItem($portalId: UUID) {
+  portals(where: { id: { eq: $portalId } }) {
+    ...UserAccessItemPortal
+  }
+}

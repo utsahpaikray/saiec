@@ -1,0 +1,21 @@
+fragment siteAgreement on Agreement {
+  agreementId
+  endDate
+  startDate
+  contractLines {
+    ...siteContractLine
+  }
+}
+
+fragment siteContractLine on ContractLine {
+  packageCode
+}
+
+query siteAgreements($siteId: UUID!, $currentDate: DateTime) {
+  agreements(
+    siteId: $siteId
+    where: { startDate: { lte: $currentDate }, endDate: { gte: $currentDate } }
+  ) {
+    ...siteAgreement
+  }
+}

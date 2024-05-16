@@ -1,0 +1,11 @@
+mutation addCommentToTicket(
+  $id: String!
+  $description: String!
+  $longDescription: String
+) {
+  addCommentToTicket(
+    ticketId: $id
+    description: $description
+    longDescription: $longDescription
+  )
+}

@@ -1,0 +1,61 @@
+<div
+  (click)="download()"
+  class="download-btn d-flex w-full gap-s p-s b-none bt-s border-solid border-grey-300 transition-colors duration-300 ease-in-out hover:bg-grey-100 <md:flex-wrap md:items-center md:p-m"
+>
+  <div
+    [style.margin-left.rem]="identationLeft * document.depth"
+    class="d-flex w-full gap-s md:w-none md:flex-grow items-center"
+    data-testid="table-file-icon-name-wrapper"
+  >
+    <div
+      [ngClass]="{
+        'table-file-icon d-flex items-start gap-xs before:mt-xs before:block before:h-3 before:w-6 before:border-blue-500':
+          document.depth > 0
+      }"
+      data-testid="table-file-icon"
+    >
+      <svg-icon
+        name="document-text-outline"
+        svgClass="grav-text-header-2 d-flex text-steelblue-300"
+      ></svg-icon>
+    </div>
+    <div
+      *ngIf="document.name"
+      [ngClass]="{
+        'font-bold': document.depth === 0,
+        'md:w-none md:flex-grow': !document.location,
+        'md:!w-third': document.location
+      }"
+      class="break-words text-left text-grey-900 <md:grav-text-body-small"
+      data-testid="table-file-name"
+    >
+      {{ document.name }}
+    </div>
+  </div>
+
+  <div
+    *ngIf="document.location"
+    class="text-grey-600 text-left <md:w-[calc(100%-1.25rem-0.75rem)] <md:pl-xl <md:grav-text-body-small md:w-half"
+    data-testid="table-file-location"
+  >
+    {{ document.location }}
+  </div>
+
+  <div
+    [style.padding-left.rem]="
+      document.depth > 0
+        ? identationLeft * document.depth + identationWithIcons - identationLeft
+        : ''
+    "
+    class="text-grey-600 text-left w-custom <md:pl-xl <md:grav-text-caption-medium <md:leading-4 w-custom-16_6 md:!pl-0"
+    data-testid="table-file-content-length"
+  >
+    {{ document.contentLength | fileSize }}
+  </div>
+  <div class="text-grey-600">
+    <svg-icon
+      name="download-outline"
+      svgClass="grav-text-header-3 text-steelblue-500"
+    ></svg-icon>
+  </div>
+</div>

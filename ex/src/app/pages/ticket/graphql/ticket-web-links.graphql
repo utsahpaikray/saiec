@@ -1,0 +1,9 @@
+query ticketWebLinks(
+  $id: String!
+  $webLinksFirst: Int = 5
+  $webLinksCursor: String
+) {
+  ticket(id: $id) {
+    ...ticketWebLinks
+  }
+}

@@ -1,0 +1,13 @@
+@use '../../../../styles/variables/breakpoints' as breakpoints;
+
+
+
+@media #{map-get(breakpoints.$media_queries, 'lg')} {
+    .section-aside-right-content {
+        grid-column: span 2 / span 2;
+    }
+
+    .section-aside-right-sidebar {
+        grid-column: span 1 / span 1;
+    }
+}

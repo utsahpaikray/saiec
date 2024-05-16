@@ -1,0 +1,21 @@
+<app-default-template *ngIf="!isSitePage; else notFound">
+  <ng-container *ngTemplateOutlet="notFound" body> </ng-container>
+</app-default-template>
+
+<ng-template #notFound>
+  <div class="px-m py-2-xl">
+    <app-title class="mb-l" text="404"></app-title>
+
+    <div class="mt-xl d-flex h-full flex-col items-center justify-center">
+      <h2
+        class="pb-l grav-text-header-2-bold lg:grav-text-header-bold text-center"
+      >
+        {{ 'NotFound.Message' | transloco }}
+      </h2>
+
+      <button class="m-l" data-testid="button" ghost routerLink="/">
+        {{ 'General.GoToHome' | transloco }}
+      </button>
+    </div>
+  </div>
+</ng-template>

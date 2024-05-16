@@ -1,0 +1,19 @@
+<div
+  [ngClass]="sizeClass"
+  class="d-flex text-center flex-col"
+  data-testid="progress-spinner"
+>
+  <div class="relative mx-auto" data-testid="progress-spinner">
+    <grav-svg-icon
+      [ngStyle]="{ 'font-size': 'var(--grav-space-' + size + ')' }"
+      class="loading-spinner"
+      key="loading-spinner"
+    ></grav-svg-icon>
+  </div>
+  <span
+    class="grav-text-caption text-grey-500 mt-xs"
+    data-testid="progress-spinner-label"
+  >
+    <ng-content></ng-content>
+  </span>
+</div>

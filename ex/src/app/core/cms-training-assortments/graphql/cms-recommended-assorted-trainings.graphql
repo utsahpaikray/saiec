@@ -1,0 +1,33 @@
+fragment RecommendedAssortedTrainingItem on Training {
+  title
+  description
+  targetGroup
+  duration
+  sys {
+    id
+  }
+  cardImageCollection {
+    items {
+      ...TrainingImage
+    }
+  }
+  linkedFrom {
+    certificationPathCollection {
+      items {
+        ...CertificationPathItem
+      }
+    }
+  }
+}
+
+query recommendedAssortedTraining($segment: [String]) {
+  assortmentCollection(where: { segment_contains_all: $segment }, limit: 1) {
+    items {
+      trainingsCollection(where: { recommended: true }, limit: 20) {
+        items {
+          ...RecommendedAssortedTrainingItem
+        }
+      }
+    }
+  }
+}

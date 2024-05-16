@@ -1,0 +1,68 @@
+@use '../variables/breakpoints' as breakpoints;
+
+$borderSizeMap: (
+  'none': 0,
+  's': var(--grav-border-size-s),
+  'm': var(--grav-border-size-m),
+  'l': var(--grav-border-size-l)
+);
+
+@each $key in map-keys($borderSizeMap) {
+  $value: map-get($borderSizeMap, $key);
+
+  .b-#{$key} {
+    border-width: #{$value};
+  }
+  .bx-#{$key} {
+    border-left-width: #{$value};
+    border-right-width: #{$value};
+  }
+  .by-#{$key} {
+    border-bottom-width: #{$value};
+    border-top-width: #{$value};
+  }
+  .bt-#{$key} {
+    border-top-width: #{$value};
+  }
+  .br-#{$key} {
+    border-right-width: #{$value};
+  }
+  .bb-#{$key} {
+    border-bottom-width: #{$value};
+  }
+  .bl-#{$key} {
+    border-left-width: #{$value};
+  }
+}
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media #{$breakpoint-value} {
+    @each $key in map-keys($borderSizeMap) {
+      $value: map-get($borderSizeMap, $key);
+
+      .#{$breakpoint-name}\:b-#{$key} {
+        border-width: #{$value};
+      }
+      .#{$breakpoint-name}\:bx-#{$key} {
+        border-left-width: #{$value};
+        border-right-width: #{$value};
+      }
+      .#{$breakpoint-name}\:by-#{$key} {
+        border-bottom-width: #{$value};
+        border-top-width: #{$value};
+      }
+      .#{$breakpoint-name}\:bt-#{$key} {
+        border-top-width: #{$value};
+      }
+      .#{$breakpoint-name}\:br-#{$key} {
+        border-right-width: #{$value};
+      }
+      .#{$breakpoint-name}\:bb-#{$key} {
+        border-bottom-width: #{$value};
+      }
+      .#{$breakpoint-name}\:bl-#{$key} {
+        border-left-width: #{$value};
+      }
+    }
+  }
+}

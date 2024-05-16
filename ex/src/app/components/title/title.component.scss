@@ -1,0 +1,25 @@
+@use '../../../styles/variables/breakpoints' as breakpoints;
+
+.title-wrap {
+  box-decoration-break: clone;
+}
+
+.title {
+  color: var(--grav-color-base-white);
+  font-size: var(--grav-space-l);
+  line-height: var(--grav-font-lineheight-2-xl);
+  font-style: italic;
+  font-weight: var(--grav-font-weight-bold);
+  max-width: max-content;
+}
+
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+  .title-wrap {
+    background-color: var(--grav-color-base-orange-500);
+  }
+
+  .title {
+    font-size: var(--grav-space-3-xl);
+    line-height: 1;
+  }
+}

@@ -1,0 +1,176 @@
+<form [formGroup]="form">
+  <div *transloco="let t" class="d-flex flex-col flex-1 gap-l">
+    @for (panel of panels; track panel.formControlName) {
+      <app-switch-collapsible
+        [title]="t(panel.titleKey)"
+        [formControlName]="panel.formControlName"
+      >
+        @switch (panel.formControlName) {
+          @case (SiteSetting.ShuttleHealth) {
+            <grav-container>
+              <grav-field>
+                <grav-field-eyebrow>
+                  {{
+                    t(
+                      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.ShuttleHealth.Label'
+                    )
+                  }}
+                </grav-field-eyebrow>
+                <input
+                  [formControlName]="SiteSetting.ShuttleHealthUrl"
+                  [attr.error]="
+                    form.controls[SiteSetting.ShuttleHealthUrl].errors ||
+                    form.errors?.shuttleHealthUrlRequired
+                  "
+                  grav-input
+                  [ngStyle]="{ maxWidth: '600px' }"
+                />
+                @if (
+                  form.controls[SiteSetting.ShuttleHealthUrl].errors?.pattern
+                ) {
+                  <grav-assistive-text class="grav-text-body-small" error left>
+                    {{
+                      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.ShuttleHealth.InvalidErrorLabel'
+                        | transloco
+                    }}
+                  </grav-assistive-text>
+                }
+                @if (form.errors?.shuttleHealthUrlRequired) {
+                  <grav-assistive-text class="grav-text-body-small" error left>
+                    {{
+                      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.ShuttleHealth.RequiredErrorLabel'
+                        | transloco
+                    }}
+                  </grav-assistive-text>
+                }
+              </grav-field>
+            </grav-container>
+          }
+          @case (SiteSetting.DivertHealth) {
+            <grav-container>
+              <grav-field>
+                <grav-field-eyebrow>
+                  {{
+                    t(
+                      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.DivertHealth.Label'
+                    )
+                  }}
+                </grav-field-eyebrow>
+                <input
+                  [formControlName]="SiteSetting.DivertHealthUrl"
+                  [attr.error]="
+                    form.controls[SiteSetting.DivertHealthUrl].errors ||
+                    form.errors?.divertHealthUrlRequired
+                  "
+                  grav-input
+                  [ngStyle]="{ maxWidth: '600px' }"
+                />
+                @if (
+                  form.controls[SiteSetting.DivertHealthUrl].errors?.pattern
+                ) {
+                  <grav-assistive-text class="grav-text-body-small" error left>
+                    {{
+                      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.DivertHealth.InvalidErrorLabel'
+                        | transloco
+                    }}
+                  </grav-assistive-text>
+                }
+                @if (form.errors?.divertHealthUrlRequired) {
+                  <grav-assistive-text class="grav-text-body-small" error left>
+                    {{
+                      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.DivertHealth.RequiredErrorLabel'
+                        | transloco
+                    }}
+                  </grav-assistive-text>
+                }
+              </grav-field>
+            </grav-container>
+          }
+          @case (SiteSetting.Cases) {
+            <div class="p-m">
+              <grav-field-eyebrow>
+                {{
+                  t(
+                    'SiteAdminGeneralSettings.GeneralSettingOverview.configs.Cases.EventSources.Label'
+                  )
+                }}:
+              </grav-field-eyebrow>
+            </div>
+            <form
+              [formGroup]="workOrderPromotionalRulesGroup"
+              class="p-m work-order-promotional-rules gap-m items-center"
+            >
+              <ng-conainer
+                *ngTemplateOutlet="
+                  workOrderPromotionalRule;
+                  context: {
+                    label:
+                      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.Cases.EventSources.Types.Monitron',
+                    control:
+                      workOrderPromotionalRulesControls[EventSources.Monitron]
+                  }
+                "
+              ></ng-conainer>
+              <ng-conainer
+                *ngTemplateOutlet="
+                  workOrderPromotionalRule;
+                  context: {
+                    label:
+                      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.Cases.EventSources.Types.ShuttleHealth',
+                    control:
+                      workOrderPromotionalRulesControls[
+                        EventSources.ShuttleHealth
+                      ]
+                  }
+                "
+              ></ng-conainer>
+              <ng-conainer
+                *ngTemplateOutlet="
+                  workOrderPromotionalRule;
+                  context: {
+                    label:
+                      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.Cases.EventSources.Types.DivertHealth',
+                    control:
+                      workOrderPromotionalRulesControls[
+                        EventSources.DivertHealth
+                      ]
+                  }
+                "
+              ></ng-conainer>
+              <ng-conainer
+                *ngTemplateOutlet="
+                  workOrderPromotionalRule;
+                  context: {
+                    label:
+                      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.Cases.EventSources.Types.OperationalAwareness',
+                    control:
+                      workOrderPromotionalRulesControls[
+                        EventSources.OperationalAwareness
+                      ]
+                  }
+                "
+              ></ng-conainer>
+            </form>
+          }
+        }
+      </app-switch-collapsible>
+    }
+  </div>
+</form>
+
+<ng-template #workOrderPromotionalRule let-label="label" let-control="control">
+  {{ label | transloco }}
+  <grav-segmented-button-group
+    (change)="control.setValue($event.detail.value)"
+    [value]="control.value"
+  >
+    <grav-segmented-button [value]="WorkOrderPromotionRule.Manual">{{
+      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.Cases.EventSources.Rules.Manual'
+        | transloco
+    }}</grav-segmented-button>
+    <grav-segmented-button [value]="WorkOrderPromotionRule.Automatic">{{
+      'SiteAdminGeneralSettings.GeneralSettingOverview.configs.Cases.EventSources.Rules.Automatic'
+        | transloco
+    }}</grav-segmented-button>
+  </grav-segmented-button-group>
+</ng-template>

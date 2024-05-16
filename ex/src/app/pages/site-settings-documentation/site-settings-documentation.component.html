@@ -1,0 +1,91 @@
+<app-title text="{{ 'General.Documentation' | transloco }}"></app-title>
+
+<app-link
+  [linkText]="'General.AllSiteSettings' | transloco"
+  class="mt-l d-inline-block"
+  iconName="chevron-left"
+  iconPosition="left"
+  linkUrl="../"
+  size="lg"
+>
+</app-link>
+
+<div class="mt-l d-flex items-end justify-space-between">
+  <h2
+    class="grav-text-header-3-medium text-grey-900 md:grav-text-header-2-medium"
+  >
+    {{ 'SiteAdminDocumentation.Subtitle' | transloco }}
+  </h2>
+
+  <app-upload-documents-modal
+    [categories]="uploadCategories"
+    [siteId]="siteId"
+    (fileUploaded)="fetchDocumentsByCategory(categories)"
+    class="d-block <md:mt-s"
+  ></app-upload-documents-modal>
+</div>
+
+<app-table class="mt-l d-block md:mt-xl" data-testid="document-table">
+  <ng-container head>
+    <div class="w-l"></div>
+    <div
+      class="grav-text-caption-medium uppercase leading-4 tracking-wider text-grey-400 md:w-third"
+      data-testid="table-header-title"
+    >
+      {{ 'General.Title' | transloco }}
+    </div>
+    <div
+      class="w-custom-16_6 grav-text-caption-medium uppercase leading-4 tracking-wider text-grey-400"
+      data-testid="table-header-location"
+    >
+      {{ 'SiteAdminDocumentation.AmountOfDocuments' | transloco }}
+    </div>
+    <div
+      class="w-custom-16_6 grav-text-caption-medium uppercase leading-4 tracking-wider text-grey-400"
+      data-testid="table-header-language"
+    >
+      {{ 'Documentation.Language' | transloco }}
+    </div>
+    <div
+      class="w-custom-16_6 grav-text-caption-medium uppercase leading-4 tracking-wider text-grey-400"
+      data-testid="table-header-size"
+    >
+      {{ 'Documentation.Size' | transloco }}
+    </div>
+    <div class="w-m"></div>
+  </ng-container>
+  <ng-container body>
+    <ng-container *ngIf="tableCategories; else loading">
+      <div *ngFor="let category of tableCategories; let i = index">
+        <app-documentation-table-category
+          [category]="category"
+          [siteId]="siteId"
+          (documentDelete)="onDocumentDelete(i, $event)"
+          data-testid="table-category"
+        ></app-documentation-table-category>
+      </div>
+    </ng-container>
+  </ng-container>
+</app-table>
+
+<app-confirmation-modal
+  [showCancelButton]="true"
+  (closeEvent)="onConfirmationClose($event)"
+  id="delete-document-confirmation-modal"
+  data-testid="delete-document-confirmation-modal"
+  title="{{ 'SiteAdminDocumentation.ConfirmationModalTitle' | transloco }}"
+  cancelText="{{ 'General.Keep' | transloco }}"
+  confirmText="{{ 'General.Delete' | transloco }}"
+>
+  <p>
+    {{ 'SiteAdminDocumentation.ConfirmationModalMessage' | transloco }}
+  </p>
+</app-confirmation-modal>
+
+<ng-template #loading>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner>
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>

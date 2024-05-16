@@ -1,0 +1,12 @@
+fragment ServicePackageTitleAndCodes on ServicePackage {
+  title
+  codes
+}
+
+query servicePackageBySlug($slug: String) {
+  servicePackageCollection(where: { slug: $slug }) {
+    items {
+      ...ServicePackageTitleAndCodes
+    }
+  }
+}

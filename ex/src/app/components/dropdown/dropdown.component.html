@@ -1,0 +1,103 @@
+<label
+  *ngIf="label"
+  [attr.for]="name"
+  (click)="isOpen = !isOpen"
+  class="mb-xs d-flex w-full justify-space-between"
+  data-testid="text-label"
+>
+  {{ label }}
+  <span *ngIf="message" class="text-grey-600 font-normal">
+    {{ message }}
+  </span>
+</label>
+
+<div [ngClass]="{ 'lg:min-w-[10.5rem]': isSelect }" class="relative">
+  <button
+    [attr.disabled]="isDisabled ? 'true' : null"
+    [ngClass]="{
+      group: !isDisabled,
+      'cursor-not-allowed': isDisabled,
+      'justify-space-between rounded-m b-s border-grey-300 py-s px-s': isSelect,
+      '!bg-grey-100': isSelect && isDisabled
+    }"
+    (click)="isOpen = !isOpen"
+    class="w-full <lg:gap-1 lg:gap-3 dropdown-button"
+    data-testid="dropdown-button"
+    type="button"
+    ghost
+    secondary
+  >
+    <grav-svg-icon
+      *ngIf="icon && !isSelect"
+      [key]="icon"
+      size="l"
+    ></grav-svg-icon>
+    <span
+      *ngIf="showText"
+      [ngClass]="{
+        '<lg:d-none': icon && !isSelect,
+        'max-h-10 line-clamp-2': hasMaxTwoTextLines
+      }"
+      data-testid="dropdown-text"
+    >
+      <ng-container *ngIf="text">{{ text }}</ng-container>
+      <ng-container *ngIf="!text && selectedItem">
+        {{ selectedItem.label }}
+      </ng-container>
+      <ng-container *ngIf="!text && !selectedItem">
+        {{ placeholder }}
+      </ng-container>
+    </span>
+    <grav-svg-icon
+      [ngClass]="{
+        'rotate-180': isOpen,
+        '<lg:d-none': icon && !isSelect,
+      }"
+      class="order-1"
+      data-testid="dropdown-arrow"
+      key="chevron-down"
+      size="l"
+    ></grav-svg-icon>
+  </button>
+  <div
+    *ngIf="items"
+    [ngClass]="{
+      'visible opacity-100': isOpen,
+      'invisible opacity-0': !isOpen,
+      'w-[18rem] <md:translate-x-[calc(3rem+1.75rem*2)]': isLarge,
+      'max-w-[18rem]': !isSelect && !isLarge,
+    }"
+    class="dropdown-list absolute w-full z-50 right-none rounded-m b-s border-grey-200 bg-white transition-all duration-300 ease-in-out focus:outline-none"
+    data-testid="dropdown-list"
+  >
+    <ul>
+      <li
+        *ngFor="let item of items"
+        [attr.data-testid]="'dropdown-button-' + item.value"
+      >
+        <button
+          (click)="selectItem($event, item.value)"
+          class="w-full justify-flex-start"
+          type="button"
+          ghost
+          secondary
+        >
+          <span [title]="item.label" class="ellipse">{{ item.label }}</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div
+    class="error-message mt-s d-none w-full grav-text-body-small text-red-500"
+    data-testid="dropdown-error"
+  >
+    <ng-content></ng-content>
+  </div>
+  <app-assertive-text
+    *ngIf="infoText"
+    [leftText]="infoText"
+    class="d-block mt-s"
+    data-testid="info-text"
+  ></app-assertive-text>
+</div>

@@ -1,0 +1,25 @@
+.alert {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    width: clamp(75%, 45rem, 90%);
+    margin: 0 auto;
+}
+
+.alert-header {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.alert-description {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.alert-illustration {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.alert + grav-svg-map {
+    display: none;
+}

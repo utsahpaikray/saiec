@@ -1,0 +1,22 @@
+<div
+  *ngIf="leftText || rightText"
+  [ngClass]="{
+    'd-flex justify-space-between gap-s': leftText && rightText
+  }"
+  class="grav-text-body-small"
+  data-testid="assertive-text-wrapper"
+>
+  <p *ngIf="leftText" class="text-grey-600" data-testid="left-text">
+    {{ leftText }}
+  </p>
+  <span
+    *ngIf="rightText"
+    [ngClass]="{
+      'd-flex justify-flex-end': !leftText
+    }"
+    class="input-counter shrink-0 text-grey-400"
+    data-testid="right-text"
+  >
+    {{ rightText }}
+  </span>
+</div>

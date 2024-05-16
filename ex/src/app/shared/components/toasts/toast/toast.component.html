@@ -1,0 +1,41 @@
+@if (toastData) {
+  <grav-toast>
+    @switch (toastData.type) {
+      @case ('success') {
+        <grav-svg-icon
+          size="xl"
+          style="color: var(--global-palette-success-400)"
+          key="success"
+        ></grav-svg-icon>
+      }
+      @case ('warning') {
+        <grav-svg-icon
+          size="xl"
+          style="color: var(--global-palette-warning-400)"
+          key="warning"
+        ></grav-svg-icon>
+      }
+      @case ('error') {
+        <grav-svg-icon
+          size="xl"
+          style="color: var(--global-palette-error-400)"
+          key="error"
+        ></grav-svg-icon>
+      }
+      @case ('info') {
+        <grav-svg-icon
+          size="xl"
+          style="color: var(--global-palette-info-400)"
+          key="infos"
+        ></grav-svg-icon>
+      }
+    }
+    <span data-testid="toast-message">
+      {{ toastData.messageKey | transloco }}
+    </span>
+
+    <button toastCloseButton secondary (click)="toastRef.close(false)">
+      <grav-svg-icon size="xl" key="close"></grav-svg-icon>
+    </button>
+  </grav-toast>
+}

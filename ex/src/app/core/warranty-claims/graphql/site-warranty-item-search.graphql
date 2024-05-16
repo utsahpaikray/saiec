@@ -1,0 +1,23 @@
+fragment siteWarrantyItem on Asset {
+  description
+  itemNumber
+  systemComponentId
+  classificationLevel1
+  classificationLevel2
+  classificationLevel3
+  classificationLevel4
+  classificationLevel5
+  sparePartCategory
+}
+
+query siteWarrantyItemSearch($siteId: UUID!, $searchText: String!, $skip: Int) {
+  itemSearch(siteId: $siteId, searchText: $searchText, skip: $skip, take: 15) {
+    pageInfo {
+      hasNextPage
+    }
+    items {
+      ...siteWarrantyItem
+    }
+    totalCount
+  }
+}

@@ -1,0 +1,3 @@
+mutation inProgressCase($caseId: UUID!) {
+  inProgressCase(caseId: $caseId)
+}

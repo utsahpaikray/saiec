@@ -1,0 +1,16 @@
+<div
+  *ngIf="cultureDropDownItems && cultureDropDownItems.length > 1"
+  class="d-flex items-center <lg:flex-grow"
+>
+  <span class="mr-m grav-text-body-small-medium leading-5 <lg:d-none">
+    {{ 'Documentation.Language' | transloco }}
+  </span>
+  <app-dropdown
+    [isDisabled]="isDisabled"
+    [isSelect]="true"
+    [items]="cultureDropDownItems"
+    (ngModelChange)="cultureChange.emit($event)"
+    [(ngModel)]="selectedCulture"
+    class="<lg:w-full"
+  ></app-dropdown>
+</div>

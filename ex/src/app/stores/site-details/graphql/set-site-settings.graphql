@@ -1,0 +1,53 @@
+mutation updateSiteConfigs(
+	$siteId: UUID!
+	$monitronWorkOrderPromotionRule: WorkOrderPromotionRule!
+	$divertHealthWorkOrderPromotionRule: WorkOrderPromotionRule!
+	$shuttleHealthWorkOrderPromotionRule: WorkOrderPromotionRule!
+	$vidiWorkOrderPromotionRule: WorkOrderPromotionRule!
+	$casesEnabled: Boolean!
+	$vidiEnabled: Boolean!
+	$vidiAppName: String!
+	$contractEnabled: Boolean!
+	$divertHealthEnabled: Boolean!
+	$divertHealthUrl: String!
+	$shuttleHealthEnabled: Boolean!
+	$shuttleHealthUrl: String!
+	$SparePartsShopEnabled: Boolean!
+	$ProcessInsightsEnabled: Boolean!
+) {
+   editCasesConfig(
+		siteId: $siteId
+		enabled: $casesEnabled
+		monitronWorkOrderPromotionRule: $monitronWorkOrderPromotionRule
+		divertHealthWorkOrderPromotionRule: $divertHealthWorkOrderPromotionRule
+		shuttleHealthWorkOrderPromotionRule: $shuttleHealthWorkOrderPromotionRule
+		vidiWorkOrderPromotionRule: $vidiWorkOrderPromotionRule
+	)
+	editVidiConfig(
+		siteId: $siteId
+		enabled: $vidiEnabled,
+		vidiAppName: $vidiAppName
+	)
+	editContractVisible(
+		visible: $contractEnabled,
+		siteId: $siteId
+	)
+	editDivertHealthConfig(
+		siteId: $siteId
+		enabled: $divertHealthEnabled,
+		url: $divertHealthUrl
+	)
+	editShuttleHealthConfig(
+		siteId: $siteId
+		enabled: $shuttleHealthEnabled
+		url: $shuttleHealthUrl
+	)
+	editSparePartsShopConfig(
+		siteId: $siteId
+		enabled: $SparePartsShopEnabled
+	)
+	editProcessInsightsConfig(
+		siteId: $siteId
+		enabled: $ProcessInsightsEnabled
+	)
+}

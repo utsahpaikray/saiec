@@ -1,0 +1,9 @@
+query userSiteProjectsSegment($id: UUID) {
+  me {
+    relatedPortalData {
+      sites(where: { id: { eq: $id } }) {
+        ...SiteProjectsSegment
+      }
+    }
+  }
+}

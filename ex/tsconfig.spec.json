@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "resolveJsonModule": true,
+    "types": ["jasmine"]
+  },
+  "files": ["src/test.ts", "src/app/core/locale/transloco-testing.module.ts"],
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
+}

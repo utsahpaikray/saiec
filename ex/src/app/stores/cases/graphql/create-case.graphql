@@ -1,0 +1,21 @@
+mutation createCase(
+  $title: String!
+  $description: String!
+  $siteId: UUID!
+  $assetSystemComponentId: String
+  $eventSource: Source!
+  $createCaseContactPerson: CreateCaseContactPersonInput!
+  $attachments: [CreateCaseAttachmentInput!]!
+) {
+  createCase(
+    title: $title
+    description: $description
+    siteId: $siteId
+    assetSystemComponentId: $assetSystemComponentId
+    source: $eventSource
+    createCaseContactPerson: $createCaseContactPerson
+    attachments: $attachments
+  ) {
+    ...CaseDetails
+  }
+}

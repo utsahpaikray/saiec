@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use '../variables/breakpoints' as breakpoints;
+
+// for desktop
+@each $space in ('xs', 's', 'm', 'l', 'xl', '2-xl', '3-xl', '4-xl', '5-xl') {
+  $value: var(--grav-space-#{$space});
+  .gap-y-#{$space} {
+    row-gap: #{$value};
+  }
+  .gap-x-#{$space} {
+    column-gap: #{$value};
+  }
+}
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media (#{$breakpoint-value}) {
+    @each $space in ('xs', 's', 'm', 'l', 'xl', '2-xl', '3-xl', '4-xl', '5-xl')
+    {
+      $value: var(--grav-space-#{$space});
+
+      .#{$breakpoint-name}\:gap-#{$space} {
+        gap: #{$value};
+      }
+      .#{$breakpoint-name}\:gap-y-#{$space} {
+        row-gap: #{$value};
+      }
+      .#{$breakpoint-name}\:gap-x-#{$space} {
+        column-gap: #{$value};
+      }
+    }
+  }
+}

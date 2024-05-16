@@ -1,0 +1,76 @@
+<ng-container *ngIf="!loading; else showLoader">
+  <app-table
+    *ngIf="documents && documents.length > 0; else notFound"
+    data-testid="document-table"
+  >
+    <ng-container head>
+      <div class="w-l"></div>
+      <div
+        [ngClass]="'md:flex-grow'"
+        class="grav-text-caption-medium uppercase leading-4 tracking-wider text-grey-400"
+        data-testid="table-header-title"
+      >
+        {{ 'General.Title' | transloco }}
+      </div>
+      <div
+        *ngIf="documents.length && documents[0].location"
+        class="w-half grav-text-caption-medium uppercase leading-4 tracking-wider text-grey-400"
+        data-testid="table-header-location"
+      >
+        {{ 'Documentation.Location' | transloco }}
+      </div>
+      <div
+        class="w-custom grav-text-caption-medium uppercase leading-4 tracking-wider text-grey-400"
+        data-testid="table-header-size"
+      >
+        {{ 'Documentation.Size' | transloco }}
+      </div>
+      <div class="w-m"></div>
+    </ng-container>
+    <ng-container body>
+      <div
+        *ngFor="
+          let document of documents
+            | sortBy
+              : { alphabet: 'name', property: 'children' }
+              : selectedCulture;
+          let i = index;
+          first as first
+        "
+        [class.bt-0]="first"
+        class="document-table-folder-container"
+      >
+        <app-document-table-folder
+          *ngIf="document.children; else file"
+          [attr.data-testid]="'document-table-folder-' + i"
+          [document]="document"
+          [isParentOpen]="true"
+          [selectedCulture]="selectedCulture"
+          [siteId]="siteId"
+          class="b-none bt-s border-solid"
+        ></app-document-table-folder>
+        <ng-template #file>
+          <app-document-table-file
+            [document]="document"
+            [siteId]="siteId"
+            data-testid="document-table-file"
+          ></app-document-table-file>
+        </ng-template>
+      </div>
+    </ng-container>
+  </app-table>
+</ng-container>
+
+<ng-template #showLoader>
+  <div class="d-flex w-full items-center justify-center py-2-xl">
+    <app-progress-spinner data-testid="document-table-spinner">
+      {{ 'General.Loading' | transloco }}
+    </app-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #notFound>
+  <p data-testid="document-table-not-found">
+    {{ 'Documentation.NotFoundMessage' | transloco }}
+  </p>
+</ng-template>

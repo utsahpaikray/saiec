@@ -1,0 +1,71 @@
+@use './variables/breakpoints' as breakpoints;
+@import '@vanderlande-gravity/core/src/style/functions/typography';
+
+@each $breakpoint-name, $breakpoint-value in breakpoints.$media_queries {
+  @media (#{$breakpoint-value}) {
+    .#{$breakpoint-name}\:grav-text-caption {
+      @include grav-text-caption;
+    }
+    .#{$breakpoint-name}\:grav-text-caption-medium {
+      @include grav-text-caption-medium;
+    }
+    .#{$breakpoint-name}\:grav-text-caption-bold {
+      @include grav-text-caption-bold;
+    }
+    .#{$breakpoint-name}\:grav-text-caption-bold-caps {
+      @include grav-text-caption-bold-caps;
+    }
+    .#{$breakpoint-name}\:grav-text-body {
+      @include grav-text-body;
+    }
+    .#{$breakpoint-name}\:grav-text-body-medium {
+      @include grav-text-body-medium;
+    }
+    .#{$breakpoint-name}\:grav-text-body-bold {
+      @include grav-text-body-bold;
+    }
+    .#{$breakpoint-name}\:grav-text-body-bold-caps {
+      @include grav-text-body-bold-caps;
+    }
+    .#{$breakpoint-name}\:grav-text-body-small {
+      @include grav-text-body-small;
+    }
+    .#{$breakpoint-name}\:grav-text-body-small-medium {
+      @include grav-text-body-small-medium;
+    }
+    .#{$breakpoint-name}\:grav-text-body-small-bold {
+      @include grav-text-body-small-bold;
+    }
+    .#{$breakpoint-name}\:grav-text-body-small-bold-caps {
+      @include grav-text-body-small-bold-caps;
+    }
+    .#{$breakpoint-name}\:grav-text-header {
+      @include grav-text-header;
+    }
+    .#{$breakpoint-name}\:grav-text-header-medium {
+      @include grav-text-header-medium;
+    }
+    .#{$breakpoint-name}\:grav-text-header-bold {
+      @include grav-text-header-bold;
+    }
+    .#{$breakpoint-name}\:grav-text-header-2 {
+      @include grav-text-header-2;
+    }
+    .#{$breakpoint-name}\:grav-text-header-2-medium {
+      @include grav-text-header-2-medium;
+    }
+    .#{$breakpoint-name}\:grav-text-header-2-bold {
+      @include grav-text-header-2-bold;
+    }
+    .#{$breakpoint-name}\:grav-text-header-3 {
+      @include grav-text-header-3;
+    }
+    .#{$breakpoint-name}\:grav-text-header-3-medium {
+      @include grav-text-header-3-medium;
+    }
+
+    .grav-text-header-3-bold {
+      @include grav-text-header-3-bold;
+    }
+  }
+}

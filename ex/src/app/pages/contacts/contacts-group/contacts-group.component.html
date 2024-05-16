@@ -1,0 +1,124 @@
+<div
+  class="sm:d-grid sm:gap-2-xl sm:mb-s sm:grid-cols-2"
+  data-testid="contacts-group"
+>
+  <ng-container *ngFor="let contact of contacts">
+    <ng-container
+      *ngTemplateOutlet="
+        contactTitle;
+        context: {
+          title: contact.alternativeContactTitle || (contact.title | transloco),
+          class: '<sm:d-none',
+          testid: contact.id
+        }
+      "
+    ></ng-container>
+  </ng-container>
+</div>
+<div class="d-grid <sm:grid-cols-1 <sm:gap-l sm:gap-2-xl sm:grid-cols-2">
+  <div *ngFor="let contact of contacts" class="md:d-flex">
+    <ng-container
+      *ngTemplateOutlet="
+        contactTitle;
+        context: {
+          title: contact.alternativeContactTitle || (contact.title | transloco),
+          class: 'mb-s sm:d-none',
+          testid: contact.id
+        }
+      "
+    >
+    </ng-container>
+
+    <grav-card class="w-full sm:h-full" data-testid="contact-card">
+      <grav-card-content>
+        <div class="d-flex justify-space-between gap-s">
+          <div class="flex-col break-words">
+            <div
+              class="grav-text-body-bold"
+              data-testid="contact-card-organization"
+            >
+              {{ contact.name }}
+            </div>
+            <div
+              *ngIf="contact.address"
+              class="whitespace-pre-line"
+              data-testid="contact-card-address"
+            >
+              {{ contact.address }}
+            </div>
+            <div *ngIf="contact.emailAddress">
+              <a
+                [href]="'mailto:' + contact.emailAddress"
+                data-testid="contact-card-emailaddress"
+                >{{ contact.emailAddress }}</a
+              >
+            </div>
+            <div *ngIf="contact.phoneNumber">
+              <a
+                [href]="'tel:' + contact.phoneNumber"
+                data-testid="contact-card-phone"
+                >{{ contact.phoneNumber }}</a
+              >
+            </div>
+            <ng-container
+              *ngIf="
+                contact.phoneNumberOutsideWorkingHours &&
+                contact.phoneNumber !== contact.phoneNumberOutsideWorkingHours
+              "
+              data-testid="contact-card-phone-outside-working-hours"
+            >
+              <a [href]="'tel:' + contact.phoneNumberOutsideWorkingHours">{{
+                contact.phoneNumberOutsideWorkingHours
+              }}</a
+              ><span> ({{ 'Contacts.OutsideWorkingHours' | transloco }})</span>
+            </ng-container>
+          </div>
+          <ng-container *ngIf="contact.name || contact.iconName">
+            <div
+              class="d-flex min-h-4-xl h-4-xl min-w-4-xl w-4-xl items-center justify-center rounded-l bg-blue-500 text-white"
+              data-testid="contact-card-circle"
+            >
+              <span
+                *ngIf="contact.name && !contact.iconName; else icon"
+                data-testid="contact-card-initials"
+              >
+                {{ getInitials(contact.name) }}
+              </span>
+              <ng-template #icon>
+                <grav-svg-icon
+                  [key]="contact.iconName"
+                  data-testid="contact-card-icon"
+                  size="xl"
+                ></grav-svg-icon>
+              </ng-template>
+            </div>
+          </ng-container>
+        </div>
+      </grav-card-content>
+      <grav-card-footer>
+        <button
+          (click)="downloadCard(contact)"
+          data-testid="contact-card-link"
+          ghost
+        >
+          {{ 'Contacts.DownloadAsVCard' | transloco }}
+        </button>
+      </grav-card-footer>
+    </grav-card>
+  </div>
+</div>
+
+<ng-template
+  #contactTitle
+  let-class="class"
+  let-testid="testid"
+  let-title="title"
+>
+  <h2
+    [attr.data-testid]="testid + '-title'"
+    [ngClass]="class"
+    class="grav-text-header-3 text-grey-900 lg:mb-m lg:grav-text-header-2 break-words first-letter:capitalize"
+  >
+    {{ title }}
+  </h2>
+</ng-template>

@@ -1,0 +1,64 @@
+<h3 class="mt-l mb-m grav-text-header-2 text-grey-900">
+  {{ 'UserProfile.Preferences' | transloco }}
+</h3>
+
+<div class="b-m border-solid border-white p-l pt-m pb-m">
+  <p class="mb-s grav-text-header-3 leading-7 text-grey-900">
+    {{ 'UserProfile.PreferredLanguage' | transloco }}
+  </p>
+  <div class="d-grid gap-xs lg:grid-cols-3">
+    <div
+      *ngFor="let locale of locales; let i = index"
+      class="d-flex bg-white p-s"
+    >
+      <input
+        [id]="'language-radio-button-' + locale.code"
+        [name]="locale.code"
+        [value]="locale.code"
+        (ngModelChange)="onLanguageChange($event)"
+        [(ngModel)]="selectedLanguage"
+        type="radio"
+      />
+      <label
+        [attr.data-testid]="'language-radio-button-' + locale.code"
+        [for]="'language-radio-button-' + locale.code"
+        >{{ locale.label }}</label
+      >
+    </div>
+  </div>
+</div>
+
+<div *ngIf="myProfile" class="mt-xl">
+  <h3 class="mt-l mb-m grav-text-header-2 text-grey-900">
+    {{ 'UserProfile.Privacy' | transloco }}
+  </h3>
+
+  <div
+    class="d-flex flex-wrap gap-x-l gap-y-s b-m border-solid border-white px-l py-m md:gap-x-2-xl items-center"
+  >
+    <a [href]="privacyPolicyLink" target="_blank" class="font-bold">{{
+      'UserProfile.PrivacyLink' | transloco
+    }}</a>
+
+    <a [href]="cookiePolicyLink" target="_blank" class="font-bold">{{
+      'UserProfile.CookiePolicy' | transloco
+    }}</a>
+
+    <app-link
+      (click)="openCookieConsent()"
+      class="font-bold"
+      data-testid="cookie-preferences"
+      linkText="{{ 'UserProfile.CookiePreferences' | transloco }}"
+      size="lg"
+    ></app-link>
+
+    <app-link
+      [hasLinkTargetBlank]="true"
+      class="font-bold"
+      data-testid="terms-and-conditions-link"
+      linkText="{{ 'UserProfile.TermsAndConditions' | transloco }}"
+      linkUrl="/terms-and-conditions"
+      size="lg"
+    ></app-link>
+  </div>
+</div>

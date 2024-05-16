@@ -1,0 +1,61 @@
+{
+  "directives": {
+    "default-src": ["'self'"],
+    "script-src": [
+      "'self'",
+      "'unsafe-eval'",
+      "'sha256-TI1QnZOidt2qKQVCulYH1ch/evqHNW1m9DhRVgqTjoE='",
+      "'sha256-0SFtkepAX86wnlEpWyK5Mpn3lgzN8LR/TO+FkPuxsiE='",
+      "https://*.cookiebot.com",
+      "https://www.googletagmanager.com/",
+      "https://*.hotjar.com",
+      "https://*.hotjar.io",
+      "https://processinsights.acc.vanderlande.com",
+      "https://dsf-generic-dev-001-dgd-003.westeurope.cloudapp.azure.com",
+      "https://dsfgenericfectodev003.z6.web.core.windows.net",
+      "https://dsfgenericfectodev004.z6.web.core.windows.net"
+    ],
+    "img-src": [
+      "'self'",
+      "https://processinsights.acc.vanderlande.com",
+      "https://www.googletagmanager.com/ data: https://*.ctfassets.net",
+      "https://*.blob.core.windows.net",
+      "https://dsf-generic-dev-001-dgd-003.westeurope.cloudapp.azure.com/pia/assets/",
+      "https://imgsct.cookiebot.com/",
+      "blob:"
+    ],
+    "style-src": ["'self'", "'unsafe-inline'"],
+    "font-src": ["'self'", "https://*.hotjar.com", "https://*.hotjar.io"],
+    "connect-src": [
+      "'self'",
+      "http://localhost:5001/graphql",
+      "https://*.evimvi.nl",
+      "https://*.vanderlande.com",
+      "https://azfun-dsf-opdata-ontology-dev-001.azurewebsites.net",
+      "https://dsf-generic-dev-001-dgd-003.westeurope.cloudapp.azure.com",
+      "https://dsf-generic-acc-001-dga-002.westeurope.cloudapp.azure.com",
+      "https://dsf-generic-prd-001-dgp-002.westeurope.cloudapp.azure.com",
+      "https://*.contentful.com",
+      "https://*.blob.core.windows.net",
+      "https://consentcdn.cookiebot.com",
+      "https://*.google-analytics.com",
+      "https://*.analytics.google.com",
+      "https://*.googletagmanager.com",
+      "https://*.hotjar.com:*",
+      "https://*.hotjar.io",
+      "wss://*.hotjar.com",
+      "wss://*.vanderlande.com",
+      "wss://dsf-generic-dev-001-dgd-003.westeurope.cloudapp.azure.com/pia-man/ws",
+      "https://dsfgenericfectodev004.z6.web.core.windows.net"
+    ],
+    "frame-src": [
+      "'self'",
+      "https://consentcdn.cookiebot.com",
+      "https://*.googletagmanager.com",
+      "https://*.hotjar.com",
+      "https://*.hotjar.io",
+      "blob:"
+    ],
+    "object-src": ["'self'", "blob:"]
+  }
+}

@@ -1,0 +1,15 @@
+<app-default-template>
+  <ng-container *ngTemplateOutlet="error" body></ng-container>
+</app-default-template>
+
+<ng-template #error>
+  <div grav-empty-state="medium">
+    <img src="@illustrations/Emptiness.svg" grav-empty-state-image="" />
+    <p grav-empty-state-title="">
+      {{ 'ErrorStatePIModule.Message' | transloco }}
+    </p>
+    <p grav-empty-state-explanation="">
+      {{ 'ErrorStatePIModule.Reason' | transloco }}
+    </p>
+  </div>
+</ng-template>

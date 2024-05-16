@@ -1,0 +1,34 @@
+fragment CurrentUser on IdentityUser {
+  firstName
+  lastName
+  prefix
+  customerEmail
+  email
+  id
+  userType
+  roles {
+    id
+    name
+  }
+  language
+  relatedPortalData {
+    portals {
+      id
+      name
+    }
+    sites {
+      name
+      id
+      portal {
+        id
+        name
+      }
+    }
+  }
+}
+
+query currentUser {
+  me {
+    ...CurrentUser
+  }
+}

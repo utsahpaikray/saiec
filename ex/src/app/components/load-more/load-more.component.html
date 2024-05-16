@@ -1,0 +1,22 @@
+<div *ngIf="hasMore || loading" class="mt-s d-flex justify-center">
+  <button
+    [disabled]="loading"
+    (click)="loadMore.emit()"
+    data-testid="load-more-button"
+    ghost
+  >
+    <grav-svg-icon *ngIf="!loading" key="chevron-down"></grav-svg-icon>
+    <span
+      [ngClass]="{ 'd-flex items-center gap-s': loading }"
+      data-testid="load-more-wrapper"
+    >
+      <app-progress-spinner
+        *ngIf="loading"
+        class="d-inline-flex"
+        data-testid="load-more-progress-spinner"
+        size="l"
+      ></app-progress-spinner>
+      {{ 'General.LoadMore' | transloco }}
+    </span>
+  </button>
+</div>

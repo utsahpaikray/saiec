@@ -1,0 +1,133 @@
+<ng-container *ngIf="isTable$ | async; then table; else columns">
+</ng-container>
+
+<ng-template #table>
+  <table *ngIf="itemDetails" class="w-full">
+    <thead>
+      <tr>
+        <th
+          *ngFor="let header of headers"
+          class="grav-text-body-small-bold"
+          data-testid="item-table-header"
+          scope="col"
+        >
+          {{ header | transloco }}
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="grav-text-body" data-testid="item-table-row">
+        <td data-testid="item-table-mark-code" scope="col">
+          {{ itemDetails.asset?.markCode || '' }}
+        </td>
+        <td data-testid="item-table-mark-number" scope="col">
+          {{ itemDetails.asset?.markNumber || '' }}
+        </td>
+        <td data-testid="item-table-asset-description" scope="col">
+          {{ itemDetails.asset?.description || '' }}
+        </td>
+        <td data-testid="item-table-item-number" scope="col">
+          {{ itemDetails.item?.itemNumber || '' }}
+        </td>
+        <td data-testid="item-table-item-description" scope="col">
+          {{ itemDetails.item?.description || '' }}
+        </td>
+        <td data-testid="item-table-item-quantity" scope="col">
+          {{ itemDetails.itemQuantity }}
+        </td>
+        <td data-testid="item-table-breakdown-date" scope="col">
+          {{ itemDetails.breakdownDate }}
+        </td>
+        <td data-testid="item-table-attachments" scope="col">
+          {{ itemDetails.attachments?.length || 0 }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #columns>
+  <div
+    *ngIf="itemDetails"
+    class="d-grid <sm:grid-cols-1 <sm:gap-l sm:grid-cols-2 sm:gap-2"
+    data-testid="table-columns"
+  >
+    <div class="d-grid grid-cols-2">
+      <span class="grav-text-body-small-medium">
+        {{ 'Asset.MarkCode' | transloco }}
+      </span>
+      <span class="grav-text-body-small" data-testid="item-column-mark-code">
+        {{ itemDetails.asset?.markCode || '' }}</span
+      >
+    </div>
+    <div class="d-grid grid-cols-2">
+      <span class="grav-text-body-small-medium">
+        {{ 'Asset.MarkNumber' | transloco }}
+      </span>
+      <span class="grav-text-body-small" data-testid="item-column-mark-number">
+        {{ itemDetails.asset?.markNumber || '' }}</span
+      >
+    </div>
+    <div class="d-grid grid-cols-2">
+      <span class="grav-text-body-small-medium">
+        {{ 'Asset.AssetDescription' | transloco }}
+      </span>
+      <span
+        class="grav-text-body-small"
+        data-testid="item-column-asset-description"
+      >
+        {{ itemDetails.asset?.description }}
+      </span>
+    </div>
+    <div class="d-grid grid-cols-2">
+      <span class="grav-text-body-small-medium">
+        {{ 'General.ItemNumber' | transloco }}
+      </span>
+      <span class="grav-text-body-small" data-testid="item-column-item-number">
+        {{ itemDetails.item?.itemNumber || '' }}</span
+      >
+    </div>
+    <div class="d-grid grid-cols-2">
+      <span class="grav-text-body-small-medium">
+        {{ 'General.ItemDescription' | transloco }}
+      </span>
+      <span
+        class="grav-text-body-small"
+        data-testid="item-column-item-description"
+      >
+        {{ itemDetails.item?.description || '' }}</span
+      >
+    </div>
+    <div class="d-grid grid-cols-2">
+      <span class="grav-text-body-small-medium">
+        {{ 'General.Quantity' | transloco }}
+      </span>
+      <span
+        class="grav-text-body-small"
+        data-testid="item-column-item-quantity"
+      >
+        {{ itemDetails.itemQuantity }}</span
+      >
+    </div>
+    <div class="d-grid grid-cols-2">
+      <span class="grav-text-body-small-medium">
+        {{ 'WarrantyClaims.BreakdownDate' | transloco }}
+      </span>
+      <span
+        class="grav-text-body-small"
+        data-testid="item-column-breakdown-date"
+      >
+        {{ itemDetails.breakdownDate }}</span
+      >
+    </div>
+    <div class="d-grid grid-cols-2">
+      <span class="grav-text-body-small-medium">
+        {{ 'Attachments.Title' | transloco }}
+      </span>
+      <span class="grav-text-body-small" data-testid="item-column-attachments">
+        {{ itemDetails.attachments?.length || 0 }}
+      </span>
+    </div>
+  </div>
+</ng-template>

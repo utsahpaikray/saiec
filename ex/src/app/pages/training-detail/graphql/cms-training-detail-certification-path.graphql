@@ -1,0 +1,5 @@
+query trainingDetailCertificationPath($id: String!) {
+  certificationPath(id: $id) {
+    ...CertificationPathItem
+  }
+}

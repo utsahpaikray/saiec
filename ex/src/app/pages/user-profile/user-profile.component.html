@@ -1,0 +1,56 @@
+<app-title text="{{ title | transloco }}"></app-title>
+
+<app-link
+  [linkText]="backLink.title"
+  [linkUrl]="backLink.url"
+  class="mt-l d-inline-block"
+  data-testid="back-link"
+  iconName="chevron-left"
+  iconPosition="left"
+  size="lg"
+>
+</app-link>
+
+<ng-container *ngIf="user">
+  <h2
+    class="my-l grav-text-header-2-medium text-grey-900"
+    data-testid="user-name"
+  >
+    {{ user.firstName }}
+    <span *ngIf="user.prefix">{{ user.prefix }} </span>{{ user.lastName }}
+  </h2>
+
+  <app-tab-group>
+    <app-tab
+      data-testid="user-preferences-tab"
+      label="{{ 'UserProfile.ProfileTab' | transloco }}"
+    >
+      <app-user-preferences
+        [myProfile]="myProfile"
+        [user]="user"
+      ></app-user-preferences>
+    </app-tab>
+    <app-tab
+      *ngIf="!myProfile || isSuperUser"
+      data-testid="user-authorization-tab"
+      label="{{ 'UserProfile.AuthorizationTab' | transloco }}"
+    >
+      <app-user-authorization
+        [myProfile]="myProfile"
+        [user]="user"
+        class="mb-m d-block"
+      ></app-user-authorization>
+
+      <app-user-access [userId$]="getUserId()"></app-user-access>
+    </app-tab>
+  </app-tab-group>
+</ng-container>
+
+<div
+  *ngIf="user === undefined"
+  class="d-flex w-full items-center justify-center py-2-xl"
+>
+  <app-progress-spinner>
+    {{ 'General.Loading' | transloco }}
+  </app-progress-spinner>
+</div>

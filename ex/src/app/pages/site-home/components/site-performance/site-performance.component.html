@@ -1,0 +1,57 @@
+<main *ngIf="vm" class="d-flex flex-col">
+  <div class="d-flex flex-row items-center gap-s mb-s" role="heading">
+    <h3 class="grav-text-body-bold" role="title">
+      {{ vm.labels.title | transloco }}
+    </h3>
+    <button role="button" disabled ghost>
+      <grav-svg-icon key="chevron-right"></grav-svg-icon>
+      {{ vm.button.label | transloco: { appName: vm.button.appName } }}
+    </button>
+    <div class="d-flex flex-grow gap-s justify-content-end" role="filter">
+      <button
+        *ngFor="let filter of vm.filter.options"
+        role="option"
+        disabled
+        ghost
+      >
+        <svg
+          *ngIf="filter.value === vm.filter.value"
+          role="figure"
+          height="10"
+          width="10"
+        >
+          <circle cx="5" cy="5" fill="currentColor" r="5" />
+        </svg>
+        {{ filter.label | transloco }}
+      </button>
+    </div>
+  </div>
+  <div class="d-flex flex-row-wrap gap-m">
+    <grav-card *ngFor="let chart of vm.charts" role="card" elevated>
+      <grav-card-header>
+        <span role="title" card-title>{{
+          chart.labels.title | transloco
+        }}</span>
+      </grav-card-header>
+      <grav-card-content>
+        <div class="d-flex gap-m my-s mb-m">
+          <grav-donut-chart
+            [maxValue]="chart.maxValue"
+            [value]="chart.value"
+            [variant]="chart.variant"
+            role="chart"
+          ></grav-donut-chart>
+          <div class="d-flex flex-col justify-center">
+            <span class="grav-text-header-medium" role="value">{{
+              chart.labels.value | transloco: { value: chart.value }
+            }}</span>
+            <span class="grav-text-body-small" role="explanation">{{
+              chart.labels.explanation
+                | transloco: { value: chart.explanationValue }
+            }}</span>
+          </div>
+        </div>
+      </grav-card-content>
+    </grav-card>
+  </div>
+</main>

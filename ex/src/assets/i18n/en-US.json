@@ -1,0 +1,1043 @@
+{
+  "General": {
+    "Dashboard": "Home",
+    "Calendar": "Calendar",
+    "Documentation": "Documentation",
+    "Contacts": "Contacts",
+    "SpareParts": "Spare parts",
+    "ViaInsights": "VIA Insights",
+    "Pace": "Pace",
+    "Vidi": "VIDI",
+    "Performance": "Performance",
+    "Contracts": "Contracts",
+    "Training": "Training",
+    "TrainingOverview": "Training overview",
+    "NewsInsights": "News & Insights",
+    "Maintenance": "Maintenance",
+    "Requests": "Tickets",
+    "SiteSettings": "Site settings",
+    "AllSiteSettings": "All site settings",
+    "Portals": "Portals",
+    "Users": "Users",
+    "Close": "Close",
+    "AllPortals": "All portals",
+    "View": "View",
+    "Login": "Login",
+    "Sites": "Sites",
+    "User": "User",
+    "LogOut": "Log out",
+    "Email": "E-mail",
+    "PhoneNumber": "Phone number",
+    "Address": "Address",
+    "Optional": "Optional",
+    "Required": "Required",
+    "Request": "Request",
+    "SuccessMessage": "The request is sent.",
+    "ApiError": "Something went wrong. Please try again later.",
+    "GoToHome": "Go to Home",
+    "MandatoryField": "This field is required.",
+    "ValidEmail": "Please enter a valid e-mail.",
+    "SpecialCharacter": "Please do not enter special characters '<' and '>'.",
+    "GoToSite": "Go to site",
+    "MaxCharacter": "Keep this  text shorter than {{ total }} characters.",
+    "FileTypeWarning": "The following file type is not allowed:",
+    "MyProfile": "My profile",
+    "AddPortalButton": "Add portal",
+    "Save": "Save",
+    "Confirm": "Confirm",
+    "Cancel": "Cancel",
+    "Keep": "Keep",
+    "Delete": "Delete",
+    "ReadMore": "Read more",
+    "Loading": "Loading",
+    "Showing": "Showing {{amount}} of {{ total }}",
+    "ShowMore": "Show more",
+    "ShowResult": "Showing {{ number }} of {{ total }}",
+    "NoSitesOrPortals": "You do not have access to any portals and/or sites.",
+    "NoPortalsFound": "There are no portals that match your search criteria.",
+    "NoPortals": "There are no portals available.",
+    "Back": "Back",
+    "ViewDetails": "View details",
+    "Uploaded": "Uploaded",
+    "Processing": "Processing",
+    "Canceled": "Canceled",
+    "Uploading": "Uploading",
+    "Yes": "Yes",
+    "No": "No",
+    "MarkcodeOrSystem": "Markcode or system",
+    "Availability": "Availability",
+    "Parts": "Parts",
+    "Labour": "Labour",
+    "ByPhone": "Response time phone (hours)",
+    "OnSite": "On site (hours)",
+    "Visits": "Visits",
+    "ManpowerDaysPerVisit": "Manpower days per visit",
+    "StartAndEndDate": "Start and end date",
+    "NoStartDate": "No start date",
+    "NoEndDate": "No end date",
+    "Title": "Title",
+    "NewMessage": "New message",
+    "Message": "Message",
+    "SendMessage": "Send message",
+    "AddingMessage": "Adding message",
+    "DateCreated": "Date created",
+    "Created": "Created",
+    "Status": "Status",
+    "Priority": "Priority",
+    "Type": "Type",
+    "Number": "Number",
+    "LoadMore": "Load more",
+    "Search": "Search",
+    "ReportOn": "Reported on",
+    "MaximoAccessError": "Some features (My contracts, My tickets) are not available right now. Refresh the page at a later time to access them.",
+    "Description": "Description",
+    "ItemNumber": "Item number",
+    "ItemDescription": "Item description",
+    "AddItem": "Add item",
+    "NoItems": "There are no items that match your criteria",
+    "Edit": "Edit",
+    "Remove": "Remove",
+    "Quantity": "Quantity",
+    "Classification": "Classification",
+    "Category": "Category",
+    "PleaseAddFile": "There are currently no file(s) here. Please add a file about the item in question.",
+    "Name": "Name"
+  },
+  "None": "None",
+  "Category": "Category",
+  "Dashboard": {
+    "WelcomeMessage": "Welcome to My Vanderlande, {{ name }}",
+    "WelcomeTag": "Welcome",
+    "WelcomeTitle": "Welcome to the pilot version of the My Vanderlande customer portal!",
+    "WelcomeDesc": "Here you can access your site's documentation, order spare parts, browse and request training and certification and look up the details of your Vanderlande contacts.",
+    "FeedbackTag": "Feedback",
+    "FeedbackTitle": "What do you think of the portal?",
+    "FeedbackDesc": "Improve the portal and let us know what you think, give tips and suggestions on how to make it more useful for you. Use the feedback box on this and other pages, or send it to myvanderlande@vanderlande.com",
+    "NewsInsightsTag": "News and insights",
+    "ReadMore": "More News and Insights",
+    "AirportTitle": "Vanderlande to develop innovative checkpoint concept for US Department of Homeland Security",
+    "AirportDesc": "Vanderlande’s concept for a self-screening passenger security checkpoint solution for airports has been selected by the US Department of Homeland Security (DHS) for further design, development and operational testing.",
+    "ParcelTitle": "Vanderlande cooperates with PostNord on new parcel sites in Finland",
+    "ParcelDesc": "Vanderlande has been chosen to supply two state-of-the-art sortation systems to the PostNord Group – one of the leading parcel distribution companies in Scandinavia.",
+    "WarehouseTitle": "Speed is of the essence",
+    "WarehouseDesc": "The delivery windows for home delivery of groceries are getting shorter and shorter. The latest trend is to deliver groceries directly to your home within ten minutes.",
+    "SitePerformance": {
+      "Title": "Site Performance",
+      "Button": "VIEW IN {{ appName }}",
+      "Filters": {
+        "OneDay": "1D",
+        "SevenDays": "7D",
+        "ThirtyDays": "30D",
+        "OneYear": "1Y",
+        "ALL": "ALL"
+      },
+      "Charts": {
+        "Availability": {
+          "Title": "Availability",
+          "Value": "{{value}}%",
+          "Explanation": "{{value}}% under target"
+        },
+        "Performance": {
+          "Title": "Performance",
+          "Value": "{{value}}%",
+          "Explanation": "{{value}}% under target"
+        },
+        "Throughput": {
+          "Title": "Throughput",
+          "Value": "{{value}}%",
+          "Explanation": "{{value}}% under target"
+        }
+      }
+    }
+  },
+  "Documentation": {
+    "Size": "Size",
+    "Language": "Language",
+    "Location": "Location",
+    "MyDocumentation": "My documentation",
+    "OverviewMessage": "All documents related to your system at your fingertips. Should you have any questions, get in touch with your contract manager.",
+    "NoDocuments": "There are no documents available.",
+    "NotFoundMessage": "There are no results that match your search request. Try another search term.",
+    "SearchResultsFor": "Search results for '{{searchText}}'",
+    "DownloadOmManual": "Download full O&M Manual",
+    "FailedToDownloadOmManual": "Something went wrong. Please try again later.",
+    "View": "View",
+    "Certifications": "Certifications",
+    "CertificationsDesc": "Reports and certifications of the machinery.",
+    "Contracts": "Contracts",
+    "ContractsDesc": "Project and service contracts.",
+    "HealthSafetyEnvironment": "Health, Safety and Environment",
+    "HealthSafetyEnvironmentDesc": "Technical information letters and safety notes.",
+    "LifeCycleDocumentation": "Life Cycle Documentation",
+    "LifeCycleDocumentationDesc": "Documents on system maintenance, logistics management and business improvement.",
+    "OmManual": "O&M manual",
+    "OmManualDesc": "The complete documentation of your installed base.",
+    "OtItDocumentation": "OT&IT Documentation",
+    "OtItDocumentationDesc": "Operational and technical software documents.",
+    "Projects": "Projects",
+    "ProjectsDesc": "Project reports, system specifications, hand-over documentation.",
+    "ReportsAndOthers": "Reports and Others",
+    "ReportsAndOthersDesc": "Miscellaneous files and reports."
+  },
+  "Landing": {
+    "WelcomeMessage": "Welcome to My Vanderlande",
+    "LadingUnloggedMessage": "To make use of My Vanderlande you have to be logged in.",
+    "NotRegistered": "Not registered yet?",
+    "ContactManager": "Please contact your account manager.",
+    "LandingTextTitle": "My Vanderlande is your digital touchpoint for:",
+    "LandingTextLine1": "Technical and operational documentation",
+    "LandingTextLine2": "Smooth communication with Vanderlande",
+    "LandingTextLine3": "Your system's performance and health",
+    "LandingTextLine4": "Our complete services and training portfolio",
+    "LandingTextLine5": "Access to all digital apps",
+    "ContactLink": "Contact",
+    "CopyrightText": "Copyright {{year}} Vanderlande Industries B.V. All rights reserved.",
+    "PrivacyLink": "Privacy statement",
+    "CookiePolicy": "Cookie policy",
+    "CookiePreferences": "Cookie preferences",
+    "LogInTitle": "Log in",
+    "LogInButton": "Log in"
+  },
+  "NotFound": {
+    "Message": "The link is broken or this page has been moved."
+  },
+  "ErrorStatePIModule": {
+    "Message": "Process Insights could not be opened.",
+    "Reason": "In order to access the process insights airports module, you need to be connected to VPN."
+  },
+  "AccessDenied": {
+    "Message": "The page you are trying to open has restricted access. \nGet in touch with your Vanderlande contact to get access."
+  },
+  "Portal": {
+    "Overview": "Portal overview"
+  },
+  "Training": {
+    "MyTraining": "My training",
+    "Description": "Empower your employees to efficiently operate and maintain your system. The courses are customized to your installed base and are designed for the specific needs of your team.",
+    "Certifications": "Certifications",
+    "CertificationPath": "Certification path",
+    "CertificationAndTraining": "Get training and certification on",
+    "CardLinkText": "Read more",
+    "Suggested": "Suggested",
+    "TrainingColumn": "Training",
+    "ForColumn": "For",
+    "DurationColumn": "Duration",
+    "NoTrainings": "There are no trainings.",
+    "TrainingBackBtn": "Training overview",
+    "RequestBtn": "Request",
+    "Modules": "Modules",
+    "ElectiveModules": "Elective modules",
+    "MetaTargetGroup": "Target group",
+    "MetaPrerequisites": "Prerequisites",
+    "MetaDuration": "Duration",
+    "MetaMaxTrainees": "Max amount of trainees",
+    "MetaSystemAvailability": "System Availability",
+    "Required": "Required",
+    "SendBtn": "Send",
+    "RequestSuccessMsg": "Your training request is sent.",
+    "OperationsTitle": "Operations",
+    "OperationsDesc": "How to operate your system and  efficient utilisation of operator workstations.",
+    "LogisticsTitle": "Logistics",
+    "LogisticsDesc": "How to efficiently safeguard the overall operation of your MHS. Understanding  your system in order to optimise your performance.",
+    "MaintenanceTitle": "Maintenance & IT",
+    "MaintenanceDesc": "How to maintain your system and effective upkeep of all components (mechanical, electrical, and low- and high-level controls)."
+  },
+  "UserProfile": {
+    "Title": "User profile",
+    "Access": "Access",
+    "AddPortal": "Add portal",
+    "Privacy": "Privacy",
+    "PrivacyLink": "Privacy statement",
+    "CookiePolicy": "Cookie Policy",
+    "TermsAndConditions": "Terms and conditions",
+    "CookiePreferences": "Cookie preferences",
+    "Preferences": "Preferences",
+    "PreferredLanguage": "Preferred language ",
+    "LanguageUpdated": "The preferred language is updated.",
+    "ProfileTab": "Profile and preferences",
+    "AuthorizationTab": "Authorization and access"
+  },
+  "UserAccess": {
+    "SelectPortal": "Select portal",
+    "RevokeAccess": "Revoke access",
+    "AccessAdded": "Added access to {{name}}.",
+    "AccessRevoked": "Revoked access to {{name}} and its sites.",
+    "SiteAccessRevoked": "Revoked access to {{name}}.",
+    "Title": "Access",
+    "DeallocateContractManagerError": "A contract manager can't be deallocated from his sites.",
+    "SitesSubtitle": "Sites"
+  },
+  "UserAuthorization": {
+    "Title": "Authorization",
+    "Message": "User roles apply to all connected portals and sites.",
+    "VanderlandeUserMessage": "Can read all information about the sites and portals they have access to.",
+    "CustomerMessage": "Account for a customer user. Can only access and view the site(s) of a single portal.",
+    "SuperUserMessage": "Can edit any information on any portal or site. ",
+    "PortalAdminMessage": "Can edit portals and sites as an admin, upload and delete documents, contacts, etc.",
+    "RoleAssigned": "User role is assigned: {{role}}."
+  },
+  "TrainingRequest": {
+    "PreviousPage": "Previous Page",
+    "Title": "New request",
+    "Required": "Required",
+    "YourRequest": "Your request",
+    "RequestType": {
+      "Label": "What would you like to request?",
+      "ErrorText": "Please select what you would like to request.",
+      "Training": "Training",
+      "Certification": "Certification"
+    },
+    "Remarks": {
+      "Label": "Remarks",
+      "Placeholder": "Third-party equipment, other requests and specifications."
+    },
+    "Topics": {
+      "Label": "Topics",
+      "Placeholder": "Select certification path",
+      "ErrorText": "Please select a certification path."
+    },
+    "Trainings": {
+      "ErrorText": "Please select at least one training."
+    },
+    "PreviousTraining": {
+      "Label": "Previous training",
+      "Placeholder": "Have the trainees received relevant training before?"
+    },
+    "WhenAndWhere": "When and where",
+    "PreferredDatesOrPeriod": {
+      "Label": "Preferred date(s) or period",
+      "Placeholder": "Specific date or Q1, next spring, before Christmas or as soon as possible.",
+      "Note": "A cancellation less than 7 days before the start date results in a cancellation fee similar to the preparation and training hours of the training"
+    },
+    "PreferredTrainingLocation": {
+      "Label": "Preferred training location",
+      "NoteVeghel": "Customer Centre is responsible for all travel arrangements and accommodation requirements. This includes travel arrangements from hotel to Vanderlande and back. Please send a copy of the travel arrangements to the Trainer.",
+      "NoteAnotherLocation": "We will charge travel and accommodation costs for the trainer."
+    },
+    "PreferredLocation": {
+      "Label": "Preferred location",
+      "Placeholder": "Location where you would like to receive the training."
+    },
+    "Participants": {
+      "Label": "Participants",
+      "Note": "The minimum amount of participants is 2. Large groups may have to be broken up into smaller ones.",
+      "Name": {
+        "Label": "Name",
+        "Placeholder": "Name"
+      },
+      "Email": {
+        "Label": "E-mail",
+        "Placeholder": "E-mail address",
+        "ErrorText": "Please enter a valid e-mail address."
+      },
+      "AddParticipants": "Add participants"
+    },
+    "Location": {
+      "Label": "Location",
+      "Placeholder": "Site where the participants are working."
+    },
+    "RequestDetails": "Request details",
+    "Contact": {
+      "Label": "Contact",
+      "Placeholder": "Project / Account / Maintenance Manager or Customer Centre"
+    },
+    "Requester": {
+      "Label": "Requester"
+    },
+    "RequesterName": {
+      "Label": "Requester name",
+      "Placeholder": "Name",
+      "RequiredError": "This field is mandatory."
+    },
+    "RequesterRole": {
+      "Label": "Requester role",
+      "Placeholder": "Role or Job title"
+    },
+    "RequesterEmail": {
+      "Label": "Requester e-mail",
+      "Placeholder": "E-mail address",
+      "RequiredError": "Please enter an e-mail address.",
+      "ValidError": "Please enter a valid e-mail address.",
+      "Note": "You will receive the confirmation of this request on this e-mail address."
+    },
+    "Send": "Send",
+    "DiscardTitle": "Discard changes?",
+    "DiscardText": "You have entered information that will be lost if you proceed. Do you want to proceed?",
+    "KeepEditing": "Keep editing",
+    "NoSiteContracManager": {
+      "ErrorText": "Requesting training online is temporarily unavailable. Get in touch with your Vanderlande contact to request training."
+    }
+  },
+  "Contacts": {
+    "MyContacts": "My contacts",
+    "AccountManagerContact": "Account manager",
+    "ContractManagerContact": "Contract manager",
+    "ItManagerContact": "IT manager",
+    "SparePartsContact": "Spare parts contact",
+    "ServiceDeskContact": "Service Desk",
+    "VisitingOfficeContact": "Visiting office",
+    "DownloadAsVCard": "Download as vCard",
+    "OutsideWorkingHours": "outside working hours",
+    "NoContacts": "There are no contacts available."
+  },
+  "AddPortal": {
+    "NewPortal": "New portal",
+    "PortalTitle": "Portal title",
+    "PortalTitleDesc": "Customers will see this. Check with the customer how they want it to be named. Check the master data for a correct and relevant title.",
+    "PortalTitleErr1": "A portal with this name already exists. Please use a different name.",
+    "PortalTitleErr2": "This field is mandatory. Please enter a portal title.",
+    "PortalTitleErr3": "This title is too long, make sure it's no longer than 50 characters.",
+    "PortalTitleErr4": "Please use only letters and numbers.",
+    "Customer": "Customer",
+    "CustomerDesc": "Company name of the customer. Needed for internal administration.",
+    "CustomerErr1": "This field is mandatory. Please enter a customer.",
+    "CustomerErr2": "We didn't find any customers named {{name}}.",
+    "CustomerErr2Button": "Add as a new customer",
+    "AddPortal": "Add portal",
+    "Cancel": "Cancel"
+  },
+  "PortalAdmin": {
+    "Administration": "Administration",
+    "PortalSettings": "Portal settings",
+    "Users": "Users",
+    "NoUsersFound": "There are no users that match your search criteria.",
+    "NoUsers": "There are no users.",
+    "Sites": "Sites",
+    "AddSite": "Add site",
+    "SitesEmpty": "There are no sites added to this portal yet.",
+    "NewSite": "New site",
+    "SiteName": "Site name",
+    "SitenameDesc": "Customers will see this title. Use a descriptive name.",
+    "SiteID": "Site ID",
+    "SiteIdDesc": "Use the unique site identifier from the master data - the Installed Base number from Enovia.",
+    "Cancel": "Cancel",
+    "SiteTitleErr1": "A site with this ID already exists in My Vanderlande. Please use a different one.",
+    "SiteTitleErr2": "This field is mandatory.",
+    "SiteTitleErr3": "This title is too long.",
+    "NotPublishedLabel": "Not published"
+  },
+  "PortalGeneralSettings": {
+    "GeneralSettings": "General settings",
+    "Training": "Training",
+    "TrainingDesc": "Which training assortment(s) should be shown for the sites within this portal?",
+    "TrainingErrorText": "Please select at least one training assortment.",
+    "TrainingErrorToast": "Training assortment(s) could not be saved. Please try again.",
+    "SettingsSaveSuccessMsg": "Settings are saved.",
+    "DeletePortal": "Delete portal",
+    "DeletePortalDesc": "All the data will be removed and cannot be restored. Users will not have access to the portal or its sites."
+  },
+  "SiteAdmin": {
+    "PublishNotification": "This site is not published yet and thus not visible to the customers.",
+    "PublishButton": "Publish",
+    "Users": "Users",
+    "GeneralSettings": "General site settings",
+    "Documentation": "Documentation",
+    "Contacts": "Contacts"
+  },
+  "SiteAdminDocumentation": {
+    "Subtitle": "Manage site documents",
+    "AmountOfDocuments": "# documents",
+    "AmountOfDocumentsZero": "{{number}} documents",
+    "AmountOfDocumentsOne": "{{number}} document",
+    "AmountOfDocumentsPlural": "{{number}} documents",
+    "MessageZeroDocs": "This folder will not be shown to the users",
+    "AddDocuments": "Add documents",
+    "SelectedDocuments": "Selected documents",
+    "DocumentCategory": "Document category",
+    "DocumentCategoryError": "Select the document category",
+    "DocumentLanguage": "Language of the document(s)",
+    "DocumentLanguageError": "Select the document language.",
+    "SelectFiles": "Please select a file.",
+    "SelectFolder": "Please select a folder.",
+    "AllowedFileTypes": "One or more file type(s) that you have selected is not allowed.",
+    "CancelButton": "Cancel",
+    "UploadButton": "Upload",
+    "Download7Zip": "Download 7zip",
+    "ZipFileSelected": "Make sure that the .zip file is created with the 7zip program. To ensure that all characters are displayed correctly, type ‘cu’ in the field ‘Parameters’  when creating the archive.",
+    "UploadError": "{{fileName}} failed to upload.",
+    "CancelUploadSuccess": "Upload canceled.",
+    "DeleteFileSuccess": "File deleted.",
+    "TableDocumentTitle": "Title",
+    "TableDateUploaded": "Date uploaded",
+    "TableUploadedBy": "Uploaded by",
+    "OAndMMessage": "If there is no O&M manual, something is missing or is incorrect, get in touch with {{email}}",
+    "OAndMLink": "Send e-mail",
+    "DragNDropLink": "Select file(s)",
+    "DragNDropText": "or drag and drop here",
+    "Pop-upUploadDoc": "Upload document",
+    "UploadErr1": "Something went wrong. Try uploading again.",
+    "CancelUploadsModalTitle": "Cancel all uploads?",
+    "CancelUploadsModalText": "Your uploads are not complete. Would you like to cancel the ongoing uploads?",
+    "CancelUploadsModalText2": "The upload of some file(s) that you were adding cannot be cancelled anymore. If you want to undo the upload, wait till the processing of the files is done, and delete them afterwards.",
+    "CancelUploadsModalConfirmText": "Cancel uploads",
+    "CancelUploadsModalConfirmText2": "Ok",
+    "CancelUploadsModalCancelText": "Continue uploads",
+    "BottomSheetTitle": "Upload progress",
+    "ConfirmationModalTitle": "Delete the document?",
+    "ConfirmationModalMessage": "Are you sure you want to delete? This file will not be accessible to the customer anymore."
+  },
+  "SiteAdminContacts": {
+    "AccountManager": "Account Manager",
+    "ContractManager": "Contract Manager",
+    "ITManager": "IT Manager",
+    "SparePartsContact": "Spare parts contact",
+    "VisitingOffice": "Visiting Office",
+    "ServiceDesk": "Service Desk",
+    "PreferredServiceDesk": "Preferred Service Desk",
+    "CustomTitle": "Custom title",
+    "CustomTitleDesc": "Fill this in if you want to replace '{{Account manager}}' with a different title",
+    "ShowThisContactChkbx": "Show this contact to customers",
+    "ShowThisContactChkbxDisabled": "This contact person is always visible",
+    "NameAndLastName": "Name and last name",
+    "NameOfOffice": "Name of the office",
+    "EMail": "E-mail",
+    "PhoneNumberOutsideWorkingHours": "Phone number outside office hours",
+    "ContactDetails": "Contact details",
+    "FieldErr1": "This field cannot be empty."
+  },
+  "SiteAdminGeneralSettings": {
+    "GeneralSettingOverview": {
+      "PageHeader": {
+        "Title": "General Settings",
+        "Breadcrumbs": {
+          "SiteSetting": "Site Settings",
+          "SiteGeneral": "General Settings"
+        }
+      },
+      "configs": {
+        "SpareParts": {
+          "Title": "Spare Parts Shop"
+        },
+        "Vidi": {
+          "Title": "VIDI"
+        },
+        "ProcessInsights": {
+          "Title": "Process Insights"
+        },
+        "MyContracts": {
+          "Title": "My Contracts"
+        },
+        "DivertHealth": {
+          "Title": "Divert Health",
+          "Label": "What is the URL for Divert Health?",
+          "RequiredErrorLabel": "Please provide an URL to your Divert Health environment.",
+          "InvalidErrorLabel": "Please provide an valid URL to your Divert Health environment."
+        },
+        "ShuttleHealth": {
+          "Title": "Shuttle Health",
+          "Label": "What is the URL for Shuttle Health?",
+          "RequiredErrorLabel": "Please provide an URL to your Shuttle Health environment.",
+          "InvalidErrorLabel": "Please provide an valid URL to your Shuttle Health environment."
+        },
+        "Cases": {
+          "Title": "Cases",
+          "EventSources": {
+            "Label": "Case to Work Order promotion rules",
+            "Rules": {
+              "Disabled": "Disabled",
+              "Manual": "Manual",
+              "Automatic": "Automatic"
+            },
+            "Types": {
+              "Monitron": "Monitron",
+              "ShuttleHealth": "Shuttle Health",
+              "DivertHealth": "Divert Health",
+              "OperationalAwareness": "Operational Awareness"
+            }
+          },
+          "Enable": {
+            "Label": "Should the link to the 'Cases' be shown in the menu?"
+          },
+          "ErrorMessage": "Please enable at least one Work Order promotion rule"
+        }
+      }
+    },
+    "SettingsSaveSuccessMsg": "Settings are saved.",
+    "SiteStatus": "Site status",
+    "Status": "Status:",
+    "NotPublished": "Not published",
+    "NotPublishedDesc": "Customer users cannot access it yet or see any data.",
+    "PublishBtn": "Publish",
+    "Published": "Published",
+    "PublishedDesc": "Customers can access all the information about this site.",
+    "DeleteSite": "Delete site",
+    "DeleteSiteDesc": "All the data will be removed and cannot be restored. Users will not have access to it.",
+    "DeleteBtn": "Delete"
+  },
+  "SiteAdminPublishSite": {
+    "DoYouWant": "Do you want to publish {{Site name}}?",
+    "DoYouWantDesc": "The linked users will be able to see the site and its details.",
+    "PublishBtn": "Publish",
+    "CancelBtn": "Cancel",
+    "PublishedToaster": "{{Site name}} is published."
+  },
+  "AddUserModal": {
+    "AddUserBtn": "Add user",
+    "ModalTitle": "Add user",
+    "InputLabel": "Search by the vanderlande-cloud.com account",
+    "InputPlaceholder": "Enter the account",
+    "InputErrorText": "Please enter a valid account.",
+    "InfoText": "The vanderlande-cloud.com account is also known as the UPN (User Principal Name).",
+    "SearchBtn": "Search",
+    "SearchNoResults": "There are no users that match your search criteria.",
+    "AddUserMsg1": "This user is found and can be added to My Vanderlande. Make sure to assign portals and sites.",
+    "OpenProfileBtn": "Open profile",
+    "AddUserMsg2": "This user does not have a Vanderlande account yet. Make sure you look the user up with the Azure account that ends with \"@vanderlande-cloud.com\".",
+    "RequestAccountBtn": "Request account",
+    "AddUserSuccessMsg": "{{name}} is added to My Vanderlande",
+    "CancelBtn": "Cancel",
+    "DisabledUserError": "This user cannot be added because their Azure AD account is inactive. You can activate the through TopDesk request."
+  },
+  "BusinessUnits": {
+    "Airport": "Airport",
+    "Parcel": "Parcel",
+    "Warehouse": "Warehouse"
+  },
+  "Contracts": {
+    "MyContracts": "My contracts",
+    "Contract": "Contract",
+    "NoContracts": "There are no contract details available.",
+    "ExistingContracts": "Existing contracts",
+    "AgreementLabel": "Contract number",
+    "StartDateLabel": "Start date",
+    "EndDateLabel": "End date",
+    "ContractsOverview": "Contracts overview",
+    "WholeSystem": "Whole system",
+    "NoContractLines": "There are no contract details available."
+  },
+  "WarrantyClaims": {
+    "MyWarranty": "Warranty claims",
+    "NewWarranty": "New warranty claim",
+    "SelectItemModal": {
+      "Title": "Select warranty item",
+      "SearchInputPlaceholder": "Search on item number, description, issue unit classification or category"
+    },
+    "CustomerSiteContact": {
+      "Title": "Customer site contact",
+      "Placeholder": "Select contact person",
+      "LeftAssertiveText": "Select on site contact"
+    },
+    "TicketReference": {
+      "Title": "Your ticket reference",
+      "LeftAssertiveText": "Ticket number in your internal ticket system"
+    },
+    "Summary": {
+      "Title": "Summary",
+      "LeftAssertiveText": "Provide a brief title of your warranty claim so you can easily recognize the claim."
+    },
+    "CreateWarrantyClaim": "Create warranty claim",
+    "SelectedItem": {
+      "Title": "Item Information",
+      "Placeholder": "Select the item and quantity of the item that broke down"
+    },
+    "SelectItemButton": "Select item",
+    "ChangeItemButton": "Change item",
+    "WarrantyParts": "Warranty part",
+    "AddWarrantyItem": "Add warranty item",
+    "SerialNumber": "Serial number",
+    "WarrantyReasonLabel": "Detailed failure description",
+    "WarrantyReasonInfoText": "Please provide a failure description that explains the reason for your claim",
+    "WarrantyInfo": "Warranty info",
+    "BreakdownDate": "Breakdown date",
+    "AddToWarranty": "Add to warranty"
+  },
+  "Tickets": {
+    "MyTickets": "My tickets",
+    "AllTickets": "All tickets",
+    "OpenTickets": "Open tickets",
+    "NoOpenTickets": "There are no open tickets.",
+    "TicketNumber": "Ticket {{ number }}",
+    "TicketPriority": "Priority {{ priority }}",
+    "ViewAllTickets": " View all tickets",
+    "CreateTicket": "Create ticket",
+    "NewTicket": "New ticket",
+    "Details": "Details",
+    "TicketType": "Ticket type",
+    "IssueType": {
+      "Title": "What is this ticket about?",
+      "Incident": {
+        "Label": "Incident",
+        "Description": "Unplanned interruption to a Service or a reduction in the Quality of daily operations of the Vanderlande system"
+      },
+      "Servicerequest": {
+        "Label": "Service Request",
+        "Description": "A formal request to Vanderlande for something to be provided – for example, a request for information, data or advice"
+      },
+      "Problem": {
+        "Label": "Problem",
+        "Description": "The cause or potential cause of one or more Incidents that need to be investigated by Vanderlande"
+      },
+      "Change": {
+        "Label": "Change asset",
+        "Description": "The addition, modification or removal of anything that could have an effect on the Vanderlande system or service delivery"
+      },
+      "Changerequest": {
+        "Label": "Change request",
+        "Description": "The addition, modification or removal of anything that could have an effect on the Vanderlande system or service delivery"
+      },
+      "Problemreport": {
+        "Label": "Problem report",
+        "Description": "The cause or potential cause of one or more Incidents that need to be investigated by Vanderlande"
+      }
+    },
+    "Priority": {
+      "Placeholder": "Select priority",
+      "AssistiveText": "For highest priority tickets, you must call the Service Desk. This will ensure timely response."
+    },
+    "InternalReferenceNumber": {
+      "Label": "Internal reference number",
+      "AssistiveText": "Ticket number in your internal ticket system, if you use one."
+    },
+    "Situation": "Situation",
+    "ShortSummary": {
+      "Label": "Short summary",
+      "AssistiveText": "This will be used as the ticket title."
+    },
+    "Description": {
+      "Incident": "Symptom:\nError:\nArea/zone:\nBusiness consequences for the customer:\n\nTroubleshooting steps caller:\nReoccurring Incident:\nWhat happened before the incident occurred:\nDid any changes occur in the system recently, or during the past 48 hours:\n\nIs the site contact On-Site:\nThe site contact is available until:\nDate & Approximate Time the incident was recognized at: ",
+      "Servicerequest": "Request description:\nReasons for this request:",
+      "Changerequest": "Request description:\nReasons for this request:",
+      "Problemreport": "Report description:"
+    },
+    "Links": {
+      "Title": "Links"
+    },
+    "OnSiteContact": {
+      "Title": "On-site contact",
+      "Label": "Name, last name",
+      "Placeholder": "Select contact person",
+      "AssistiveText": "To expand this list, get in touch with your Vanderlande contact."
+    },
+    "Information": "Ticket information",
+    "ViewTicket": "View ticket",
+    "ReportedOn": {
+      "Label": "Reported on"
+    },
+    "ReferenceNumber": {
+      "Title": "Internal reference number"
+    },
+    "SendTicketButton": "Create ticket",
+    "TicketLog": {
+      "Label": "Ticket log"
+    },
+    "NoMessagesAvailable": "There are no messages about this ticket.",
+    "TicketCreated": "Ticket created.",
+    "CustomerSatisfaction": {
+      "Subtitle": "Your opinion matters",
+      "Info": "We would like to know how well Vanderlande performed during the resolution of this incident. Please click on the smiley icon below that best matches your experience.",
+      "Satisfied": "Satisfied",
+      "Neutral": "Neutral",
+      "Dissatisfied": "Dissatisfied"
+    }
+  },
+  "Asset": {
+    "AffectedAsset": "Affected asset",
+    "AssetInfo": "Asset information",
+    "SelectAssetBtn": "Select asset",
+    "ChangeAssetBtn": "Change asset",
+    "AddAsset": "Add Asset",
+    "SelectAssetModalTitle": "Select the affected asset",
+    "SelectAssetModal": {
+      "SearchInputPlaceholder": "Search on asset name, mark code or mark number"
+    },
+    "SelectAssetTable": {
+      "AddToTicketBtn": "Add to ticket"
+    },
+    "Description": "Description",
+    "MarkCode": "Mark code",
+    "MarkNumber": "Mark number",
+    "Asset": "Asset",
+    "AssetDescription": "Asset description",
+    "MarkCodeAndNumber": "Mark Code & No."
+  },
+  "Assets": {
+    "SelectAssetTable": {
+      "NoAssets": "There are no assets that match your search criteria."
+    }
+  },
+  "Attachments": {
+    "Title": "Attachments",
+    "AddBtn": "Add attachment",
+    "Information": "Select 1 attachment of max 10 MB. You can add more attachments after this ticket is created.",
+    "FileSizeError": "One or more files you have selected is too large. Upload files of 10MB or smaller.",
+    "UploadWarning": "You cannot remove this file after uploading it.",
+    "DescriptionPlaceholder": "Remarks on the content and purpose of this file",
+    "FileUploadMessage": "Adding file to ticket"
+  },
+  "ContextualCollaboration": {
+    "MyCases": "My cases",
+    "NoCases": "There are no cases.",
+    "CaseStatusOpen": "Open",
+    "CaseStatusInProgress": "In progress",
+    "CaseStatusClosed": "Closed",
+    "ViewCase": "View case",
+    "CaseInfo": "Information about the case",
+    "EventDetails": "Event details",
+    "CaseStatusChangedSuccessMsg": "Status changed to \"{{ caseStatus }}\"",
+    "CaseOverview": {
+      "PageHeader": {
+        "Title": "Cases",
+        "NewCase": "New case",
+        "Breadcrumbs": {
+          "Cases": "Cases",
+          "Site": "Site"
+        }
+      },
+      "CaseTable": {
+        "Headers": {
+          "EventSource": "Event source",
+          "Summary": "Summary",
+          "CaseNumber": "Case number",
+          "LastUpdated": "Last updated",
+          "Status": "Status",
+          "WorkorderID": "Workorder ID"
+        }
+      },
+      "Status": {
+        "Open": "Open",
+        "InProgress": "In progress",
+        "Closed": "Closed",
+        "Rejected": "Rejected"
+      },
+      "LastUpdated": "{ updatedOn, date, long } at { updatedOn, time, short }",
+      "EventSource": {
+        "Monitron": "Monitron",
+        "ShuttleHealth": "Shuttle Health",
+        "DivertHealth": "Divert Health",
+        "OperationalAwareness": "Operational Awareness"
+      }
+    },
+    "Breadcrumbs": {
+      "Cases": "Cases",
+      "NewCase": "New Case",
+      "CaseDetails": "Case Details"
+    },
+    "NewCase": {
+      "CreateCase": "Create case",
+      "Title": "New Case",
+      "WhatIsThisCaseAbout": "What is this case about?",
+      "TitleField": {
+        "Eyebrow": "Case title - required"
+      },
+      "AssetSelector": {
+        "Eyebrow": "Affected asset"
+      },
+      "DescriptionField": {
+        "Eyebrow": "Description - required"
+      },
+      "Attachments": {
+        "AddAttachment": "Add Attachment",
+        "Emptystate": {
+          "Title": "No files added",
+          "Explanation": "Please add your file(s) about the item in question."
+        },
+        "Eyebrow": "Add attachment to case"
+      },
+      "OnSiteContact": {
+        "Placeholder": "Select on site contact",
+        "AssistiveText": "To expand this list, get in touch with your Vanderlande contact.",
+        "Eyebrow": "On-site contact - required"
+      },
+      "EventSource": {
+        "Eyebrow": "Event source - required",
+        "Placeholder": "Select event source"
+      }
+    },
+    "CaseDetails": {
+      "CaseMessaging": "Messages",
+      "CaseInformation": "Case information",
+      "Description": "Description",
+      "Details": "Details",
+      "Attachments": "Attachments ({{ count }})",
+      "AddAttachments": "Add attachments",
+      "Dismiss": "Dismiss",
+      "Promote": "Promote",
+      "Case": "{{ caseId }} - Case",
+      "Status": "Status",
+      "StatusOpen": "Open",
+      "StatusInProgress": "In progress",
+      "StatusClosed": "Closed",
+      "StatusUnknown": "Unknown",
+      "ReportedOn": "Reported on",
+      "ReportedBy": "Reported by",
+      "AffectedAsset": "Affected asset",
+      "OnSiteContact": "On-site contact",
+      "FileUploadedOn": "File uploaded on { uploadedOn, date, long }",
+      "EventSource": "Event source",
+      "WorkOrderId": "Workorder ID",
+      "NoPreview": "No preview available",
+      "OpenPreview": "Open preview",
+      "MfeThumbNail": "{{ mfeName }} chart",
+      "Header": {
+        "Title": "{{ caseName }}",
+        "Breadcrumbs": {
+          "Cases": "Cases",
+          "CaseDetails": "Case Details"
+        },
+        "Status": {
+          "Open": "Open",
+          "InProgress": "In progress",
+          "Closed": "Closed",
+          "Rejected": "Rejected"
+        },
+        "Action": {
+          "WorkOrder": "Work Order",
+          "Close": "Close",
+          "Reject": "Reject",
+          "InProgress": "To In progress"
+        }
+      },
+      "ReportedOnDate": "{ reportedOn, date, long }",
+      "ConfirmationModal": {
+        "CreateWorkOrder": {
+          "Title": "Are you sure you want to create a work order for this case?",
+          "Message": "After a work order is created in dos.maximo, the case cannot be rejected anymore",
+          "Confirm": "Create Work Order",
+          "Cancel": "Cancel"
+        },
+        "CloseCase": {
+          "Title": "Are you sure you want to close this case?",
+          "Message": "After closing, messages and attachments can no longer be added.",
+          "Confirm": "Close Case",
+          "Cancel": "Cancel"
+        },
+        "RejectCase": {
+          "Title": "Are you sure you want to reject this case?",
+          "Message": "After rejecting, messages and attachments can no longer be added.",
+          "Confirm": "Reject Case",
+          "Cancel": "Cancel"
+        },
+        "InProgressCase": {
+          "Title": "Are you sure you want to move this case to in-progress?",
+          "Message": "After moving to in-progress, case cannot be moved back to open state.",
+          "Confirm": "To In-Progress",
+          "Cancel": "Cancel"
+        }
+      },
+      "Error": {
+        "CreateWorkOrder": "Failed to create work order"
+      },
+      "AttachmentPreview": {
+        "Title": "Attachment preview",
+        "SubTitle": "{{ objectName }}",
+        "ButtonText": "Download"
+      },
+      "MFEPreview": {
+        "Title": "{{ mfeName }}",
+        "ButtonText": "Close"
+      }
+    }
+  },
+  "AttachmentComponent": {
+    "AddAttachment": "Add attachment",
+    "EmptyStateTitle": "No files added",
+    "EmptyStateExplanation": "Please add your file(s)",
+    "Eyebrow": "Add attachmet(s)"
+  },
+  "AddFileDescriptionDialog": {
+    "Title": "Add attachment",
+    "Submit": "Save",
+    "Cancel": "Cancel",
+    "Form": {
+      "Title": "Files",
+      "Explanation": "You cannot remove files after uploading them"
+    },
+    "Item": {
+      "Eyebrow": "Description for {{ item }} - required",
+      "Placeholder": "Remarks on the content and purpose of this file"
+    }
+  },
+  "AddDescriptionDialog": {
+    "Title": "Add Description",
+    "Submit": "Save",
+    "Cancel": "Cancel",
+    "Form": {
+      "Title": "Items",
+      "Explanation": "Please provide description for each item"
+    },
+    "Item": {
+      "Eyebrow": "Description for {{ item }} - required",
+      "Placeholder": "Remarks on the content and purpose of this item"
+    }
+  },
+  "ContactSelector": {
+    "Placeholder": "Select Contact person"
+  },
+  "AssetSelector": {
+    "Eyebrow": "Affected asset",
+    "SelectAsset": "Select asset",
+    "ChangeAsset": "Change asset",
+    "EmptyState": {
+      "Title": "No asset selected",
+      "Explanation": "Please select your asset"
+    }
+  },
+  "Messaging": {
+    "NewMessage": "New message",
+    "SendMessage": "Send message",
+    "NewMessagePlaceholder": "Enter your message here",
+    "MessageHeader": "{{ name }} - { messagedOn , date, long } / { messagedOn, time, short }",
+    "CurrentUser": "You",
+    "StatusMessage": "{{ name }} changed the status to {{ status }} - { messagedOn , date, long } / { messagedOn, time, short }"
+  },
+  "GlobalHeader": {
+    "NoPortals": "You do not have any portals assigned",
+    "NoSites": "You do not have any sites assigned",
+    "SelectPortals": "Select Portals",
+    "SelectSites": "Select Sites",
+    "SelectApplication": "Select Application",
+    "Portal": "{{ name }}",
+    "Site": "{{ name }}",
+    "Application": "{{ name }}",
+    "Home": "Home",
+    "User": "{{ name }}",
+    "LogOut": "Log out",
+    "Profile": "My profile",
+    "Showing": "Displaying {{ showing }} of {{ total }} results.",
+    "NoResult": "No results. Please adjust your search criteria.",
+    "Applications": {
+      "Cases": "Cases",
+      "ProcessInsights": "Process Insights",
+      "Tickets": "Tickets",
+      "Contacts": "Contacts",
+      "Settings": "Settings",
+      "Training": "Training",
+      "Contracts": "Contracts",
+      "Documentation": "Documentation",
+      "SpareParts": "Spare parts",
+      "VIDI": "VIDI",
+      "DivertHealth": "Divert Health",
+      "ShuttleHealth": "Shuttle Health",
+      "PaceInsights": "Pace Insights",
+      "VIAInsights": "VIA Insights",
+      "WSInsights": "WS Insights",
+      "WarrantyClaims": "Warranty claims",
+      "System": "System",
+      "Home": "Dashboard",
+      "SiteOverview": "Site Overview"
+    }
+  },
+  "DragAndDrop": {
+    "ValidState": "Drop your file here",
+    "FileNotAllowed": "Not supported file type. We accept: {{ validTypes }}",
+    "FileCountExceeded": "You can only upload {{count}} file(s)"
+  },
+  "AssetDetailsModal": {
+    "TitleKey": "Asset information",
+    "SubTitle": "{{ assetId }}",
+    "AssetIdKey": "Asset ID",
+    "AssetIdValue": "{{ assetId }}",
+    "MarkCodeKey": "Mark code",
+    "MarkCodeValue": "{{ markCode }}",
+    "MarkNumberKey": "Mark number",
+    "MarkNumberValue": "{{ markNumber }}",
+    "DescriptionKey": "Description",
+    "DescriptionValue": "{{ description }}"
+  },
+  "ClipBoard": {
+    "Copy": "Copy",
+    "Copied": "Copied",
+    "CopyToClipboard": "Copied to clipboard",
+    "CopyToClipboardError": "Failed to copy to clipboard"
+  }
+}

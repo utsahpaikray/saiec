@@ -1,0 +1,33 @@
+@use '../../../../styles/variables/breakpoints' as breakpoints;
+@use '../../../../styles/variables/sizing-parts' as sizing;
+
+.table-file-icon::before {
+  content: '';
+  display: block;
+  height: 0.75rem; //needed to use for fixing line height
+  width: var(--grav-space-l);
+  margin-top: var(--grav-space-xs);
+  border-bottom: var(--grav-border-size-s) solid var(--grav-color-base-blue-500);
+  border-left: var(--grav-border-size-s) solid var(--grav-color-base-blue-500);
+}
+
+@media #{map-get(breakpoints.$media_queries, '\\<md')} {
+  .w-custom {
+    width: calc(100% - var(--grav-space-l) - var(--grav-space-s));
+  }
+}
+
+@media #{map-get(breakpoints.$media_queries, 'md')} {
+  .w-custom-16_6 {
+    width: calc(
+      #{map-get(sizing.$sizing-parts, 'half')} - #{map-get(
+          sizing.$sizing-parts,
+          'third'
+        )}
+    ); //16.6667%
+  }
+}
+
+.download-btn {
+  height: inherit;
+}

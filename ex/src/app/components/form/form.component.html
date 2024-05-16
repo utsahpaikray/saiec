@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <ng-content></ng-content>
+
+  <div
+    class="form-button-wrapper sticky b-m mt-l d-flex justify-flex-end"
+    data-testid="form-button-wrapper"
+  >
+    <button [disabled]="buttonDisabled" data-testid="form-submit" type="submit">
+      {{ submitText }}
+    </button>
+  </div>
+</form>

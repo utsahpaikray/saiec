@@ -1,0 +1,79 @@
+<button
+  (click)="openUploadModal()"
+  data-testid="open-documents-modal-button"
+  outline
+>
+  <grav-svg-icon key="plus" size="s"></grav-svg-icon>
+  {{ 'SiteAdminDocumentation.AddDocuments' | transloco }}
+</button>
+
+<app-modal
+  [id]="modalId"
+  (close)="closeModal(true)"
+  data-testid="upload-documents"
+  title="{{ 'SiteAdminDocumentation.AddDocuments' | transloco }}"
+>
+  <form *ngIf="form" [formGroup]="form" (submit)="onSubmit()">
+    <app-file-upload
+      [accept]="acceptedFilesType"
+      [alertMessage]="alertMessage"
+      [showAlert]="showFileAlert"
+      (changeEvent)="onUploadFiles($event)"
+      data-testid="upload-field"
+      buttonLabel="{{ 'SiteAdminDocumentation.AddDocuments' | transloco }}"
+      label="{{ 'SiteAdminDocumentation.SelectedDocuments' | transloco }}"
+    ></app-file-upload>
+
+    <app-alert
+      *ngIf="zipFilesSelected"
+      [alert]="zipFilesAlert"
+      class="mt-l d-block"
+      data-testid="zip-file-selected-alert"
+    ></app-alert>
+
+    <app-dropdown
+      [isSelect]="true"
+      [items]="categoryDropDownItems"
+      class="mt-m d-block"
+      name="upload-documents-category"
+      data-testid="category-dropdown"
+      formControlName="category"
+      label="{{ 'SiteAdminDocumentation.DocumentCategory' | transloco }}"
+      placeholder="{{ 'SiteAdminDocumentation.SelectFolder' | transloco }}"
+    >
+      {{ 'SiteAdminDocumentation.DocumentCategoryError' | transloco }}
+    </app-dropdown>
+
+    <app-datalist
+      [items]="localeDropdownItems"
+      class="mt-m d-block"
+      name="upload-documents-language"
+      data-testid="language-dropdown"
+      formControlName="language"
+      label="{{ 'SiteAdminDocumentation.DocumentLanguage' | transloco }}"
+      placeholder="{{ 'SiteAdminDocumentation.DocumentLanguage' | transloco }}"
+    >
+      {{ 'SiteAdminDocumentation.DocumentLanguageError' | transloco }}
+    </app-datalist>
+
+    <div
+      [ngClass]="showFileAlert ? 'mt-l' : 'mt-xl'"
+      class="d-flex items-center justify-flex-end"
+    >
+      <div class="pr-s">
+        <button
+          (click)="closeModal()"
+          data-testid="cancel-button"
+          type="button"
+          ghost
+          secondary
+        >
+          {{ 'SiteAdminDocumentation.CancelButton' | transloco }}
+        </button>
+      </div>
+      <button data-testid="submit-button">
+        {{ 'SiteAdminDocumentation.UploadButton' | transloco }}
+      </button>
+    </div>
+  </form>
+</app-modal>
