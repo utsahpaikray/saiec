@@ -1,5 +1,5 @@
-<ion-header  translucent>
- <ion-toolbar color="primary">
+<ion-header translucent>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,30 +9,21 @@
 
 <ion-content fullscreen class="ion-no-padding">
   <ion-grid class="padding-top ion-no-padding">
-    <ion-row>
-      @for (user of facultyList; track user; let  i = $index) {
-        <ion-col size="12" size-sm="6" size-md="6" size-lg="4">
-          <ion-card class="faculty-card">
-            <ion-card-header color="primary">
-              @if (user.name) {
-                <ion-card-title><p>{{user.name}}</p></ion-card-title>
-              }
-            </ion-card-header>
-            <div class="image-container">
-              @if (user.Image) {
-                <ion-img src="{{user.Image}}"> </ion-img>
-              }
-            </div>
-
+    <ion-row class="faculty-row">
+      <ng-container *ngFor="let user of facultyList(); let i = index">
+        <ion-col size="12" size-sm="6" size-md="4">
+          <ion-card >
+            <img [src]="user.Image" alt="Faculty Image">
+            <ion-card-header>
+              <!-- <ion-card-title>{{ user.name }}</ion-card-title> -->
+              <ion-card-subtitle>{{ user.position }}</ion-card-subtitle>
+              <ion-card-subtitle>{{user?.location}}</ion-card-subtitle>            </ion-card-header>
             <ion-card-content>
-              <ion-card-subtitle> Designation:{{user?.Designation}}</ion-card-subtitle>
-              @if (user.location) {
-                <ion-card-subtitle>{{user?.location}}</ion-card-subtitle>
-              }
-            Subject: {{user.position}}</ion-card-content>
+              <ion-button expand="block" color="primary">{{user.name}}</ion-button>
+            </ion-card-content>
           </ion-card>
         </ion-col>
-      }
+      </ng-container>
     </ion-row>
   </ion-grid>
 </ion-content>

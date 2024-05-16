@@ -1,7 +1,7 @@
 import { StudentState } from "./student/student.interface";
 
 export interface AppState {
-    products:StudentState[];
+    students:StudentState[];
     faculty:any[];
     bookStore:any[]
 }

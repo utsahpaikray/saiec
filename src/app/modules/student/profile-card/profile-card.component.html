@@ -12,10 +12,10 @@
         } @if (student.class) {
         <div class="bp">{{student.class}}</div>
         } @if (student['Sub-Status']) {
-        <div class="bp" [class.out]="student['Sub-Status']==='In Transfer'">
-          @if (student['Sub-Status']==='In School') {
+        <div class="bp" [class.out]="!student.Status">
+          @if (student.Status) {
             <span> IN </span>
-            } @if (student['Sub-Status']==='In Transfer') {
+            } @else {
             <span> OUT </span>
           }
         </div>

@@ -29,7 +29,7 @@ import { UploadDetailsComponent } from '@modules/shared/upload-details/upload-de
 import { UploadFormComponent } from '@modules/shared/upload-form/upload-form.component';
 import { UploadListComponent } from '@modules/shared/upload-list/upload-list.component';
 import { StoreModule } from '@ngrx/store';
-import { studentReducerStore } from './states/student/student.reducer';
+import { sessionStudentReducerStore, studentReducerStore } from './states/student/student.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StudentEffects } from './states/student/student.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
@@ -59,10 +59,8 @@ import { BookstoreEffects } from './states/bookStore/bookstore.effects';
     }),
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideRemoteConfig(() => getRemoteConfig()),
-    StoreModule.forRoot({students:studentReducerStore, faculty:facultyReducerStore, bookStore: bookReducerStore}),
+    StoreModule.forRoot({sessionStudents: sessionStudentReducerStore, students:studentReducerStore, faculty:facultyReducerStore, bookStore: bookReducerStore}),
     EffectsModule.forRoot([StudentEffects, FacultyEffects, BookstoreEffects]),
-    // StoreModule.forRoot({faculty:facultyReducerStore}),
-    // EffectsModule.forRoot([FacultyEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: true,

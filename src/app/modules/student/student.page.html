@@ -33,20 +33,20 @@
       </div>
     </div>
   </ion-grid>
-  @if (!gridValue) {
+  @if (!gridValue()) {
   <ion-grid class="padding-top student-info">
     <ion-row class="student">
       @for (std of allStudentInfo$|async; track std) { 
-        @if (std && std['Status']==='Active' || std['Status']==='Y') {
+        <!-- @if (std['Status']==='Active' || std['Status']==='Y') { -->
           @defer{
           <ion-col size="12" size-sm="6" size-md="4" size-lg="4">
             <app-profile-card [student]="std"></app-profile-card>
           </ion-col>
         }
-      } 
+      <!-- }  -->
     }
     </ion-row>
-    @if (itemsCount===0) {
+    @if (itemsCount()===0) {
     <div class="no-item">
       <ion-img
         src="https://cdn.dribbble.com/users/1231865/screenshots/11157048/media/bc9427646c632ded563ee076fdc5dfda.jpg?compress=1&resize=400x300"

@@ -1,7 +1,4 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
 import { Store, select } from '@ngrx/store';
 import { loadFaculty } from 'src/app/states/faculty/faculty.actions';
@@ -15,22 +12,22 @@ import { AppState } from 'src/app/states/state.interface';
   styleUrls: ['./faculty.page.scss'],
 })
 export class FacultyPage implements OnInit {
-  faculty$!: Observable<any>;
+  private firebaseService = inject(FirebaseService);
+  private store = inject(Store<AppState>);
 
-  constructor(public firebaseService:FirebaseService, private store:Store<AppState>) {}
-  public facultyList:any[] = [];
+  facultyList = signal<any[]>([]);
+  faculty$: Observable<any> = this.store.pipe(select(selectFaculty));
+
+  constructor() {}
+
   ngOnInit() {
     this.getFacultyFromStore();
-this.faculty$.subscribe(faculty=>{
-  console.log(faculty)
-  this.facultyList=faculty;
-})
+    this.faculty$.subscribe((faculty) => {
+      this.facultyList.set(faculty);
+    });
   }
-  getFacultyFromStore(){
-    this.store.dispatch(loadFaculty()); // Dispatch action to load students
-    // this.totalStudent$ = this.store.pipe(select(selectTotalStudents));
-    this.faculty$ = this.store.pipe(select(selectFaculty))
-    // this.loaded$ = this.store.pipe(select(selectLoadedStatus))
-}
 
+  getFacultyFromStore() {
+    this.store.dispatch(loadFaculty());
+  }
 }

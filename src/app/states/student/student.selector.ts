@@ -27,3 +27,15 @@ export const selectLoadedStatus = createSelector(
   selectStudentState,
   (state: StudentState) => state.loaded
 );
+
+export const selectSessionStudentState = createFeatureSelector<StudentState>('sessionStudents');
+
+export const selectSessionStudents = createSelector(
+  selectSessionStudentState,
+  (state) => state.sessionStudent.sessionStudents
+);
+
+export const selectLoaded = createSelector(
+  selectSessionStudentState,
+  (state) => state.sessionStudent.loaded
+);

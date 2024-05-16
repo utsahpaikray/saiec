@@ -109,6 +109,9 @@ export class FirebaseService {
   getAllstudent(){
     return this.firestore.collection('studentInfo').valueChanges({ idField: '$id' });
   }
+  getAllStudentSession(session: string){
+    return this.firestore.collection('studentInfo', ref => ref.where(session, '==', true)).valueChanges({ idField: '$id' });
+  }
   getAll(path: string){
     return this.firestore.collection(path).valueChanges({ idField: '$id' });
   }

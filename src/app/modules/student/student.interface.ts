@@ -1,5 +1,5 @@
 export interface Student {
-  [key: string]: string;
+  [key: string]: string| boolean;
     Session: string;
     SocialCategory: string;
     $id: string;
@@ -13,15 +13,15 @@ export interface Student {
     MotherTongue: string;
     DateofBirth: string;
     Address: string;
-    "2024-2025": string;
+    "2024-2025": string|boolean;
     StudentOpted: string;
     MobileNumber: string;
     Religion: string;
     Block: string;
     AadharNumber: string;
     MotherName: string;
-    Status: string;
-    "2022-2023": string;
+    Status: string|boolean;
+    "2022-2023": string| boolean;
     "Email Address": string;
     District: string;
     EyeScreening: string;
@@ -33,6 +33,7 @@ export interface Student {
     "Admission Numbe": string;
     BPL: string;
     "Sub-Status": string;
-    "2023-2024": string;
+    "2023-2024": string| boolean;
+    "Auto-service": boolean
   }
   
