@@ -2,9 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridApi, GridOptions, GridReadyEvent, MenuItemDef } from 'ag-grid-community';
 
-import { Observable } from 'rxjs';
+import { Observable, pipe, take } from 'rxjs';
 import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
-
+interface Faculty {
+  $id: string;
+  [key: string]: any;
+}
 @Component({
   selector: 'app-staff-tabular-view',
   templateUrl: './staff-tabular-view.page.html',
@@ -35,6 +38,8 @@ export class StaffTabularViewPage  {
     { field: 'October' },
     { field: 'November' },
     { field: 'December' },
+    { field: 'session' },
+    { field: 'payment' },
  
   ];
 
@@ -54,8 +59,8 @@ export class StaffTabularViewPage  {
  };
  
  // Data that gets displayed in the grid
- public rowData$!: Observable<any[]>;
- public rowData:any
+ public rowData$!: Observable<Faculty[]>;
+ public rowData:Faculty[] = []
 
  // For accessing the Grid's API
  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
@@ -67,13 +72,24 @@ export class StaffTabularViewPage  {
  // Example load data from sever
  onGridReady(params: GridReadyEvent) {
   this.gridApi = params.api;
-  this.firebaseService.getAll('staff-payment').subscribe(items=>{
+  this.firebaseService.getAll('staff-payment').pipe().subscribe(items=>{
      this.rowData = items;
   })
   
  }
  updateAll(){
-  
+  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  let data = this.rowData.map(obj => {
+    months.forEach(month => {
+        obj[month] = 0;
+    });
+    return obj;
+});
+  let newObj = data.map(({$id, ...rest}) => rest);
+  newObj.map((items:any)=>{
+    items.session= "2024-2025"
+this.firebaseService.pushItems('staff-payment',items);
+  })
  }
  getContextMenuItems = (params: any) => {
   console.log(params)
@@ -111,7 +127,7 @@ public update(params: any) {
 public delete(params: any) {
   this.firebaseService.deleteStudent('staff-payment',params.node.data.$id)
 }
-addStudent(){
+addFaculty(){
   let facultyObj={
     'id':'',
     'name':'',
@@ -119,7 +135,8 @@ addStudent(){
    'Designation':'' ,
    'Image':'',
    'location':'' ,
-   'MobileNumber':''
+   'MobileNumber':'',
+   'session':'2024-2025'
 }
   this.firebaseService.pushItems('staff-payment',facultyObj);
 }
