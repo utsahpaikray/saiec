@@ -64,7 +64,7 @@ export class StudentPage implements OnInit {
   loaded$: Observable<boolean> = this.store.pipe(select(selectLoaded));
 
   ngOnInit() {
-    this.firebaseService.getFileList()
+    // this.firebaseService.getFileList()
     this.store.dispatch(loadSessionStudents());
     const data = this.route.snapshot.data;
     this.title.set(data['title']);
