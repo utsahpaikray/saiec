@@ -81,7 +81,7 @@ export class StaffPaymentPage implements OnInit {
           session: element.session,
           image: element.image,
           payment: element.payment,
-          value: element[month],
+          value: element[month]||0,
         };
         staffInfoArray.push(staffInfo);
       });

@@ -27,7 +27,7 @@
         </ion-chip>
       </div>
       <div class="grid-view">
-        <ion-toggle color="success" name="blueberry" [(ngModel)]="gridValue"
+        <ion-toggle #deferButton color="success" name="blueberry" [(ngModel)]="gridValue"
           >List View</ion-toggle
         >
       </div>
@@ -56,7 +56,7 @@
     }
   </ion-grid>
   } @else {
-    @defer{
+    @defer(){
       
       <app-student-grid  *ngIf="allStudentInfo$ | async as users"
       [allStudentInfo]="users"

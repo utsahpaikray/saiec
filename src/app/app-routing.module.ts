@@ -166,7 +166,7 @@ const routes: Routes = [
   {
     path: AppRoutes.ContactsEdit,
     loadChildren: () => import('@modules/contact/edit/edit.module').then( m => m.EditPageModule)
-  }
+  },
 ];
 
 @NgModule({

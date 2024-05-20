@@ -16,6 +16,7 @@
             <ion-list>
               <ion-item>
                 <ion-select
+                justify="end"
                   placeholder="Filter By Session"
                   #sessionTag
                   (ionChange)="sessionBy(sessionTag
@@ -23,6 +24,7 @@
                   label="Filter By"
                   slot="end"
                   [value]="session[session.length-1]"
+                  interface="popover"
                 >
                   @for(session of session; track session){
                   <ion-select-option [value]="session"

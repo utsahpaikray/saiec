@@ -38,6 +38,7 @@ import { FacultyEffects } from './states/faculty/faculty.effects';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { bookReducerStore } from './states/bookStore/bookstore.reducer';
 import { BookstoreEffects } from './states/bookStore/bookstore.effects';
+import {provideAnimationsAsync } from '@angular/platform-browser/animations/async'
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   imports: [
@@ -73,7 +74,8 @@ import { BookstoreEffects } from './states/bookStore/bookstore.effects';
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

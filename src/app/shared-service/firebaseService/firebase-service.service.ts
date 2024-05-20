@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import firebase from 'firebase/compat';
+import { Subscription } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
  
 export class FirebaseService {
  
-  constructor(private firestore: AngularFirestore,private db: AngularFireDatabase) { }
+  constructor(private firestore: AngularFirestore,private db: AngularFireDatabase, private storage: AngularFireStorage) { }
  
  
   create_NewStudent(record: unknown) {
@@ -184,5 +187,25 @@ export class FirebaseService {
   getItems(endPoint: string){
    return this.firestore.collection(endPoint).valueChanges({ idField: '$id' });
     
+  }
+  getFileList() {
+    let fileList: string[] = []; // Changed type to string[] since we'll store URLs
+    const ref = this.storage.ref('');
+    ref.listAll().subscribe((data) => {
+      console.log(data)
+      // for (let item of data.items) {
+      //   let name = item.name;
+      //   let newRef = this.storage.ref(name);
+  
+      //   newRef.getDownloadURL().subscribe((downloadURL) => {
+      //     fileList.push(downloadURL); // Add the URL to the array
+      //     console.log(`URL for ${name}:`, downloadURL);
+      //   });
+      // }
+    })
+    const storageRef = this.storage.ref('')
+    storageRef.getDownloadURL().subscribe((url) => {
+      console.log(url);
+    });
   }
 }
