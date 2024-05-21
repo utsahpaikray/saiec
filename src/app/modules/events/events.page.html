@@ -12,8 +12,9 @@
     <div class="gallery-header">
       <h1>Photo Gallery</h1>
     </div>
+
     <div class="events">
-      @for (event of events; track event; let i = $index) {
+      @for (event of eventList$|async; track event; let i = $index) {
 
         <div class="event">
           <div class="event-header">
@@ -36,5 +37,23 @@
         </div>
       }
     </div>
+@defer(){
+  <div class="events mossaic">
+    <div class="event">
+      <div class="event-header">
+
+      <div class="image-grid">
+        @for (img of gallerList$|async; track img) {
+          <div class="image-container">
+            <ion-img [src]="img" alt="Event Image"></ion-img>
+          </div>
+        }
+      </div>
+
+    </div>
+</div>
+</div>
+}
+   
   </div>
 </ion-content>

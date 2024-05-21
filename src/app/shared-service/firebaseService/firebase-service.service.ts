@@ -3,7 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import firebase from 'firebase/compat';
-import { Subscription } from 'rxjs';
+import { Subscription, combineLatest, forkJoin, from, switchMap } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -208,4 +208,13 @@ export class FirebaseService {
       console.log(url);
     });
   }
+  getFileListup(location: string) {
+    const storageRef = this.storage.ref(location);
+    return storageRef.listAll().pipe(
+        switchMap(result => {
+            const urlObservables = result.items.map(item => from(item.getDownloadURL()));
+            return combineLatest(urlObservables);
+        })
+    );
+}
 }
