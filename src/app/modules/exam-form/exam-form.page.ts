@@ -19,7 +19,7 @@ import { AuthService } from 'src/app/shared-service/auth-service.service';
 import { ToasterService } from 'src/app/shared-service/toaster.service';
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 @Component({
-  selector: 'app-exam-form',
+  selector: 'app-exam',
   templateUrl: './exam-form.page.html',
   styleUrls: ['./exam-form.page.scss'],
 })
@@ -52,6 +52,7 @@ export class ExamFormPage implements OnInit {
   getStudent() {
     this.subscription = this.firebaseService.getAllExamInfo().subscribe(items => {
       this.rowData = items;
+      console.log(this.rowData)
       // this.rowData.forEach(studentInfo => {
       // if(studentInfo.class== 'Nursery' || studentInfo.class== 'KG'){
       //     studentInfo.markInfo.forEach(mark => {

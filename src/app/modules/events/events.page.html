@@ -22,8 +22,8 @@
           </ion-card-header>
           <ion-card-content *ngIf="event.description">{{event.description}}</ion-card-content>
         </ion-card>
-        <ion-row>
-          <ion-col size="12" size-sm="6" size-md="3" size-lg="3" *ngFor="let img of event.imageCollection">
+        <ion-row class="glossy">
+          <ion-col size="12" size-sm="6" size-md="3" size-lg="3" *ngFor="let img of event.imageCollection" >
         <ion-card class="ion-no-margin">
           <ion-img src="{{img}}"></ion-img>
         </ion-card>
