@@ -8,6 +8,7 @@ export const environment = {
     storageBucket: "saiecmatrutritha.appspot.com",
     messagingSenderId: "984054275412",
     appId: "1:984054275412:web:2fbfab0820c2cb8301bcc1",
-    measurementId: "G-S8SSWNQM35"
+    measurementId: "G-S8SSWNQM35",
+    vapidKey: "BMhKofTDgGHrH4wa8iQSJVqvGlRk1yW29a6ch8bX2TKxKGM7FT8AnApWtT6j-m3dd3CqoyrP6iuk8Jz73RQ8rx4"
   }
 };

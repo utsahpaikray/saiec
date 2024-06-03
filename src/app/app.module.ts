@@ -26,6 +26,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { MessagingService } from './shared-service/messaging.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { initializeApp } from "firebase/app";
+initializeApp(environment.firebaseConfig);
 @NgModule({
   declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
   entryComponents: [],
@@ -47,7 +49,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       useFactory: adapterFactory,
     }),
     BrowserAnimationsModule, 
-    ServiceWorkerModule.register('ngsw-worker.js', {
+    ServiceWorkerModule.register('firebase-messaging-sw', {
   enabled: environment.production,
   registrationStrategy: 'registerWhenStable:30000'
 })

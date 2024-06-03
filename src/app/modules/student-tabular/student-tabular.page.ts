@@ -31,7 +31,10 @@ export class StudentTabularPage implements OnInit {
    {field:'Habitation'},
    {field:'Sub-Status'},
    {field:'SocialCategory'},
-   {field:'report'}
+   {field:'report'},
+   {field: 'Status'},
+   {field: '2022-2023'},
+   {field: '2023-2024'},
  ];
 
  // DefaultColDef sets props common to all Columns
@@ -118,7 +121,7 @@ addStudent(){
     "DateofBirth": "06-03-2013",
     "Medium": "Odia",
     "StudentID": "2117070130200188",
-    "MobileNumber": "7377647878",
+    "MobileNumber": new Date().getTime().toString(),
     "StudentOpted": "Day Boarder",
     "Status": "Active",
     "MotherName": "",
