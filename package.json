@@ -7,8 +7,8 @@
   "scripts": {
     "ng": "ng",
     "start": "set NODE_OPTIONS=--max_old_space_size=8192 & ng serve --open",
-    "ng-high-memory": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --configuration=prod",
-    "build": "ng build",
+    "ng-high-memory": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build",
+    "build": "set NODE_OPTIONS=--max_old_space_size=8192 & ng build",
     "ionic-build": "ionic build -c=production",
     "watch": "ng build --watch --configuration development",
     "test": "jest --no-watch --no-cache",

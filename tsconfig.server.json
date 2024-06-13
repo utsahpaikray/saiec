@@ -2,6 +2,7 @@
 {
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
+    "skipLibCheck": true,
     "outDir": "./out-tsc/server",
     "types": [
       "node"
