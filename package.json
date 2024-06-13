@@ -6,7 +6,8 @@
   "description": "SAIEC",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
+    "start": "set NODE_OPTIONS=--max_old_space_size=8192 & ng serve --open",
+    "ng-high-memory": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --configuration=prod",
     "build": "ng build",
     "ionic-build": "ionic build -c=production",
     "watch": "ng build --watch --configuration development",
@@ -56,7 +57,7 @@
     "cordova-plugin-fcm-with-dependecy-updated": "^7.8.0",
     "date-fns": "^2.29.1",
     "express": "^4.18.2",
-    "firebase": "^10.9.0",
+    "firebase": "^10.12.2",
     "html-to-pdfmake": "^2.4.5",
     "ionicons": "^7.0.0",
     "jspdf": "^2.5.1",

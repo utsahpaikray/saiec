@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '@shared-service/auth-service.service';
 import { ToasterService } from '@shared-service/toaster.service';
 
@@ -10,7 +11,10 @@ import { ToasterService } from '@shared-service/toaster.service';
 })
 export class LoginComponent implements OnInit {
   myForm!: FormGroup;
-  constructor(private  authService:  AuthService,private toasterService:ToasterService) { }
+  private readonly router = inject(Router)
+  private authService = inject(AuthService)
+   private toasterService = inject(ToasterService)
+  
   ngOnInit() {
     
     this.createLoginForm()
@@ -32,6 +36,7 @@ login(){
 }
 loginGoogle(){
   this.authService.loginWithGoogle().then(user=>{
+    this.router.navigate(['./'])
     })
 }
 register(){

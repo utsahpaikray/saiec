@@ -1,20 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { map, sortBy, uniq } from 'lodash';
-import { DownloadUrlService } from '../../shared-service/download-url.service';
 import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
-
-import jsPDF from 'jspdf';
-
 import { FormGroup } from '@angular/forms';
-import * as pdfMake from "pdfmake/build/pdfmake";
-import * as pdfFonts from "pdfmake/build/vfs_fonts";
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../shared-service/auth-service.service';
 import { ToasterService } from '../../shared-service/toaster.service';
 import { ExamFormComponent } from './components/transaction-form/exam-form.component';
 import { examdetail } from './exam-detail';
-(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-exam-form',
   templateUrl: './exam-form.page.html',
@@ -38,7 +31,7 @@ export class ExamFormPage implements OnInit {
   subscription!: Subscription;
   isAuthorized = false;
   formValue: any;
-  constructor(public modalCtrl: ModalController, private storeService: DownloadUrlService, public firebaseService: FirebaseService, private authService: AuthService,  private toasterService:ToasterService) { }
+  constructor(public modalCtrl: ModalController, public firebaseService: FirebaseService, private authService: AuthService,  private toasterService:ToasterService) { }
 
   ngOnInit() {
    // this.addStudentRecord();
@@ -148,19 +141,6 @@ export class ExamFormPage implements OnInit {
     });
   }
 
-  exportAllToPDF(pages: HTMLElement) {
-    const doc = new jsPDF({
-      unit: 'px',
-      format: 'A4'
-    });
-
-    doc.html(pages, {
-      callback: (doc: jsPDF) => {
-        doc.deletePage(doc.getNumberOfPages());
-        doc.save('pdf-export');
-      }
-    });
-  }
   public async showModal(info: string, monthData: { name: any; }) {
     this.editInfo = info;
     const modal = await this.modalCtrl.create({
