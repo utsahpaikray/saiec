@@ -25,9 +25,6 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { environment } from '@environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UploadDetailsComponent } from '@modules/shared/upload-details/upload-details.component';
-import { UploadFormComponent } from '@modules/shared/upload-form/upload-form.component';
-import { UploadListComponent } from '@modules/shared/upload-list/upload-list.component';
 import { StoreModule } from '@ngrx/store';
 import { sessionStudentReducerStore, studentReducerStore } from './states/student/student.reducer';
 import { EffectsModule } from '@ngrx/effects';
@@ -40,7 +37,7 @@ import { bookReducerStore } from './states/bookStore/bookstore.reducer';
 import { BookstoreEffects } from './states/bookStore/bookstore.effects';
 import {provideAnimationsAsync } from '@angular/platform-browser/animations/async'
 @NgModule({
-  declarations: [AppComponent, UploadFormComponent, UploadListComponent,UploadDetailsComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
@@ -59,7 +56,6 @@ import {provideAnimationsAsync } from '@angular/platform-browser/animations/asyn
       useFactory: adapterFactory,
     }),
     BrowserAnimationsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), provideRemoteConfig(() => getRemoteConfig()),
     StoreModule.forRoot({sessionStudents: sessionStudentReducerStore, students:studentReducerStore, faculty:facultyReducerStore, bookStore: bookReducerStore}),
     EffectsModule.forRoot([StudentEffects, FacultyEffects, BookstoreEffects]),
     StoreDevtoolsModule.instrument({
