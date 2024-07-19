@@ -35,6 +35,7 @@ export enum AppRoutes {
     StoreReport= "store-report",
     Contacts = "contacts",
     ContactsEdit = "contacts/:edit",
-    Charts = "chart"
+    Charts = "chart",
+    TimeTable = "time-table"
   }
   

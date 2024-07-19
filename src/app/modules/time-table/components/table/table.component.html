@@ -1,0 +1,184 @@
+<!-- timetable.component.html -->
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Period</th>
+      <th>Time</th>
+      <th>Class 2</th>
+      <th>Class 3</th>
+      <th>Class 4</th>
+      <th>Class 5</th>
+      <th>Class 6</th>
+      <th>Class 7</th>
+      <th>Class 8</th>
+      <th>Class 9</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (period of timetable; track period; let i = $index) {
+    <tr>
+      <td>{{ period.period }}</td>
+      <td>{{ period.time }}</td>
+      <td>{{ period.classes.class2 || '' }}</td>
+      <td>{{ period.classes.class3 || '' }}</td>
+      <td>{{ period.classes.class4 || '' }}</td>
+      <td>{{ period.classes.class5 || '' }}</td>
+      <td>{{ period.classes.class6 || '' }}</td>
+      <td>{{ period.classes.class7 || '' }}</td>
+      <td>{{ period.classes.class8 || '' }}</td>
+      <td>{{ period.classes.class9 || '' }}</td>
+    </tr>
+    }
+
+  </tbody>
+</table> -->
+<!-- timetable.component.html -->
+<!-- <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="1">Period</ion-col>
+      <ion-col size="1">Time</ion-col>
+      <ion-col size="1">Class 2</ion-col>
+      <ion-col size="1">Class 3</ion-col>
+      <ion-col size="1">Class 4</ion-col>
+      <ion-col size="1">Class 5</ion-col>
+      <ion-col size="1">Class 6</ion-col>
+      <ion-col size="1">Class 7</ion-col>
+      <ion-col size="1">Class 8</ion-col>
+      <ion-col size="1">Class 9</ion-col>
+    </ion-row>
+    @for (period of timetable; track period; let i = $index) {
+    <ion-row >
+      <ion-col size="1">{{ period.period }}</ion-col>
+      <ion-col size="1">{{ period.time }}</ion-col>
+      <ion-col size="1">{{ period.classes.class2 || '' }}</ion-col>
+      <ion-col size="1">{{ period.classes.class3 || '' }}</ion-col>
+      <ion-col size="1">{{ period.classes.class4 || '' }}</ion-col>
+      <ion-col size="1">{{ period.classes.class5 || '' }}</ion-col>
+      <ion-col size="1">{{ period.classes.class6 || '' }}</ion-col>
+      <ion-col size="1">{{ period.classes.class7 || '' }}</ion-col>
+      <ion-col size="1">{{ period.classes.class8 || '' }}</ion-col>
+      <ion-col size="1">{{ period.classes.class9 || '' }}</ion-col>
+    </ion-row>
+  }
+  </ion-grid>
+</ion-content> -->
+<!-- timetable.component.html -->
+<!-- <ion-content>
+  <ion-list>
+    <ion-item lines="full">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="1">Period</ion-col>
+          <ion-col size="1">Time</ion-col>
+          <ion-col size="1">Class 2</ion-col>
+          <ion-col size="1">Class 3</ion-col>
+          <ion-col size="1">Class 4</ion-col>
+          <ion-col size="1">Class 5</ion-col>
+          <ion-col size="1">Class 6</ion-col>
+          <ion-col size="1">Class 7</ion-col>
+          <ion-col size="1">Class 8</ion-col>
+          <ion-col size="1">Class 9</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+     @for (period of timetable; track period; let i = $index) {
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="1">{{ period.period }}</ion-col>
+          <ion-col size="1">{{ period.time }}</ion-col>
+          <ion-col size="1">{{ period.classes.class2 || '' }}</ion-col>
+          <ion-col size="1">{{ period.classes.class3 || '' }}</ion-col>
+          <ion-col size="1">{{ period.classes.class4 || '' }}</ion-col>
+          <ion-col size="1">{{ period.classes.class5 || '' }}</ion-col>
+          <ion-col size="1">{{ period.classes.class6 || '' }}</ion-col>
+          <ion-col size="1">{{ period.classes.class7 || '' }}</ion-col>
+          <ion-col size="1">{{ period.classes.class8 || '' }}</ion-col>
+          <ion-col size="1">{{ period.classes.class9 || '' }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  }
+  </ion-list>
+</ion-content> -->
+
+<!-- timetable.component.html -->
+<!-- <ion-content>
+  <ion-list>
+    <ion-item lines="full">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">Period</ion-col>
+          <ion-col size="3">Time</ion-col>
+          <ion-col size="7">Classes</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+     @for (period of timetable; track period; let i = $index) {
+    <ion-card >
+      <ion-card-header>
+        <ion-card-title>Period {{ period.period }} - {{ period.time }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6"><strong>Class 2:</strong> {{ period.classes.class2 || 'N/A' }}</ion-col>
+            <ion-col size="6"><strong>Class 3:</strong> {{ period.classes.class3 || 'N/A' }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6"><strong>Class 4:</strong> {{ period.classes.class4 || 'N/A' }}</ion-col>
+            <ion-col size="6"><strong>Class 5:</strong> {{ period.classes.class5 || 'N/A' }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6"><strong>Class 6:</strong> {{ period.classes.class6 || 'N/A' }}</ion-col>
+            <ion-col size="6"><strong>Class 7:</strong> {{ period.classes.class7 || 'N/A' }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6"><strong>Class 8:</strong> {{ period.classes.class8 || 'N/A' }}</ion-col>
+            <ion-col size="6"><strong>Class 9:</strong> {{ period.classes.class9 || 'N/A' }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  }
+  </ion-list>
+</ion-content> -->
+
+<!-- timetable.component.html -->
+<div class="table-container">
+  @for (day of days; track day; let i = $index) {
+  <table>
+    <thead>
+      <tr>
+        <th colspan="1">{{ day }}</th>
+        @for (class of classes; track class; let i = $index) {
+        <th>{{ class }}</th>
+        }
+
+      </tr>
+    </thead>
+    <tbody>
+      @for (period of timetable[day]; track period; let i = $index) {
+      <tr>
+        <td>{{ period.time }}</td>
+        <ng-container *ngFor="let class of classes">
+           <ng-container *ngIf="period.classes[class] as classData">
+          <td [class.duplicate]="classData.hasDuplicateTeachers">
+           
+              <div >
+                <span class="subject">{{ classData.subject }}</span>
+                <span class="teacher">{{ classData.teacher }}</span>
+              </div>
+
+           
+          </td>
+           </ng-container>
+        </ng-container>
+      </tr>
+      }
+    </tbody>
+  </table>
+  }
+</div>

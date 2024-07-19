@@ -163,6 +163,14 @@ export class AppComponent implements OnInit {
       navigation: false
     },
     {
+      title: 'Time Table',
+      url: `/${AppRoutes.TimeTable}`,
+      icon: 'people-circle-outline',
+      access: true,
+      open: false,
+      navigation: false
+    },
+    {
       title: 'Login',
       url: `/${AppRoutes.Admin}/login`,
       icon: 'log-in-outline',

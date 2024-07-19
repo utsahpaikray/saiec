@@ -167,6 +167,11 @@ const routes: Routes = [
     path: AppRoutes.ContactsEdit,
     loadChildren: () => import('@modules/contact/edit/edit.module').then( m => m.EditPageModule)
   },
+  {
+    path: AppRoutes.TimeTable,
+    loadChildren: () => import('./modules/time-table/time-table.module').then( m => m.TimeTablePageModule)
+  },
+
 ];
 
 @NgModule({
