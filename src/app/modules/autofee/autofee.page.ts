@@ -16,6 +16,8 @@ export class AutofeePage implements OnInit {
   inSchoolStudentData: any[] | undefined;
   totalStudent: number = 0;
   AutoFeeMonthwise: any[] = [];
+  session = '24-25';
+  filterData!: any[];
   constructor(private route: ActivatedRoute,public modalCtrl: ModalController,public firebaseService:FirebaseService) { }
 
  
@@ -53,12 +55,14 @@ export class AutofeePage implements OnInit {
           class:element.class,
           image:element.Image,
           FatherName:element.FatherName,
-          value: element[month]
+          value: element[month],
+          autoSession: element.autoSession
         }
         studentInfoArray.push(studentInfo)
       });
       studentInfoArray=sortBy(studentInfoArray,['class','name'])
       this.AutoFeeMonthwise.push({month:month,studentInf:studentInfoArray})
+      this.filterData = [...this.AutoFeeMonthwise];
     })
   }
   public async showModal(info: any) {
@@ -75,4 +79,23 @@ export class AutofeePage implements OnInit {
     });
     return await modal.present();
   }
+  selectSession(value: string) {
+    this.session = value;
+
+    // Filter the AutoFeeMonthwise to get items where any studentInf matches the session
+    this.filterData = this.AutoFeeMonthwise.filter((item: any) => {
+      return item.studentInf.some((student: any) => student.autoSession === value);
+    });
+
+    // Extract matching studentInf items from the filtered items
+    this.filterData = this.filterData.map((item: any) => {
+      return {
+        ...item,
+        studentInf: item.studentInf.filter((student: any) => student.autoSession === value)
+      };
+    });
+
+    console.log("Filtered Data:", this.filterData);
+  }
+
 }
