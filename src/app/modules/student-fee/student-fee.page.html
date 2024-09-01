@@ -8,10 +8,26 @@
 </ion-header>
 
 <ion-content fullscreen>
+     <ion-grid>
+       <ion-row class="ion-justify-content-end">
+         <ion-col size="auto">
+           <ion-list>
+             <ion-item>
+               <ion-select placeholder="Select Session" size="small" interface="action-sheet" #session
+                 (ionChange)="selectSession(session.value)">
+                 <ion-select-option value="24-25">24-25</ion-select-option>
+                 <ion-select-option value="23-25">23-24</ion-select-option>
+                   <ion-select-option value="22-23">22-23</ion-select-option>
+               </ion-select>
+             </ion-item>
+           </ion-list>
+         </ion-col>
+       </ion-row>
+     </ion-grid>
   <ion-grid>
     <ion-list inset="true">
       <ion-accordion-group multiple>
-        @for (month of AutoFeeMonthwise; track month) {
+        @for (month of autoFeeMonthwise; track month) {
           <ion-accordion [value]="month.month">
             <ion-item slot="header">
               <ion-label>{{month.month}}</ion-label>

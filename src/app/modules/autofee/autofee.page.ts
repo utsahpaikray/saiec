@@ -27,7 +27,7 @@ export class AutofeePage implements OnInit {
       this.generateAutoFeeStructure(auto)
     })
   }
-  extractInschoolData() {
+  private extractInschoolData() {
     this.totalStudent = 0;
     let filterData = this.allStudentClassWise?.map(item => {
       return item.filter((innerItem: any) => {
@@ -39,7 +39,6 @@ export class AutofeePage implements OnInit {
       })
 
     })
-    console.log(this.totalStudent)
     return filterData;
   }
   generateAutoFeeStructure(data: { $id: string; }[]) {
@@ -94,8 +93,6 @@ export class AutofeePage implements OnInit {
         studentInf: item.studentInf.filter((student: any) => student.autoSession === value)
       };
     });
-
-    console.log("Filtered Data:", this.filterData);
   }
 
 }

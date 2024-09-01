@@ -12,63 +12,62 @@ import { StudentDetailPage } from '../shared/student-detail/student-detail.page'
 })
 export class StudentFeePage implements OnInit {
 
-  public allStudentInfo = []
+  public allStudentInfo: any[] = [];
   params: Params | undefined;
-  allStudentClassWise: any[] =[];
-  inSchoolStudentData: any[]=[];
-  totalStudent: number=0;
-  AutoFeeMonthwise: any[]=[];
-  constructor(public modalCtrl: ModalController,public firebaseService:FirebaseService) { }
+  allStudentClassWise: any[] = [];
+  inSchoolStudentData: any[] = [];
+  totalStudent: number = 0;
+  autoFeeMonthwise: any[] = [];
+  session: string = "24-25";
+  filteredData: any[] = [];
+  schoolFee: any[] = [];
 
- 
+  constructor(
+    public modalCtrl: ModalController,
+    private firebaseService: FirebaseService
+  ) { }
 
   ngOnInit() {
-    this.firebaseService.getAllstudentFee('student-fee').subscribe(auto=>{
-      let autoFee=auto;
-      this.generateAutoFeeStructure(autoFee)
-    })
+    this.firebaseService.getAllstudentFee('student-fee').subscribe(fee => {
+      this.schoolFee = fee;
+      this.selectSession(this.session);
+    });
   }
-  extractInschoolData() {
-    this.totalStudent = 0;
-    let filterData = this.allStudentClassWise.map(item => {
-      return item.filter((innerItem:any) => {
-        if (innerItem.info['Sub-Status'] == 'In School') {
-          this.totalStudent = this.totalStudent + 1;
-          return true;
-        };
-        return false
-      })
 
-    })
-    console.log(this.totalStudent)
-    return filterData;
-  }
-  generateAutoFeeStructure(data: any) {
-    let flatData = data;
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    this.AutoFeeMonthwise = []
-    months.forEach(month => {
-      let studentInfoArray: any[] = []
-      flatData.forEach((element: any) => {
-        let studentInfo = {
-          name: element.StudentName,
-          mobile:element.MobileNumber,
-          class:element.class,
-          image:element.Image,
-          FatherName:element.FatherName,
-          value: element[month]
-        }
-        studentInfoArray.push(studentInfo)
+  private extractInschoolData(): any[] {
+    this.totalStudent = 0;
+    return this.allStudentClassWise.map(classGroup => {
+      return classGroup.filter((student: any) => {
+        const isInSchool = student.info['Sub-Status'] === 'In School';
+        if (isInSchool) this.totalStudent += 1;
+        return isInSchool;
       });
-      studentInfoArray=sortBy(studentInfoArray,['class','name'])
-      this.AutoFeeMonthwise.push({month:month,studentInf:studentInfoArray})
-    })
+    });
   }
-  public async showModal(info: any) {
-    let monthlyCollection: any[]=[]
-    this.AutoFeeMonthwise.forEach(item=>{
-      monthlyCollection.push({info:item.studentInf.find((o: any) => o.name === info),month:item.month});
-    })
+
+  private generateAutoFeeStructure(data: any[]): void {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    this.autoFeeMonthwise = months.map(month => {
+      const studentInfoArray = data.map((element: any) => ({
+        name: element.StudentName,
+        mobile: element.MobileNumber,
+        class: element.class,
+        image: element.Image,
+        fatherName: element.FatherName,
+        value: element[month]
+      }));
+      return {
+        month,
+        studentInf: sortBy(studentInfoArray, ['class', 'name'])
+      };
+    });
+  }
+
+  public async showModal(studentName: string): Promise<void> {
+    const monthlyCollection = this.autoFeeMonthwise.map(item => ({
+      info: item.studentInf.find((student: any) => student.name === studentName),
+      month: item.month
+    }));
     const modal = await this.modalCtrl.create({
       component: StudentDetailPage,
       cssClass: 'my-custom-class',
@@ -76,6 +75,12 @@ export class StudentFeePage implements OnInit {
       canDismiss: true,
       presentingElement: await this.modalCtrl.getTop()
     });
-    return await modal.present();
+    await modal.present();
+  }
+
+  public selectSession(session: string): void {
+    this.session = session;
+    const filteredFeeData = this.schoolFee.filter(item => item.Session === session);
+    this.generateAutoFeeStructure(filteredFeeData);
   }
 }
