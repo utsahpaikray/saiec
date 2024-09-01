@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from '../../shared-service/firebaseService/firebase-service.service';
+import { BehaviorSubject, Observable, combineLatest, map, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-report',
@@ -8,137 +9,82 @@ import { FirebaseService } from '../../shared-service/firebaseService/firebase-s
   styleUrls: ['./report.page.scss'],
 })
 export class ReportPage implements OnInit {
-  remark = 'Good';
-  public studentInfo = {
-    studentName: 'Aradhana Samantasinghar',
-    std: 'STD-1',
-    score: 0,
-    total: 0,
-    percentage: 0,
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/saiecmatrutritha.appspot.com/o/Aradhana.jpeg?alt=media&token=d3b383b0-ce45-40a8-bc8f-b394a4c659df',
-    fatherName: 'Adikandha Samantasinghar',
-    academicSubjects: [
-      {
-        subject: 'English',
-        writtenScore: 60,
-        writtenTotal: 80,
-        oralScore: 15,
-        oralTotal: 20,
-      },
-      {
-        subject: 'MIL',
-        writtenScore: 70,
-        writtenTotal: 80,
-        oralScore: 17,
-        oralTotal: 20,
-      },
-      {
-        subject: 'Science',
-        writtenScore: '50',
-        writtenTotal: 80,
-        oralScore: 15,
-        oralTotal: 20,
-      },
-      {
-        subject: 'History',
-        writtenScore: '80',
-        writtenTotal: 80,
-        oralScore: 18,
-        oralTotal: 20,
-      },
-      {
-        subject: 'Social Science',
-        writtenScore: '80',
-        writtenTotal: 80,
-        oralScore: 18,
-        oralTotal: 20,
-      },
-    ],
-  };
-  rowData: any;
-  studentName: string | null = '';
-  info: any;
-  markInfo: any;
-  studentMainInfo: any;
-  modeList = ['Halfly', 'Annual'];
-  constructor(
-    public firebaseService: FirebaseService,
-    private route: ActivatedRoute,
-  ) {}
+  studentName$!: Observable<string>;
+  info$!: Observable<any>;
+  markInfo$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  studentMainInfo$!: Observable<any>;
+
+  readonly modeList = [
+    'January', 'February', 'March', 'April', 'May', 'June', 'July',
+    'August', 'September', 'October', 'November', 'December', 'Halfly', 'Annual'
+  ];
+
+  private firebaseService = inject(FirebaseService);
+  private route = inject(ActivatedRoute);
 
   ngOnInit() {
-    this.studentName = this.route.snapshot.paramMap.get('name');
-    this.getStudent();
+    this.studentName$ = this.route.paramMap.pipe(
+      map(params => params.get('name') || '')
+    );
+
+    this.info$ = this.studentName$.pipe(
+      switchMap(name => this.firebaseService.getAllExamInfo('2024-2025', name)),
+      map(items => items[0])
+    );
+
+    this.studentMainInfo$ = combineLatest([
+      this.studentName$,
+      this.firebaseService.getAllstudent()
+    ]).pipe(
+      map(([name, students]) => students.find((item: any) => item['StudentName'] === name))
+    );
+
+    // Initialize markInfo$ with the first mode
+    this.selectMode(this.modeList[0]);
   }
-  selectMode(value: any) {
-    this.markInfo = this.info.markInfo.filter((item: { name: any }) => {
-      return item.name === value;
-    })[0];
-    this.calculateScore(this.markInfo);
+
+  selectMode(value: string) {
+    this.info$.pipe(
+      map(info => info?.markInfo?.find((item: { name: string }) => item.name === value)),
+      map(markInfo => this.calculateScore(markInfo))
+    ).subscribe(
+      markInfo => this.markInfo$.next(markInfo)
+    );
   }
-  getStudent() {
-    this.firebaseService.getAllExamInfo().subscribe((items) => {
-      this.rowData = items;
-      this.info = this.rowData.filter((item: { name: string | null }) => {
-        return item.name === this.studentName;
-      })[0];
-    });
-    this.firebaseService.getAllstudent().subscribe((items) => {
-      this.studentMainInfo = items.filter(
-        (item: any) => item['StudentName'] === this.studentName,
-      )[0];
-    });
+
+  private calculateScore(info: any): any {
+    const { writtenScore, oralScore, writtenTotal, oralTotal } = info.marks.reduce(
+      (acc: any, { writtenAcc = 0, oralAcc = 0, writtenTotal = 0, oral = 0 }) => ({
+        writtenScore: acc.writtenScore + Number(writtenAcc),
+        oralScore: acc.oralScore + Number(oralAcc),
+        writtenTotal: acc.writtenTotal + Number(writtenTotal),
+        oralTotal: acc.oralTotal + Number(oral),
+      }),
+      { writtenScore: 0, oralScore: 0, writtenTotal: 0, oralTotal: 0 }
+    );
+
+    const score = writtenScore + oralScore;
+    const total = writtenTotal + oralTotal;
+    const percentage = total > 0 ? ((score / total) * 100).toFixed(2) : "0.00";
+
+    return { ...info, score, total, percentage };
   }
-  public calculateScore(info: {
-    marks: any[];
-    score: number;
-    total: number;
-    percentage: string;
-  }) {
-    let writtenScore = 0;
-    let oralScore = 0;
-    let writtenTotal = 0;
-    let oralTotal = 0;
-    info.marks.forEach((element) => {
-      writtenScore =
-        writtenScore + Number(element.writtenAcc ? element.writtenAcc : 0);
-      oralScore = oralScore + Number(element.oralAcc ? element.oralAcc : 0);
-      writtenTotal =
-        writtenTotal + Number(element.writtenTotal ? element.writtenTotal : 0);
-      oralTotal = oralTotal + Number(element.oral ? element.oral : 0);
-    });
-    info.score = writtenScore + oralScore;
-    info.total = writtenTotal + oralTotal;
-    info.percentage = (
-      ((writtenScore + oralScore) / (writtenTotal + oralTotal)) *
-      100
-    ).toFixed(2);
-  }
-  public total(a: any, b: any) {
+
+  total(a: number, b: number): number {
     return Number(a) + Number(b);
   }
-  getGrade(value: any) {
-    switch (true) {
-      // If score is 90 or greater
-      case value >= 90:
-        return 'O';
 
-      case value >= 80:
-        return 'A';
+  getGrade(value: number | null): string {
+    if (value === null || value === 0) return 'N/A';
+    if (value >= 90) return 'O';
+    if (value >= 80) return 'A';
+    if (value >= 70) return 'B';
+    if (value >= 60) return 'C';
+    if (value >= 50) return 'D';
+    return 'F';
+  }
 
-      // If score is 70 or greater
-      case value >= 70:
-        return 'B';
-
-      // If score is 60 or greater
-      case value >= 60:
-        return 'C';
-      case value >= 50:
-        return 'D';
-      // Anything 49 or below is failing
-      default:
-        return 'F';
-    }
+  toNumber(value: any): number {
+    return Number(value) || 0;
   }
 }

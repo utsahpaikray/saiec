@@ -136,8 +136,14 @@ export class FirebaseService {
   getAllExamDetail(){
     return this.firestore.collection('exam-detail').valueChanges({ idField: '$id' });
   }
-  getAllExamInfo(){
-    return this.firestore.collection('examInfo').valueChanges({ idField: '$id' });
+  getAllExamInfo(session: string, name?: string) {
+    return this.firestore.collection('examInfo', ref => {
+      let query = ref.where('session', '==', session);
+      if (name) {
+        query = query.where('name', '==', name);
+      }
+      return query;
+    }).valueChanges({ idField: '$id' });
   }
   updateExamInfo(recordID: any,record: Partial<unknown>){
     this.firestore.doc(`examInfo/${recordID}`).update(record);

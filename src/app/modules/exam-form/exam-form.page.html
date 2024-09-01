@@ -10,7 +10,19 @@
   <ion-grid class="padding-top student-info" [ngClass]="'a4'">
     <ion-card class="inner ion-no-margin ion-margin-top" color="light">
       <ion-row class="student">
-        <ion-col size="12" size-sm="4">
+           <ion-col size="12" size-sm="2">
+             <ion-list>
+               <ion-item>
+                 <ion-select placeholder="Select Year" interface="action-sheet" #year
+                   (ionChange)="selectYear(year.value)">
+                   @for (item of years; track item) {
+                   <ion-select-option [value]="item">{{item}}</ion-select-option>
+                   }
+                 </ion-select>
+               </ion-item>
+             </ion-list>
+           </ion-col>
+        <ion-col size="12" size-sm="2">
           <ion-list>
             <ion-item>
               <ion-select
@@ -26,7 +38,7 @@
             </ion-item>
           </ion-list>
         </ion-col>
-        <ion-col size="12" size-sm="4">
+        <ion-col size="12" size-sm="2">
           <ion-list>
             <ion-item>
               <ion-select
@@ -42,7 +54,7 @@
             </ion-item>
           </ion-list>
         </ion-col>
-        <ion-col size="12" size-sm="4">
+        <ion-col size="12" size-sm="2">
           <ion-list>
             <ion-item>
               <ion-select

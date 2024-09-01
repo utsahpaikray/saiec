@@ -49,6 +49,7 @@ export class StudentPage implements OnInit {
     map(([students, sortByProperty]) => this.sortStudents(students, sortByProperty)),
     shareReplay()
   );
+  
   totalStudent$ = this.allStudentInfo$.pipe(
     map((students) => students.filter((student) => student['2024-2025'] == true || student['Status'] == true)),
     map((filteredStudents) => filteredStudents.length),
@@ -67,6 +68,9 @@ export class StudentPage implements OnInit {
     this.store.dispatch(loadSessionStudents());
     const data = this.route.snapshot.data;
     this.title.set(data['title']);
+    this.allStudentInfo$.subscribe(item=>{
+      console.log(item)
+    })
   }
 
   private sortStudents(students: Student[], property: string): Student[] {
