@@ -75,7 +75,7 @@
                           <ion-label class="ion-no-margin bold">School Year: {{(info$ | async)?.session}}</ion-label>
                         </ion-item>
                         <ion-item slot="header">
-                          <ion-label class="ion-no-margin bold">>Grade:
+                          <ion-label class="ion-no-margin bold">Grade:
                             {{(markInfo$ | async)?.percentage !== undefined ? getGrade((markInfo$ | async)?.percentage) : 'N/A'}}
                           </ion-label>
                         </ion-item>

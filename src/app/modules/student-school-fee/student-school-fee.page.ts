@@ -15,20 +15,21 @@ export class StudentSchoolFeePage  {
 
 
   private gridApi!: GridApi;
-
+session = '24-25';
   // Each Column Definition results in one Column.
   public columnDefs: ColDef[] = [
     { field: 'StudentName' },
     { field: 'FatherName' },
     { field: 'MobileNumber' },
     { field: 'class' },
+    { field:'Session'},
     {
-      field: 'Admission fee',
+      field: 'AddimissionFee',
       aggFunc: "sum",
       valueParser: "Number(newValue)"
     },
     {
-      field: 'Re-Admission fee',
+      field: 'ReAddmissionFee',
       aggFunc: "sum",
       valueParser: "Number(newValue)"
     },
@@ -108,7 +109,7 @@ export class StudentSchoolFeePage  {
   // Data that gets displayed in the grid
   public rowData$!: Observable<any[]>;
   public rowData: any
-
+  filterData: any[] = [];
   // For accessing the Grid's API
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
   gridOptions: GridOptions | undefined;
@@ -120,8 +121,10 @@ export class StudentSchoolFeePage  {
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
     this.firebaseService.getAllstudentFee('student-fee').subscribe(items => {
-
-      this.rowData = sortBy(items, ['class', 'name']);;
+      this.rowData = sortBy(items, ['class', 'name']);
+      this.filterData = this.rowData
+      this.selectSession(this.session)
+      console.log(this.rowData)
     })
 
   }
@@ -155,7 +158,6 @@ export class StudentSchoolFeePage  {
     return result;
   }
   public updateStudent(params: any) {
-    console.log(params.node.data.$id)
     this.firebaseService.updateStudent('student-fee', params.node.data.$id, params.node.data)
   }
   public deleteStudent(params: any) {
@@ -163,7 +165,7 @@ export class StudentSchoolFeePage  {
   }
   addStudent() {
     let studentObj = {
-      "Admission Numbe": "2019-20/0108",
+      "Admission Numbe": "2024-25/",
       "PreviousYear": "3",
       "AadharNumber": "",
       "Address": "Vill-Paikakusadi, P. O. -Ankulachat, P. S. -Balugaon",
@@ -191,9 +193,9 @@ export class StudentSchoolFeePage  {
       "class": "",
       "District": "Khordha",
       "FatherName": "",
-      "Religion": "0 - Hindu",
+      "Religion": "Hindu",
     }
-    this.firebaseService.addNewStudent('student-fee', studentObj.MobileNumber, studentObj);
+    this.firebaseService.addNewStudent('student-fee', undefined, studentObj);
   }
 
   // Example of consuming Grid Event
@@ -224,6 +226,56 @@ export class StudentSchoolFeePage  {
   }
   createStudentRecord(data: any) {
     this.firebaseService.pushItems('student-fee', data)
+  }
+  updateWholeData() {
+    this.firebaseService.getAllstudent().subscribe(items => {
+      let filtervalue = items.filter((item: any) => {
+        return item['2024-2025'] == true
+      })
+      filtervalue.map((item: any) => {
+        let studentobj = {
+          Session: '24-25',
+          July: 0,
+          January: 0,
+          February: 0,
+          August: 0,
+          December: 0,
+          October: 0,
+          March: 0,
+          May: 0,
+          April: 0,
+          June: 0,
+          November: 0,
+          September: 0,
+          Habitation: item.Habitation,
+          FatherName: item.FatherName,
+          MobileNumber: item.MobileNumber,
+          AddimissionFee:0,
+          Address: item.Habitation,
+          MotherName: item.MotherName,
+          class: item.class,
+          Image: item.Image,
+          ReAddmissionFee:0,
+          StudentName: item.StudentName
+        };
+       let findIndex = this.rowData?.findIndex((item: { StudentName: string, Session: string }) => (item.StudentName === studentobj.StudentName && item.Session===studentobj.Session))
+        console.log(findIndex)
+        if (findIndex === -1) {
+          this.firebaseService.addNewStudent('student-fee', undefined, studentobj);
+        }
+     //   this.firebaseService.addNewStudent('student-fee', undefined, studentobj);
+      });
+      //  // console.log(filtervalue)
+      //   // Map the filtered students to the required format
+    })
+  }
+  selectSession(value: string) {
+    this.session = value
+    this.filterData = this.rowData.filter((item: { Session: string; }) => {
+      return item.Session == value;
+    });
+    // console.log(this.filterData)
+
   }
 }
 

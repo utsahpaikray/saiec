@@ -223,4 +223,19 @@ export class FirebaseService {
         })
     );
 }
+  deleteRecord(endPoint: string) {
+    const collectionRef = this.firestore.collection(endPoint, ref =>
+      ref.where('autoSession', '==', '24-25')
+    );
+
+    collectionRef.get().subscribe(snapshot => {
+      snapshot.forEach(doc => {
+        doc.ref.delete().then(() => {
+          console.log(`Document with ID ${doc.id} deleted successfully`);
+        }).catch(error => {
+          console.error(`Error deleting document: ${error}`);
+        });
+      });
+    });
+  }
 }

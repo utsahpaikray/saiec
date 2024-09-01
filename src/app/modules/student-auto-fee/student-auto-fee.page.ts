@@ -22,6 +22,7 @@ import {
 import {
   FirebaseService
 } from '../../shared-service/firebaseService/firebase-service.service';
+import { CompanyRendererComponent } from './component/status';
 
 @Component({
   selector: 'app-student-auto-fee',
@@ -81,9 +82,7 @@ export class StudentAutoFeePage {
     {
       field: 'December'
     },
-    {
-      field: 'AutoService'
-    },
+    { field: 'AutoService', cellRenderer: CompanyRendererComponent },
     {
       field: 'autoSession'
     }
@@ -120,43 +119,6 @@ export class StudentAutoFeePage {
   // Example load data from sever
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
-    // this.firebaseService.getAllstudent().subscribe(items => {
-    //   console.log(items)
-    //   let filtervalue = items.filter((item: any) => {
-    //     return item['2024-2025'] == true && item['Auto-Service']
-    //   })
-    //   console.log(filtervalue)
-    //   // Map the filtered students to the required format
-    //   let mappedValues = filtervalue.map((item: any) => {
-    //   let  studentobj= {
-    //       autoSession: '24-25',
-    //       July: 0,
-    //       January: 0,
-    //       February: 0,
-    //       August: 0,
-    //       December: 0,
-    //       October: 0,
-    //       March: 0,
-    //       May: 0,
-    //       April: 0,
-    //       June: 0,
-    //       November: 0,
-    //       September: 0,
-    //       Status: true,
-    //       Habitation: item.Habitation,
-    //       FatherName: item.FatherName,
-    //       MobileNumber: item.MobileNumber,
-    //       Address: item.Session,
-    //       MotherName: item.MotherName,
-    //       class: item.class,
-    //       Image: item.Image,
-    //       AutoService: "true",
-    //       StudentName: item.StudentName
-    //     };
-    //     this.firebaseService.addNewStudent('student-auto-fee', undefined, studentobj);
-    //   });
-    //   console.log(mappedValues)
-    // })
     this.firebaseService.getAllstudentFee('student-auto-fee').subscribe(items => {
       this.rowData = sortBy(items, ['class', 'name']);
       if(this.session){
@@ -164,9 +126,53 @@ export class StudentAutoFeePage {
       }else{
         this.filterData = [...this.rowData];
       }
-      
+ 
     })
+    // this.deleteRecord()
 
+  }
+  updateWholeData(){
+    this.firebaseService.getAllstudent().subscribe(items => {
+      let filtervalue = items.filter((item: any) => {
+        return item['2024-2025'] == true && item['Auto-Service']
+      })
+      console.log(filtervalue)
+      filtervalue.map((item: any) => {
+        let studentobj = {
+          autoSession: '24-25',
+          July: 0,
+          January: 0,
+          February: 0,
+          August: 0,
+          December: 0,
+          October: 0,
+          March: 0,
+          May: 0,
+          April: 0,
+          June: 0,
+          November: 0,
+          September: 0,
+          Status: true,
+          Habitation: item.Habitation,
+          FatherName: item.FatherName,
+          MobileNumber: item.MobileNumber,
+          Address: item.Habitation,
+          MotherName: item.MotherName,
+          class: item.class,
+          Image: item.Image,
+          AutoService: "true",
+          StudentName: item.StudentName
+        };
+        let findIndex =  this.filterData?.findIndex((item: { StudentName: string }) => item.StudentName === studentobj.StudentName)
+        console.log(findIndex)
+        if(findIndex===-1){
+          this.firebaseService.addNewStudent('student-auto-fee', undefined, studentobj);
+        }
+        // this.firebaseService.addNewStudent('student-auto-fee', undefined, studentobj);
+      });
+      //  // console.log(filtervalue)
+      //   // Map the filtered students to the required format
+    })
   }
   getContextMenuItems = (params: any) => {
     var result: (string | MenuItemDef)[] = [{
@@ -249,5 +255,10 @@ export class StudentAutoFeePage {
     this.filterData = this.rowData.filter((item: { autoSession: string; }) => {
       return item.autoSession == value;
     });
+   // console.log(this.filterData)
+ 
+  }
+  deleteRecord(){
+    this.firebaseService.deleteRecord('student-auto-fee');
   }
 }
