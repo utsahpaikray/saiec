@@ -171,6 +171,12 @@ const routes: Routes = [
     path: AppRoutes.TimeTable,
     loadChildren: () => import('./modules/time-table/time-table.module').then( m => m.TimeTablePageModule)
   },
+  {
+    path: AppRoutes.Auth ,
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthPageModule)
+  },
+
 
 ];
 

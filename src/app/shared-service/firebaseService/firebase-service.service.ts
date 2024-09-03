@@ -238,4 +238,18 @@ export class FirebaseService {
       });
     });
   }
+  getAllAuthorizedUsers(){
+    return this.firestore.collection('authorizedEmails').valueChanges({ idField: 'id', canWrite: 'canWrite' });
+  }
+  loadAuthorizedEmails() {
+    this.getAllAuthorizedUsers().subscribe((res) => {
+      let authorizedEmails = res.map((item: any) => {
+        const canWrite = item['canWrite'];
+        const id = item.id;
+        return { id, canWrite };
+      });
+      localStorage.setItem('authorizedEmails', JSON.stringify(authorizedEmails));
+    })
+   
+  }
 }

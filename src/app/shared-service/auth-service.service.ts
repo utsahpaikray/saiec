@@ -41,18 +41,14 @@ export class AuthService {
   }
   get isAuthorizedUser(): boolean {
     const userString = localStorage.getItem('user');
+    const authorizedEmailsString = localStorage.getItem('authorizedEmails');
     const user = userString ? JSON.parse(userString) : null;
-    if (user) {
-      if (user && user.email == 'utsahpaikray@gmail.com' || user.email == 'swainsubhsmita76@gmail.com' || user.email == 'rachanamaharana565@gmail.com') {
-        return true;
-      } 
-      return false
-    } else {
-      return false
-    }
-
-
+    const authorizedEmails = authorizedEmailsString ? JSON.parse(authorizedEmailsString) : [];
+    let value=  user?.email ? authorizedEmails.some((emailObj: { id: string }) => emailObj.id === user.email) : false;
+    return value
   }
+
+
   async loginWithGoogle() {
     await this.afAuth.signInWithPopup(new GoogleAuthProvider())
     this.router.navigate(['/home']);

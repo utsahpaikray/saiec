@@ -1,0 +1,49 @@
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+   <ion-title>Manage Authorized Emails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Authorized Emails</ion-card-title>
+    <ion-card-subtitle>Manage access permissions</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let email of authorizedEmails">
+        <ion-label>
+          <h2>{{ email.id }}</h2>
+          <p *ngIf="email.canWrite">Can Write</p>
+          <p *ngIf="!email.canWrite">Read Only</p>
+        </ion-label>
+        <ion-toggle [(ngModel)]="email.canWrite" (ionChange)="updateEmail(email)"
+          [disabled]="email.id === 'utsahpaikray@gmail.com'"></ion-toggle>
+        <ion-button color="danger" (click)="deleteEmail(email.id)" slot="end" fill="outline"
+          [disabled]="email.id === 'utsahpaikray@gmail.com'">
+          Delete
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Add New Email</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-item>
+      <ion-input placeholder="Enter email" [(ngModel)]="newEmail" type="email" clear-input></ion-input>
+      <ion-toggle [(ngModel)]="newCanWrite" [checked]="newCanWrite" aria-label="Toggle Write Permission"></ion-toggle>
+    </ion-item>
+    <ion-button expand="block" (click)="addEmail()">Add Email</ion-button>
+  </ion-card-content>
+</ion-card>
+</ion-content>

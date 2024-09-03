@@ -7,6 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from './shared-service/auth-service.service';
 import { AppRoutes } from './router-segment.enum';
+import { switchMap, tap, of, map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -254,6 +255,13 @@ export class AppComponent implements OnInit {
           icon: 'notifications-outline',
           navigation: true
         },
+        {
+          title: 'Auth',
+          url: `/${AppRoutes.Auth}`,
+          open: false,
+          icon: 'notifications-outline',
+          navigation: true
+        },
       ]
     },
   ];
@@ -289,9 +297,9 @@ export class AppComponent implements OnInit {
     });
     this.afAuth.authState.subscribe((user: any) => {
       if (user !== null){
-        this.user = user;
-        const localStorageKey = 'user';
-        localStorage.setItem(localStorageKey, JSON.stringify(this.user));
+            this.user = user;
+            const localStorageKey = 'user';
+            localStorage.setItem(localStorageKey, JSON.stringify(this.user));
         let isAuthorized= this.authService.isAuthorizedUser
         if(isAuthorized){
           this.isAuthenticated = true;
@@ -303,7 +311,7 @@ export class AppComponent implements OnInit {
         }
       } else {
         localStorage.setItem('user', '');
-      }
+        }
     })
   }
 
