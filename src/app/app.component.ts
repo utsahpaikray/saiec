@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Student',
       url: `/${AppRoutes.Student}`,
-      icon: 'person-outline',
+      icon: 'school-outline', // Changed from 'person-outline' to better represent student
       access: true,
       open: false,
       navigation: false
@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Exam Detail',
       url: `/${AppRoutes.ExamDetail}`,
-      icon: 'document-text-outline',
+      icon: 'clipboard-outline', // Changed from 'document-text-outline' to better represent exams
       access: true,
       open: false,
       navigation: false
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Auto Fee',
       url: `/${AppRoutes.AutoFee}`,
-      icon: 'car-outline',
+      icon: 'car-sport-outline', // Changed from 'car-outline' to a more distinctive icon
       access: true,
       open: false,
       navigation: false
@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Student Fee',
       url: `/${AppRoutes.StudentFee}`,
-      icon: 'cash-outline',
+      icon: 'wallet-outline', // Changed from 'cash-outline' to differentiate from staff payment
       access: true,
       open: false,
       navigation: false
@@ -102,7 +102,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Offering',
       url: `/${AppRoutes.Offering}`,
-      icon: 'gift-outline',
+      icon: 'heart-outline', // Changed from 'gift-outline' to avoid duplication with Birthday
       open: false,
       access: false,
       navigation: false
@@ -110,7 +110,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Event Transaction Book',
       url: `/${AppRoutes.EventTransactionBook}`,
-      icon: 'book-outline',
+      icon: 'journal-outline', // Changed from 'book-outline' to better represent a transaction book
       open: false,
       access: false,
       navigation: false
@@ -118,7 +118,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Adv',
       url: `/${AppRoutes.Adv}`,
-      icon: 'radio-outline',
+      icon: 'megaphone-outline', // Changed from 'radio-outline' to better represent advertising
       access: true,
       open: false,
       navigation: false
@@ -166,7 +166,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Time Table',
       url: `/${AppRoutes.TimeTable}`,
-      icon: 'people-circle-outline',
+      icon: 'time-outline', // Changed from 'people-circle-outline' to better represent a time table
       access: true,
       open: false,
       navigation: false
@@ -181,29 +181,36 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Admin',
-      icon: 'grid-outline',
+      icon: 'shield-outline', // Changed from 'grid-outline' to better represent admin area
       open: false,
       access: false,
       children: [
         {
+          title: 'Daily Transaction',
+          url: `/${AppRoutes.TransactionReport}`,
+          open: false,
+          icon: 'receipt-outline', // Changed from 'list-outline' to better represent info
+          navigation: true
+        },
+        {
           title: 'Student Info',
           url: `/${AppRoutes.StudentTabular}`,
           open: false,
-          icon: 'list-outline',
+          icon: 'information-circle-outline', // Changed from 'list-outline' to better represent info
           navigation: true
         },
         {
           title: 'School Fee',
           url: `/${AppRoutes.StudentSchoolFee}`,
           open: false,
-          icon: 'cash-outline',
+          icon: 'school-outline', // Changed from 'cash-outline' to differentiate from other fee icons
           navigation: true
         },
         {
           title: 'School Auto Fee',
           url: `/${AppRoutes.StudentAutoFee}`,
           open: false,
-          icon: 'car-outline',
+          icon: 'car-sport-outline',
           navigation: true
         },
         {
@@ -238,7 +245,7 @@ export class AppComponent implements OnInit {
           title: 'Store form',
           url: `/${AppRoutes.StoreTransaction}`,
           open: false,
-          icon: 'images-outline',
+          icon: 'cart-outline', // Changed from 'images-outline' to better represent store transactions
           navigation: true
         },
         {
@@ -259,7 +266,7 @@ export class AppComponent implements OnInit {
           title: 'Auth',
           url: `/${AppRoutes.Auth}`,
           open: false,
-          icon: 'notifications-outline',
+          icon: 'lock-closed-outline', // Changed from 'key' to better represent authorization
           navigation: true
         },
       ]
@@ -301,6 +308,7 @@ export class AppComponent implements OnInit {
             const localStorageKey = 'user';
             localStorage.setItem(localStorageKey, JSON.stringify(this.user));
         let isAuthorized= this.authService.isAuthorizedUser
+        console.log(isAuthorized)
         if(isAuthorized){
           this.isAuthenticated = true;
           this.appPages.forEach(item=>{

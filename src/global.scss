@@ -104,3 +104,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 //  @import '@ionic/angular/css/palettes/high-contrast.class.css';
 //  @import '@ionic/angular/css/palettes/high-contrast-dark.class.css';
 //  @import '@ionic/angular/css/palettes/dark.system.css';
+.left-modal {
+  --width: 90%;
+  --height: 90%;
+  --border-radius: 0;
+  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+// .left-modal::part(content) {
+//   position: absolute;
+// }

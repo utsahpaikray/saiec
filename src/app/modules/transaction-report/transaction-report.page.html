@@ -1,10 +1,46 @@
 <ion-header translucent>
  <ion-toolbar color="primary">
-    <ion-title>transaction-report</ion-title>
-  </ion-toolbar>
+     <ion-buttons slot="start">
+       <ion-menu-button></ion-menu-button>
+     </ion-buttons>
+      <ion-title>Transaction Report</ion-title>
+     </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!-- <app-store-transaction-form></app-store-transaction-form> -->
-  <!-- <ion-button expand="block" (click)="openModal()">Open Transaction Form</ion-button> -->
+   <ion-list>
+     <ion-item-sliding *ngFor="let transaction of transactions">
+       <ion-item>
+        <ion-label slot="start" [title]="transaction.name">
+          {{transaction.name}}
+        </ion-label>
+         <ion-label slot="start" [title]="transaction.description">
+           {{transaction.description}}
+         </ion-label>
+         <ion-label slot="start" [title]="transaction.type">
+           {{transaction.type}}
+         </ion-label>
+         <ion-label [title]="transaction.amount | currency:'USD':'symbol':'1.2-2'">
+           {{transaction.amount | currency:'INR':'symbol':'1.2-2'}}
+         </ion-label>
+         <ion-label [title]="transaction.date | date:'mediumDate'">
+           {{transaction.date | date:'mediumDate'}}
+         </ion-label>
+       </ion-item>
+       <ion-item-options side="end">
+         <ion-item-option (click)="updateTransaction(transaction.$id, transaction)" color="primary">
+           <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+         </ion-item-option>
+         <ion-item-option (click)="deleteTransaction(transaction.$id)" color="danger">
+           <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+         </ion-item-option>
+       </ion-item-options>
+     </ion-item-sliding>
+   </ion-list>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="openReportForm()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 </ion-content>

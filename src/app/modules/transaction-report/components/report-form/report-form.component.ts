@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TransactionService } from '@modules/transaction-report/transaction.service';
 
 @Component({
   selector: 'app-report-form',
@@ -8,34 +8,30 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./report-form.component.scss'],
 })
 export class ReportFormComponent implements OnInit {
-
-  name: string ='';
   transactionForm!: FormGroup;
-  constructor(private modalCtrl: ModalController, private fb: FormBuilder) { }
 
-  cancel() {
-    return this.modalCtrl.dismiss(null, 'cancel');
-  }
+  constructor(private fb: FormBuilder, private transactionService: TransactionService) { }
 
-  confirm() {
-    return this.modalCtrl.dismiss(this.name, 'confirm');
-  }
   ngOnInit(): void {
     this.createForm();
   }
-  createForm() {
+
+  createForm(): void {
     this.transactionForm = this.fb.group({
-      date: new Date(),
-      amount: 0,
-      state: '',
-      voucherNumber: '',
-      description: '',
-      type: '',
-      remark:''
+      name: ['', Validators.required],
+      date: [new Date().toISOString().split('T')[0], Validators.required],
+      amount: [0, Validators.required],
+      voucherNumber: ['', Validators.required],
+      description: ['', Validators.required],
+      type: [new FormControl('IN'), Validators.required],
+      remark: ['', Validators.required]
     });
-    this.transactionForm.valueChanges.subscribe(res => {
-      console.log(res);
-    })
   }
 
+  onSubmit(): void {
+    if (this.transactionForm.valid) {
+      this.transactionService.createTransaction(this.transactionForm.value);
+      this.transactionForm.reset();
+    }
+  }
 }
