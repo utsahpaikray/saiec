@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
 import { TransactionService } from '@modules/transaction-report/transaction.service';
 
 @Component({
@@ -9,11 +10,30 @@ import { TransactionService } from '@modules/transaction-report/transaction.serv
 })
 export class ReportFormComponent implements OnInit {
   transactionForm!: FormGroup;
-
-  constructor(private fb: FormBuilder, private transactionService: TransactionService) { }
+  @Input()
+  closeModal!: () => void;
+  @Input() isEdit: boolean = false;
+  @Input() transactionData: any;
+  transactionTags: string[] = [
+    'Staff Payment (SP)',
+    'School Fee (SF)',
+    'Offering (OFR)',
+    'Auto Fee (AF)',
+    'Store Payment (StrP)',
+    'Admission(AD)',
+    'Readmiddion(RAD)',
+    'Festival(FE)',
+    'Other(OT)'
+  ];
+  isDetailView = false;
+  constructor(private fb: FormBuilder,private modalController: ModalController) { }
 
   ngOnInit(): void {
     this.createForm();
+    if (this.isEdit && this.transactionData) {
+      this.transactionForm.patchValue(this.transactionData);
+    }
+   
   }
 
   createForm(): void {
@@ -24,14 +44,21 @@ export class ReportFormComponent implements OnInit {
       voucherNumber: ['', Validators.required],
       description: ['', Validators.required],
       type: [new FormControl('IN'), Validators.required],
-      remark: ['', Validators.required]
+      remark: ['', Validators.required],
+      tag: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
     if (this.transactionForm.valid) {
-      this.transactionService.createTransaction(this.transactionForm.value);
-      this.transactionForm.reset();
+      const transactionData = this.transactionForm.value;
+      this.modalController.dismiss({
+        isEdit: this.isEdit,
+        updatedTransaction: transactionData
+      });
     }
+  }
+  toggleView() {
+    this.isDetailView = !this.isDetailView;
   }
 }

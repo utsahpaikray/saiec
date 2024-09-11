@@ -100,17 +100,6 @@ export class StudentPage implements OnInit {
     });
   }
 
-  async showModal(info: any) {
-    const modal = await this.modalCtrl.create({
-      component: ModalPage,
-      cssClass: 'my-custom-class',
-      componentProps: { info },
-      canDismiss: true,
-      presentingElement: await this.modalCtrl.getTop(),
-    });
-    return await modal.present();
-  }
-
   showReport(std: any) {
     this.router.navigate([`/report/${std.StudentName}`]);
   }

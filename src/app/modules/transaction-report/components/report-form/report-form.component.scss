@@ -1,0 +1,10 @@
+ion-modal.left-modal::part(content) {
+  --width: 90%;
+  --height: 100%;
+  --border-radius: 0;
+}
+
+ion-modal.left-modal ion-button {
+  --padding-start: 16px;
+  --padding-end: 16px;
+}

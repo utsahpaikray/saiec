@@ -1,55 +1,117 @@
-<ion-header translucent>
-  <ion-toolbar color="primary">
-    <ion-title>Transaction</ion-title>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ isEdit ? 'Edit' : 'Add' }} Transaction</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-content class="ion-padding">
-  <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
-    <ion-list>
-       <ion-item lines="full">
-         <ion-label position="floating">Name</ion-label>
-         <ion-input type="text" formControlName="name"></ion-input>
-       </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Date</ion-label>
-        <ion-input type="date" formControlName="date"></ion-input>
-      </ion-item>
+  <!-- Toggle Button to switch between views -->
+  <ion-button expand="block" (click)="toggleView()">
+    {{ isDetailView ? 'Edit Transaction' : 'View Details' }}
+  </ion-button>
 
-      <ion-item lines="full">
-        <ion-label position="floating">Amount</ion-label>
-        <ion-input type="number" formControlName="amount"></ion-input>
-      </ion-item>
+  <!-- Detail View -->
+  <div *ngIf="isDetailView">
+    <ion-item>
+      <ion-label>Name:</ion-label>
+      <ion-text>{{ transactionForm.value.name }}</ion-text>
+    </ion-item>
 
-      <ion-item lines="full">
-        <ion-label>Type</ion-label>
-        <ion-radio-group formControlName="type">
-          <ion-item>
-            <ion-label>IN</ion-label>
-            <ion-radio value="IN"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>OUT</ion-label>
-            <ion-radio value="OUT"></ion-radio>
-          </ion-item>
-        </ion-radio-group>
-      </ion-item>
+    <ion-item>
+      <ion-label>Date:</ion-label>
+      <ion-text>{{ transactionForm.value.date | date: 'MM/dd/yyyy' }}</ion-text>
+    </ion-item>
 
-      <ion-item lines="full">
-        <ion-label position="floating">Voucher Number</ion-label>
-        <ion-input type="text" formControlName="voucherNumber"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label>Amount:</ion-label>
+      <ion-text>{{ transactionForm.value.amount | currency: 'INR' }}</ion-text>
+    </ion-item>
 
-      <ion-item lines="full">
-        <ion-label position="floating">Description</ion-label>
-        <ion-input type="text" formControlName="description"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label>Voucher Number:</ion-label>
+      <ion-text>{{ transactionForm.value.voucherNumber }}</ion-text>
+    </ion-item>
 
-      <ion-item lines="full">
-        <ion-label position="floating">Remark</ion-label>
-        <ion-input type="text" formControlName="remark"></ion-input>
-      </ion-item>
-    </ion-list>
+    <ion-item>
+      <ion-label>Description:</ion-label>
+      <ion-text>{{ transactionForm.value.description }}</ion-text>
+    </ion-item>
 
-    <ion-button type="submit" expand="block" [disabled]="!transactionForm.valid">Add Transaction</ion-button>
+    <ion-item>
+      <ion-label>Type:</ion-label>
+      <ion-text>{{ transactionForm.value.type }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tag:</ion-label>
+      <ion-text>{{ transactionForm.value.tag }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Remark:</ion-label>
+      <ion-text>{{ transactionForm.value.remark }}</ion-text>
+    </ion-item>
+
+    <ion-button expand="block" (click)="closeModal()">Close</ion-button>
+  </div>
+
+  <!-- Form View -->
+  <form *ngIf="!isDetailView" [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Date</ion-label>
+      <ion-datetime formControlName="date" displayFormat="MM/DD/YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Amount</ion-label>
+      <ion-input type="number" formControlName="amount"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Voucher Number</ion-label>
+      <ion-input type="text" formControlName="voucherNumber"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select formControlName="type">
+        <ion-select-option value="IN">IN</ion-select-option>
+        <ion-select-option value="OUT">OUT</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tag</ion-label>
+      <ion-select formControlName="tag">
+        <ion-select-option *ngFor="let tag of transactionTags" [value]="tag">
+          {{tag}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Remark</ion-label>
+      <ion-input type="text" formControlName="remark"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="!transactionForm.valid">
+      {{ isEdit ? 'Update' : 'Add' }} Transaction
+    </ion-button>
+    <ion-button expand="block" (click)="closeModal()">Cancel</ion-button>
   </form>
 </ion-content>

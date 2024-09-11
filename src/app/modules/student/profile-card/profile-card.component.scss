@@ -27,7 +27,7 @@
     }
 }
 ion-card {
-    filter: drop-shadow(1px 1px 5px #d2d2d2);
+   // filter: drop-shadow(1px 1px 5px #d2d2d2);
     background-repeat: no-repeat;
     color: #000;
     margin: 0;
@@ -61,6 +61,8 @@ ion-card {
             object-fit: cover;
             object-position: top;
             border-radius: 50%;
+            border: 7px solid #75c39773;
+            box-shadow: -1px -1px 11px 0px;
         }
     }
     

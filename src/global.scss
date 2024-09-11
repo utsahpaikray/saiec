@@ -107,10 +107,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .left-modal {
   --width: 90%;
   --height: 90%;
-  --max-width:450px;
+  --max-width:500px;
   --border-radius: 0;
   --box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+ion-datetime {
+  --background: var(--datetime-background-color);
+  --border-radius: var(--datetime-border-radius);
+  --color: var(--datetime-color);
+  --placeholder-color: var(--datetime-placeholder-color);
+  --button-color: var(--datetime-color-selected);
+  --font-size: var(--datetime-font-size);
+}
+
 
 // .left-modal::part(content) {
 //   position: absolute;

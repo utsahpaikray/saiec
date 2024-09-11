@@ -31,7 +31,14 @@ import { CompanyRendererComponent } from './component/status';
 })
 export class StudentAutoFeePage {
   private gridApi!: GridApi;
-  public columnDefs: ColDef[] = [{
+  public columnDefs: ColDef[] = [
+    {
+      headerName: 'S.No', // Add a sequence number column
+      valueGetter: (params) => params.node?.rowIndex ? params.node?.rowIndex + 1:1, // Get the row index and add 1 for the sequence
+      suppressMovable: true // Optional: To prevent users from moving this column
+    },
+    {
+    
       field: 'StudentName'
     },
     {
@@ -47,40 +54,64 @@ export class StudentAutoFeePage {
       field: 'class'
     },
     {
-      field: 'January'
+      field: 'January',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'February'
+      field: 'February',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'March'
+      field: 'March',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'April'
+      field: 'April',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'May'
+      field: 'May',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'June'
+      field: 'June',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'July'
+      field: 'July',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'August'
+      field: 'August',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'September'
+      field: 'September',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'October'
+      field: 'October',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'November'
+      field: 'November',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     {
-      field: 'December'
+      field: 'December',
+      aggFunc: "sum",
+      valueParser: "Number(newValue)"
     },
     { field: 'AutoService', cellRenderer: CompanyRendererComponent },
     {
@@ -255,8 +286,6 @@ export class StudentAutoFeePage {
     this.filterData = this.rowData.filter((item: { autoSession: string; }) => {
       return item.autoSession == value;
     });
-   // console.log(this.filterData)
- 
   }
   deleteRecord(){
     this.firebaseService.deleteRecord('student-auto-fee');
